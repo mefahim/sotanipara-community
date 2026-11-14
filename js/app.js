@@ -79,4 +79,15 @@ document.addEventListener('DOMContentLoaded', () => {
       adminSidebar.classList.toggle('is-open');
     });
   }
+
+  // 9. Normalize root-relative links for subpath hosting (e.g. GitHub Pages)
+  const repoBase = window.getBasePath ? window.getBasePath() : '';
+  if (repoBase) {
+    document.querySelectorAll('a[href^="/"]').forEach(a => {
+      const href = a.getAttribute('href');
+      if (href && !href.startsWith(repoBase + '/')) {
+        a.setAttribute('href', repoBase + href);
+      }
+    });
+  }
 });

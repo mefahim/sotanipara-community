@@ -258,7 +258,8 @@
     }
 
     function skipToHome() {
-      window.location.href = '/pages/app/p02-home.html';
+      const dest = '/pages/app/p02-home.html';
+      window.location.href = window.resolveUrl ? window.resolveUrl(dest) : dest;
     }
   </script>
 </body>

@@ -4,6 +4,30 @@
  */
 
 const Navigation = (function () {
+  // Base path detection for GitHub Pages or subpath hosting
+  function getBasePath() {
+    const pathname = window.location.pathname;
+    const match = pathname.match(/^(\/[^\/]+)\/(pages\/|docs\/|index\.html|TYPOGRAPHY_SPECIMEN\.html|$)/);
+    if (match && match[1] && !['/pages', '/docs', '/css', '/js', '/assets'].includes(match[1])) {
+      return match[1];
+    }
+    return '';
+  }
+
+  function resolveUrl(url) {
+    if (!url || typeof url !== 'string') return url;
+    if (url.startsWith('/')) {
+      const base = getBasePath();
+      return base ? base + url : url;
+    }
+    return url;
+  }
+
+  if (typeof window !== 'undefined') {
+    window.resolveUrl = resolveUrl;
+    window.getBasePath = getBasePath;
+  }
+
   // Screen Registry (All 35 Screens)
   const screens = [
     // Public Website (W-01 to W-12)
@@ -88,7 +112,7 @@ const Navigation = (function () {
       const notice = tickerNotices[tickerIndex];
       const lang = I18n.getLanguage();
       const title = lang === 'bn' ? notice.title_bn : notice.title_en;
-      contentEl.innerHTML = `<a href="/pages/public/w08-notices.html?id=${notice.id}" style="color: inherit; text-decoration: none;">${title}</a>`;
+      contentEl.innerHTML = `<a href="${resolveUrl('/pages/public/w08-notices.html?id=' + notice.id)}" style="color: inherit; text-decoration: none;">${title}</a>`;
     }
 
     renderTickerItem();
@@ -256,7 +280,7 @@ const Navigation = (function () {
     document.getElementById('hudScreenSelect').addEventListener('change', (e) => {
       if (e.target.value) {
         toggleHud(false);
-        window.location.href = e.target.value;
+        window.location.href = resolveUrl(e.target.value);
       }
     });
 
@@ -314,6 +338,8 @@ const Navigation = (function () {
 
   return {
     screens,
+    getBasePath,
+    resolveUrl,
     toggleDrawer,
     initTicker,
     renderHUD

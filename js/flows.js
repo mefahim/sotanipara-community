@@ -4,13 +4,23 @@
  */
 
 const Flows = (function () {
+  function resolveUrl(url) {
+    if (window.Navigation && window.Navigation.resolveUrl) {
+      return window.Navigation.resolveUrl(url);
+    }
+    if (window.resolveUrl) {
+      return window.resolveUrl(url);
+    }
+    return url;
+  }
+
   function startFlow(flowId) {
     switch (flowId) {
       case 'F-01':
         // F-01: Public Blood Donor Search
         Components.showToast('শুরু হচ্ছে: F-01 রক্তদাতা খোঁজা ফ্লো', 'info');
         setTimeout(() => {
-          window.location.href = '/pages/public/w07-blood-donors.html?flow=F-01';
+          window.location.href = resolveUrl('/pages/public/w07-blood-donors.html?flow=F-01');
         }, 300);
         break;
 
@@ -18,7 +28,7 @@ const Flows = (function () {
         // F-02: Expatriate Support Request
         Components.showToast('শুরু হচ্ছে: F-02 প্রবাসী সহায়তা আবেদন ফ্লো', 'info');
         setTimeout(() => {
-          window.location.href = '/pages/public/w06-expatriate.html?flow=F-02';
+          window.location.href = resolveUrl('/pages/public/w06-expatriate.html?flow=F-02');
         }, 300);
         break;
 
@@ -38,7 +48,7 @@ const Flows = (function () {
         };
         MockData.saveDB(db3);
         setTimeout(() => {
-          window.location.href = '/pages/admin/a02-requests.html?flow=F-03';
+          window.location.href = resolveUrl('/pages/admin/a02-requests.html?flow=F-03');
         }, 300);
         break;
 
@@ -46,7 +56,7 @@ const Flows = (function () {
         // F-04: Member Registration and Admin Approval
         Components.showToast('শুরু হচ্ছে: F-04 সদস্য নিবন্ধন ও অনুমোদন', 'info');
         setTimeout(() => {
-          window.location.href = '/pages/public/w12-login.html?tab=register&flow=F-04';
+          window.location.href = resolveUrl('/pages/public/w12-login.html?tab=register&flow=F-04');
         }, 300);
         break;
 
@@ -63,7 +73,7 @@ const Flows = (function () {
         };
         MockData.saveDB(db5);
         setTimeout(() => {
-          window.location.href = '/pages/admin/a10-users.html?flow=F-05';
+          window.location.href = resolveUrl('/pages/admin/a10-users.html?flow=F-05');
         }, 300);
         break;
 
@@ -74,7 +84,7 @@ const Flows = (function () {
         db6.session.user = { id: 'adm-01', name_bn: 'এডমিন ইউজার', role: 'superadmin' };
         MockData.saveDB(db6);
         setTimeout(() => {
-          window.location.href = '/pages/admin/a07-notices.html?action=new&flow=F-06';
+          window.location.href = resolveUrl('/pages/admin/a07-notices.html?action=new&flow=F-06');
         }, 300);
         break;
 
@@ -85,7 +95,7 @@ const Flows = (function () {
         db7.session.user = { id: 'adm-01', name_bn: 'এডমিন ইউজার', role: 'superadmin' };
         MockData.saveDB(db7);
         setTimeout(() => {
-          window.location.href = '/pages/admin/a09-accounts.html?action=new&flow=F-07';
+          window.location.href = resolveUrl('/pages/admin/a09-accounts.html?action=new&flow=F-07');
         }, 300);
         break;
 
@@ -93,7 +103,7 @@ const Flows = (function () {
         // F-08: Forgotten Password
         Components.showToast('শুরু হচ্ছে: F-08 ভুলে যাওয়া পাসওয়ার্ড ম্যানুয়াল রিসেট', 'info');
         setTimeout(() => {
-          window.location.href = '/pages/public/w12-login.html?action=forgot&flow=F-08';
+          window.location.href = resolveUrl('/pages/public/w12-login.html?action=forgot&flow=F-08');
         }, 300);
         break;
     }
@@ -128,7 +138,7 @@ const Flows = (function () {
       <div style="font-size: 13.5px; color: #CBD5E1; margin-bottom: 10px;">
         আইডি: <strong>${requestId}</strong> • সেবা: ${serviceName}
       </div>
-      <a href="/pages/admin/a02-requests.html?id=${requestId}" class="btn btn-sm btn-gold" style="width: 100%; text-align: center; justify-content: center;">
+      <a href="${resolveUrl('/pages/admin/a02-requests.html?id=' + requestId)}" class="btn btn-sm btn-gold" style="width: 100%; text-align: center; justify-content: center;">
         আবেদনটি খুলুন ও দায়িত্ব নিন →
       </a>
     `;

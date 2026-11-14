@@ -72,18 +72,18 @@
         </div>
       </div>
       <ul class="admin-sidebar-menu">
-        <li><a href="/pages/admin/a01-overview.html" class="admin-menu-link"><span>ওভারভিউ</span></a></li>
-        <li><a href="/pages/admin/a02-requests.html" class="admin-menu-link"><span>প্রবাসী আবেদন</span></a></li>
-        <li><a href="/pages/admin/a03-members.html" class="admin-menu-link"><span>সদস্য ও পরিবার</span></a></li>
-        <li><a href="/pages/admin/a04-community.html" class="admin-menu-link"><span>কমিউনিটি তথ্য</span></a></li>
-        <li><a href="/pages/admin/a05-committee.html" class="admin-menu-link"><span>কমিটি ও সংগঠন</span></a></li>
-        <li><a href="/pages/admin/a06-activities.html" class="admin-menu-link"><span>কার্যক্রম পরিচালনা</span></a></li>
-        <li><a href="/pages/admin/a07-notices.html" class="admin-menu-link"><span>নোটিশ ও গ্যালারি</span></a></li>
-        <li><a href="/pages/admin/a08-blood.html" class="admin-menu-link"><span>রক্তদাতা ও জরুরি রক্ত</span></a></li>
-        <li><a href="/pages/admin/a09-accounts.html" class="admin-menu-link"><span>হিসাব ও অডিট</span></a></li>
-        <li><a href="/pages/admin/a10-users.html" class="admin-menu-link"><span>ব্যবহারকারী ও রোল</span></a></li>
-        <li><a href="/pages/admin/a11-reports.html" class="admin-menu-link"><span>রিপোর্ট</span></a></li>
-        <li><a href="/pages/admin/a12-settings.html" class="admin-menu-link active"><span>সেটিংস</span></a></li>
+        <li><a href="../../pages/admin/a01-overview.html" class="admin-menu-link"><span>ওভারভিউ</span></a></li>
+        <li><a href="../../pages/admin/a02-requests.html" class="admin-menu-link"><span>প্রবাসী আবেদন</span></a></li>
+        <li><a href="../../pages/admin/a03-members.html" class="admin-menu-link"><span>সদস্য ও পরিবার</span></a></li>
+        <li><a href="../../pages/admin/a04-community.html" class="admin-menu-link"><span>কমিউনিটি তথ্য</span></a></li>
+        <li><a href="../../pages/admin/a05-committee.html" class="admin-menu-link"><span>কমিটি ও সংগঠন</span></a></li>
+        <li><a href="../../pages/admin/a06-activities.html" class="admin-menu-link"><span>কার্যক্রম পরিচালনা</span></a></li>
+        <li><a href="../../pages/admin/a07-notices.html" class="admin-menu-link"><span>নোটিশ ও গ্যালারি</span></a></li>
+        <li><a href="../../pages/admin/a08-blood.html" class="admin-menu-link"><span>রক্তদাতা ও জরুরি রক্ত</span></a></li>
+        <li><a href="../../pages/admin/a09-accounts.html" class="admin-menu-link"><span>হিসাব ও অডিট</span></a></li>
+        <li><a href="../../pages/admin/a10-users.html" class="admin-menu-link"><span>ব্যবহারকারী ও রোল</span></a></li>
+        <li><a href="../../pages/admin/a11-reports.html" class="admin-menu-link"><span>রিপোর্ট</span></a></li>
+        <li><a href="../../pages/admin/a12-settings.html" class="admin-menu-link active"><span>সেটিংস</span></a></li>
       </ul>
     </aside>
 
@@ -105,7 +105,7 @@
         <div id="helperWarning" style="display: none; background: #FEF2F2; border: 1px solid #F87171; border-radius: 8px; padding: 16px; margin-bottom: 20px;">
           <h4 style="color: #991B1B; margin: 0 0 6px 0;">অননুমোদিত প্রবেশাধিকার</h4>
           <p style="margin: 0; font-size: 14px; color: #7F1D1D;">এই পেজটি শুধুমাত্র সুপার এডমিনের জন্য সংরক্ষিত। প্রবাসী সহায়ক শুধুমাত্র প্রবাসী আবেদন পরিচালনা করতে পারেন।</p>
-          <a href="/pages/admin/a02-requests.html" class="btn btn-primary" style="margin-top: 12px; display: inline-block;">প্রবাসী আবেদনে ফিরে যান</a>
+          <a href="../../pages/admin/a02-requests.html" class="btn btn-primary" style="margin-top: 12px; display: inline-block;">প্রবাসী আবেদনে ফিরে যান</a>
         </div>
 
         <form id="settingsForm" onsubmit="saveSettings(event)">
@@ -425,7 +425,8 @@
       MockData.setSession(null);
       Components.showToast('প্রশাসনিক সেশন সফলভাবে সমাপ্ত হয়েছে', 'info');
       setTimeout(() => {
-        window.location.href = '/pages/public/w12-login.html';
+        const dest = '/pages/public/w12-login.html';
+        window.location.href = window.resolveUrl ? window.resolveUrl(dest) : dest;
       }, 800);
     }
 
