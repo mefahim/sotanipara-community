@@ -40,28 +40,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 6. Header & Drawer Theme and Language Toggles
-  document.querySelectorAll('.theme-toggle-btn, #headerThemeToggle').forEach(btn => {
-    if (!btn._boundTheme) {
-      btn._boundTheme = true;
-      btn.addEventListener('click', () => {
-        ThemeManager.toggleTheme();
-      });
-    }
-  });
+  // 6. Header Theme and Language Toggles
+  const headerThemeToggle = document.getElementById('headerThemeToggle');
+  if (headerThemeToggle) {
+    headerThemeToggle.addEventListener('click', () => {
+      ThemeManager.toggleTheme();
+    });
+  }
 
-  document.querySelectorAll('.lang-toggle-btn, #headerLangToggle').forEach(btn => {
-    if (!btn._boundLang) {
-      btn._boundLang = true;
-      btn.addEventListener('click', () => {
-        const next = I18n.getLanguage() === 'bn' ? 'en' : 'bn';
-        I18n.setLanguage(next);
-        document.querySelectorAll('.lang-toggle-btn, #headerLangToggle').forEach(b => {
-          b.textContent = next === 'bn' ? 'EN' : 'বাং';
-        });
-      });
-    }
-  });
+  const headerLangToggle = document.getElementById('headerLangToggle');
+  if (headerLangToggle) {
+    headerLangToggle.addEventListener('click', () => {
+      const next = I18n.getLanguage() === 'bn' ? 'en' : 'bn';
+      I18n.setLanguage(next);
+      headerLangToggle.textContent = next === 'bn' ? 'EN' : 'বাং';
+    });
+  }
 
   // 7. Password visibility toggles
   document.querySelectorAll('.password-toggle-btn').forEach(btn => {

@@ -101,17 +101,9 @@ const Navigation = (function () {
           <img src="${crestPath}" alt="Crest" style="width: 32px; height: 32px;">
           <span style="font-weight: 700; font-size: 15px; color: var(--color-green-700);" data-i18n="brand.name">সাতানীপাড়া কমিউনিটি</span>
         </div>
-        <div class="drawer-header-controls" style="display: flex; align-items: center; gap: 4px;">
-          <button class="btn btn-icon btn-ghost theme-toggle-btn" title="Toggle theme" aria-label="Toggle theme" style="width: 44px; height: 44px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-          </button>
-          <button class="btn btn-sm btn-ghost lang-toggle-btn" style="font-weight: 700; min-height: 44px; min-width: 44px; padding: 4px 8px;" title="Switch language" aria-label="Switch language">
-            EN
-          </button>
-          <button class="btn btn-icon btn-ghost" id="drawerCloseBtn" aria-label="Close Menu" style="width: 44px; height: 44px;">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-          </button>
-        </div>
+        <button class="btn btn-icon btn-ghost" id="drawerCloseBtn" aria-label="Close Menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
       </div>
 
       <div class="drawer-nav-group">
@@ -163,31 +155,6 @@ const Navigation = (function () {
         toggleDrawer(false);
       });
     }
-
-    // Theme & Lang inside Drawer
-    drawer.querySelectorAll('.theme-toggle-btn').forEach(btn => {
-      if (!btn._bound) {
-        btn._bound = true;
-        btn.addEventListener('click', () => {
-          if (window.ThemeManager) window.ThemeManager.toggleTheme();
-        });
-      }
-    });
-
-    drawer.querySelectorAll('.lang-toggle-btn').forEach(btn => {
-      if (!btn._bound) {
-        btn._bound = true;
-        btn.addEventListener('click', () => {
-          if (window.I18n) {
-            const next = window.I18n.getLanguage() === 'bn' ? 'en' : 'bn';
-            window.I18n.setLanguage(next);
-            document.querySelectorAll('.lang-toggle-btn, #headerLangToggle').forEach(b => {
-              b.textContent = next === 'bn' ? 'EN' : 'বাং';
-            });
-          }
-        });
-      }
-    });
 
     // Auto-close menu after navigation
     drawer.querySelectorAll('a').forEach(link => {
