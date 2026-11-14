@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="bn" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>নোটিশ ও গ্যালারি ব্যবস্থাপনা | Satanipara Community Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../css/tokens.css">
+  <link rel="stylesheet" href="../../css/themes.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/typography.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/layouts.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+</head>
+<body data-screen="A-07">
+
+  <div class="admin-layout">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar" id="adminSidebar">
+      <div class="admin-sidebar-header">
+        <img src="../../assets/images/satanipara-crest.svg" alt="Crest" style="width: 36px; height: 36px;">
+        <div>
+          <div style="font-weight: 700; font-size: 15px; color: #FAF7EE;">এডমিন ড্যাশবোর্ড</div>
+          <div style="font-size: 11px; color: var(--color-gold-500);">সাতানীপাড়া সংঘ • ১৯৯৯</div>
+        </div>
+      </div>
+      <ul class="admin-sidebar-menu">
+        <li><a href="/pages/admin/a01-overview.html" class="admin-menu-link"><span>ওভারভিউ</span></a></li>
+        <li><a href="/pages/admin/a02-requests.html" class="admin-menu-link"><span>প্রবাসী আবেদন</span></a></li>
+        <li><a href="/pages/admin/a03-members.html" class="admin-menu-link"><span>সদস্য ও পরিবার</span></a></li>
+        <li><a href="/pages/admin/a04-community.html" class="admin-menu-link"><span>কমিউনিটি তথ্য</span></a></li>
+        <li><a href="/pages/admin/a05-committee.html" class="admin-menu-link"><span>কমিটি ও সংগঠন</span></a></li>
+        <li><a href="/pages/admin/a06-activities.html" class="admin-menu-link"><span>কার্যক্রম পরিচালনা</span></a></li>
+        <li><a href="/pages/admin/a07-notices.html" class="admin-menu-link active"><span>নোটিশ ও গ্যালারি</span></a></li>
+        <li><a href="/pages/admin/a08-blood.html" class="admin-menu-link"><span>রক্তদাতা ও জরুরি রক্ত</span></a></li>
+        <li><a href="/pages/admin/a09-accounts.html" class="admin-menu-link"><span>হিসাব ও অডিট</span></a></li>
+        <li><a href="/pages/admin/a10-users.html" class="admin-menu-link"><span>ব্যবহারকারী ও রোল</span></a></li>
+        <li><a href="/pages/admin/a11-reports.html" class="admin-menu-link"><span>রিপোর্ট</span></a></li>
+        <li><a href="/pages/admin/a12-settings.html" class="admin-menu-link"><span>সেটিংস</span></a></li>
+      </ul>
+    </aside>
+
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <div>
+          <h1 class="font-h3" style="font-size: 20px; margin: 0;">নোটিশ ও গ্যালারি প্রকাশনা</h1>
+          <div class="font-caption text-muted">ওয়েবসাইটের নোটিশ টিকার ও ফটো গ্যালারি নিয়ন্ত্রণ</div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <span class="badge badge-role-superadmin">সুপার এডমিন</span>
+          <span class="font-body-sm" style="font-weight: 600;">এডমিন ইউজার</span>
+        </div>
+      </header>
+
+      <main class="admin-content">
+        <!-- Action Header -->
+        <div class="card mb-32" style="padding: 20px;">
+          <div class="flex-between flex-wrap gap-12">
+            <div>
+              <h2 class="font-h3" style="color: var(--color-green-700); margin: 0;">প্রকাশিত নোটিশসমূহ</h2>
+              <div class="font-caption text-muted">টিকার সক্রিয় থাকলে হোমপেজের শীর্ষ টিকারে স্বয়ংক্রিয়ভাবে দেখাবে</div>
+            </div>
+            <button class="btn btn-primary" onclick="openAddNoticeModal()">
+              + নতুন নোটিশ প্রকাশ করুন
+            </button>
+          </div>
+        </div>
+
+        <!-- Notices Table -->
+        <div class="table-responsive table-cards-mobile mb-48">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>শিরোনাম</th>
+                <th>ক্যাটাগরি</th>
+                <th>প্রকাশের তারিখ</th>
+                <th>টিকার স্ট্যাটাস</th>
+                <th style="text-align: right;">অ্যাকশন</th>
+              </tr>
+            </thead>
+            <tbody id="adminNoticesTableBody">
+              <!-- Rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Gallery Photos Section -->
+        <div class="card" style="padding: 24px;">
+          <div class="flex-between mb-20 flex-wrap gap-12">
+            <div>
+              <h2 class="font-h3" style="color: var(--color-green-700); margin: 0;">ফটো গ্যালারি পরিচালনা</h2>
+              <div class="font-caption text-muted">ওয়েবসাইটের গ্যালারি পাতায় প্রদর্শিত ছবির সংগ্রহ</div>
+            </div>
+            <button class="btn btn-sm btn-outline" onclick="Components.showToast('নতুন ছবি আপলোড ফর্ম উন্মুক্ত', 'info')">
+              + নতুন ছবি যুক্ত করুন
+            </button>
+          </div>
+
+          <div class="grid-4">
+            <div style="border: 1px solid var(--color-border); border-radius: 8px; overflow: hidden; padding: 8px; background: var(--color-surface);">
+              <img src="../../assets/images/placeholder-image.svg" alt="Photo" style="aspect-ratio: 4/3; object-fit: cover; border-radius: 4px; margin-bottom: 6px;">
+              <div style="font-size: 13px; font-weight: 600;">মেধাবৃত্তি ২০২৬</div>
+              <div class="font-caption text-muted">১৫ মার্চ ২০২৬</div>
+            </div>
+            <div style="border: 1px solid var(--color-border); border-radius: 8px; overflow: hidden; padding: 8px; background: var(--color-surface);">
+              <img src="../../assets/images/placeholder-image.svg" alt="Photo" style="aspect-ratio: 4/3; object-fit: cover; border-radius: 4px; margin-bottom: 6px;">
+              <div style="font-size: 13px; font-weight: 600;">রক্তদান ক্যাম্প</div>
+              <div class="font-caption text-muted">২১ ফেব্রুয়ারি ২০২৬</div>
+            </div>
+            <div style="border: 1px solid var(--color-border); border-radius: 8px; overflow: hidden; padding: 8px; background: var(--color-surface);">
+              <img src="../../assets/images/placeholder-image.svg" alt="Photo" style="aspect-ratio: 4/3; object-fit: cover; border-radius: 4px; margin-bottom: 6px;">
+              <div style="font-size: 13px; font-weight: 600;">শীতবস্ত্র বিতরণ</div>
+              <div class="font-caption text-muted">১৮ ডিসেম্বর ২০২৫</div>
+            </div>
+            <div style="border: 1px solid var(--color-border); border-radius: 8px; overflow: hidden; padding: 8px; background: var(--color-surface);">
+              <img src="../../assets/images/placeholder-image.svg" alt="Photo" style="aspect-ratio: 4/3; object-fit: cover; border-radius: 4px; margin-bottom: 6px;">
+              <div style="font-size: 13px; font-weight: 600;">বৃক্ষরোপণ সপ্তাহ</div>
+              <div class="font-caption text-muted">১০ আগস্ট ২০২৫</div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Add Notice Modal (F-06 Flow) -->
+  <div class="modal-backdrop" id="addNoticeModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2 class="modal-title" style="font-size: 20px; color: var(--color-green-700);">নতুন নোটিশ প্রকাশনা</h2>
+        <button class="modal-close-btn" onclick="closeAddNoticeModal()">✕</button>
+      </div>
+      <form onsubmit="handlePublishNotice(event)">
+        <div class="form-group">
+          <label class="form-label">নোটিশের শিরোনাম <span class="required">*</span></label>
+          <input type="text" id="nTitle" class="form-control" placeholder="যেমন: বার্ষিক সাধারণ সভার তারিখ নির্ধারণ" required>
+        </div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="form-label">ক্যাটাগরি <span class="required">*</span></label>
+            <select class="form-select" id="nCat" required>
+              <option value="শিক্ষা">শিক্ষা ও বৃত্তি</option>
+              <option value="ত্রাণ">ত্রাণ ও সহায়তা</option>
+              <option value="প্রবাসী সেবা">প্রবাসী সেবা</option>
+              <option value="সাধারণ সভা">সাধারণ সভা / AGM</option>
+              <option value="জরুরি">জরুরি বিজ্ঞপ্তি</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">প্রকাশের তারিখ</label>
+            <input type="date" id="nDate" class="form-control" value="2026-11-14" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">নোটিশের বিস্তারিত বিবরণ <span class="required">*</span></label>
+          <textarea class="form-textarea" id="nSummary" placeholder="বিজ্ঞপ্তির মূল বিষয়বস্তু বিস্তারিত লিখুন..." required></textarea>
+        </div>
+
+        <!-- Ticker Toggle (Flow F-06) -->
+        <div class="card mb-20" style="background: var(--color-gold-100); padding: 14px;">
+          <div class="flex-between">
+            <div>
+              <strong style="color: #0B2E1F; font-size: 14.5px;">হোমপেজ টিকারে প্রদর্শন করুন</strong>
+              <div class="font-caption text-muted">সক্রিয় থাকলে ওয়েবসাইটের শীর্ষে চলমান টিকারে প্রদর্শিত হবে</div>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="nTickerToggle" checked style="display: none;">
+              <span class="switch-track"><span class="switch-thumb"></span></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-ghost" onclick="closeAddNoticeModal()">বাতিল</button>
+          <button type="submit" class="btn btn-primary">নোটিশ প্রকাশ করুন</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="../../js/mock-data.js"></script>
+  <script src="../../js/language.js"></script>
+  <script src="../../js/theme.js"></script>
+  <script src="../../js/components.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script src="../../js/validation.js"></script>
+  <script src="../../js/flows.js"></script>
+  <script src="../../js/app.js"></script>
+  <script>
+    function renderNoticesTable() {
+      const db = MockData.getDB();
+      const tbody = document.getElementById('adminNoticesTableBody');
+      tbody.innerHTML = '';
+
+      db.notices.forEach(n => {
+        const tr = document.createElement('tr');
+        const tickerBadge = n.isTicker
+          ? `<span class="badge badge-completed">✓ টিকারে সক্রিয়</span>`
+          : `<span class="badge badge-role-member">টিকারে নেই</span>`;
+
+        tr.innerHTML = `
+          <td data-label="শিরোনাম"><strong>${n.title_bn}</strong></td>
+          <td data-label="ক্যাটাগরি"><span class="badge badge-accepted">${n.category_bn}</span></td>
+          <td data-label="তারিখ">${n.date}</td>
+          <td data-label="টিকার">${tickerBadge}</td>
+          <td data-label="অ্যাকশন" style="text-align: right;">
+            <button class="btn btn-sm btn-ghost" onclick="toggleTickerStatus('${n.id}')">টিকার টগল</button>
+            <button class="btn btn-sm btn-ghost" style="color: var(--color-danger);" onclick="deleteNotice('${n.id}', this)">মুছুন</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function openAddNoticeModal() {
+      document.getElementById('addNoticeModal').classList.add('is-open');
+    }
+    function closeAddNoticeModal() {
+      document.getElementById('addNoticeModal').classList.remove('is-open');
+    }
+
+    function handlePublishNotice(e) {
+      e.preventDefault();
+      const title = document.getElementById('nTitle').value;
+      const cat = document.getElementById('nCat').value;
+      const date = document.getElementById('nDate').value;
+      const summary = document.getElementById('nSummary').value;
+      const isTicker = document.getElementById('nTickerToggle').checked;
+
+      const db = MockData.getDB();
+      const newNotice = {
+        id: 'not-' + Date.now(),
+        title_bn: title,
+        title_en: title,
+        date: date,
+        category_bn: cat,
+        category_en: cat,
+        isTicker: isTicker,
+        priority: isTicker ? 'high' : 'normal',
+        summary_bn: summary,
+        summary_en: summary
+      };
+
+      db.notices.unshift(newNotice);
+      MockData.saveDB(db);
+
+      closeAddNoticeModal();
+      renderNoticesTable();
+      Components.showToast('নোটিশ সফলভাবে প্রকাশিত হয়েছে! (টিকার আপডেট হয়েছে)', 'success', 5000);
+    }
+
+    function toggleTickerStatus(id) {
+      const db = MockData.getDB();
+      const n = db.notices.find(x => x.id === id);
+      if (n) {
+        n.isTicker = !n.isTicker;
+        MockData.saveDB(db);
+        renderNoticesTable();
+        Components.showToast(`টিকার স্ট্যাটাস: ${n.isTicker ? 'সক্রিয়' : 'নিষ্ক্রিয়'}`, 'info');
+      }
+    }
+
+    function deleteNotice(id, btn) {
+      if (confirm('আপনি কি এই নোটিশটি মুছে ফেলতে চান?')) {
+        const db = MockData.getDB();
+        db.notices = db.notices.filter(x => x.id !== id);
+        MockData.saveDB(db);
+        btn.closest('tr').remove();
+        Components.showToast('নোটিশ মুছে ফেলা হয়েছে', 'warning');
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderNoticesTable();
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('action') === 'new') {
+        openAddNoticeModal();
+      }
+    });
+  </script>
+</body>
+</html>

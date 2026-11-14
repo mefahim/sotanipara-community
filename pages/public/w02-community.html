@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="bn" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>এলাকার প্রোফাইল | Satanipara Community</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../css/tokens.css">
+  <link rel="stylesheet" href="../../css/themes.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/typography.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/layouts.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+  <style>
+    .bar-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .bar-label {
+      width: 120px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .bar-track {
+      flex: 1;
+      height: 12px;
+      background: var(--color-border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      background: var(--color-green-700);
+      border-radius: 6px;
+    }
+    .bar-val {
+      width: 60px;
+      font-size: 13.5px;
+      font-weight: 700;
+      text-align: right;
+    }
+  </style>
+</head>
+<body data-screen="W-02">
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="/pages/public/w01-home.html" class="brand">
+        <img src="../../assets/images/satanipara-crest.svg" alt="Crest" class="brand-crest">
+        <div class="brand-text-block">
+          <span class="brand-name" data-i18n="brand.name">সাতানীপাড়া কিমউিনটি</span>
+          <span class="brand-tagline">এলাকার প্রোফাইল</span>
+        </div>
+      </a>
+      <nav class="nav-desktop">
+        <a href="/pages/public/w01-home.html" class="nav-link">হোম</a>
+        <a href="/pages/public/w02-community.html" class="nav-link active">এলাকার প্রোফাইল</a>
+        <a href="/pages/public/w03-organization.html" class="nav-link">সংগঠন</a>
+        <a href="/pages/public/w04-activities.html" class="nav-link">কার্যক্রম</a>
+        <a href="/pages/public/w06-expatriate.html" class="nav-link">প্রবাসী সেবা</a>
+        <a href="/pages/public/w07-blood-donors.html" class="nav-link">রক্তদাতা</a>
+        <a href="/pages/public/w08-notices.html" class="nav-link">নোটিশ</a>
+        <a href="/pages/public/w10-accounts.html" class="nav-link">হিসাব</a>
+        <a href="/pages/public/w11-contact.html" class="nav-link">যোগাযোগ</a>
+      </nav>
+      <div class="header-actions">
+        <button class="btn btn-icon btn-ghost theme-toggle-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+        <button class="btn btn-sm btn-ghost" id="headerLangToggle">EN</button>
+        <a href="/pages/public/w12-login.html" class="btn btn-sm btn-outline">লগইন</a>
+        <button class="btn btn-icon btn-ghost mobile-drawer-toggle" aria-label="Menu" style="display: flex;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+      <span style="font-weight: 700; color: var(--color-green-700);">মেনু</span>
+      <button class="btn btn-ghost" id="drawerCloseBtn">✕</button>
+    </div>
+    <ul class="drawer-nav-list">
+      <li><a href="/pages/public/w01-home.html" class="drawer-nav-link">হোম</a></li>
+      <li><a href="/pages/public/w02-community.html" class="drawer-nav-link active">এলাকার প্রোফাইল</a></li>
+      <li><a href="/pages/public/w03-organization.html" class="drawer-nav-link">সংগঠন</a></li>
+      <li><a href="/pages/public/w04-activities.html" class="drawer-nav-link">কার্যক্রম</a></li>
+      <li><a href="/pages/public/w06-expatriate.html" class="drawer-nav-link">প্রবাসী সহায়তা</a></li>
+      <li><a href="/pages/public/w07-blood-donors.html" class="drawer-nav-link">রক্তদাতা</a></li>
+      <li><a href="/pages/public/w08-notices.html" class="drawer-nav-link">নোটিশ ও সংবাদ</a></li>
+      <li><a href="/pages/public/w10-accounts.html" class="drawer-nav-link">হিসাব</a></li>
+      <li><a href="/pages/public/w11-contact.html" class="drawer-nav-link">যোগাযোগ</a></li>
+    </ul>
+  </div>
+
+  <main class="container section-py">
+    <!-- Breadcrumb & Intro -->
+    <div class="mb-32">
+      <div class="font-caption text-muted mb-8">হোম / এলাকার প্রোফাইল</div>
+      <h1 class="font-h1 mb-12" style="color: var(--color-green-700);">সাতানীপাড়া এলাকার পূর্ণাঙ্গ প্রোফাইল</h1>
+      <p class="font-body text-muted" style="max-width: 800px;">
+        একটি ঐতিহ্যবাহী গ্রামীণ জনপদ। এলাকার জনসংখ্যা, প্রবাসী অবদান, গুণী পেশাজীবী এবং মসজিদ, মাদ্রাসা ও শিক্ষাপ্রতিষ্ঠানের সমন্বিত তথ্যভান্ডার।
+      </p>
+    </div>
+
+    <!-- 1. Statistics Dashboard (StatCard Grid - TBD Placeholders) -->
+    <div class="card mb-40" style="padding: var(--space-32);">
+      <div class="flex-between mb-20 flex-wrap">
+        <div>
+          <h2 class="font-h2" style="color: var(--color-green-700);">এলাকার পরিসংখ্যান ড্যাশবোর্ড</h2>
+          <span class="font-body-sm text-muted">জনশুমারি ও সামাজিক সার্ভে ডাটাবেস</span>
+        </div>
+        <span class="badge badge-pending">
+          <span class="badge-dot"></span> <span data-i18n="placeholder.data">প্রকৃত তথ্য পরে বসবে</span>
+        </span>
+      </div>
+
+      <div class="grid-4 mb-24">
+        <div class="stat-card">
+          <div class="stat-card-label">মোট পরিবার / বাড়ি</div>
+          <div class="stat-card-value">৭৫০+</div>
+          <div class="stat-card-badge">উত্তর, মধ্য ও দক্ষিণ পাড়া</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">মোট জনসংখ্যা</div>
+          <div class="stat-card-value">৩,৫০০+</div>
+          <div class="stat-card-badge">পুরুষ ৫২% • নারী ৪৮%</div>
+        </div>
+        <div class="stat-card gold-border">
+          <div class="stat-card-label">প্রবাসী রেমিট্যান্স যোদ্ধা</div>
+          <div class="stat-card-value">৪২০+</div>
+          <div class="stat-card-badge">১৫টি বিভিন্ন দেশে কর্মরত</div>
+        </div>
+        <div class="stat-card gold-border">
+          <div class="stat-card-label">স্বেচ্ছাসেবী রক্তদাতা</div>
+          <div class="stat-card-value">১২০+</div>
+          <div class="stat-card-badge">নিয়মিত তালিকায় সক্রিয়</div>
+        </div>
+      </div>
+
+      <!-- Country-wise Expatriates (Simple Bar List, no heavy chart lib) -->
+      <div style="border-top: 1px solid var(--color-border); padding-top: 24px;">
+        <h3 class="font-h3 mb-16" style="font-size: 17px;">দেশভিত্তিক প্রবাসী বণ্টন (শীর্ষ দেশসমূহ)</h3>
+        <div style="max-width: 600px;">
+          <div class="bar-row">
+            <div class="bar-label">সৌদি আরব</div>
+            <div class="bar-track"><div class="bar-fill" style="width: 45%;"></div></div>
+            <div class="bar-val">১৯০ জন</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">সংযুক্ত আরব আমিরাত</div>
+            <div class="bar-track"><div class="bar-fill" style="width: 25%;"></div></div>
+            <div class="bar-val">১১০ জন</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">কাতার ও ওমান</div>
+            <div class="bar-track"><div class="bar-fill" style="width: 15%;"></div></div>
+            <div class="bar-val">৬০ জন</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">মালয়েশিয়া</div>
+            <div class="bar-track"><div class="bar-fill" style="width: 10%;"></div></div>
+            <div class="bar-val">৪০ জন</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">অন্যান্য (ইউরোপ/যুক্তরাজ্য)</div>
+            <div class="bar-track"><div class="bar-fill" style="width: 5%;"></div></div>
+            <div class="bar-val">২০ জন</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Professionals Directory (পেশাজীবী ডিরেক্টরি) -->
+    <div class="mb-48">
+      <div class="flex-between mb-16 flex-wrap">
+        <div>
+          <h2 class="font-h2" style="color: var(--color-green-700);">পেশাজীবী ডিরেক্টরি</h2>
+          <p class="font-body-sm text-muted">সাতানীপাড়ার কৃতি ও প্রতিষ্ঠিত গুণী ব্যক্তিবর্গ</p>
+        </div>
+        <div style="max-width: 300px; width: 100%;">
+          <input type="text" id="profSearchInput" class="form-control" placeholder="নাম দিয়ে খুঁজুন..." oninput="filterProfessionals()">
+        </div>
+      </div>
+
+      <!-- Section 14 Privacy Disclaimer -->
+      <div style="background: var(--color-green-50); border-left: 4px solid var(--color-green-700); padding: 12px; border-radius: 8px; margin-bottom: 20px; font-size: 13.5px;">
+        ℹ️ <strong>গোপনীয়তা রক্ষা নীতিমালা:</strong> "ব্যক্তিগত তথ্য সংশ্লিষ্ট ব্যক্তির সম্মতি ছাড়া প্রকাশ করা হয় না।"
+      </div>
+
+      <!-- Category Filter Chips -->
+      <div class="chip-row mb-24" id="profCategoryChips">
+        <button class="chip active" onclick="selectProfCat('all', this)">সকল পেশা</button>
+        <button class="chip" onclick="selectProfCat('freedom', this)">বীর মুক্তিযোদ্ধা</button>
+        <button class="chip" onclick="selectProfCat('doctor', this)">ডাক্তার</button>
+        <button class="chip" onclick="selectProfCat('engineer', this)">ইঞ্জিনিয়ার</button>
+        <button class="chip" onclick="selectProfCat('teacher', this)">শিক্ষক</button>
+        <button class="chip" onclick="selectProfCat('lawyer', this)">আইনজীবী</button>
+        <button class="chip" onclick="selectProfCat('govt', this)">সরকারি কর্মকর্তা</button>
+        <button class="chip" onclick="selectProfCat('business', this)">ব্যবসায়ী ও উদ্যোক্তা</button>
+        <button class="chip" onclick="selectProfCat('member_only', this)">🔒 শিক্ষার্থী ও যুবসমাজ (সদস্য মাত্র)</button>
+      </div>
+
+      <!-- Professionals Grid -->
+      <div class="grid-3" id="professionalsGrid">
+        <!-- Person 1: Consented (Phone Visible) -->
+        <div class="person-card prof-item" data-cat="doctor" data-name="ডা. মো. আব্দুল কাদের">
+          <div class="person-avatar">ডা</div>
+          <div class="person-info">
+            <div class="person-name">ডা. মো. আব্দুল কাদের (নমুনা নাম)</div>
+            <div class="person-role">মেডিসিন বিশেষজ্ঞ • বিএমডিসি রেজিস্টার্ড</div>
+            <div class="font-caption text-muted">সাতানীপাড়া উত্তর পাড়া • ঢাকা মেডিকেল কলেজ</div>
+            <div style="margin-top: 6px;">
+              <a href="tel:01711223344" class="btn btn-sm btn-outline" style="padding: 2px 10px; font-size: 12px;">
+                📞 01711223344 (সম্মতিপ্রাপ্ত)
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Person 2: No Consent (Phone Strictly Absent, no fake mask) -->
+        <div class="person-card prof-item" data-cat="engineer" data-name="ইঞ্জি. মো. রফিকুল হাসান">
+          <div class="person-avatar">ই</div>
+          <div class="person-info">
+            <div class="person-name">ইঞ্জি. মো. রফিকুল হাসান (নমুনা নাম)</div>
+            <div class="person-role">সিভিল ইঞ্জিনিয়ার • এলজিইডি</div>
+            <div class="font-caption text-muted">সাতানীপাড়া মধ্য পাড়া</div>
+            <!-- Phone completely absent due to consent = false -->
+            <div class="font-caption text-muted" style="margin-top: 4px; font-style: italic;">
+              (যোগাযোগের তথ্য সংরক্ষিত)
+            </div>
+          </div>
+        </div>
+
+        <!-- Person 3: Freedom Fighter -->
+        <div class="person-card prof-item" data-cat="freedom" data-name="বীর মুক্তিযোদ্ধা মো. নূরুল ইসলাম">
+          <div class="person-avatar" style="border-color: #B42318; background: #FEE2E2; color: #991B1B;">মু</div>
+          <div class="person-info">
+            <div class="person-name">বীর মুক্তিযোদ্ধা মো. নূরুল ইসলাম (নমুনা)</div>
+            <div class="person-role" style="color: var(--color-danger);">১৯৭১ মহান মুক্তিযুদ্ধের বীর সেনানী</div>
+            <div class="font-caption text-muted">সাতানীপাড়া দক্ষিণ পাড়া</div>
+          </div>
+        </div>
+
+        <!-- Person 4: Teacher -->
+        <div class="person-card prof-item" data-cat="teacher" data-name="মাওলানা আব্দুল বারী">
+          <div class="person-avatar">মা</div>
+          <div class="person-info">
+            <div class="person-name">মাওলানা আব্দুল বারী (নমুনা নাম)</div>
+            <div class="person-role">প্রধান শিক্ষক • সাতানীপাড়া মাদ্রাসা</div>
+            <div class="font-caption text-muted">সাতানীপাড়া পূর্ব পাড়া</div>
+          </div>
+        </div>
+
+        <!-- Person 5: Govt Officer -->
+        <div class="person-card prof-item" data-cat="govt" data-name="মো. ফারুক হোসেন">
+          <div class="person-avatar">ফা</div>
+          <div class="person-info">
+            <div class="person-name">মো. ফারুক হোসেন (নমুনা নাম)</div>
+            <div class="person-role">সহকারী কমিশনার (ভূমি)</div>
+            <div class="font-caption text-muted">সাতানীপাড়া পশ্চিম পাড়া</div>
+          </div>
+        </div>
+
+        <!-- Person 6: Business -->
+        <div class="person-card prof-item" data-cat="business" data-name="হাজী আলহাজ্ব মো. আলমগীর">
+          <div class="person-avatar">আ</div>
+          <div class="person-info">
+            <div class="person-name">হাজী আলহাজ্ব মো. আলমগীর (নমুনা)</div>
+            <div class="person-role">ব্যবস্থাপনা পরিচালক • সততা ট্রেডার্স</div>
+            <div class="font-caption text-muted">সাতানীপাড়া বাজার</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Member Only Notice Panel for hidden categories -->
+      <div id="memberOnlyPanel" style="display: none; margin-top: 24px;">
+        <div class="card text-center" style="padding: 40px; background: var(--color-green-50); border: 2px dashed var(--color-green-700);">
+          <div style="font-size: 32px; margin-bottom: 8px;">🔒</div>
+          <h3 class="font-h3 mb-8" style="color: var(--color-green-700);">সদস্যদের জন্য সংরক্ষিত তথ্য</h3>
+          <p class="font-body-sm text-muted mb-16" style="max-width: 480px; margin-left: auto; margin-right: auto;">
+            শিক্ষার্থী, তরুণ সমাজ ও সংরক্ষিত পারিবারিক ডেটাবেস দেখতে অনুগ্রহ করে সদস্য হিসেবে লগইন করুন।
+          </p>
+          <a href="/pages/public/w12-login.html" class="btn btn-primary">সদস্য লগইন করুন</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Institutions & Landmarks (প্রতিষ্ঠান ও স্থাপনা) -->
+    <div>
+      <h2 class="font-h2 mb-20" style="color: var(--color-green-700);">প্রতিষ্ঠান ও ঐতিহাসিক স্থাপনা</h2>
+      
+      <!-- Group 1: Religious & Educational -->
+      <h3 class="font-h3 mb-16" style="font-size: 18px;">ধর্মীয় ও শিক্ষাপ্রতিষ্ঠান</h3>
+      <div class="grid-3 mb-32">
+        <div class="card">
+          <img src="../../assets/images/placeholder-image.svg" alt="Mosque" style="aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; margin-bottom: 12px;">
+          <h4 class="font-h3" style="font-size: 17px;">সাতানীপাড়া কেন্দ্রীয় জামে মসজিদ</h4>
+          <div class="font-caption text-muted mb-8">ধর্মীয় প্রতিষ্ঠান • স্থাপিত: ১৯৬৮</div>
+          <p class="font-body-sm text-muted">এলাকার প্রধান প্রার্থনাকেন্দ্র, যেখানে প্রতি শুক্রবার প্রায় ৮০০ মুসল্লি একসাথে জামাতে নামাজ আদায় করেন।</p>
+        </div>
+
+        <div class="card">
+          <img src="../../assets/images/placeholder-image.svg" alt="School" style="aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; margin-bottom: 12px;">
+          <h4 class="font-h3" style="font-size: 17px;">সাতানীপাড়া সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="font-caption text-muted mb-8">শিক্ষাপ্রতিষ্ঠান • স্থাপিত: ১৯৭৪</div>
+          <p class="font-body-sm text-muted">এলাকার শিশুদের প্রাথমিক শিক্ষার ভিত্তি। বর্তমানে প্রায় ৩৫০ জন কোমলমতি শিক্ষার্থী অধ্যয়নরত।</p>
+        </div>
+
+        <div class="card">
+          <img src="../../assets/images/placeholder-image.svg" alt="Madrasa" style="aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; margin-bottom: 12px;">
+          <h4 class="font-h3" style="font-size: 17px;">সাতানীপাড়া হাফিজিয়া মাদ্রাসা ও এতিমখানা</h4>
+          <div class="font-caption text-muted mb-8">দ্বীনি প্রতিষ্ঠান • স্থাপিত: ১৯৮৫</div>
+          <p class="font-body-sm text-muted">কুরআন হেফজ ও ইসলামিক শিক্ষার পাশাপাশি এলাকার ৬০ জন এতিম শিক্ষার্থীর থাকা-খাওয়ার ব্যবস্থা রয়েছে।</p>
+        </div>
+      </div>
+
+      <!-- Group 2: Important Landmarks -->
+      <h3 class="font-h3 mb-16" style="font-size: 18px;">গুরুত্বপূর্ণ স্থাপনা ও অবকাঠামো</h3>
+      <div class="grid-3">
+        <div class="card">
+          <h4 class="font-h3" style="font-size: 17px;">সাতানীপাড়া কেন্দ্রীয় খেলার মাঠ</h4>
+          <div class="font-caption text-muted mb-8">সামাজিক ও ক্রীড়া প্রাঙ্গণ</div>
+          <p class="font-body-sm text-muted">বার্ষিক ফুটবল, ক্রিকেট টুর্নামেন্ট ও জাতীয় দিবসের অনুষ্ঠান আয়োজনের মূল কেন্দ্রস্থল।</p>
+        </div>
+
+        <div class="card">
+          <h4 class="font-h3" style="font-size: 17px;">সাতানীপাড়া সামাজিক কবরস্থান</h4>
+          <div class="font-caption text-muted mb-8">পবিত্র স্থান • আয়তন: ২.৫ একর</div>
+          <p class="font-body-sm text-muted">সংঘের উদ্যোগে পরিচ্ছন্নতা, প্রাচীর সংস্কার ও বৃক্ষরোপণ কর্মসূচি নিয়মিতভাবে পরিচালিত হয়।</p>
+        </div>
+
+        <div class="card">
+          <h4 class="font-h3" style="font-size: 17px;">সাতানীপাড়া–উপজেলা সংযোগ সড়ক ও সেতু</h4>
+          <div class="font-caption text-muted mb-8">প্রধান যোগাযোগ অবকাঠামো</div>
+          <p class="font-body-sm text-muted">উপজেলা শহরের সাথে সাতানীপাড়া ও পার্শ্ববর্তী এলাকার সার্বক্ষণিক যোগাযোগের প্রধান মাধ্যম।</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <div>© ১৯৯৯–২০২৬ সাতানীপাড়া সমাজকল্যাণ সংঘ। সর্বস্বত্ব সংরক্ষিত।</div>
+      <div>প্রকৃত তথ্য পরে বসবে • W-02 Community Profile</div>
+    </div>
+  </footer>
+
+  <script src="../../js/mock-data.js"></script>
+  <script src="../../js/language.js"></script>
+  <script src="../../js/theme.js"></script>
+  <script src="../../js/components.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script src="../../js/validation.js"></script>
+  <script src="../../js/flows.js"></script>
+  <script src="../../js/app.js"></script>
+  <script>
+    let activeProfCat = 'all';
+
+    function selectProfCat(cat, chipEl) {
+      activeProfCat = cat;
+      chipEl.closest('.chip-row').querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+      chipEl.classList.add('active');
+
+      if (cat === 'member_only') {
+        document.getElementById('professionalsGrid').style.display = 'none';
+        document.getElementById('memberOnlyPanel').style.display = 'block';
+        return;
+      }
+
+      document.getElementById('professionalsGrid').style.display = 'grid';
+      document.getElementById('memberOnlyPanel').style.display = 'none';
+
+      const items = document.querySelectorAll('.prof-item');
+      items.forEach(item => {
+        const itemCat = item.getAttribute('data-cat');
+        item.style.display = (cat === 'all' || itemCat === cat) ? 'flex' : 'none';
+      });
+    }
+
+    function filterProfessionals() {
+      const q = document.getElementById('profSearchInput').value.toLowerCase();
+      const items = document.querySelectorAll('.prof-item');
+      items.forEach(item => {
+        const name = item.getAttribute('data-name').toLowerCase();
+        item.style.display = name.includes(q) ? 'flex' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>

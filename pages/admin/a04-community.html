@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="bn" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>কমিউনিটি তথ্য ব্যবস্থাপনা | Satanipara Community Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../css/tokens.css">
+  <link rel="stylesheet" href="../../css/themes.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/typography.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/layouts.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+</head>
+<body data-screen="A-04">
+
+  <div class="admin-layout">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar" id="adminSidebar">
+      <div class="admin-sidebar-header">
+        <img src="../../assets/images/satanipara-crest.svg" alt="Crest" style="width: 36px; height: 36px;">
+        <div>
+          <div style="font-weight: 700; font-size: 15px; color: #FAF7EE;">এডমিন ড্যাশবোর্ড</div>
+          <div style="font-size: 11px; color: var(--color-gold-500);">সাতানীপাড়া সংঘ • ১৯৯৯</div>
+        </div>
+      </div>
+      <ul class="admin-sidebar-menu">
+        <li><a href="/pages/admin/a01-overview.html" class="admin-menu-link"><span>ওভারভিউ</span></a></li>
+        <li><a href="/pages/admin/a02-requests.html" class="admin-menu-link"><span>প্রবাসী আবেদন</span></a></li>
+        <li><a href="/pages/admin/a03-members.html" class="admin-menu-link"><span>সদস্য ও পরিবার</span></a></li>
+        <li><a href="/pages/admin/a04-community.html" class="admin-menu-link active"><span>কমিউনিটি তথ্য</span></a></li>
+        <li><a href="/pages/admin/a05-committee.html" class="admin-menu-link"><span>কমিটি ও সংগঠন</span></a></li>
+        <li><a href="/pages/admin/a06-activities.html" class="admin-menu-link"><span>কার্যক্রম পরিচালনা</span></a></li>
+        <li><a href="/pages/admin/a07-notices.html" class="admin-menu-link"><span>নোটিশ ও গ্যালারি</span></a></li>
+        <li><a href="/pages/admin/a08-blood.html" class="admin-menu-link"><span>রক্তদাতা ও জরুরি রক্ত</span></a></li>
+        <li><a href="/pages/admin/a09-accounts.html" class="admin-menu-link"><span>হিসাব ও অডিট</span></a></li>
+        <li><a href="/pages/admin/a10-users.html" class="admin-menu-link"><span>ব্যবহারকারী ও রোল</span></a></li>
+        <li><a href="/pages/admin/a11-reports.html" class="admin-menu-link"><span>রিপোর্ট</span></a></li>
+        <li><a href="/pages/admin/a12-settings.html" class="admin-menu-link"><span>সেটিংস</span></a></li>
+      </ul>
+    </aside>
+
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <div>
+          <h1 class="font-h3" style="font-size: 20px; margin: 0;">কমিউনিটি তথ্য ও স্থাপনা ব্যবস্থাপনা</h1>
+          <div class="font-caption text-muted">গ্রামের পরিসংখ্যান, প্রতিষ্ঠান ও সামাজিক স্থাপনা ডাটাবেস</div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <span class="badge badge-role-superadmin">সুপার এডমিন</span>
+          <span class="font-body-sm" style="font-weight: 600;">এডমিন ইউজার</span>
+        </div>
+      </header>
+
+      <main class="admin-content">
+        <!-- Section 19 Notice: TBD Placeholders -->
+        <div class="card mb-32" style="background: var(--color-green-50); border-left: 4px solid var(--color-green-700); padding: 14px;">
+          <p class="font-body-sm text-strong" style="margin: 0;">
+            📌 <strong>নির্দেশনা:</strong> এলাকার প্রকৃত পরিসংখ্যান ও তথ্য সাংগঠনিক জরিপের পর এখানে হালনাগাদ করা যাবে। বর্তমানে প্লেসহোল্ডার ডেটা সক্রিয় রয়েছে।
+          </p>
+        </div>
+
+        <!-- Village Statistics Edit Form -->
+        <div class="card mb-40" style="padding: var(--space-24);">
+          <div class="flex-between mb-20 flex-wrap gap-12">
+            <div>
+              <h2 class="font-h3" style="color: var(--color-green-700); margin: 0;">
+                প্রধান পরিসংখ্যান মানসমূহ (StatCard ডাটা)
+              </h2>
+              <div class="font-caption text-muted">ওয়েবসাইটের হোমপেজ ও প্রোফাইলে প্রদর্শিত সংখ্যাসমূহ</div>
+            </div>
+            <button class="btn btn-sm btn-primary" onclick="Components.showToast('পরিসংখ্যান তথ্য সংরক্ষিত হয়েছে', 'success')">
+              সংরক্ষণ করুন
+            </button>
+          </div>
+
+          <div class="grid-4">
+            <div class="form-group">
+              <label class="form-label">মোট পরিবার / বাড়ি</label>
+              <input type="text" class="form-control" value="৭৫০+ (টিবিডি)">
+            </div>
+            <div class="form-group">
+              <label class="form-label">মোট জনসংখ্যা</label>
+              <input type="text" class="form-control" value="৩,৫০০+ (টিবিডি)">
+            </div>
+            <div class="form-group">
+              <label class="form-label">প্রবাসী সদস্য সংখ্যা</label>
+              <input type="text" class="form-control" value="৪২০+ (টিবিডি)">
+            </div>
+            <div class="form-group">
+              <label class="form-label">রক্তদাতা সংখ্যা</label>
+              <input type="text" class="form-control" value="১২০+ (টিবিডি)">
+            </div>
+          </div>
+        </div>
+
+        <!-- Institutions Manager -->
+        <div class="card" style="padding: var(--space-24);">
+          <div class="flex-between mb-20 flex-wrap gap-12">
+            <div>
+              <h2 class="font-h3" style="color: var(--color-green-700); margin: 0;">
+                এলাকার প্রতিষ্ঠান ও স্থাপনা তালিকা
+              </h2>
+              <div class="font-caption text-muted">মসজিদ, মাদ্রাসা, প্রাথমিক বিদ্যালয় ও ঐতিহাসিক স্থাপনা</div>
+            </div>
+            <button class="btn btn-sm btn-outline" onclick="Components.showToast('নতুন প্রতিষ্ঠান যোগ করার ফর্ম উন্মুক্ত', 'info')">
+              + নতুন প্রতিষ্ঠান যোগ করুন
+            </button>
+          </div>
+
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>প্রতিষ্ঠানের নাম</th>
+                  <th>ধরন</th>
+                  <th>স্থাপিত বছর</th>
+                  <th>এলাকা / অবস্থান</th>
+                  <th style="text-align: right;">অ্যাকশন</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>সাতানীপাড়া কেন্দ্রীয় জামে মসজিদ</strong></td>
+                  <td>ধর্মীয় প্রতিষ্ঠান</td>
+                  <td>১৯৬৮</td>
+                  <td>সাতানীপাড়া মধ্য পাড়া</td>
+                  <td style="text-align: right;"><button class="btn btn-sm btn-ghost">সম্পাদনা</button></td>
+                </tr>
+                <tr>
+                  <td><strong>সাতানীপাড়া সরকারি প্রাথমিক বিদ্যালয়</strong></td>
+                  <td>শিক্ষাপ্রতিষ্ঠান</td>
+                  <td>১৯৭৪</td>
+                  <td>সাতানীপাড়া উত্তর পাড়া</td>
+                  <td style="text-align: right;"><button class="btn btn-sm btn-ghost">সম্পাদনা</button></td>
+                </tr>
+                <tr>
+                  <td><strong>সাতানীপাড়া হাফিজিয়া মাদ্রাসা</strong></td>
+                  <td>দ্বীনি প্রতিষ্ঠান</td>
+                  <td>১৯৮৫</td>
+                  <td>সাতানীপাড়া পূর্ব পাড়া</td>
+                  <td style="text-align: right;"><button class="btn btn-sm btn-ghost">সম্পাদনা</button></td>
+                </tr>
+                <tr>
+                  <td><strong>সাতানীপাড়া সামাজিক কবরস্থান</strong></td>
+                  <td>ঐতিহাসিক পবিত্র স্থান</td>
+                  <td>—</td>
+                  <td>সাতানীপাড়া দক্ষিণ পাড়া</td>
+                  <td style="text-align: right;"><button class="btn btn-sm btn-ghost">সম্পাদনা</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../../js/mock-data.js"></script>
+  <script src="../../js/language.js"></script>
+  <script src="../../js/theme.js"></script>
+  <script src="../../js/components.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script src="../../js/validation.js"></script>
+  <script src="../../js/flows.js"></script>
+  <script src="../../js/app.js"></script>
+</body>
+</html>

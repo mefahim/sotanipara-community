@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="bn" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>সদস্য ও পরিবার ব্যবস্থাপনা | Satanipara Community Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../css/tokens.css">
+  <link rel="stylesheet" href="../../css/themes.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/typography.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/layouts.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+</head>
+<body data-screen="A-03">
+
+  <div class="admin-layout">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar" id="adminSidebar">
+      <div class="admin-sidebar-header">
+        <img src="../../assets/images/satanipara-crest.svg" alt="Crest" style="width: 36px; height: 36px;">
+        <div>
+          <div style="font-weight: 700; font-size: 15px; color: #FAF7EE;">এডমিন ড্যাশবোর্ড</div>
+          <div style="font-size: 11px; color: var(--color-gold-500);">সাতানীপাড়া সংঘ • ১৯৯৯</div>
+        </div>
+      </div>
+      <ul class="admin-sidebar-menu">
+        <li><a href="/pages/admin/a01-overview.html" class="admin-menu-link"><span>ওভারভিউ</span></a></li>
+        <li><a href="/pages/admin/a02-requests.html" class="admin-menu-link"><span>প্রবাসী আবেদন</span></a></li>
+        <li><a href="/pages/admin/a03-members.html" class="admin-menu-link active"><span>সদস্য ও পরিবার</span></a></li>
+        <li><a href="/pages/admin/a04-community.html" class="admin-menu-link"><span>কমিউনিটি তথ্য</span></a></li>
+        <li><a href="/pages/admin/a05-committee.html" class="admin-menu-link"><span>কমিটি ও সংগঠন</span></a></li>
+        <li><a href="/pages/admin/a06-activities.html" class="admin-menu-link"><span>কার্যক্রম পরিচালনা</span></a></li>
+        <li><a href="/pages/admin/a07-notices.html" class="admin-menu-link"><span>নোটিশ ও গ্যালারি</span></a></li>
+        <li><a href="/pages/admin/a08-blood.html" class="admin-menu-link"><span>রক্তদাতা ও জরুরি রক্ত</span></a></li>
+        <li><a href="/pages/admin/a09-accounts.html" class="admin-menu-link"><span>হিসাব ও অডিট</span></a></li>
+        <li><a href="/pages/admin/a10-users.html" class="admin-menu-link"><span>ব্যবহারকারী ও রোল</span></a></li>
+        <li><a href="/pages/admin/a11-reports.html" class="admin-menu-link"><span>রিপোর্ট</span></a></li>
+        <li><a href="/pages/admin/a12-settings.html" class="admin-menu-link"><span>সেটিংস</span></a></li>
+      </ul>
+    </aside>
+
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <div>
+          <h1 class="font-h3" style="font-size: 20px; margin: 0;">সদস্য ও পরিবার ব্যবস্থাপনা</h1>
+          <div class="font-caption text-muted">সদস্য অনুমোদন, প্রোফাইল যাচাই ও পারিবারিক তথ্য সংরক্ষণ</div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <span class="badge badge-role-superadmin">সুপার এডমিন</span>
+          <span class="font-body-sm" style="font-weight: 600;">এডমিন ইউজার</span>
+        </div>
+      </header>
+
+      <main class="admin-content">
+        <!-- Tabs & Pending Approvals Counter -->
+        <div class="flex-between mb-24 flex-wrap gap-12">
+          <div class="chip-row" id="memberTabChips">
+            <button class="chip active" onclick="switchMemberTab('all', this)">সকল সদস্য (৪ জন)</button>
+            <button class="chip" onclick="switchMemberTab('pending', this)">
+              <span class="badge-dot" style="background: var(--color-warning);"></span> অনুমোদনের অপেক্ষায় (<span id="pendingCount">১</span> জন)
+            </button>
+            <button class="chip" onclick="switchMemberTab('expatriate', this)">প্রবাসী সদস্য</button>
+            <button class="chip" onclick="switchMemberTab('local', this)">স্থানীয় সদস্য</button>
+          </div>
+
+          <input type="text" class="form-control" style="width: 220px; min-height: 38px;" placeholder="সদস্য বা মোবাইল খুঁজুন..." oninput="searchAdminMembers(this.value)">
+        </div>
+
+        <!-- Pending Approval Attention Panel (F-04 Flow) -->
+        <div class="card mb-32" id="pendingApprovalCard" style="background: var(--color-gold-100); border: 1.5px solid var(--color-gold-500); padding: 20px;">
+          <div class="flex-between flex-wrap gap-12 mb-12">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="font-size: 20px;">⏳</span>
+              <strong style="font-size: 16px; color: #0B2E1F;">নতুন সদস্য আবেদন অনুমোদনের অপেক্ষায়:</strong>
+            </div>
+            <span class="badge badge-pending">অপেক্ষমাণ</span>
+          </div>
+
+          <div style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 8px; padding: 14px; display: flex; align-items: center; justify-content: space-between; flex-wrap: gap-12;">
+            <div>
+              <div style="font-weight: 700; font-size: 15px;" id="pendingName">মো. তৌহিদুল ইসলাম</div>
+              <div class="font-caption text-muted" id="pendingMeta">কুয়েত প্রবাসী • মোবাইল: 01788990011 • আবেদনের তারিখ: ১৩ নভেম্বর ২০২৬</div>
+            </div>
+            <div style="display: flex; gap: 8px;">
+              <button class="btn btn-sm btn-primary" onclick="approveMember()">
+                ✓ অনুমোদন দিন
+              </button>
+              <button class="btn btn-sm btn-ghost" onclick="rejectMember()">
+                বাতিল
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Registered Members Table -->
+        <div class="table-responsive table-cards-mobile">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>নাম</th>
+                <th>মোবাইল নম্বর</th>
+                <th>সদস্যের ধরন</th>
+                <th>এলাকা / দেশ</th>
+                <th>স্ট্যাটাস</th>
+                <th style="text-align: right;">অ্যাকশন</th>
+              </tr>
+            </thead>
+            <tbody id="adminMembersTableBody">
+              <tr>
+                <td data-label="নাম"><strong>আব্দুর রহমান</strong></td>
+                <td data-label="মোবাইল">01712345678</td>
+                <td data-label="ধরন"><span class="badge badge-gold">প্রবাসী সদস্য</span></td>
+                <td data-label="দেশ">সৌদি আরব (উত্তর পাড়া)</td>
+                <td data-label="স্ট্যাটাস"><span class="badge badge-completed">অনুমোদিত</span></td>
+                <td data-label="অ্যাকশন" style="text-align: right;">
+                  <button class="btn btn-sm btn-outline" onclick="Components.showToast('সদস্য প্রোফাইল খোলা হচ্ছে', 'info')">প্রোফাইল</button>
+                </td>
+              </tr>
+              <tr>
+                <td data-label="নাম"><strong>মো. শাহীন আলম</strong></td>
+                <td data-label="মোবাইল">01822334455</td>
+                <td data-label="ধরন"><span class="badge badge-gold">প্রবাসী সদস্য</span></td>
+                <td data-label="দেশ">কাতার (দক্ষিণ পাড়া)</td>
+                <td data-label="স্ট্যাটাস"><span class="badge badge-completed">অনুমোদিত</span></td>
+                <td data-label="অ্যাকশন" style="text-align: right;">
+                  <button class="btn btn-sm btn-outline" onclick="Components.showToast('সদস্য প্রোফাইল খোলা হচ্ছে', 'info')">প্রোফাইল</button>
+                </td>
+              </tr>
+              <tr>
+                <td data-label="নাম"><strong>তানভীর হাসান</strong></td>
+                <td data-label="মোবাইল">01819887766</td>
+                <td data-label="ধরন"><span class="badge badge-role-member">স্থানীয় সদস্য</span></td>
+                <td data-label="দেশ">সাতানীপাড়া মধ্য পাড়া</td>
+                <td data-label="স্ট্যাটাস"><span class="badge badge-completed">অনুমোদিত</span></td>
+                <td data-label="অ্যাকশন" style="text-align: right;">
+                  <button class="btn btn-sm btn-outline" onclick="Components.showToast('সদস্য প্রোফাইল খোলা হচ্ছে', 'info')">প্রোফাইল</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../../js/mock-data.js"></script>
+  <script src="../../js/language.js"></script>
+  <script src="../../js/theme.js"></script>
+  <script src="../../js/components.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script src="../../js/validation.js"></script>
+  <script src="../../js/flows.js"></script>
+  <script src="../../js/app.js"></script>
+  <script>
+    function approveMember() {
+      document.getElementById('pendingApprovalCard').style.display = 'none';
+      document.getElementById('pendingCount').textContent = '০';
+
+      // Add to table
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td data-label="নাম"><strong>মো. তৌহিদুল ইসলাম</strong></td>
+        <td data-label="মোবাইল">01788990011</td>
+        <td data-label="ধরন"><span class="badge badge-gold">প্রবাসী সদস্য</span></td>
+        <td data-label="দেশ">কুয়েত (উত্তর পাড়া)</td>
+        <td data-label="স্ট্যাটাস"><span class="badge badge-completed">অনুমোদিত</span></td>
+        <td data-label="অ্যাকশন" style="text-align: right;">
+          <button class="btn btn-sm btn-outline">প্রোফাইল</button>
+        </td>
+      `;
+      document.getElementById('adminMembersTableBody').prepend(tr);
+      Components.showToast('সদস্য আবেদন অনুমোদিত হয়েছে! এখন তিনি লগইন করতে পারবেন।', 'success', 5000);
+    }
+
+    function rejectMember() {
+      document.getElementById('pendingApprovalCard').style.display = 'none';
+      document.getElementById('pendingCount').textContent = '০';
+      Components.showToast('আবেদনটি বাতিল করা হয়েছে', 'warning');
+    }
+
+    function searchAdminMembers(val) {
+      const q = val.toLowerCase();
+      document.querySelectorAll('#adminMembersTableBody tr').forEach(row => {
+        row.style.display = row.textContent.toLowerCase().includes(q) ? '' : 'none';
+      });
+    }
+
+    function switchMemberTab(tab, btn) {
+      document.querySelectorAll('#memberTabChips .chip').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      if (tab === 'pending') {
+        document.getElementById('pendingApprovalCard').scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  </script>
+</body>
+</html>

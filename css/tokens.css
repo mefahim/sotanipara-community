@@ -1,0 +1,144 @@
+/**
+ * Satanipara Community Design System — Tokens
+ * Strict implementation of Section 2 of the Design Brief
+ */
+
+:root {
+  /* ==========================================================================
+     Color Tokens — Light Theme (Default)
+     ========================================================================== */
+  --color-green-900: #0B2E1F; /* Darkest surface, dark header, footer */
+  --color-green-700: #14532D; /* Primary brand color, primary button, active link */
+  --color-green-600: #166534; /* Hover state, icons, secondary accent */
+  --color-green-100: #DCEFE3; /* Selected chip, light badge, success bg */
+  --color-green-50:  #EFF7F1; /* Alternate section background */
+
+  --color-gold-500:  #C9A227; /* Accent, CTA button, slogan, divider, badge */
+  --color-gold-700:  #9A7B1C; /* Gold text on Ivory background (for contrast) */
+  --color-gold-100:  #FBF4DB; /* Ticker background, light gold tint */
+
+  --color-ivory:     #FAF7EE; /* Light mode main background */
+  --color-surface:   #FFFEF8; /* Card & panel background in Light mode */
+  --color-surface-raised: #FFFFFF; /* Elevated cards and dropdowns */
+
+  /* Text & Semantic Colors */
+  --color-text-strong: #1A1F1C; /* Main text, headings */
+  --color-text-muted:  #5A665E; /* Secondary text, captions, dates */
+  --color-border:      #D9DED9; /* Border for cards, inputs, dividers */
+
+  /* Status Colors */
+  --color-success:     #1F7A3D; /* Completed, verified, success message */
+  --color-warning:     #B7791F; /* Pending, warning alerts */
+  --color-danger:      #B42318; /* Emergency blood, error, destructive */
+  --color-info:        #1D5FA8; /* In Progress, informational notices */
+
+  /* Semantic Aliases */
+  --color-bg:          var(--color-ivory);
+  --color-primary:     var(--color-green-700);
+  --color-primary-hover: var(--color-green-600);
+  --color-accent:      var(--color-gold-500);
+
+  /* Status Badge Backgrounds */
+  --badge-pending-bg:    #FEF3C7;
+  --badge-pending-text:  #92400E;
+  --badge-accepted-bg:   #E0E7FF;
+  --badge-accepted-text: #3730A3;
+  --badge-progress-bg:   #DBEAFE;
+  --badge-progress-text: #1E40AF;
+  --badge-completed-bg:  #D1FAE5;
+  --badge-completed-text:#065F46;
+  --badge-cancelled-bg:  #FEE2E2;
+  --badge-cancelled-text:#991B1B;
+
+  /* ==========================================================================
+     Typography Tokens
+     Hind Siliguri with fallbacks
+     ========================================================================== */
+  --font-family: 'Hind Siliguri', 'Noto Sans Bengali', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Font Weights */
+  --font-weight-regular:  400;
+  --font-weight-medium:   500;
+  --font-weight-semibold: 600;
+  --font-weight-bold:     700;
+
+  /* Typography Scale */
+  --font-size-display: 40px;
+  --line-height-display: 50px;
+  --font-size-display-mobile: 30px;
+  --line-height-display-mobile: 40px;
+
+  --font-size-h1: 30px;
+  --line-height-h1: 40px;
+
+  --font-size-h2: 24px;
+  --line-height-h2: 34px;
+
+  --font-size-h3: 19px;
+  --line-height-h3: 28px;
+
+  --font-size-body: 16px;
+  --line-height-body: 27px;
+
+  --font-size-body-sm: 14.5px;
+  --line-height-body-sm: 24px;
+
+  --font-size-caption: 12.5px;
+  --line-height-caption: 19px;
+
+  --font-size-button: 15.5px;
+  --line-height-button: 20px;
+
+  /* ==========================================================================
+     Spacing Scale (Strict 4pt system: 4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80)
+     ========================================================================== */
+  --space-4:  4px;
+  --space-8:  8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-40: 40px;
+  --space-48: 48px;
+  --space-64: 64px;
+  --space-80: 80px;
+
+  /* Layout dimensions */
+  --content-max-width: 1200px;
+  --gutter-desktop: var(--space-24);
+  --gutter-mobile: var(--space-16);
+  --section-gap-desktop: var(--space-64);
+  --section-gap-mobile: var(--space-40);
+  --card-padding-desktop: var(--space-20);
+  --card-padding-mobile: var(--space-16);
+
+  --header-height-mobile: 56px;
+  --header-height-desktop: 72px;
+  --admin-sidebar-width: 240px;
+
+  /* ==========================================================================
+     Border Radius Tokens
+     ========================================================================== */
+  --radius-input: 10px;
+  --radius-btn:   10px;
+  --radius-card:  16px;
+  --radius-panel: 20px;
+  --radius-modal: 20px;
+  --radius-pill:  999px;
+
+  /* ==========================================================================
+     Shadow Tokens
+     ========================================================================== */
+  --shadow-sm: 0 1px 3px rgba(11, 46, 31, 0.05), 0 1px 2px rgba(11, 46, 31, 0.03);
+  --shadow-card: 0 2px 6px rgba(11, 46, 31, 0.06), 0 1px 3px rgba(11, 46, 31, 0.04);
+  --shadow-raised: 0 8px 18px rgba(11, 46, 31, 0.08), 0 2px 5px rgba(11, 46, 31, 0.04);
+  --shadow-modal: 0 20px 40px rgba(11, 46, 31, 0.16);
+
+  /* ==========================================================================
+     Transitions & Touch
+     ========================================================================== */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --min-touch-target: 44px;
+}

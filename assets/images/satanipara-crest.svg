@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%">
+  <defs>
+    <linearGradient id="crestGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E9C95C"/>
+      <stop offset="50%" stop-color="#C9A227"/>
+      <stop offset="100%" stop-color="#9A7B1C"/>
+    </linearGradient>
+    <linearGradient id="crestGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#166534"/>
+      <stop offset="100%" stop-color="#0B2E1F"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer Ring -->
+  <circle cx="60" cy="60" r="56" fill="url(#crestGreen)" stroke="#C9A227" stroke-width="2.5"/>
+  <circle cx="60" cy="60" r="50" fill="none" stroke="#C9A227" stroke-width="1" stroke-dasharray="2 2"/>
+
+  <!-- Inner Circle -->
+  <circle cx="60" cy="60" r="42" fill="#0B2E1F" stroke="#C9A227" stroke-width="2"/>
+
+  <!-- Star accents -->
+  <path d="M60 12 L62 16 L66 16 L63 19 L64 23 L60 20 L56 23 L57 19 L54 16 L58 16 Z" fill="#C9A227"/>
+  <path d="M60 100 L61.5 103 L64.5 103 L62 105 L63 108 L60 106 L57 108 L58 105 L55.5 103 L58.5 103 Z" fill="#C9A227"/>
+
+  <!-- Circular text path or text -->
+  <!-- Top text: সাতানীপাড়া সমাজকল্যাণ সংঘ -->
+  <path id="textPathTop" d="M 22 60 A 38 38 0 0 1 98 60" fill="none"/>
+  <text font-family="'Hind Siliguri', 'Noto Sans Bengali', sans-serif" font-size="7.5" font-weight="600" fill="#FAF7EE" letter-spacing="0.5">
+    <textPath href="#textPathTop" startOffset="50%" text-anchor="middle">
+      সাতানীপাড়া সমাজকল্যাণ সংঘ
+    </textPath>
+  </text>
+
+  <!-- Bottom text: প্রিতষ্ঠা ১৯৯৯ -->
+  <path id="textPathBottom" d="M 98 60 A 38 38 0 0 1 22 60" fill="none"/>
+  <text font-family="'Hind Siliguri', 'Noto Sans Bengali', sans-serif" font-size="7" font-weight="600" fill="#E9C95C" letter-spacing="1">
+    <textPath href="#textPathBottom" startOffset="50%" text-anchor="middle">
+      • প্রতিষ্ঠা ১৯৯৯ •
+    </textPath>
+  </text>
+
+  <!-- Center Shield/Core -->
+  <circle cx="60" cy="60" r="24" fill="#14532D" stroke="url(#crestGold)" stroke-width="2"/>
+
+  <!-- Bengali letter "সা" in center -->
+  <text x="60" y="69" font-family="'Hind Siliguri', 'Noto Sans Bengali', sans-serif" font-size="26" font-weight="700" fill="#FAF7EE" text-anchor="middle">সা</text>
+</svg>

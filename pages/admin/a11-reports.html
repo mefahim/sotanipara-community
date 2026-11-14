@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="bn" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>রিপোর্ট ও রপ্তানি | Satanipara Community Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../css/tokens.css">
+  <link rel="stylesheet" href="../../css/themes.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/typography.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/layouts.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+  <style>
+    .report-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: var(--space-20);
+      margin-top: var(--space-20);
+    }
+    .report-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-card);
+      padding: var(--space-24);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: box-shadow var(--motion-fast), border-color var(--motion-fast);
+    }
+    .report-card:hover {
+      border-color: var(--color-forest-600);
+      box-shadow: var(--shadow-md);
+    }
+    .report-icon-box {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-input);
+      background: var(--color-green-100);
+      color: var(--color-forest-700);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-16);
+    }
+    .report-meta-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      background: var(--color-bg);
+      border-radius: var(--radius-pill);
+      font-size: var(--font-caption);
+      color: var(--color-text-secondary);
+      border: 1px solid var(--color-border);
+    }
+    /* Printable Document Simulation */
+    .doc-preview {
+      background: #FFFFFF;
+      color: #1A1F1C;
+      padding: var(--space-40);
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      max-width: 760px;
+      margin: 0 auto;
+      font-family: 'Hind Siliguri', sans-serif;
+    }
+    .doc-letterhead {
+      text-align: center;
+      border-bottom: 2px solid #0B2E1F;
+      padding-bottom: var(--space-16);
+      margin-bottom: var(--space-24);
+    }
+    .doc-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: var(--space-16) 0;
+      font-size: 14px;
+    }
+    .doc-table th, .doc-table td {
+      border: 1px solid #D9DED9;
+      padding: 8px 12px;
+      text-align: left;
+    }
+    .doc-table th {
+      background: #EFF7F1;
+      color: #0B2E1F;
+      font-weight: 600;
+    }
+    .doc-signatures {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 50px;
+      padding-top: 20px;
+      text-align: center;
+    }
+    .doc-sign-line {
+      border-top: 1px dashed #718096;
+      width: 160px;
+      padding-top: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #2D3748;
+    }
+  </style>
+</head>
+<body data-screen="A-11">
+
+  <div class="admin-layout">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar" id="adminSidebar">
+      <div class="admin-sidebar-header">
+        <img src="../../assets/images/satanipara-crest.svg" alt="Crest" style="width: 36px; height: 36px;">
+        <div>
+          <div style="font-weight: 700; font-size: 15px; color: #FAF7EE;">এডমিন ড্যাশবোর্ড</div>
+          <div style="font-size: 11px; color: var(--color-gold-500);">সাতানীপাড়া সংঘ • ১৯৯৯</div>
+        </div>
+      </div>
+      <ul class="admin-sidebar-menu">
+        <li><a href="/pages/admin/a01-overview.html" class="admin-menu-link"><span>ওভারভিউ</span></a></li>
+        <li><a href="/pages/admin/a02-requests.html" class="admin-menu-link"><span>প্রবাসী আবেদন</span></a></li>
+        <li><a href="/pages/admin/a03-members.html" class="admin-menu-link"><span>সদস্য ও পরিবার</span></a></li>
+        <li><a href="/pages/admin/a04-community.html" class="admin-menu-link"><span>কমিউনিটি তথ্য</span></a></li>
+        <li><a href="/pages/admin/a05-committee.html" class="admin-menu-link"><span>কমিটি ও সংগঠন</span></a></li>
+        <li><a href="/pages/admin/a06-activities.html" class="admin-menu-link"><span>কার্যক্রম পরিচালনা</span></a></li>
+        <li><a href="/pages/admin/a07-notices.html" class="admin-menu-link"><span>নোটিশ ও গ্যালারি</span></a></li>
+        <li><a href="/pages/admin/a08-blood.html" class="admin-menu-link"><span>রক্তদাতা ও জরুরি রক্ত</span></a></li>
+        <li><a href="/pages/admin/a09-accounts.html" class="admin-menu-link"><span>হিসাব ও অডিট</span></a></li>
+        <li><a href="/pages/admin/a10-users.html" class="admin-menu-link"><span>ব্যবহারকারী ও রোল</span></a></li>
+        <li><a href="/pages/admin/a11-reports.html" class="admin-menu-link active"><span>রিপোর্ট</span></a></li>
+        <li><a href="/pages/admin/a12-settings.html" class="admin-menu-link"><span>সেটিংস</span></a></li>
+      </ul>
+    </aside>
+
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <div>
+          <h1 class="font-h3" style="font-size: 20px; margin: 0;">রিপোর্ট ও প্রাতিষ্ঠানিক বিবরণী</h1>
+          <div class="font-caption text-muted">বাৎসরিক আর্থিক নিরীক্ষা, কার্যক্রম, রক্তদাতা ও প্রবাসী সেবার অফিশিয়াল PDF তৈরি</div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <span class="badge badge-role-superadmin">সুপার এডমিন</span>
+          <span class="font-body-sm" style="font-weight: 600;">এডমিন ইউজার</span>
+        </div>
+      </header>
+
+      <main class="admin-content">
+        <!-- Filter Controls -->
+        <div class="card" style="margin-bottom: var(--space-24); padding: var(--space-20);">
+          <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between;">
+            <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center;">
+              <div>
+                <label class="form-label" style="margin-bottom: 4px;">অর্থবছর / কার্যকাল নির্বাচন:</label>
+                <select id="reportYearSelect" class="form-select" style="min-width: 180px;" onchange="handleYearChange()">
+                  <option value="2024">২০২৪ (চলতি অর্থবছর)</option>
+                  <option value="2023">২০২৩ (বিগত অর্থবছর)</option>
+                  <option value="2022">২০২২ (বিগত অর্থবছর)</option>
+                  <option value="all">সর্বমোট সামগ্রিক ডাটা</option>
+                </select>
+              </div>
+              <div>
+                <label class="form-label" style="margin-bottom: 4px;">ফরম্যাট:</label>
+                <div style="display: flex; gap: 8px;">
+                  <button class="btn btn-outline" style="padding: 8px 14px; font-size: 13.5px;" onclick="Components.showToast('ডিফল্ট PDF প্রিন্ট ফরম্যাট নির্বাচিত', 'info')">
+                    অফিশিয়াল PDF (A4)
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div>
+              <button class="btn btn-primary" onclick="generateAllReports()">
+                <span id="allGenIcon"></span>
+                <span>সকল রিপোর্ট প্যাকেজ তৈরি করুন</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5 Report Cards Grid -->
+        <div class="report-grid">
+          
+          <!-- Report 1: Accounts & Financial Audit -->
+          <div class="report-card">
+            <div>
+              <div class="report-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                </svg>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                <h3 class="font-h3" style="font-size: 17px; margin: 0;">বার্ষিক আর্থিক ও অডিট রিপোর্ট</h3>
+                <span class="report-meta-tag">আর্থিক নিরীক্ষা</span>
+              </div>
+              <p class="font-body-sm text-muted" style="margin-bottom: var(--space-16);">
+                চলতি অর্থবছরের মোট আয়, খাতভিত্তিক ব্যয়, তহবিলের সঞ্চিতি স্থিতি ও অনুদানের পূর্ণাঙ্গ স্বচ্ছ হিসাব বিবরণী।
+              </p>
+              <div style="font-size: 12.5px; color: var(--color-forest-700); margin-bottom: var(--space-16); background: var(--color-green-50); padding: 8px 12px; border-radius: 8px;">
+                <strong>অন্তর্ভুক্ত:</strong> সাধারণ তহবিল, কবরস্থান উন্নয়ন, চিকিৎসা সহায়তা ও রমজান ফুডপ্যাক হিসাব।
+              </div>
+            </div>
+            <div style="display: flex; gap: 8px; border-top: 1px solid var(--color-border); padding-top: var(--space-16);">
+              <button class="btn btn-outline btn-block" style="font-size: 13.5px; padding: 9px;" onclick="previewReport('financial')">
+                প্রিভিউ দেখুন
+              </button>
+              <button class="btn btn-primary btn-block" style="font-size: 13.5px; padding: 9px;" onclick="triggerDownload('financial', 'বার্ষিক আর্থিক রিপোর্ট ২০২৪.pdf')">
+                PDF ডাউনলোড
+              </button>
+            </div>
+          </div>
+
+          <!-- Report 2: Annual Activities Summary -->
+          <div class="report-card">
+            <div>
+              <div class="report-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                  <line x1="16" y1="2" x2="16" y2="6"/>
+                  <line x1="8" y1="2" x2="8" y2="6"/>
+                  <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                <h3 class="font-h3" style="font-size: 17px; margin: 0;">বছরের কার্যক্রম রিপোর্ট</h3>
+                <span class="report-meta-tag">সমাজসেবা</span>
+              </div>
+              <p class="font-body-sm text-muted" style="margin-bottom: var(--space-16);">
+                বছরে সম্পন্ন সকল সামাজিক কার্যক্রম, শীতবস্ত্র বিতরণ, বৃক্ষরোপণ, মেধা বৃত্তি ও উপকারভোগী পরিবারের তালিকা।
+              </p>
+              <div style="font-size: 12.5px; color: var(--color-forest-700); margin-bottom: var(--space-16); background: var(--color-green-50); padding: 8px 12px; border-radius: 8px;">
+                <strong>অন্তর্ভুক্ত:</strong> মোট ৫টি সামাজিক প্রকল্প, ১,৮৫০ জন প্রত্যক্ষ সুবিধাভোগী, ছবি ও মাঠ পর্যালোচনা।
+              </div>
+            </div>
+            <div style="display: flex; gap: 8px; border-top: 1px solid var(--color-border); padding-top: var(--space-16);">
+              <button class="btn btn-outline btn-block" style="font-size: 13.5px; padding: 9px;" onclick="previewReport('activities')">
+                প্রিভিউ দেখুন
+              </button>
+              <button class="btn btn-primary btn-block" style="font-size: 13.5px; padding: 9px;" onclick="triggerDownload('activities', 'বাৎসরিক কার্যক্রম রিপোর্ট ২০২৪.pdf')">
+                PDF ডাউনলোড
+              </button>
+            </div>
+          </div>
+
+          <!-- Report 3: Member & Family Registry -->
+          <div class="report-card">
+            <div>
+              <div class="report-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                <h3 class="font-h3" style="font-size: 17px; margin: 0;">সদস্য ও পরিবার রেজিস্ট্রি রিপোর্ট</h3>
+                <span class="report-meta-tag">নাগরিক ডাটা</span>
+              </div>
+              <p class="font-body-sm text-muted" style="margin-bottom: var(--space-16);">
+                সাতানীপাড়ার মোট নিবন্ধিত পরিবার, মোট সদস্য, পেশা ও প্রবাসী পরিবারের ভৌগোলিক ডিরেক্টরি।
+              </p>
+              <div style="font-size: 12.5px; color: #78350F; margin-bottom: var(--space-16); background: #FEF3C7; padding: 8px 12px; border-radius: 8px;">
+                <strong>গোপনীয়তা রক্ষা:</strong> সম্মতিবিহীন ফোন নম্বর সম্পূর্ণ গোপন রেখে প্রাতিষ্ঠানিক ব্যবহারের জন্য মুদ্রিত।
+              </div>
+            </div>
+            <div style="display: flex; gap: 8px; border-top: 1px solid var(--color-border); padding-top: var(--space-16);">
+              <button class="btn btn-outline btn-block" style="font-size: 13.5px; padding: 9px;" onclick="previewReport('members')">
+                প্রিভিউ দেখুন
+              </button>
+              <button class="btn btn-primary btn-block" style="font-size: 13.5px; padding: 9px;" onclick="triggerDownload('members', 'সদস্য রেজিস্ট্রি রিপোর্ট ২০২৪.pdf')">
+                PDF ডাউনলোড
+              </button>
+            </div>
+          </div>
+
+          <!-- Report 4: Blood Donors Directory -->
+          <div class="report-card">
+            <div>
+              <div class="report-icon-box" style="background: #FEE2E2; color: #DC2626;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                </svg>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                <h3 class="font-h3" style="font-size: 17px; margin: 0;">রক্তদাতা তালিকা ও জরুরি সাড়া</h3>
+                <span class="report-meta-tag" style="color: #DC2626;">জরুরি স্বাস্থ্য</span>
+              </div>
+              <p class="font-body-sm text-muted" style="margin-bottom: var(--space-16);">
+                সকল সক্রিয় রক্তদাতার তালিকা, রক্তের গ্রুপভিত্তিক বিন্যাস, শেষ রক্তদানের তারিখ ও জরুরি সাড়ার লগ।
+              </p>
+              <div style="font-size: 12.5px; color: var(--color-forest-700); margin-bottom: var(--space-16); background: var(--color-green-50); padding: 8px 12px; border-radius: 8px;">
+                <strong>অন্তর্ভুক্ত:</strong> সম্মতিপ্রাপ্ত ৮ জন সক্রিয় দাতা ও প্রাতিষ্ঠানিক জরুরি যোগাযোগ নম্বর।
+              </div>
+            </div>
+            <div style="display: flex; gap: 8px; border-top: 1px solid var(--color-border); padding-top: var(--space-16);">
+              <button class="btn btn-outline btn-block" style="font-size: 13.5px; padding: 9px;" onclick="previewReport('blood')">
+                প্রিভিউ দেখুন
+              </button>
+              <button class="btn btn-primary btn-block" style="font-size: 13.5px; padding: 9px;" onclick="triggerDownload('blood', 'রক্তদাতা তালিকা ও জরুরি সাড়া ২০২৪.pdf')">
+                PDF ডাউনলোড
+              </button>
+            </div>
+          </div>
+
+          <!-- Report 5: Expatriate Support Performance -->
+          <div class="report-card">
+            <div>
+              <div class="report-icon-box" style="background: var(--color-green-100); color: var(--color-forest-900);">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <circle cx="12" cy="12" r="10"/>
+                  <line x1="2" y1="12" x2="22" y2="12"/>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                </svg>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                <h3 class="font-h3" style="font-size: 17px; margin: 0;">প্রবাসী সেবার বার্ষিক সারসংক্ষেপ</h3>
+                <span class="report-meta-tag">প্রবাসী ডেস্ক</span>
+              </div>
+              <p class="font-body-sm text-muted" style="margin-bottom: var(--space-16);">
+                প্রবাসী পরিবারের আবেদনের সমাধান হার, সেবার ধরন বিশ্লেষণ (জরুরি মেডিকেল, পারিবারিক সাহায্য, দাপ্তরিক কাজ) ও সন্তুষ্টির রিপোর্ট।
+              </p>
+              <div style="font-size: 12.5px; color: var(--color-forest-700); margin-bottom: var(--space-16); background: var(--color-green-50); padding: 8px 12px; border-radius: 8px;">
+                <strong>অন্তর্ভুক্ত:</strong> মোট প্রাপ্ত আবেদন, সম্পন্ন ৩টি, চলমান ১টি ও গড় সেবা প্রদানের সময়কাল।
+              </div>
+            </div>
+            <div style="display: flex; gap: 8px; border-top: 1px solid var(--color-border); padding-top: var(--space-16);">
+              <button class="btn btn-outline btn-block" style="font-size: 13.5px; padding: 9px;" onclick="previewReport('expatriate')">
+                প্রিভিউ দেখুন
+              </button>
+              <button class="btn btn-primary btn-block" style="font-size: 13.5px; padding: 9px;" onclick="triggerDownload('expatriate', 'প্রবাসী সেবা বার্ষিক সারসংক্ষেপ ২০২৪.pdf')">
+                PDF ডাউনলোড
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Report Generating Progress Modal -->
+  <div class="modal-backdrop" id="genModal">
+    <div class="modal" style="max-width: 440px; text-align: center; padding: var(--space-32);">
+      <div id="genSpinner" style="margin: 0 auto var(--space-20); width: 48px; height: 48px; border: 4px solid var(--color-green-100); border-top-color: var(--color-forest-600); border-radius: 50%; animation: spin 0.8s linear infinite;"></div>
+      <h3 class="font-h3" id="genTitle" style="font-size: 18px; margin-bottom: 8px;">রিপোর্ট প্রস্তুত করা হচ্ছে...</h3>
+      <p class="font-body-sm text-muted" id="genStep">ডাটাবেজ থেকে তথ্য সংগ্রহ ও নির্ভুলতা যাচাই চলছে...</p>
+      
+      <!-- Progress Bar -->
+      <div style="width: 100%; height: 8px; background: var(--color-bg); border-radius: 4px; overflow: hidden; margin: var(--space-20) 0;">
+        <div id="genProgressBar" style="width: 25%; height: 100%; background: var(--color-forest-600); transition: width 0.3s ease;"></div>
+      </div>
+      <div class="font-caption text-muted" id="genPercent">২৫% সম্পন্ন</div>
+    </div>
+  </div>
+
+  <!-- Document Preview Modal -->
+  <div class="modal-backdrop" id="previewModal">
+    <div class="modal" style="max-width: 840px; max-height: 90vh; overflow-y: auto; padding: var(--space-24);">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-16); border-bottom: 1px solid var(--color-border); padding-bottom: 12px;">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span class="badge badge-pending">অফিশিয়াল প্রিন্ট প্রিভিউ</span>
+          <span class="font-caption text-muted">A4 সাইজ ফরম্যাট</span>
+        </div>
+        <div style="display: flex; gap: 8px;">
+          <button class="btn btn-outline" style="padding: 6px 12px; font-size: 13px;" onclick="window.print()">
+            প্রিন্ট করুন
+          </button>
+          <button class="btn btn-primary" style="padding: 6px 12px; font-size: 13px;" onclick="closePreviewAndDownload()">
+            PDF সংরক্ষণ
+          </button>
+          <button class="btn btn-outline" style="padding: 6px 12px; font-size: 13px;" onclick="closePreviewModal()">
+            বন্ধ করুন
+          </button>
+        </div>
+      </div>
+
+      <!-- Printable Area -->
+      <div class="doc-preview" id="docContent">
+        <!-- Letterhead -->
+        <div class="doc-letterhead">
+          <img src="../../assets/images/satanipara-crest.svg" alt="Crest" style="width: 56px; height: 56px; margin: 0 auto 8px;">
+          <h2 style="font-size: 22px; color: #0B2E1F; margin: 0; font-weight: 700;">সাতানীপাড়া সমাজ কল্যাণ সংঘ</h2>
+          <div style="font-size: 13px; color: #C9A227; font-weight: 600;">শিক্ষা • ঐক্য • শান্তি • প্রগতি | স্থাপিত: ১৯৯৯</div>
+          <div style="font-size: 12px; color: #5A665E; margin-top: 4px;">সাতানীপাড়া, ডাকঘর: TBD, উপজেলা: TBD, জেলা: TBD | হেল্পলাইন: ০১৭১১-০০০০০০ (TBD)</div>
+        </div>
+
+        <!-- Report Dynamic Body -->
+        <div id="docDynamicBody">
+          <!-- Populated by JS -->
+        </div>
+
+        <!-- Disclaimer -->
+        <div style="font-size: 11px; color: #718096; margin-top: var(--space-24); text-align: center; border-top: 1px solid #E2E8F0; padding-top: 8px;">
+          * এই রিপোর্টটি সাতানীপাড়া সমাজ কল্যাণ সংঘের কেন্দ্রীয় ডিজিটাল ডাটাবেজ থেকে স্বয়ংক্রিয়ভাবে প্রস্তুতকৃত। ধারা ১৪ অনুযায়ী ব্যক্তিগত তথ্যের গোপনীয়তা সংরক্ষিত।
+        </div>
+
+        <!-- Official Signatures -->
+        <div class="doc-signatures">
+          <div>
+            <div class="doc-sign-line">কোষাধ্যক্ষ</div>
+            <div style="font-size: 11px; color: #718096; margin-top: 2px;">সাতানীপাড়া সমাজ কল্যাণ সংঘ</div>
+          </div>
+          <div>
+            <div class="doc-sign-line">সাধারণ সম্পাদক</div>
+            <div style="font-size: 11px; color: #718096; margin-top: 2px;">সাতানীপাড়া সমাজ কল্যাণ সংঘ</div>
+          </div>
+          <div>
+            <div class="doc-sign-line">সভাপতি</div>
+            <div style="font-size: 11px; color: #718096; margin-top: 2px;">সাতানীপাড়া সমাজ কল্যাণ সংঘ</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      #docContent, #docContent * {
+        visibility: visible;
+      }
+      #docContent {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        box-shadow: none;
+        padding: 0;
+      }
+    }
+  </style>
+
+  <script src="../../js/mock-data.js"></script>
+  <script src="../../js/language.js"></script>
+  <script src="../../js/theme.js"></script>
+  <script src="../../js/components.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script src="../../js/validation.js"></script>
+  <script src="../../js/flows.js"></script>
+  <script src="../../js/app.js"></script>
+
+  <script>
+    let currentPreviewType = 'financial';
+
+    function handleYearChange() {
+      const year = document.getElementById('reportYearSelect').value;
+      Components.showToast(`অর্থবছর ${year === 'all' ? 'সকল' : year}-এর ডাটা ফিল্টার করা হয়েছে`, 'info');
+    }
+
+    function triggerDownload(type, filename) {
+      const modal = document.getElementById('genModal');
+      const progressBar = document.getElementById('genProgressBar');
+      const stepText = document.getElementById('genStep');
+      const percentText = document.getElementById('genPercent');
+      const title = document.getElementById('genTitle');
+      
+      title.textContent = `${filename} প্রস্তুত করা হচ্ছে...`;
+      modal.classList.add('is-open');
+
+      progressBar.style.width = '30%';
+      percentText.textContent = '৩০% সম্পন্ন';
+      stepText.textContent = 'ডাটাবেজ থেকে তথ্য সংকলন করা হচ্ছে...';
+
+      setTimeout(() => {
+        progressBar.style.width = '70%';
+        percentText.textContent = '৭০% সম্পন্ন';
+        stepText.textContent = 'অফিশিয়াল সীল ও নিরাপত্তা স্বাক্ষর কোড যোগ হচ্ছে...';
+
+        setTimeout(() => {
+          progressBar.style.width = '100%';
+          percentText.textContent = '১০০% সম্পন্ন';
+          stepText.textContent = 'ডাউনলোড প্রস্তুত!';
+
+          setTimeout(() => {
+            modal.classList.remove('is-open');
+            Components.showToast(`${filename} সফলভাবে ডাউনলোড হয়েছে!`, 'success', 5000);
+          }, 600);
+        }, 600);
+      }, 600);
+    }
+
+    function previewReport(type) {
+      currentPreviewType = type;
+      const body = document.getElementById('docDynamicBody');
+      const year = document.getElementById('reportYearSelect').value;
+      const yearBn = year === 'all' ? 'সার্বিক কার্যকাল' : (year === '2024' ? '২০২৪' : (year === '2023' ? '২০২৩' : '২০২২'));
+
+      if (type === 'financial') {
+        body.innerHTML = `
+          <div style="display: flex; justify-content: space-between; margin-bottom: 16px;">
+            <div>
+              <h3 style="font-size: 17px; margin: 0; color: #0B2E1F;">বার্ষিক আর্থিক ও অডিট বিবরণী — ${yearBn}</h3>
+              <div style="font-size: 12px; color: #718096;">অর্থবছর: ১ জানুয়ারি ${yearBn} – ৩১ ডিসেম্বর ${yearBn}</div>
+            </div>
+            <div style="text-align: right; font-size: 12px; color: #718096;">
+              ইস্যুর তারিখ: ১৪ নভেম্বর ২০২৪<br>স্মারক নং: SSKS/FIN/${year}/084
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px;">
+            <div style="background: #EFF7F1; border: 1px solid #DCEFE3; padding: 10px; border-radius: 6px; text-align: center;">
+              <div style="font-size: 12px; color: #166534;">মোট সংগৃহীত অনুদান / আয়</div>
+              <div style="font-size: 18px; font-weight: 700; color: #0B2E1F;">৳ ৩,৮৫,৫০০</div>
+            </div>
+            <div style="background: #FEF2F2; border: 1px solid #FEE2E2; padding: 10px; border-radius: 6px; text-align: center;">
+              <div style="font-size: 12px; color: #991B1B;">মোট অনুমোদিত সেবা ব্যয়</div>
+              <div style="font-size: 18px; font-weight: 700; color: #991B1B;">৳ ২,৬০,৫০০</div>
+            </div>
+            <div style="background: #FFFBEB; border: 1px solid #FEF3C7; padding: 10px; border-radius: 6px; text-align: center;">
+              <div style="font-size: 12px; color: #92400E;">চলমান উদ্বৃত্ত / সঞ্চিতি</div>
+              <div style="font-size: 18px; font-weight: 700; color: #0B2E1F;">৳ ১,২৫,০০০</div>
+            </div>
+          </div>
+
+          <table class="doc-table">
+            <thead>
+              <tr>
+                <th>তারিখ</th>
+                <th>খাত / প্রকল্প</th>
+                <th>বিবরণ</th>
+                <th>দাতা / উপকারভোগী</th>
+                <th style="text-align: right;">পরিমাণ (টাকা)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>১২/১০/২০২৪</td>
+                <td>কবরস্থান উন্নয়ন</td>
+                <td>সীমানা প্রাচীর নির্মাণ দ্বিতীয় কিস্তির অনুদান</td>
+                <td>সম্মতিপ্রাপ্ত শুভাকাঙ্ক্ষী</td>
+                <td style="text-align: right; color: #166534; font-weight: 600;">+ ৫০,০০০</td>
+              </tr>
+              <tr>
+                <td>০৫/১০/২০২৪</td>
+                <td>চিকিৎসা সহায়তা</td>
+                <td>অসুস্থ গ্রামবাসীর জরুরি অপারেশনের আর্থিক সাহায্য</td>
+                <td>উপকারভোগী পরিবার</td>
+                <td style="text-align: right; color: #991B1B; font-weight: 600;">- ১৫,০০০</td>
+              </tr>
+              <tr>
+                <td>২৮/০৯/২০২৪</td>
+                <td>সাধারণ তহবিল</td>
+                <td>মাসিক সদস্য কল্যাণ চাঁদা সংগ্রহ</td>
+                <td>সাধারণ সদস্যবৃন্দ</td>
+                <td style="text-align: right; color: #166534; font-weight: 600;">+ ২৫,৫০০</td>
+              </tr>
+              <tr>
+                <td>১৫/০৯/২০২৪</td>
+                <td>শিক্ষা প্রকল্প</td>
+                <td>দরিদ্র ও মেধাবী শিক্ষার্থীদের এককালীন শিক্ষা বৃত্তি</td>
+                <td>১২ জন শিক্ষার্থী</td>
+                <td style="text-align: right; color: #991B1B; font-weight: 600;">- ১৮,০০০</td>
+              </tr>
+            </tbody>
+          </table>
+        `;
+      } else if (type === 'activities') {
+        body.innerHTML = `
+          <div style="display: flex; justify-content: space-between; margin-bottom: 16px;">
+            <div>
+              <h3 style="font-size: 17px; margin: 0; color: #0B2E1F;">বাৎসরিক সমাজসেবা ও কার্যক্রম রিপোর্ট — ${yearBn}</h3>
+              <div style="font-size: 12px; color: #718096;">সাতানীপাড়া সমাজ কল্যাণ সংঘের মাঠ পর্যায়ের উন্নয়ন কার্যক্রম</div>
+            </div>
+            <div style="text-align: right; font-size: 12px; color: #718096;">
+              ইস্যুর তারিখ: ১৪ নভেম্বর ২০২৪<br>স্মারক নং: SSKS/ACT/${year}/012
+            </div>
+          </div>
+
+          <table class="doc-table">
+            <thead>
+              <tr>
+                <th>কার্যক্রমের নাম</th>
+                <th>সম্পন্ন তারিখ</th>
+                <th>স্থান</th>
+                <th>উপকারভোগী সংখ্যা</th>
+                <th>প্রকল্প বাজেট</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>শীতবস্ত্র ও কম্বল বিতরণ ২০২৪</strong></td>
+                <td>জানুয়ারি ২০২৪</td>
+                <td>সংঘ কার্যালয় প্রাঙ্গণ</td>
+                <td>৩৫০ পরিবার</td>
+                <td>৳ ৭৫,০০০</td>
+              </tr>
+              <tr>
+                <td><strong>কবরস্থান সীমানা প্রাচীর নির্মাণ</strong></td>
+                <td>চলমান (মার্চ - অক্টোবর)</td>
+                <td>সাতানীপাড়া কেন্দ্রীয় কবরস্থান</td>
+                <td>সমগ্র গ্রামবাসী</td>
+                <td>৳ ১,৫০,০০০</td>
+              </tr>
+              <tr>
+                <td><strong>ফ্রি মেডিকেল ও রক্তদান ক্যাম্পেইন</strong></td>
+                <td>আগস্ট ২০২৪</td>
+                <td>সাতানীপাড়া সরকারি প্রা: বিদ্যালয়</td>
+                <td>৪২০ জন রোগী</td>
+                <td>৳ ৪৫,০০০</td>
+              </tr>
+              <tr>
+                <td><strong>বৃক্ষরোপণ কর্মসূচি</strong></td>
+                <td>জুলাই ২০২৪</td>
+                <td>গ্রামের প্রধান সড়ক ও খেলার মাঠ</td>
+                <td>৫০০ চারা রোপণ</td>
+                <td>৳ ১২,০০০</td>
+              </tr>
+            </tbody>
+          </table>
+        `;
+      } else if (type === 'members') {
+        body.innerHTML = `
+          <div style="display: flex; justify-content: space-between; margin-bottom: 16px;">
+            <div>
+              <h3 style="font-size: 17px; margin: 0; color: #0B2E1F;">সদস্য ও পরিবার রেজিস্ট্রি বিবরণী — ${yearBn}</h3>
+              <div style="font-size: 12px; color: #718096;">নিবন্ধিত পরিবারের সরকারি ডাটাবেজ অনুলিপি</div>
+            </div>
+            <div style="text-align: right; font-size: 12px; color: #718096;">
+              মোট নিবন্ধিত পরিবার: TBD (নমুনা)<br>মোট সদস্য: TBD
+            </div>
+          </div>
+
+          <table class="doc-table">
+            <thead>
+              <tr>
+                <th>পরিবার প্রধান / সদস্যের নাম</th>
+                <th>ঠিকানা / বাড়ি</th>
+                <th>সদস্য সংখ্যা</th>
+                <th>প্রবাসী সদস্য</th>
+                <th>যোগাযোগ (সম্মতিসাপেক্ষ)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>মো: রফিকুল ইসলাম</td>
+                <td>পূর্ব পাড়া, সাতানীপাড়া</td>
+                <td>৫ জন</td>
+                <td>১ জন (ওমান)</td>
+                <td>০১৭১১-২২৩৩৪৪</td>
+              </tr>
+              <tr>
+                <td>আবুল কাশেম</td>
+                <td>পশ্চিম পাড়া, সাতানীপাড়া</td>
+                <td>৬ জন</td>
+                <td>১ জন (মালয়েশিয়া)</td>
+                <td><em>[সম্মতি প্রদান করেননি]</em></td>
+              </tr>
+              <tr>
+                <td>ডা: মোস্তফা জামান</td>
+                <td>দক্ষিণ পাড়া, সাতানীপাড়া</td>
+                <td>৪ জন</td>
+                <td>০ জন</td>
+                <td>০১৭১২-৫৫৬৬৭৭</td>
+              </tr>
+            </tbody>
+          </table>
+        `;
+      } else if (type === 'blood') {
+        body.innerHTML = `
+          <div style="display: flex; justify-content: space-between; margin-bottom: 16px;">
+            <div>
+              <h3 style="font-size: 17px; margin: 0; color: #0B2E1F;">রক্তদাতা রেজিস্ট্রি ও জরুরি রক্তদান রিপোর্ট — ${yearBn}</h3>
+              <div style="font-size: 12px; color: #718096;">জীবন রক্ষাকারী জরুরি স্বেচ্ছাসেবী রক্তদাতাদের তালিকা</div>
+            </div>
+            <div style="text-align: right; font-size: 12px; color: #718096;">
+              সক্রিয় রক্তদাতা: ৮ জন<br>জরুরি সাড়া: ১৪ টি
+            </div>
+          </div>
+
+          <table class="doc-table">
+            <thead>
+              <tr>
+                <th>দাতার নাম</th>
+                <th>রক্তের গ্রুপ</th>
+                <th>অবস্থান / পাড়া</th>
+                <th>উপলব্ধতা</th>
+                <th>যোগাযোগ</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>তানভীর আহমেদ</td>
+                <td><strong style="color: #DC2626;">A+</strong></td>
+                <td>মধ্যপাড়া</td>
+                <td>উপলব্ধ</td>
+                <td>০১৭১১-১২২২৩৩</td>
+              </tr>
+              <tr>
+                <td>মো: রাকিব হাসান</td>
+                <td><strong style="color: #DC2626;">O+</strong></td>
+                <td>পশ্চিমপাড়া</td>
+                <td>উপলব্ধ</td>
+                <td>০১৮১১-৩৩৪৪৫৫</td>
+              </tr>
+              <tr>
+                <td>মেহেদী হাসান</td>
+                <td><strong style="color: #DC2626;">B+</strong></td>
+                <td>দক্ষিণপাড়া</td>
+                <td>উপলব্ধ</td>
+                <td>০১৯১১-৫৫৬৬৭৭</td>
+              </tr>
+              <tr>
+                <td>শফিকুল আলম</td>
+                <td><strong style="color: #DC2626;">AB+</strong></td>
+                <td>পূর্বপাড়া</td>
+                <td>উপলব্ধ</td>
+                <td>০১৭১৫-৭৭৮৮৯৯</td>
+              </tr>
+            </tbody>
+          </table>
+        `;
+      } else if (type === 'expatriate') {
+        body.innerHTML = `
+          <div style="display: flex; justify-content: space-between; margin-bottom: 16px;">
+            <div>
+              <h3 style="font-size: 17px; margin: 0; color: #0B2E1F;">প্রবাসী সেবার বার্ষিক কর্মক্ষমতা ও সারসংক্ষেপ — ${yearBn}</h3>
+              <div style="font-size: 12px; color: #718096;">প্রবাসী পরিবারের পাশে সাতানীপাড়া সমাজ কল্যাণ সংঘ</div>
+            </div>
+            <div style="text-align: right; font-size: 12px; color: #718096;">
+              মোট আবেদন: ৪ টি<br>সমাধান সম্পন্ন: ৩ টি (৭৫%)
+            </div>
+          </div>
+
+          <table class="doc-table">
+            <thead>
+              <tr>
+                <th>আইডি</th>
+                <th>আবেদনকারী ও দেশ</th>
+                <th>সেবার বিষয়</th>
+                <th>দায়িত্বপ্রাপ্ত সহায়ক</th>
+                <th>বর্তমান অবস্থা</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>REQ-2024-001</td>
+                <td>মো: কামরুল হাসান (ওমান)</td>
+                <td>বাবার জরুরি চিকিৎসার জন্য উপজেলা হাসপাতালে ব্যবস্থা</td>
+                <td>আহমেদ কবির (সহায়ক)</td>
+                <td><span style="color: #166534; font-weight: 600;">Completed</span></td>
+              </tr>
+              <tr>
+                <td>REQ-2024-002</td>
+                <td>তারেক মাহমুদ (সৌদি আরব)</td>
+                <td>পরিবারের জন্য চাল ও মাসিক বাজার পৌঁছে দেওয়া</td>
+                <td>রফিকুল ইসলাম (সহায়ক)</td>
+                <td><span style="color: #166534; font-weight: 600;">Completed</span></td>
+              </tr>
+              <tr>
+                <td>REQ-2024-003</td>
+                <td>সাইফুল ইসলাম (কাতার)</td>
+                <td>ইউনিয়ন পরিষদ থেকে নাগরিক সনদ সংগ্রহ ও স্ক্যান কপি প্রেরণ</td>
+                <td>আহমেদ কবির (সহায়ক)</td>
+                <td><span style="color: #2563EB; font-weight: 600;">In Progress</span></td>
+              </tr>
+            </tbody>
+          </table>
+        `;
+      }
+
+      document.getElementById('previewModal').classList.add('is-open');
+    }
+
+    function closePreviewModal() {
+      document.getElementById('previewModal').classList.remove('is-open');
+    }
+
+    function closePreviewAndDownload() {
+      closePreviewModal();
+      triggerDownload(currentPreviewType, `${currentPreviewType}-report.pdf`);
+    }
+
+    function generateAllReports() {
+      const modal = document.getElementById('genModal');
+      const progressBar = document.getElementById('genProgressBar');
+      const stepText = document.getElementById('genStep');
+      const percentText = document.getElementById('genPercent');
+      const title = document.getElementById('genTitle');
+      
+      title.textContent = `সকল ৫টি বার্ষিক রিপোর্ট প্যাকেজ জেনারেট হচ্ছে...`;
+      modal.classList.add('is-open');
+
+      let progress = 10;
+      const interval = setInterval(() => {
+        progress += 20;
+        progressBar.style.width = `${progress}%`;
+        percentText.textContent = `${progress}% সম্পন্ন`;
+        if (progress === 30) stepText.textContent = 'আর্থিক হিসাব ও অডিট চার্ট প্রস্তুত...';
+        if (progress === 50) stepText.textContent = 'কার্যক্রম ও সমাজসেবা ডাটা সংকলন...';
+        if (progress === 70) stepText.textContent = 'রক্তদাতা রেজিস্ট্রি ও প্রবাসী সেবার সারসংক্ষেপ...';
+        if (progress === 90) stepText.textContent = 'অফিশিয়াল স্বাক্ষর ও PDF সিলিং...';
+        if (progress >= 100) {
+          clearInterval(interval);
+          setTimeout(() => {
+            modal.classList.remove('is-open');
+            Components.showToast('সকল রিপোর্ট প্যাকেজ (ZIP/PDF) সফলভাবে প্রস্তুত ও ডাউনলোড হয়েছে!', 'success', 6000);
+          }, 500);
+        }
+      }, 300);
+    }
+  </script>
+</body>
+</html>

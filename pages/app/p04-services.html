@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="bn" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>সেবা ট্যাব | Satanipara Community App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../css/tokens.css">
+  <link rel="stylesheet" href="../../css/themes.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/typography.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/app-shell.css">
+  <style>
+    .service-nav-chips {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      margin-bottom: 16px;
+    }
+    .service-nav-chip {
+      white-space: nowrap;
+      padding: 8px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 13.5px;
+      font-weight: 600;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      color: var(--color-text-secondary);
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .service-nav-chip.active {
+      background: var(--color-forest-700);
+      color: #FFFFFF;
+      border-color: var(--color-forest-700);
+    }
+    /* Blood Chips Matrix */
+    .blood-chip-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .blood-filter-chip {
+      padding: 6px 12px;
+      border-radius: var(--radius-pill);
+      font-size: 13px;
+      font-weight: 700;
+      border: 1px solid #FCA5A5;
+      background: #FEF2F2;
+      color: #DC2626;
+      cursor: pointer;
+    }
+    .blood-filter-chip.active {
+      background: #DC2626;
+      color: #FFFFFF;
+      border-color: #DC2626;
+    }
+    .service-panel {
+      display: none;
+    }
+    .service-panel.active {
+      display: block;
+    }
+    .emergency-call-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 14px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-card);
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body data-screen="P-04">
+
+  <div class="app-viewport-wrapper">
+    <div class="mobile-device">
+      
+      <!-- Top Status Bar -->
+      <div class="mobile-status-bar">
+        <span>৯:৪১</span>
+        <div class="mobile-notch"></div>
+        <div style="display: flex; align-items: center; gap: 6px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="16" height="10" rx="2" ry="2"/><line x1="22" y1="11" x2="22" y2="13"/></svg>
+        </div>
+      </div>
+
+      <!-- Header Bar -->
+      <div style="padding: 12px 16px; background: var(--color-surface); border-bottom: 1px solid var(--color-border); display: flex; align-items: center; justify-content: space-between;">
+        <h1 style="font-size: 18px; margin: 0; font-weight: 700; color: var(--color-forest-900);">সমাজকল্যাণ ও সেবা</h1>
+        <span class="badge badge-pending" style="font-size: 11px;">২৪/৭ সেবা ডেস্ক</span>
+      </div>
+
+      <!-- Scrollable Screen Content -->
+      <div class="mobile-screen-content" style="padding: 16px;">
+        
+        <!-- Segmented Navigation Chips -->
+        <div class="service-nav-chips">
+          <button id="chipExpat" class="service-nav-chip active" onclick="switchServiceTab('expat')">প্রবাসী সহায়তা</button>
+          <button id="chipBlood" class="service-nav-chip" onclick="switchServiceTab('blood')">রক্তদাতা খুঁজুন</button>
+          <button id="chipEmergency" class="service-nav-chip" onclick="switchServiceTab('emergency')">জরুরি নম্বর</button>
+        </div>
+
+        <!-- 1. Expatriate Support Section -->
+        <div id="expatPanel" class="service-panel active">
+          <div class="card" style="padding: 18px; margin-bottom: 16px; background: var(--color-green-50); border-color: var(--color-green-100);">
+            <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 10px;">
+              <div style="width: 44px; height: 44px; border-radius: 12px; background: var(--color-forest-900); color: #FAF7EE; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </div>
+              <div>
+                <h3 class="font-h3" style="font-size: 16px; margin: 0; color: var(--color-forest-900);">প্রবাসী সহায়তা ডেস্ক</h3>
+                <div class="font-caption text-muted">আপনার পরিবারের পাশে স্থানীয় স্বেচ্ছাসেবী দল</div>
+              </div>
+            </div>
+
+            <p class="font-body-sm text-muted" style="margin: 0 0 12px 0; font-size: 13px; line-height: 1.6;">
+              বিদেশে অবস্থানরত সাতানীপাড়ার রেমিট্যান্স যোদ্ধাদের পরিবারের যে কোনো আপদকালীন চিকিৎসা, প্রাতিষ্ঠানিক ও পারিবারিক সেবায় আমরা সর্বদা প্রস্তুত।
+            </p>
+
+            <a href="/pages/member/m02-request-wizard.html" class="btn btn-primary btn-block" style="text-align: center; font-size: 14.5px; padding: 12px;">
+              সহায়তার নতুন আবেদন করুন →
+            </a>
+          </div>
+
+          <!-- Policy & Steps -->
+          <div class="card" style="padding: 16px; margin-bottom: 16px;">
+            <h4 style="font-size: 14px; margin: 0 0 10px 0; color: var(--color-forest-900);">সহায়তার ৪টি সহজ ধাপ:</h4>
+            <div style="display: flex; flex-direction: column; gap: 10px; font-size: 13px;">
+              <div style="display: flex; gap: 10px; align-items: flex-start;">
+                <span style="width: 22px; height: 22px; border-radius: 50%; background: var(--color-forest-700); color: #fff; font-size: 11px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">১</span>
+                <div><strong>আবেদন জমা:</strong> ৩ ধাপের সহজ ফর্ম পূরণ করে প্রয়োজনীয় বিবরণ দিন।</div>
+              </div>
+              <div style="display: flex; gap: 10px; align-items: flex-start;">
+                <span style="width: 22px; height: 22px; border-radius: 50%; background: var(--color-forest-700); color: #fff; font-size: 11px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">২</span>
+                <div><strong>Request ID ও নোটিফিকেশন:</strong> ট্র্যাকিং নম্বর পান ও এডমিনকে অবহিত করুন।</div>
+              </div>
+              <div style="display: flex; gap: 10px; align-items: flex-start;">
+                <span style="width: 22px; height: 22px; border-radius: 50%; background: var(--color-forest-700); color: #fff; font-size: 11px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">৩</span>
+                <div><strong>সহায়ক দায়িত্ব গ্রহণ:</strong> মাঠ পর্যায়ের বিশ্বস্ত স্বেচ্ছাসেবী কাজ শুরু করবেন।</div>
+              </div>
+              <div style="display: flex; gap: 10px; align-items: flex-start;">
+                <span style="width: 22px; height: 22px; border-radius: 50%; background: var(--color-forest-700); color: #fff; font-size: 11px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">৪</span>
+                <div><strong>সেবা সম্পন্ন:</strong> কাজ শেষ হলে সরাসরি চূড়ান্ত বিবরণী ও ছবি পান।</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 14 Verbatim Service Policy Disclaimer -->
+          <div style="font-size: 11.5px; color: var(--color-text-secondary); background: var(--color-surface); border: 1px solid var(--color-border); padding: 12px; border-radius: 8px;">
+            <strong>সেবা নীতি ও সীমাবদ্ধতা (ধারা ১৪):</strong> সাতানীপাড়া সমাজ কল্যাণ সংঘের এই সেবা সম্পূর্ণ অলাভজনক ও সামাজিক দায়বদ্ধতা থেকে পরিচালিত। জরুরি জীবন-মৃত্যু পরিস্থিতিতে অবিলম্বে সরকারি জরুরি সেবা (৯৯৯) বা হাসপাতালে যোগাযোগ করুন।
+          </div>
+        </div>
+
+        <!-- 2. Blood Donors Search Section -->
+        <div id="bloodPanel" class="service-panel">
+          <div style="margin-bottom: 12px;">
+            <div style="font-weight: 600; font-size: 13.5px; margin-bottom: 6px;">রক্তের গ্রুপ বেছে নিন:</div>
+            <div class="blood-chip-grid">
+              <button class="blood-filter-chip active" onclick="filterBloodGroup('all')">সকল গ্রুপ</button>
+              <button class="blood-filter-chip" onclick="filterBloodGroup('A+')">A+</button>
+              <button class="blood-filter-chip" onclick="filterBloodGroup('A-')">A-</button>
+              <button class="blood-filter-chip" onclick="filterBloodGroup('B+')">B+</button>
+              <button class="blood-filter-chip" onclick="filterBloodGroup('B-')">B-</button>
+              <button class="blood-filter-chip" onclick="filterBloodGroup('O+')">O+</button>
+              <button class="blood-filter-chip" onclick="filterBloodGroup('O-')">O-</button>
+              <button class="blood-filter-chip" onclick="filterBloodGroup('AB+')">AB+</button>
+              <button class="blood-filter-chip" onclick="filterBloodGroup('AB-')">AB-</button>
+            </div>
+          </div>
+
+          <!-- Donor Cards List -->
+          <div id="bloodDonorsList" style="display: flex; flex-direction: column; gap: 10px;">
+            <!-- Rendered by JS -->
+          </div>
+
+          <!-- Blood Consent & Privacy Notice -->
+          <div style="font-size: 11.5px; color: #78350F; background: #FEF3C7; padding: 12px; border-radius: 8px; margin-top: 14px;">
+            <strong>রক্তদাতার গোপনীয়তা সুরক্ষা:</strong> শুধুমাত্র সম্মতিপ্রাপ্ত রক্তদাতাদের ফোন নম্বর সরাসরি প্রদর্শন করা হয়েছে। অন্যান্য রক্তদাতাদের জন্য সংঘের জরুরি হেল্পলাইনে যোগাযোগ করুন।
+          </div>
+        </div>
+
+        <!-- 3. Emergency Numbers Section -->
+        <div id="emergencyPanel" class="service-panel">
+          <div style="background: #FEF2F2; border: 1px solid #FCA5A5; padding: 12px; border-radius: 8px; margin-bottom: 14px; color: #991B1B; font-size: 12.5px;">
+            <strong>সতর্কতা:</strong> যে কোনো অনাকাঙ্ক্ষিত জরুরি পরিস্থিতি ও দুর্ঘটনায় দ্রুত সংশ্লিষ্ট সরকারি জরুরি বিভাগ বা সংঘের হটলাইনে কল করুন।
+          </div>
+
+          <div class="emergency-call-row">
+            <div>
+              <div style="font-weight: 600; font-size: 14px; color: #DC2626;">জাতীয় জরুরি হেল্পলাইন</div>
+              <div class="font-caption text-muted">পুলিশ • অ্যাম্বুলেন্স • ফায়ার সার্ভিস</div>
+            </div>
+            <a href="tel:999" class="btn btn-danger" style="padding: 6px 14px; font-size: 13px;">
+              কল ৯৯৯
+            </a>
+          </div>
+
+          <div class="emergency-call-row">
+            <div>
+              <div style="font-weight: 600; font-size: 14px;">সংঘের জরুরি হেল্পলাইন</div>
+              <div class="font-caption text-muted">০১৭১১-০০০০০০ (TBD)</div>
+            </div>
+            <a href="tel:01711000000" class="btn btn-primary" style="padding: 6px 14px; font-size: 13px;">
+              কল করুন
+            </a>
+          </div>
+
+          <div class="emergency-call-row">
+            <div>
+              <div style="font-weight: 600; font-size: 14px;">নিকটস্থ অ্যাম্বুলেন্স সেবা</div>
+              <div class="font-caption text-muted">০১৭০০-০০০০০০ (TBD)</div>
+            </div>
+            <a href="tel:01700000000" class="btn btn-outline" style="padding: 6px 14px; font-size: 13px;">
+              কল করুন
+            </a>
+          </div>
+
+          <div class="emergency-call-row">
+            <div>
+              <div style="font-weight: 600; font-size: 14px;">ফায়ার সার্ভিস স্টেশন</div>
+              <div class="font-caption text-muted">০১৮০০-০০০০০০ (TBD)</div>
+            </div>
+            <a href="tel:01800000000" class="btn btn-outline" style="padding: 6px 14px; font-size: 13px;">
+              কল করুন
+            </a>
+          </div>
+
+          <div class="emergency-call-row">
+            <div>
+              <div style="font-weight: 600; font-size: 14px;">নিকটস্থ থানা পুলিশ</div>
+              <div class="font-caption text-muted">০১৯০০-০০০০০০ (TBD)</div>
+            </div>
+            <a href="tel:01900000000" class="btn btn-outline" style="padding: 6px 14px; font-size: 13px;">
+              কল করুন
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Navigation Bar (Services Active) -->
+      <nav class="mobile-bottom-nav">
+        <a href="/pages/app/p02-home.html" class="mobile-nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          <span>হোম</span>
+        </a>
+        <a href="/pages/app/p03-community.html" class="mobile-nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          <span>কমিউনিটি</span>
+        </a>
+        <a href="/pages/app/p04-services.html" class="mobile-nav-item active">
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          <span>সেবা</span>
+        </a>
+        <a href="/pages/app/p05-profile.html" class="mobile-nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>প্রোফাইল</span>
+        </a>
+      </nav>
+
+      <!-- Home Indicator -->
+      <div class="mobile-home-indicator"></div>
+    </div>
+  </div>
+
+  <script src="../../js/mock-data.js"></script>
+  <script src="../../js/language.js"></script>
+  <script src="../../js/theme.js"></script>
+  <script src="../../js/components.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script src="../../js/app.js"></script>
+
+  <script>
+    let currentBloodFilter = 'all';
+
+    function switchServiceTab(tab) {
+      document.querySelectorAll('.service-nav-chip').forEach(c => c.classList.remove('active'));
+      document.querySelectorAll('.service-panel').forEach(p => p.classList.remove('active'));
+
+      if (tab === 'expat') {
+        document.getElementById('chipExpat').classList.add('active');
+        document.getElementById('expatPanel').classList.add('active');
+      } else if (tab === 'blood') {
+        document.getElementById('chipBlood').classList.add('active');
+        document.getElementById('bloodPanel').classList.add('active');
+        renderBloodDonors();
+      } else if (tab === 'emergency') {
+        document.getElementById('chipEmergency').classList.add('active');
+        document.getElementById('emergencyPanel').classList.add('active');
+      }
+    }
+
+    function filterBloodGroup(group) {
+      currentBloodFilter = group;
+      document.querySelectorAll('.blood-filter-chip').forEach(c => {
+        if (c.textContent.trim() === (group === 'all' ? 'সকল গ্রুপ' : group)) {
+          c.classList.add('active');
+        } else {
+          c.classList.remove('active');
+        }
+      });
+      renderBloodDonors();
+    }
+
+    function renderBloodDonors() {
+      const container = document.getElementById('bloodDonorsList');
+      const db = MockData.getDB();
+      let donors = db.bloodDonors || [];
+
+      if (currentBloodFilter !== 'all') {
+        donors = donors.filter(d => d.group === currentBloodFilter);
+      }
+
+      if (donors.length === 0) {
+        container.innerHTML = `
+          <div class="empty-state" style="padding: 24px;">
+            <p style="margin: 0; font-size: 14px;">এই গ্রুপের কোনো রক্তদাতা বর্তমানে উপলব্ধ নেই।</p>
+            <div style="font-size: 12px; color: var(--color-forest-700); margin-top: 6px;">জরুরি প্রয়োজনে সংঘের অফিসে যোগাযোগ করুন: ০১৭১১-০০০০০০ (TBD)</div>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = donors.map(d => `
+        <div class="card" style="padding: 12px; margin: 0; display: flex; justify-content: space-between; align-items: center;">
+          <div style="display: flex; gap: 10px; align-items: center;">
+            <div style="width: 40px; height: 40px; border-radius: 50%; background: #FEE2E2; color: #DC2626; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 15px; flex-shrink: 0;">
+              ${d.group}
+            </div>
+            <div>
+              <div style="font-weight: 600; font-size: 14px;">${d.name}</div>
+              <div class="font-caption text-muted">${d.area} • ${d.availability ? 'উপলব্ধ' : 'অনুপলব্ধ'}</div>
+            </div>
+          </div>
+          <div>
+            ${d.consent && d.phone ? `
+              <a href="tel:${d.phone}" class="btn btn-primary" style="padding: 6px 12px; font-size: 12.5px; background: #DC2626; border-color: #DC2626;">
+                কল করুন
+              </a>
+            ` : `
+              <span class="badge badge-cancelled" style="font-size: 10px;">অফিসে যোগাযোগ</span>
+            `}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const tab = params.get('tab');
+      if (tab === 'blood') {
+        switchServiceTab('blood');
+      } else if (tab === 'emergency') {
+        switchServiceTab('emergency');
+      }
+    });
+  </script>
+</body>
+</html>

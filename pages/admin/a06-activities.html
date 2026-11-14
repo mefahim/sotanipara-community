@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="bn" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>কার্যক্রম পরিচালনা | Satanipara Community Admin</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../css/tokens.css">
+  <link rel="stylesheet" href="../../css/themes.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/typography.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/layouts.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+</head>
+<body data-screen="A-06">
+
+  <div class="admin-layout">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar" id="adminSidebar">
+      <div class="admin-sidebar-header">
+        <img src="../../assets/images/satanipara-crest.svg" alt="Crest" style="width: 36px; height: 36px;">
+        <div>
+          <div style="font-weight: 700; font-size: 15px; color: #FAF7EE;">এডমিন ড্যাশবোর্ড</div>
+          <div style="font-size: 11px; color: var(--color-gold-500);">সাতানীপাড়া সংঘ • ১৯৯৯</div>
+        </div>
+      </div>
+      <ul class="admin-sidebar-menu">
+        <li><a href="/pages/admin/a01-overview.html" class="admin-menu-link"><span>ওভারভিউ</span></a></li>
+        <li><a href="/pages/admin/a02-requests.html" class="admin-menu-link"><span>প্রবাসী আবেদন</span></a></li>
+        <li><a href="/pages/admin/a03-members.html" class="admin-menu-link"><span>সদস্য ও পরিবার</span></a></li>
+        <li><a href="/pages/admin/a04-community.html" class="admin-menu-link"><span>কমিউনিটি তথ্য</span></a></li>
+        <li><a href="/pages/admin/a05-committee.html" class="admin-menu-link"><span>কমিটি ও সংগঠন</span></a></li>
+        <li><a href="/pages/admin/a06-activities.html" class="admin-menu-link active"><span>কার্যক্রম পরিচালনা</span></a></li>
+        <li><a href="/pages/admin/a07-notices.html" class="admin-menu-link"><span>নোটিশ ও গ্যালারি</span></a></li>
+        <li><a href="/pages/admin/a08-blood.html" class="admin-menu-link"><span>রক্তদাতা ও জরুরি রক্ত</span></a></li>
+        <li><a href="/pages/admin/a09-accounts.html" class="admin-menu-link"><span>হিসাব ও অডিট</span></a></li>
+        <li><a href="/pages/admin/a10-users.html" class="admin-menu-link"><span>ব্যবহারকারী ও রোল</span></a></li>
+        <li><a href="/pages/admin/a11-reports.html" class="admin-menu-link"><span>রিপোর্ট</span></a></li>
+        <li><a href="/pages/admin/a12-settings.html" class="admin-menu-link"><span>সেটিংস</span></a></li>
+      </ul>
+    </aside>
+
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <div>
+          <h1 class="font-h3" style="font-size: 20px; margin: 0;">কার্যক্রম ব্যবস্থাপনা</h1>
+          <div class="font-caption text-muted">বার্ষিক কর্মসূচি এন্ট্রি, বাজেট ও উপকারভোগী তথ্য ট্র্যাকিং</div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <span class="badge badge-role-superadmin">সুপার এডমিন</span>
+          <span class="font-body-sm" style="font-weight: 600;">এডমিন ইউজার</span>
+        </div>
+      </header>
+
+      <main class="admin-content">
+        <!-- Action Header -->
+        <div class="card mb-32" style="padding: 20px;">
+          <div class="flex-between flex-wrap gap-12">
+            <div>
+              <h2 class="font-h3" style="color: var(--color-green-700); margin: 0;">কার্যক্রমের তালিকা ও সংরক্ষণাগার</h2>
+              <div class="font-caption text-muted">ওয়েবসাইটের কার্যক্রম পাতায় সরাসরি প্রদর্শিত হয়</div>
+            </div>
+            <button class="btn btn-primary" onclick="openAddActivityModal()">
+              + নতুন কার্যক্রম যোগ করুন
+            </button>
+          </div>
+        </div>
+
+        <!-- Activities Table -->
+        <div class="table-responsive table-cards-mobile">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>কার্যক্রমের শিরোনাম</th>
+                <th>ক্যাটাগরি</th>
+                <th>তারিখ</th>
+                <th>উপকারভোগী</th>
+                <th>বাজেট</th>
+                <th style="text-align: right;">অ্যাকশন</th>
+              </tr>
+            </thead>
+            <tbody id="adminActivitiesBody">
+              <tr>
+                <td data-label="শিরোনাম"><strong>মেধাবৃত্তি ও শিক্ষা উপকরণ বিতরণ ২০২৬</strong></td>
+                <td data-label="ক্যাটাগরি"><span class="badge badge-accepted">মেধাবৃত্তি</span></td>
+                <td data-label="তারিখ">১৫ মার্চ ২০২৬</td>
+                <td data-label="উপকারভোগী">৬৫ জন শিক্ষার্থী</td>
+                <td data-label="বাজেট">৳ ১,২০,০০০</td>
+                <td data-label="অ্যাকশন" style="text-align: right;">
+                  <button class="btn btn-sm btn-ghost">সম্পাদনা</button>
+                  <button class="btn btn-sm btn-ghost" style="color: var(--color-danger);" onclick="deleteActivityConfirm(this)">মুছুন</button>
+                </td>
+              </tr>
+              <tr>
+                <td data-label="শিরোনাম"><strong>বিনামূল্যে রক্তের গ্রুপ নির্ণয় ক্যাম্প</strong></td>
+                <td data-label="ক্যাটাগরি"><span class="badge badge-completed">রক্তদান</span></td>
+                <td data-label="তারিখ">২১ ফেব্রুয়ারি ২০২৬</td>
+                <td data-label="উপকারভোগী">২৫০+ জন</td>
+                <td data-label="বাজেট">৳ ৩৫,০০০</td>
+                <td data-label="অ্যাকশন" style="text-align: right;">
+                  <button class="btn btn-sm btn-ghost">সম্পাদনা</button>
+                  <button class="btn btn-sm btn-ghost" style="color: var(--color-danger);" onclick="deleteActivityConfirm(this)">মুছুন</button>
+                </td>
+              </tr>
+              <tr>
+                <td data-label="শিরোনাম"><strong>শীতবস্ত্র ও কম্বল বিতরণ ২০২৫</strong></td>
+                <td data-label="ক্যাটাগরি"><span class="badge badge-progress">ত্রাণ</span></td>
+                <td data-label="তারিখ">১৮ ডিসেম্বর ২০২৫</td>
+                <td data-label="উপকারভোগী">৩২০টি পরিবার</td>
+                <td data-label="বাজেট">৳ ১,৮৫,০০০</td>
+                <td data-label="অ্যাকশন" style="text-align: right;">
+                  <button class="btn btn-sm btn-ghost">সম্পাদনা</button>
+                  <button class="btn btn-sm btn-ghost" style="color: var(--color-danger);" onclick="deleteActivityConfirm(this)">মুছুন</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Add Activity Modal -->
+  <div class="modal-backdrop" id="addActivityModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2 class="modal-title" style="font-size: 20px; color: var(--color-green-700);">নতুন কার্যক্রম সংযোজন</h2>
+        <button class="modal-close-btn" onclick="closeAddActivityModal()">✕</button>
+      </div>
+      <form onsubmit="handleAddActivitySubmit(event)">
+        <div class="form-group">
+          <label class="form-label">কার্যক্রমের শিরোনাম <span class="required">*</span></label>
+          <input type="text" id="actTitle" class="form-control" placeholder="যেমন: বিনামূল্যে চক্ষু চিকিৎসা ক্যাম্প ২০২৬" required>
+        </div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="form-label">ক্যাটাগরি <span class="required">*</span></label>
+            <select class="form-select" id="actCat" required>
+              <option value="মেধাবৃত্তি ও শিক্ষাবৃত্তি">মেধাবৃত্তি ও শিক্ষাবৃত্তি</option>
+              <option value="শীতবস্ত্র বিতরণ">শীতবস্ত্র বিতরণ</option>
+              <option value="রক্তদান ও স্বাস্থ্য">রক্তদান ও স্বাস্থ্যক্যাম্প</option>
+              <option value="বৃক্ষরোপণ">বৃক্ষরোপণ ও পরিচ্ছন্নতা</option>
+              <option value="দুর্যোগ ত্রাণ">দুর্যোগ ত্রাণ ও অন্যান্য</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">তারিখ <span class="required">*</span></label>
+            <input type="date" id="actDate" class="form-control" required>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="form-label">উপকারভোগী সংখ্যা</label>
+            <input type="text" id="actBeneficiaries" class="form-control" placeholder="যেমন: ১৫০ জন" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">মোট বাজেট (টাকা)</label>
+            <input type="text" id="actBudget" class="form-control" placeholder="যেমন: ৳ ৭৫,০০০" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">সংক্ষিপ্ত বিবরণ</label>
+          <textarea class="form-textarea" id="actSummary" placeholder="কার্যক্রমের মূল লক্ষ্য ও অর্জন সংক্ষেপে লিখুন..." required></textarea>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-ghost" onclick="closeAddActivityModal()">বাতিল</button>
+          <button type="submit" class="btn btn-primary">কার্যক্রম সংরক্ষণ করুন</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="../../js/mock-data.js"></script>
+  <script src="../../js/language.js"></script>
+  <script src="../../js/theme.js"></script>
+  <script src="../../js/components.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script src="../../js/validation.js"></script>
+  <script src="../../js/flows.js"></script>
+  <script src="../../js/app.js"></script>
+  <script>
+    function openAddActivityModal() {
+      document.getElementById('addActivityModal').classList.add('is-open');
+    }
+    function closeAddActivityModal() {
+      document.getElementById('addActivityModal').classList.remove('is-open');
+    }
+    function handleAddActivitySubmit(e) {
+      e.preventDefault();
+      const title = document.getElementById('actTitle').value;
+      const cat = document.getElementById('actCat').value;
+      const date = document.getElementById('actDate').value;
+      const ben = document.getElementById('actBeneficiaries').value;
+      const bgt = document.getElementById('actBudget').value;
+
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td data-label="শিরোনাম"><strong>${title}</strong></td>
+        <td data-label="ক্যাটাগরি"><span class="badge badge-accepted">${cat}</span></td>
+        <td data-label="তারিখ">${date}</td>
+        <td data-label="উপকারভোগী">${ben}</td>
+        <td data-label="বাজেট">${bgt}</td>
+        <td data-label="অ্যাকশন" style="text-align: right;">
+          <button class="btn btn-sm btn-ghost">সম্পাদনা</button>
+          <button class="btn btn-sm btn-ghost" style="color: var(--color-danger);" onclick="deleteActivityConfirm(this)">মুছুন</button>
+        </td>
+      `;
+      document.getElementById('adminActivitiesBody').prepend(tr);
+      closeAddActivityModal();
+      Components.showToast('নতুন কার্যক্রম সফলভাবে যুক্ত হয়েছে!', 'success');
+    }
+
+    function deleteActivityConfirm(btn) {
+      if (confirm('আপনি কি এই কার্যক্রমের রেকর্ড মুছে ফেলতে চান? (অডিট লগে তথ্য লিপিবদ্ধ থাকবে)')) {
+        btn.closest('tr').remove();
+        Components.showToast('কার্যক্রমটি মুছে ফেলা হয়েছে', 'warning');
+      }
+    }
+  </script>
+</body>
+</html>

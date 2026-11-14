@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="bn" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>প্রবাসী সহায়তা আবেদন উইজার্ড | Satanipara Community</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../css/tokens.css">
+  <link rel="stylesheet" href="../../css/themes.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/typography.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/layouts.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+</head>
+<body data-screen="M-02">
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="/pages/public/w01-home.html" class="brand">
+        <img src="../../assets/images/satanipara-crest.svg" alt="Satanipara Crest" class="brand-crest">
+        <div class="brand-text-block">
+          <span class="brand-name" data-i18n="brand.name">সাতানীপাড়া কিমউিনটি</span>
+          <span class="brand-tagline">সদস্য পোর্টাল</span>
+        </div>
+      </a>
+
+      <!-- Header actions with user profile -->
+      <div class="header-actions">
+        <button class="btn btn-icon btn-ghost theme-toggle-btn" id="headerThemeToggle" title="Theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button class="btn btn-sm btn-ghost" id="headerLangToggle">EN</button>
+        
+        <div style="display: flex; align-items: center; gap: 8px; border-left: 1px solid var(--color-border); padding-left: 12px;">
+          <div style="width: 32px; height: 32px; border-radius: 50%; background: var(--color-green-700); color: #FFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px;">
+            আ
+          </div>
+          <span class="font-body-sm" style="font-weight: 600;">আব্দুর রহমান</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Member Subnav -->
+  <nav class="member-subnav">
+    <div class="container">
+      <ul class="member-subnav-list">
+        <li><a href="/pages/member/m01-dashboard.html" class="chip">আমার ড্যাশবোর্ড</a></li>
+        <li><a href="/pages/member/m02-request-wizard.html" class="chip active">নতুন সহায়তা আবেদন</a></li>
+        <li><a href="/pages/member/m03-my-requests.html" class="chip">আমার আবেদনসমূহ</a></li>
+        <li><a href="/pages/member/m04-profile.html" class="chip">আমার প্রোফাইল</a></li>
+        <li><a href="/pages/member/m05-family.html" class="chip">পরিবারের তথ্য</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Wizard Container -->
+  <main class="container section-py" style="max-width: 800px;">
+    <!-- Wizard Title & Subtitle -->
+    <div class="text-center mb-32">
+      <h1 class="font-h1 mb-8" style="color: var(--color-green-700);">প্রবাসী সহায়তা আবেদন</h1>
+      <p class="font-body text-muted">
+        দেশে থাকা আপনার পরিবারের যেকোনো জরুরি সেবায় পাশে দাঁড়াতে ৩টি সহজ ধাপে আবেদন সম্পন্ন করুন
+      </p>
+    </div>
+
+    <!-- 3-Step Indicator Bar -->
+    <div class="stepper" id="wizardStepper">
+      <div class="step-item active" id="stepIndicator1">
+        <div class="step-circle">১</div>
+        <div class="step-label">সেবা নির্বাচন</div>
+      </div>
+      <div class="step-item" id="stepIndicator2">
+        <div class="step-circle">২</div>
+        <div class="step-label">বিবরণ ও ঠিকানা</div>
+      </div>
+      <div class="step-item" id="stepIndicator3">
+        <div class="step-circle">৩</div>
+        <div class="step-label">যাচাই ও সম্মতি</div>
+      </div>
+    </div>
+
+    <!-- The Wizard Form Container -->
+    <div class="card" id="wizardFormCard" style="padding: var(--space-32);">
+      <form id="expatriateWizardForm" onsubmit="event.preventDefault();">
+
+        <!-- ==========================================
+             STEP 1: SERVICE SELECTION
+             ========================================== -->
+        <div id="wizardStep1">
+          <h2 class="font-h3 mb-16" style="color: var(--color-green-700);">
+            ধাপ ১: কী ধরনের সহায়তা প্রয়োজন?
+          </h2>
+
+          <!-- Service Type Selection Cards (6 Types) -->
+          <div class="form-group mb-24">
+            <label class="form-label mb-8">
+              সেবার ধরন নির্বাচন করুন <span class="required">*</span>
+            </label>
+            <div class="selection-grid" id="serviceTypeCards">
+              <div class="selection-card selected" onclick="selectServiceType('medicine', 'জরুরি ওষুধ ও প্রেসক্রিপশন সংগ্রহ', this)">
+                <div style="color: var(--color-green-700);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/></svg></div>
+                <div>
+                  <div style="font-weight: 700; font-size: 15px;">জরুরি ওষুধ ও প্রেসক্রিপশন</div>
+                  <div class="font-caption text-muted">প্রেসক্রিপশন অনুযায়ী জেলা বা শহর থেকে ওষুধ সংগ্রহ ও পৌঁছানো</div>
+                </div>
+              </div>
+
+              <div class="selection-card" onclick="selectServiceType('medical', 'ডাক্তার দেখানো ও রোগী পরিবহন', this)">
+                <div style="color: var(--color-green-700);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></div>
+                <div>
+                  <div style="font-weight: 700; font-size: 15px;">ডাক্তার দেখানো ও রোগী পরিবহন</div>
+                  <div class="font-caption text-muted">সিরিয়াল নেওয়া, হাসপাতালে গাড়ি ব্যবস্থা ও সাথে উপস্থিত থাকা</div>
+                </div>
+              </div>
+
+              <div class="selection-card" onclick="selectServiceType('family', 'জরুরি পারিবারিক বা সামাজিক পাশে দাঁড়ানো', this)">
+                <div style="color: var(--color-green-700);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                <div>
+                  <div style="font-weight: 700; font-size: 15px;">পারিবারিক পাশে দাঁড়ানো</div>
+                  <div class="font-caption text-muted">হঠাৎ কোনো সংকট, বিরোধ বা জরুরি প্রয়োজনে প্রতিনিধির উপস্থিতি</div>
+                </div>
+              </div>
+
+              <div class="selection-card" onclick="selectServiceType('elderly', 'প্রবীণ পিতা-মাতার নিয়মিত খোঁজ ও সেবা', this)">
+                <div style="color: var(--color-green-700);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+                <div>
+                  <div style="font-weight: 700; font-size: 15px;">প্রবীণ পিতা-মাতার নিয়মিত খোঁজ</div>
+                  <div class="font-caption text-muted">একাকী থাকা পিতা-মাতার বাড়িতে গিয়ে কুশল বিনিময় ও সহায়তা</div>
+                </div>
+              </div>
+
+              <div class="selection-card" onclick="selectServiceType('property', 'বাড়িঘর বা সহায়-সম্পত্তির জরুরি তদারকি', this)">
+                <div style="color: var(--color-green-700);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+                <div>
+                  <div style="font-weight: 700; font-size: 15px;">বাড়িঘর বা সম্পত্তি তদারকি</div>
+                  <div class="font-caption text-muted">সীমানা পাহারা, নির্মাণকাজ বা প্রাকৃতিক দুর্যোগে ক্ষতি পর্যবেক্ষণ</div>
+                </div>
+              </div>
+
+              <div class="selection-card" onclick="selectServiceType('misc', 'বিবিধ জরুরি পারিবারিক প্রয়োজন', this)">
+                <div style="color: var(--color-green-700);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+                <div>
+                  <div style="font-weight: 700; font-size: 15px;">বিবিধ জরুরি প্রয়োজন</div>
+                  <div class="font-caption text-muted">সরকারি কাগজপত্র, বিদ্যুৎ বা অন্যান্য অপরিহার্য কাজ</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Beneficiary Selection Chips -->
+          <div class="form-group mb-24">
+            <label class="form-label mb-8">
+              কার জন্য সেবাটি প্রয়োজন? <span class="required">*</span>
+            </label>
+            <div class="chip-row">
+              <button type="button" class="chip active" onclick="selectBeneficiaryChip('বাবা', this)">বাবা</button>
+              <button type="button" class="chip" onclick="selectBeneficiaryChip('মা', this)">মা</button>
+              <button type="button" class="chip" onclick="selectBeneficiaryChip('স্ত্রী ও সন্তান', this)">স্ত্রী ও সন্তান</button>
+              <button type="button" class="chip" onclick="selectBeneficiaryChip('সম্পূর্ণ পরিবার', this)">সম্পূর্ণ পরিবার</button>
+              <button type="button" class="chip" onclick="selectBeneficiaryChip('নিজ বাড়িঘর', this)">নিজ বাড়িঘর</button>
+            </div>
+          </div>
+
+          <!-- Urgent Toggle Switch -->
+          <div class="card mb-24" style="background-color: var(--color-green-50); padding: 16px;">
+            <div class="flex-between">
+              <div>
+                <div style="font-weight: 700; font-size: 16px;">জরুরি সহায়তা প্রয়োজন?</div>
+                <div class="font-caption text-muted">অতি জরুরি পরিস্থিতিতে আমাদের সহায়করা তাৎক্ষণিক প্রাধান্য দেন</div>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" id="urgentToggle" onchange="handleUrgentToggle(this.checked)" style="display: none;">
+                <span class="switch-track"><span class="switch-thumb"></span></span>
+              </label>
+            </div>
+
+            <!-- Urgent Warning Disclaimer (Strict Section 14 Verbatim) -->
+            <div id="urgentWarningBox" style="display: none; margin-top: 16px; padding: 14px; background: rgba(180, 35, 24, 0.08); border-left: 4px solid var(--color-danger); border-radius: 8px;">
+              <div style="font-weight: 700; color: var(--color-danger); font-size: 14.5px; margin-bottom: 4px;">
+                ⚠️ জরুরি সেবা সতর্কবার্তা:
+              </div>
+              <div style="font-size: 13.5px; color: var(--color-text-strong); line-height: 1.5;">
+                "এই সেবা সরকারি জরুরি সেবা বা অ্যাম্বুলেন্সের বিকল্প নয়। জীবন-ঝুঁকির জরুরি অবস্থায় প্রথমে জাতীয় জরুরি সেবা ৯৯৯ নম্বরে কল করুন।"
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 1 Next Button -->
+          <div style="display: flex; justify-content: flex-end;">
+            <button type="button" class="btn btn-primary" onclick="goToStep(2)">
+              পরবর্তী ধাপ: বিবরণ ও ঠিকানা →
+            </button>
+          </div>
+        </div>
+
+        <!-- ==========================================
+             STEP 2: DETAILS & LOCATION
+             ========================================== -->
+        <div id="wizardStep2" style="display: none;">
+          <h2 class="font-h3 mb-16" style="color: var(--color-green-700);">
+            ধাপ ২: বিস্তারিত বিবরণ ও যোগাযোগের ঠিকানা
+          </h2>
+
+          <div class="form-group">
+            <label class="form-label" for="requestDescription">
+              কাজের বিস্তারিত বিবরণ <span class="required">*</span>
+            </label>
+            <textarea id="requestDescription" class="form-textarea" placeholder="কী করতে হবে বিস্তারিত লিখুন (যেমন: প্রেসক্রিপশনের কী কী ঔষধ কিনতে হবে, কখন হাসপাতালে পৌঁছাতে হবে ইত্যাদি)" required></textarea>
+            <span class="form-hint">যত স্পষ্ট বিবরণ দেবেন, সহায়ক তত দ্রুত কাজ সম্পন্ন করতে পারবেন</span>
+          </div>
+
+          <div class="grid-2">
+            <div class="form-group">
+              <label class="form-label" for="requestDate">
+                প্রয়োজনীয় তারিখ ও সময় <span class="required">*</span>
+              </label>
+              <input type="date" id="requestDate" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="requestBudget">
+                আনুমানিক বাজেট (ঐচ্ছিক)
+              </label>
+              <input type="text" id="requestBudget" class="form-control" placeholder="যেমন: ৳ ২,০০০ (ওষুধ ও খরচ)">
+              <span class="form-hint">প্রকৃত ক্রয়ের রশিদ অনুযায়ী খরচ হিসাব হবে</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="requestAddress">
+              যেখানে সেবা প্রয়োজন (সাতানীপাড়ার ঠিকানা) <span class="required">*</span>
+            </label>
+            <input type="text" id="requestAddress" class="form-control" placeholder="যেমন: সাতানীপাড়া উত্তর পাড়া, হাজী বাড়ি সংলগ্ন" required>
+          </div>
+
+          <div class="grid-2">
+            <div class="form-group">
+              <label class="form-label" for="contactName">
+                যার সাথে দেখা করবেন (স্থানীয় ব্যক্তির নাম) <span class="required">*</span>
+              </label>
+              <input type="text" id="contactName" class="form-control" placeholder="যেমন: মো. জমির উদ্দিন (বাবা)" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="contactPhone">
+                স্থানীয় যোগাযোগের মোবাইল নম্বর <span class="required">*</span>
+              </label>
+              <input type="tel" id="contactPhone" class="form-control" placeholder="01XXXXXXXXX" required>
+            </div>
+          </div>
+
+          <!-- Step 2 Navigation Buttons -->
+          <div class="flex-between" style="margin-top: var(--space-24);">
+            <button type="button" class="btn btn-outline" onclick="goToStep(1)">
+              ← পূর্ববর্তী ধাপ
+            </button>
+            <button type="button" class="btn btn-primary" onclick="goToStep(3)">
+              পরবর্তী ধাপ: যাচাই ও সম্মতি →
+            </button>
+          </div>
+        </div>
+
+        <!-- ==========================================
+             STEP 3: REVIEW & POLICY CONSENT
+             ========================================== -->
+        <div id="wizardStep3" style="display: none;">
+          <h2 class="font-h3 mb-16" style="color: var(--color-green-700);">
+            ধাপ ৩: তথ্য যাচাই ও সম্মতি
+          </h2>
+
+          <!-- Summary Card -->
+          <div class="card mb-24" style="background: var(--color-surface); border: 1.5px solid var(--color-green-700); padding: 20px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; border-bottom: 1px solid var(--color-border); padding-bottom: 8px;">
+              <span style="font-weight: 700; color: var(--color-green-700);">আবেদনের সারসংক্ষেপ</span>
+              <span class="badge badge-pending" id="summaryUrgentBadge">সাধারণ আবেদন</span>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-size: 14.5px; margin-bottom: 12px;">
+              <div><strong>সেবার ধরন:</strong> <span id="sumService">ওষুধ সংগ্রহ</span></div>
+              <div><strong>যার জন্য:</strong> <span id="sumBeneficiary">বাবা</span></div>
+              <div><strong>তারিখ:</strong> <span id="sumDate">২০২৬-১১-১৪</span></div>
+              <div><strong>আনুমানিক বাজেট:</strong> <span id="sumBudget">৳ ০</span></div>
+              <div style="grid-column: span 2;"><strong>ঠিকানা:</strong> <span id="sumAddress">সাতানীপাড়া উত্তর পাড়া</span></div>
+              <div style="grid-column: span 2;"><strong>স্থানীয় যোগাযোগ:</strong> <span id="sumContact">মো. জমির উদ্দিন (01711223344)</span></div>
+            </div>
+
+            <div style="font-size: 14px; background: var(--color-green-50); padding: 10px; border-radius: 8px;">
+              <strong>বিবরণ:</strong> <span id="sumDesc">বাবার হার্টের জরুরি ওষুধ জেলা শহর থেকে সংগ্রহ করতে হবে।</span>
+            </div>
+          </div>
+
+          <!-- Mandatory Service Policy Checkbox (Strict Section 14 Verbatim) -->
+          <div class="form-group mb-24">
+            <label class="form-check" style="align-items: flex-start;">
+              <input type="checkbox" id="policyConsentCheckbox" required>
+              <span class="form-check-label" style="font-size: 14px; line-height: 1.5; color: var(--color-text-strong);">
+                <strong>আমি সম্মতি দিচ্ছি এবং অবগত আছি:</strong><br>
+                "সংগঠন বা স্বেচ্ছাসেবকরা কোনো সার্ভিস চার্জ বা মুনাফা নেন না। পণ্য কেনার প্রকৃত মূল্য এবং প্রযোজ্য যাতায়াত খরচ আবেদনকারীকেই বহন করতে হবে। প্রতিটি আবেদনের একটি Request ID থাকবে এবং আবেদনের অবস্থা Pending, Accepted, In Progress ও Completed — এই ধাপে দেখা যাবে।"
+              </span>
+            </label>
+          </div>
+
+          <!-- Step 3 Navigation Buttons -->
+          <div class="flex-between">
+            <button type="button" class="btn btn-outline" onclick="goToStep(2)">
+              ← তথ্য সংশোধন করুন
+            </button>
+            <button type="button" class="btn btn-gold" id="submitApplicationBtn" onclick="submitFinalApplication()">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              আবেদন জমা দিন
+            </button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+
+    <!-- ==========================================
+         SUCCESS STATE: Request ID Confirmation
+         ========================================== -->
+    <div class="card" id="wizardSuccessCard" style="display: none; padding: var(--space-48) var(--space-32); text-align: center;">
+      <div style="width: 72px; height: 72px; border-radius: 50%; background: #D1FAE5; color: #065F46; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+
+      <h2 class="font-h1 mb-12" style="color: var(--color-green-700);">আপনার আবেদন গৃহীত হয়েছে</h2>
+      <p class="font-body text-muted mb-24" style="max-width: 500px; margin-left: auto; margin-right: auto;">
+        সাতানীপাড়া সমাজকল্যাণ সংঘের স্বেচ্ছাসেবক টিম আপনার আবেদনের নোটিফিকেশন পেয়েছেন। অতিসত্বর দায়িত্বপ্রাপ্ত সহায়ক যোগাযোগ করবেন।
+      </p>
+
+      <!-- Large Request ID Box (Latin Numerals) -->
+      <div style="background: var(--color-green-50); border: 2px dashed var(--color-green-700); border-radius: 12px; padding: 20px; max-width: 360px; margin: 0 auto 24px;">
+        <div class="font-caption text-muted" style="text-transform: uppercase; letter-spacing: 1px;">আপনার ট্র্যাকিং রিকোয়েস্ট আইডি</div>
+        <div style="font-size: 32px; font-weight: 700; color: var(--color-green-900); letter-spacing: 1px; margin-top: 4px;" id="generatedRequestId">
+          EXP-2026-0004
+        </div>
+      </div>
+
+      <div class="flex-between" style="justify-content: center; gap: 16px; flex-wrap: wrap;">
+        <a href="/pages/member/m03-my-requests.html" class="btn btn-primary" id="trackRequestBtn">
+          আমার আবেদনের বর্তমান অবস্থা দেখুন →
+        </a>
+        <a href="/pages/member/m01-dashboard.html" class="btn btn-outline">
+          ড্যাশবোর্ডে ফিরুন
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Scripts -->
+  <script src="../../js/mock-data.js"></script>
+  <script src="../../js/language.js"></script>
+  <script src="../../js/theme.js"></script>
+  <script src="../../js/components.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script src="../../js/validation.js"></script>
+  <script src="../../js/flows.js"></script>
+  <script src="../../js/app.js"></script>
+  <script>
+    let currentStep = 1;
+    let selectedService = {
+      code: 'medicine',
+      name_bn: 'জরুরি ওষুধ ও প্রেসক্রিপশন সংগ্রহ',
+      name_en: 'Emergency Medicine & Prescription'
+    };
+    let selectedBeneficiary = 'বাবা';
+    let isUrgent = false;
+
+    function selectServiceType(code, name, cardEl) {
+      selectedService = { code, name_bn: name, name_en: name };
+      document.querySelectorAll('#serviceTypeCards .selection-card').forEach(c => c.classList.remove('selected'));
+      cardEl.classList.add('selected');
+    }
+
+    function selectBeneficiaryChip(val, chipEl) {
+      selectedBeneficiary = val;
+      chipEl.closest('.chip-row').querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+      chipEl.classList.add('active');
+    }
+
+    function handleUrgentToggle(checked) {
+      isUrgent = checked;
+      document.getElementById('urgentWarningBox').style.display = checked ? 'block' : 'none';
+    }
+
+    function goToStep(step) {
+      if (step === 2) {
+        // Validation for step 1
+        if (!selectedService.code) {
+          Components.showToast('দয়া করে সেবার ধরন নির্বাচন করুন', 'error');
+          return;
+        }
+      } else if (step === 3) {
+        // Validation for step 2
+        const desc = document.getElementById('requestDescription').value.trim();
+        const address = document.getElementById('requestAddress').value.trim();
+        const contactName = document.getElementById('contactName').value.trim();
+        const contactPhone = document.getElementById('contactPhone').value.trim();
+
+        if (!desc || desc.length < 10) {
+          Components.showToast('কাজের বিবরণ অন্তত ১০ অক্ষরে বিস্তারিত লিখুন', 'error');
+          return;
+        }
+        if (!address) {
+          Components.showToast('ঠিকানা উল্লেখ করুন', 'error');
+          return;
+        }
+        if (!contactName || !contactPhone) {
+          Components.showToast('স্থানীয় ব্যক্তির নাম ও যোগাযোগ নম্বর আবশ্যক', 'error');
+          return;
+        }
+
+        // Fill Summary Card
+        document.getElementById('sumService').textContent = selectedService.name_bn;
+        document.getElementById('sumBeneficiary').textContent = selectedBeneficiary;
+        document.getElementById('sumDate').textContent = document.getElementById('requestDate').value || 'যত দ্রুত সম্ভব';
+        document.getElementById('sumBudget').textContent = document.getElementById('requestBudget').value || '৳ ০ (প্রযোজ্য নয়)';
+        document.getElementById('sumAddress').textContent = address;
+        document.getElementById('sumContact').textContent = `${contactName} (${contactPhone})`;
+        document.getElementById('sumDesc').textContent = desc;
+
+        const badge = document.getElementById('summaryUrgentBadge');
+        if (isUrgent) {
+          badge.className = 'badge badge-cancelled';
+          badge.textContent = '🚨 জরুরি আবেদন';
+        } else {
+          badge.className = 'badge badge-pending';
+          badge.textContent = 'সাধারণ আবেদন';
+        }
+      }
+
+      currentStep = step;
+      document.getElementById('wizardStep1').style.display = step === 1 ? 'block' : 'none';
+      document.getElementById('wizardStep2').style.display = step === 2 ? 'block' : 'none';
+      document.getElementById('wizardStep3').style.display = step === 3 ? 'block' : 'none';
+
+      // Update Stepper indicators
+      for (let i = 1; i <= 3; i++) {
+        const ind = document.getElementById(`stepIndicator${i}`);
+        if (i < step) {
+          ind.className = 'step-item completed';
+        } else if (i === step) {
+          ind.className = 'step-item active';
+        } else {
+          ind.className = 'step-item';
+        }
+      }
+      window.scrollTo({ top: 100, behavior: 'smooth' });
+    }
+
+    function submitFinalApplication() {
+      const consentChecked = document.getElementById('policyConsentCheckbox').checked;
+      if (!consentChecked) {
+        Components.showToast('অগ্রসর হতে সেবার নীতিমালায় সম্মতি দিন', 'error');
+        return;
+      }
+
+      // Generate New Request ID
+      const newId = 'EXP-2026-000' + Math.floor(Math.random() * 89 + 10);
+      const desc = document.getElementById('requestDescription').value;
+      const address = document.getElementById('requestAddress').value;
+      const contactName = document.getElementById('contactName').value;
+      const contactPhone = document.getElementById('contactPhone').value;
+
+      // Save into Mock Data
+      const db = MockData.getDB();
+      const newReq = {
+        id: newId,
+        serviceType_bn: selectedService.name_bn,
+        serviceType_en: selectedService.name_en,
+        serviceCode: selectedService.code,
+        beneficiary_bn: `${selectedBeneficiary} (${contactName})`,
+        beneficiary_en: `${selectedBeneficiary} (${contactName})`,
+        applicantId: db.session.user ? db.session.user.id : 'usr-001',
+        applicantName_bn: db.session.user ? db.session.user.name_bn : 'আব্দুর রহমান',
+        applicantName_en: db.session.user ? db.session.user.name_en : 'Abdur Rahman',
+        applicantPhone: db.session.user ? db.session.user.mobile : '01712345678',
+        address_bn: address,
+        address_en: address,
+        date: new Date().toISOString().split('T')[0],
+        isUrgent: isUrgent,
+        status: 'Pending',
+        assignedHelper: null,
+        helperName_bn: null,
+        helperName_en: null,
+        description_bn: desc,
+        description_en: desc,
+        timeline: [
+          { status: 'Pending', date: new Date().toLocaleString('en-GB'), note_bn: 'আবেদন দাখিল হয়েছে।', note_en: 'Request submitted.' }
+        ],
+        expenses_bn: '৳ ০',
+        expenses_en: '৳ 0'
+      };
+
+      db.requests.unshift(newReq);
+      MockData.saveDB(db);
+
+      // Show Success Card
+      document.getElementById('wizardFormCard').style.display = 'none';
+      document.getElementById('wizardStepper').style.display = 'none';
+      document.getElementById('generatedRequestId').textContent = newId;
+      document.getElementById('trackRequestBtn').href = `/pages/member/m03-my-requests.html?id=${newId}`;
+      document.getElementById('wizardSuccessCard').style.display = 'block';
+
+      // Section 11: Trigger Web Push notification UX for Super Admin & Helpers
+      setTimeout(() => {
+        Flows.simulateWebPushNotification(newId, selectedService.name_bn);
+      }, 800);
+    }
+  </script>
+</body>
+</html>

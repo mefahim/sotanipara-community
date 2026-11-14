@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="bn" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>আমার আবেদনসমূহ | Satanipara Community</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../css/tokens.css">
+  <link rel="stylesheet" href="../../css/themes.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/typography.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/layouts.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+</head>
+<body data-screen="M-03">
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="/pages/public/w01-home.html" class="brand">
+        <img src="../../assets/images/satanipara-crest.svg" alt="Crest" class="brand-crest">
+        <div class="brand-text-block">
+          <span class="brand-name" data-i18n="brand.name">সাতানীপাড়া কিমউিনটি</span>
+          <span class="brand-tagline">আমার আবেদনসমূহ</span>
+        </div>
+      </a>
+      <div class="header-actions">
+        <button class="btn btn-icon btn-ghost theme-toggle-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+        <button class="btn btn-sm btn-ghost" id="headerLangToggle">EN</button>
+        
+        <div style="display: flex; align-items: center; gap: 8px; border-left: 1px solid var(--color-border); padding-left: 12px;">
+          <div style="width: 32px; height: 32px; border-radius: 50%; background: var(--color-green-700); color: #FFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px;">
+            আ
+          </div>
+          <span class="font-body-sm" style="font-weight: 600;">আব্দুর রহমান</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Member Subnav -->
+  <nav class="member-subnav">
+    <div class="container">
+      <ul class="member-subnav-list">
+        <li><a href="/pages/member/m01-dashboard.html" class="chip">আমার ড্যাশবোর্ড</a></li>
+        <li><a href="/pages/member/m02-request-wizard.html" class="chip">নতুন সহায়তা আবেদন</a></li>
+        <li><a href="/pages/member/m03-my-requests.html" class="chip active">আমার আবেদনসমূহ</a></li>
+        <li><a href="/pages/member/m04-profile.html" class="chip">আমার প্রোফাইল</a></li>
+        <li><a href="/pages/member/m05-family.html" class="chip">পরিবারের তথ্য</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container section-py">
+    <!-- Top Action -->
+    <div class="flex-between mb-32 flex-wrap gap-16">
+      <div>
+        <h1 class="font-h1" style="color: var(--color-green-700);">প্রবাসী সহায়তার আবেদনসমূহ</h1>
+        <p class="font-body text-muted">আপনার দাখিলকৃত সকল সহায়তার লাইভ স্ট্যাটাস ও ইতিহাস</p>
+      </div>
+      <a href="/pages/member/m02-request-wizard.html" class="btn btn-gold">
+        + নতুন আবেদন দাখিল করুন
+      </a>
+    </div>
+
+    <!-- Requests Table (Cards on Mobile) -->
+    <div class="table-responsive table-cards-mobile mb-48">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Request ID</th>
+            <th>সেবার বিষয়</th>
+            <th>কার জন্য</th>
+            <th>দাখিলের তারিখ</th>
+            <th>দায়িত্বপ্রাপ্ত সহায়ক</th>
+            <th>বর্তমান অবস্থা</th>
+            <th style="text-align: right;">অ্যাকশন</th>
+          </tr>
+        </thead>
+        <tbody id="myRequestsTableBody">
+          <!-- Rendered dynamically -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Detailed Request View Section (Shown when an ID is selected or clicked) -->
+    <div class="card" id="requestDetailCard" style="padding: var(--space-32);">
+      <div class="flex-between mb-24 flex-wrap gap-12" style="border-bottom: 1px solid var(--color-border); padding-bottom: 16px;">
+        <div>
+          <div class="font-caption text-muted">নির্বাচিত আবেদনের বিস্তারিত অগ্রগতি</div>
+          <h2 class="font-h2" style="color: var(--color-green-700); margin: 2px 0;" id="detReqId">
+            EXP-2026-0001
+          </h2>
+          <span style="font-weight: 600;" id="detServiceTitle">জরুরি ওষুধ ও প্রেসক্রিপশন সংগ্রহ</span>
+        </div>
+        <div id="detStatusBadgeContainer">
+          <span class="badge badge-progress"><span class="badge-dot"></span>চলমান (In Progress)</span>
+        </div>
+      </div>
+
+      <!-- 4-step Progress Stepper -->
+      <div class="stepper mb-32" id="detailProgressStepper">
+        <div class="step-item completed" id="step1">
+          <div class="step-circle">✓</div>
+          <div class="step-label">১. অপেক্ষমাণ (Pending)</div>
+        </div>
+        <div class="step-item completed" id="step2">
+          <div class="step-circle">✓</div>
+          <div class="step-label">২. গৃহীত (Accepted)</div>
+        </div>
+        <div class="step-item active" id="step3">
+          <div class="step-circle">৩</div>
+          <div class="step-label">৩. চলমান (In Progress)</div>
+        </div>
+        <div class="step-item" id="step4">
+          <div class="step-circle">৪</div>
+          <div class="step-label">৪. সম্পন্ন (Completed)</div>
+        </div>
+      </div>
+
+      <!-- Request Meta Details Grid -->
+      <div class="grid-2 mb-32" style="gap: var(--space-20);">
+        <div style="background: var(--color-green-50); border: 1px solid var(--color-border); border-radius: 12px; padding: 18px; font-size: 14.5px;">
+          <h3 class="font-h3 mb-12" style="font-size: 16px; color: var(--color-green-700);">আবেদনের তথ্য</h3>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div><strong>সেবাগ্রহীতা:</strong> <span id="detBeneficiary">বাবা (মো. জমির উদ্দিন, ৭২ বছর)</span></div>
+            <div><strong>ঠিকানা:</strong> <span id="detAddress">সাতানীপাড়া উত্তর পাড়া, হাজী বাড়ি সংলগ্ন</span></div>
+            <div><strong>দাখিলের তারিখ:</strong> <span id="detDate">১২ নভেম্বর ২০২৬</span></div>
+            <div><strong>প্রকৃত খরচ:</strong> <span id="detExpenses" style="font-weight: 700; color: var(--color-green-700);">৳ ২,৪৫০ (ওষুধ মূল্য ও যাতায়াত)</span></div>
+          </div>
+        </div>
+
+        <div style="background: var(--color-surface); border: 1.5px solid var(--color-green-700); border-radius: 12px; padding: 18px; font-size: 14.5px;">
+          <h3 class="font-h3 mb-12" style="font-size: 16px; color: var(--color-green-700);">দায়িত্বপ্রাপ্ত সহায়ক</h3>
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+            <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--color-green-100); color: var(--color-green-700); display: flex; align-items: center; justify-content: center; font-weight: 700;">
+              কা
+            </div>
+            <div>
+              <div style="font-weight: 700; font-size: 15px;" id="detHelperName">কামরুল হাসান</div>
+              <div class="font-caption text-muted">প্রবাসী সহায়তা স্বেচ্ছাসেবী (সাতানীপাড়া সংঘ)</div>
+            </div>
+          </div>
+          <a href="tel:01711002233" class="btn btn-sm btn-outline btn-block" id="detHelperCallBtn">
+            📞 সহায়ককে সরাসরি কল করুন (01711002233)
+          </a>
+        </div>
+      </div>
+
+      <!-- Timeline Update Log -->
+      <div>
+        <h3 class="font-h3 mb-16" style="color: var(--color-green-700); font-size: 18px;">
+          কার্যক্রমের লাইভ টাইমলাইন ও আপডেট লগ
+        </h3>
+        <div style="display: flex; flex-direction: column; gap: 12px;" id="detTimelineList">
+          <!-- Timeline entries -->
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <div>© ১৯৯৯–২০২৬ সাতানীপাড়া সমাজকল্যাণ সংঘ। সর্বস্বত্ব সংরক্ষিত।</div>
+      <div>M-03 My Requests & Details</div>
+    </div>
+  </footer>
+
+  <script src="../../js/mock-data.js"></script>
+  <script src="../../js/language.js"></script>
+  <script src="../../js/theme.js"></script>
+  <script src="../../js/components.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script src="../../js/validation.js"></script>
+  <script src="../../js/flows.js"></script>
+  <script src="../../js/app.js"></script>
+  <script>
+    function renderMyRequests() {
+      const db = MockData.getDB();
+      const tbody = document.getElementById('myRequestsTableBody');
+      tbody.innerHTML = '';
+
+      db.requests.forEach(req => {
+        const tr = document.createElement('tr');
+        const helper = req.helperName_bn || 'অপেক্ষমাণ';
+
+        tr.innerHTML = `
+          <td data-label="Request ID"><strong style="color: var(--color-green-700);">${req.id}</strong></td>
+          <td data-label="সেবার বিষয়">${req.serviceType_bn}</td>
+          <td data-label="কার জন্য">${req.beneficiary_bn}</td>
+          <td data-label="দাখিলের তারিখ">${req.date}</td>
+          <td data-label="সহায়ক">${helper}</td>
+          <td data-label="বর্তমান অবস্থা">${Components.renderBadge(req.status)}</td>
+          <td data-label="অ্যাকশন" style="text-align: right;">
+            <button class="btn btn-sm btn-outline" onclick="selectDetail('${req.id}')">
+              বিবরণ ও অগ্রগতি →
+            </button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function selectDetail(id) {
+      const db = MockData.getDB();
+      const req = db.requests.find(r => r.id === id);
+      if (!req) return;
+
+      document.getElementById('detReqId').textContent = req.id;
+      document.getElementById('detServiceTitle').textContent = req.serviceType_bn;
+      document.getElementById('detStatusBadgeContainer').innerHTML = Components.renderBadge(req.status);
+      document.getElementById('detBeneficiary').textContent = req.beneficiary_bn;
+      document.getElementById('detAddress').textContent = req.address_bn;
+      document.getElementById('detDate').textContent = req.date;
+      document.getElementById('detExpenses').textContent = req.expenses_bn || '৳ ০';
+
+      if (req.helperName_bn) {
+        document.getElementById('detHelperName').textContent = req.helperName_bn;
+        document.getElementById('detHelperCallBtn').style.display = 'flex';
+        document.getElementById('detHelperCallBtn').href = `tel:${req.helperPhone}`;
+        document.getElementById('detHelperCallBtn').textContent = `📞 সহায়ককে কল করুন (${req.helperPhone})`;
+      } else {
+        document.getElementById('detHelperName').textContent = 'সহায়ক এখনো নির্ধারিত হয়নি';
+        document.getElementById('detHelperCallBtn').style.display = 'none';
+      }
+
+      // Update 4-step progress stepper
+      const stepIdx = { 'Pending': 1, 'Accepted': 2, 'In Progress': 3, 'Completed': 4 }[req.status] || 1;
+      for (let i = 1; i <= 4; i++) {
+        const el = document.getElementById(`step${i}`);
+        if (i < stepIdx) {
+          el.className = 'step-item completed';
+          el.querySelector('.step-circle').textContent = '✓';
+        } else if (i === stepIdx) {
+          el.className = 'step-item active';
+          el.querySelector('.step-circle').textContent = i;
+        } else {
+          el.className = 'step-item';
+          el.querySelector('.step-circle').textContent = i;
+        }
+      }
+
+      // Update timeline
+      const tl = document.getElementById('detTimelineList');
+      tl.innerHTML = '';
+      (req.timeline || []).forEach(evt => {
+        const row = document.createElement('div');
+        row.style.cssText = 'padding: 12px; background: var(--color-surface); border-left: 3px solid var(--color-green-700); border-radius: 4px; box-shadow: var(--shadow-sm);';
+        row.innerHTML = `
+          <div style="font-size: 12px; color: var(--color-text-muted);">${evt.date} • ${Components.renderBadge(evt.status)}</div>
+          <div style="font-weight: 600; font-size: 14.5px; margin-top: 4px;">${evt.note_bn}</div>
+        `;
+        tl.appendChild(row);
+      });
+
+      // Smooth scroll to card
+      document.getElementById('requestDetailCard').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderMyRequests();
+      const params = new URLSearchParams(window.location.search);
+      const reqId = params.get('id') || 'EXP-2026-0001';
+      selectDetail(reqId);
+    });
+  </script>
+</body>
+</html>

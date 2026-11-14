@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="bn" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>প্রবাসী সহায়তা সেবা | Satanipara Community</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../css/tokens.css">
+  <link rel="stylesheet" href="../../css/themes.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/typography.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/layouts.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+  <style>
+    .faq-item {
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-card);
+      margin-bottom: 12px;
+      overflow: hidden;
+      background: var(--color-surface);
+    }
+    .faq-question {
+      padding: 16px 20px;
+      font-weight: 700;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+    .faq-answer {
+      padding: 0 20px 16px;
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: var(--color-text-muted);
+      display: none;
+    }
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+  </style>
+</head>
+<body data-screen="W-06">
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="/pages/public/w01-home.html" class="brand">
+        <img src="../../assets/images/satanipara-crest.svg" alt="Crest" class="brand-crest">
+        <div class="brand-text-block">
+          <span class="brand-name" data-i18n="brand.name">সাতানীপাড়া কিমউিনটি</span>
+          <span class="brand-tagline">প্রবাসী সহায়তা</span>
+        </div>
+      </a>
+      <nav class="nav-desktop">
+        <a href="/pages/public/w01-home.html" class="nav-link">হোম</a>
+        <a href="/pages/public/w02-community.html" class="nav-link">এলাকার প্রোফাইল</a>
+        <a href="/pages/public/w03-organization.html" class="nav-link">সংগঠন</a>
+        <a href="/pages/public/w04-activities.html" class="nav-link">কার্যক্রম</a>
+        <a href="/pages/public/w06-expatriate.html" class="nav-link active">প্রবাসী সেবা</a>
+        <a href="/pages/public/w07-blood-donors.html" class="nav-link">রক্তদাতা</a>
+        <a href="/pages/public/w08-notices.html" class="nav-link">নোটিশ</a>
+        <a href="/pages/public/w10-accounts.html" class="nav-link">হিসাব</a>
+        <a href="/pages/public/w11-contact.html" class="nav-link">যোগাযোগ</a>
+      </nav>
+      <div class="header-actions">
+        <button class="btn btn-icon btn-ghost theme-toggle-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+        <button class="btn btn-sm btn-ghost" id="headerLangToggle">EN</button>
+        <a href="/pages/member/m02-request-wizard.html" class="btn btn-sm btn-gold">আবেদন করুন</a>
+        <button class="btn btn-icon btn-ghost mobile-drawer-toggle" aria-label="Menu" style="display: flex;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container section-py">
+    <!-- Hero / Headline Section -->
+    <div class="card mb-48" style="background: var(--color-green-900); color: #FAF7EE; padding: var(--space-48) var(--space-32); position: relative; overflow: hidden;">
+      <div style="max-width: 680px; position: relative; z-index: 2;">
+        <span class="slogan-chip mb-16" style="background: rgba(20, 83, 45, 0.9);">প্রবাসী কল্যাণ সেল</span>
+        <h1 class="font-display mb-16" style="color: #FAF7EE; font-size: 32px; line-height: 42px;">
+          আপনি বিদেশে কর্মরত, দেশে আপনার পরিবারের পাশে আমরা
+        </h1>
+        <p class="font-body mb-24" style="color: #CBD5E1;">
+          প্রবাসী ভাইদের রক্তের ঘামে দেশ ও গ্রাম গড়ে ওঠে। আপনার অনুপস্থিতিতে সাতানীপাড়ায় আপনার পিতা-মাতা বা পরিবারের যেকোনো পারিবারিক, চিকিৎসা ও জরুরি প্রয়োজনে বিশ্বস্ত স্বেচ্ছাসেবকরা নিবেদিতপ্রাণ।
+        </p>
+        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+          <a href="/pages/member/m02-request-wizard.html" class="btn btn-lg btn-gold">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            সহায়তার জন্য আবেদন করুন
+          </a>
+          <a href="#serviceCategories" class="btn btn-lg btn-outline-white">
+            সেবাসমূহ বিস্তারিত জানুন ↓
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 14 Verbatim Service Policy & Emergency Disclaimers -->
+    <div class="grid-2 mb-48" style="gap: var(--space-20);">
+      <!-- Service Policy Box -->
+      <div class="card" style="border-left: 5px solid var(--color-gold-500); background: var(--color-surface);">
+        <h3 class="font-h3 mb-8" style="color: var(--color-green-700); font-size: 17px;">
+          সেবার মূল নীতিমালা
+        </h3>
+        <p class="font-body-sm" style="line-height: 1.6; color: var(--color-text-strong);">
+          "সংগঠন বা স্বেচ্ছাসেবকরা কোনো সার্ভিস চার্জ বা মুনাফা নেন না। পণ্য কেনার প্রকৃত মূল্য এবং প্রযোজ্য যাতায়াত খরচ আবেদনকারীকেই বহন করতে হবে। প্রতিটি আবেদনের একটি Request ID থাকবে এবং আবেদনের অবস্থা Pending, Accepted, In Progress ও Completed — এই ধাপে দেখা যাবে।"
+        </p>
+      </div>
+
+      <!-- Emergency Warning Box -->
+      <div class="card" style="border-left: 5px solid var(--color-danger); background: rgba(180, 35, 24, 0.04);">
+        <h3 class="font-h3 mb-8" style="color: var(--color-danger); font-size: 17px;">
+          জরুরি সেবা সতর্কবার্তা
+        </h3>
+        <p class="font-body-sm" style="line-height: 1.6; color: var(--color-text-strong);">
+          "এই সেবা সরকারি জরুরি সেবা বা অ্যাম্বুলেন্সের বিকল্প নয়। জীবন-ঝুঁকির জরুরি অবস্থায় প্রথমে জাতীয় জরুরি সেবা ৯৯৯ নম্বরে কল করুন।"
+        </p>
+      </div>
+    </div>
+
+    <!-- 6 Detailed Service Categories -->
+    <div id="serviceCategories" class="mb-48">
+      <div class="text-center mb-32">
+        <h2 class="font-h2 mb-12" style="color: var(--color-green-700);">প্রবাসীদের জন্য ৬টি নির্ধারিত সেবা</h2>
+        <p class="font-body-sm text-muted">যেসব প্রয়োজনে আমাদের সহায়ক স্বেচ্ছাসেবকরা সরাসরি মাঠে কাজ করেন</p>
+      </div>
+
+      <div class="grid-3" style="gap: var(--space-20);">
+        <!-- Service 1 -->
+        <div class="card">
+          <div class="service-icon-box mb-16">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/></svg>
+          </div>
+          <h3 class="font-h3 mb-8">১. জরুরি ওষুধ ও প্রেসক্রিপশন সংগ্রহ</h3>
+          <p class="font-body-sm text-muted">
+            গ্রামের ফার্মেসিতে অপ্রতুল হার্ট, ডায়াবেটিস বা প্রেসক্রিপশনের জরুরি ওষুধ জেলা শহর বা অনুমোদিত দোকান থেকে সংগ্রহ করে বাড়িতে পৌঁছে দেওয়া।
+          </p>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="card">
+          <div class="service-icon-box mb-16">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+          </div>
+          <h3 class="font-h3 mb-8">২. ডাক্তার দেখানো ও রোগী পরিবহন</h3>
+          <p class="font-body-sm text-muted">
+            অভিজ্ঞ চিকিৎসকের অ্যাপয়েন্টমেন্ট/সিরিয়াল গ্রহণ, স্থানীয় যানবাহন (সিএনজি/অ্যাম্বুলেন্স) সমন্বয় এবং হাসপাতালে রোগীর সাথে উপস্থিত থাকা।
+          </p>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="card">
+          <div class="service-icon-box mb-16">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 class="font-h3 mb-8">৩. পারিবারিক পাশে দাঁড়ানো</h3>
+          <p class="font-body-sm text-muted">
+            পরিবারে আকস্মিক মৃত্যু, বিপদ, সামাজিক সংকট বা বিরোধের মুহূর্তে প্রবাসী ভাইয়ের পরিবারের পাশে দায়িত্বশীল অভিভাবকের মতো দাঁড়ানো।
+          </p>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="card">
+          <div class="service-icon-box mb-16">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+          </div>
+          <h3 class="font-h3 mb-8">৪. প্রবীণ পিতা-মাতার খোঁজ ও সেবা</h3>
+          <p class="font-body-sm text-muted">
+            একাকী বসবাসরত বৃদ্ধ পিতা-মাতার সাথে নিয়মিত দেখা করা, কুশল বিনিময়, প্রয়োজনীয় বাজার বা ছোটখাটো মেরামতকাজে সাহায্য করা।
+          </p>
+        </div>
+
+        <!-- Service 5 -->
+        <div class="card">
+          <div class="service-icon-box mb-16">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h3 class="font-h3 mb-8">৫. বাড়িঘর ও সম্পত্তি তদারকি</h3>
+          <p class="font-body-sm text-muted">
+            ঝড়-বৃষ্টি বা প্রাকৃতিক দুর্যোগের পর বাড়িঘরের ক্ষয়ক্ষতি পর্যবেক্ষণ, সীমানা রক্ষা ও নির্মাণকাজের নিরপেক্ষ তথ্য সরবরাহ।
+          </p>
+        </div>
+
+        <!-- Service 6 -->
+        <div class="card">
+          <div class="service-icon-box mb-16">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <h3 class="font-h3 mb-8">৬. বিবিধ জরুরি পারিবারিক প্রয়োজন</h3>
+          <p class="font-body-sm text-muted">
+            ইউনিয়ন পরিষদ বা সরকারি অফিস সংক্রান্ত কাগজপত্র সত্যায়ন, বিদ্যুৎ বিল বা পল্লী বিদ্যুতের সংযোগ সংকট সমন্বয়।
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Frequently Asked Questions (FAQ) -->
+    <div class="mb-48">
+      <h2 class="font-h2 mb-20 text-center" style="color: var(--color-green-700);">সাধারণ জিজ্ঞাসা (FAQ)</h2>
+      <div style="max-width: 720px; margin: 0 auto;">
+        <div class="faq-item open">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>এই সেবা পাওয়ার জন্য আমাকে কি কোনো সার্ভিস চার্জ দিতে হবে?</span>
+            <span>▼</span>
+          </div>
+          <div class="faq-answer">
+            না, একেবারেই না। সাতানীপাড়া সমাজকল্যাণ সংঘ সম্পূর্ণ স্বেচ্ছাসেবী মনোভাব নিয়ে কাজ করে। কোনো কর্মী বা সংঘ সার্ভিস চার্জ নেয় না। তবে পণ্য ক্রয়ের প্রকৃত মূল্য (যেমন ওষুধের দোকান থেকে প্রাপ্ত রশিদের টাকা) এবং গাড়িভাড়া আবেদনকারীকে বহন করতে হয়।
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>আবেদন জমা দেওয়ার পর কত দ্রুত সাড়া পাওয়া যায়?</span>
+            <span>▼</span>
+          </div>
+          <div class="faq-answer">
+            আবেদন জমা হওয়ার সাথে সাথে আমাদের সুপার এডমিন ও দায়িত্বপ্রাপ্ত সহায়কদের ফোনে তাৎক্ষণিক ব্রাউজার পুশ নোটিফিকেশন পৌঁছে যায়। সাধারণ আবেদনে ২-৪ ঘণ্টার মধ্যে এবং জরুরি চিহ্নিত আবেদনে ৩০ মিনিটের মধ্যে যোগাযোগ করা হয়।
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>আমি কাজের অগ্রগতি কীভাবে দেখতে পারব?</span>
+            <span>▼</span>
+          </div>
+          <div class="faq-answer">
+            প্রতিটি আবেদনের একটি অনন্য Request ID থাকবে (যেমন EXP-2026-0001)। আপনি আপনার সদস্য ড্যাশবোর্ডের 'আমার আবেদনসমূহ' পাতায় গিয়ে Pending → Accepted → In Progress → Completed লাইভ স্ট্যাটাস ও সহায়কের পাঠানো ছবি ও নোট দেখতে পাবেন।
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom CTA Card -->
+    <div class="card text-center" style="background: var(--color-green-50); border: 2px solid var(--color-green-700); padding: var(--space-40) var(--space-20);">
+      <h2 class="font-h2 mb-12" style="color: var(--color-green-700);">আপনার পরিবারের পাশে আমরা সর্বদা প্রস্তুত</h2>
+      <p class="font-body text-muted mb-24" style="max-width: 500px; margin-left: auto; margin-right: auto;">
+        সহায়তার জন্য যেকোনো সময় আবেদন দাখিল করুন। সংঘের স্বেচ্ছাসেবক টিম দ্রুত পদক্ষেপ নেবে।
+      </p>
+      <a href="/pages/member/m02-request-wizard.html" class="btn btn-lg btn-primary">
+        এখনই আবেদন দাখিল করুন →
+      </a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <div>© ১৯৯৯–২০২৬ সাতানীপাড়া সমাজকল্যাণ সংঘ। সর্বস্বত্ব সংরক্ষিত।</div>
+      <div>W-06 Expatriate Support</div>
+    </div>
+  </footer>
+
+  <script src="../../js/mock-data.js"></script>
+  <script src="../../js/language.js"></script>
+  <script src="../../js/theme.js"></script>
+  <script src="../../js/components.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script src="../../js/validation.js"></script>
+  <script src="../../js/flows.js"></script>
+  <script src="../../js/app.js"></script>
+  <script>
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      item.classList.toggle('open');
+    }
+  </script>
+</body>
+</html>

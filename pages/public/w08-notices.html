@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="bn" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>নোটিশ ও সংবাদ | Satanipara Community</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../css/tokens.css">
+  <link rel="stylesheet" href="../../css/themes.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/typography.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/layouts.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+</head>
+<body data-screen="W-08">
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="/pages/public/w01-home.html" class="brand">
+        <img src="../../assets/images/satanipara-crest.svg" alt="Crest" class="brand-crest">
+        <div class="brand-text-block">
+          <span class="brand-name" data-i18n="brand.name">সাতানীপাড়া কিমউিনটি</span>
+          <span class="brand-tagline">নোটিশ ও সংবাদ</span>
+        </div>
+      </a>
+      <nav class="nav-desktop">
+        <a href="/pages/public/w01-home.html" class="nav-link">হোম</a>
+        <a href="/pages/public/w02-community.html" class="nav-link">এলাকার প্রোফাইল</a>
+        <a href="/pages/public/w03-organization.html" class="nav-link">সংগঠন</a>
+        <a href="/pages/public/w04-activities.html" class="nav-link">কার্যক্রম</a>
+        <a href="/pages/public/w06-expatriate.html" class="nav-link">প্রবাসী সেবা</a>
+        <a href="/pages/public/w07-blood-donors.html" class="nav-link">রক্তদাতা</a>
+        <a href="/pages/public/w08-notices.html" class="nav-link active">নোটিশ</a>
+        <a href="/pages/public/w10-accounts.html" class="nav-link">হিসাব</a>
+        <a href="/pages/public/w11-contact.html" class="nav-link">যোগাযোগ</a>
+      </nav>
+      <div class="header-actions">
+        <button class="btn btn-icon btn-ghost theme-toggle-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+        <button class="btn btn-sm btn-ghost" id="headerLangToggle">EN</button>
+        <a href="/pages/public/w12-login.html" class="btn btn-sm btn-outline">লগইন</a>
+        <button class="btn btn-icon btn-ghost mobile-drawer-toggle" aria-label="Menu" style="display: flex;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container section-py">
+    <div class="mb-32">
+      <div class="font-caption text-muted mb-4">হোম / নোটিশ ও সংবাদ</div>
+      <h1 class="font-h1 mb-12" style="color: var(--color-green-700);">সংঘের নোটিশ ও অফিসিয়াল বিজ্ঞপ্তি</h1>
+      <p class="font-body text-muted" style="max-width: 800px;">
+        শিক্ষা, সহায়তা, সভা ও এলাকার উন্নয়নমূলক কার্যক্রম সংক্রান্ত জরুরি ঘোষণা এবং সামাজিক বিজ্ঞপ্তি।
+      </p>
+    </div>
+
+    <!-- Filters & Search -->
+    <div class="card mb-32" style="padding: 16px 20px;">
+      <div class="flex-between flex-wrap gap-16">
+        <div class="chip-row" id="noticeCatChips">
+          <button class="chip active" onclick="filterNotices('all', this)">সব নোটিশ</button>
+          <button class="chip" onclick="filterNotices('শিক্ষা', this)">শিক্ষা ও বৃত্তি</button>
+          <button class="chip" onclick="filterNotices('ত্রাণ', this)">ত্রাণ ও সহায়তা</button>
+          <button class="chip" onclick="filterNotices('প্রবাসী সেবা', this)">প্রবাসী সেবা</button>
+        </div>
+        <div>
+          <input type="text" id="noticeSearchInput" class="form-control" style="width: 240px; min-height: 38px;" placeholder="নোটিশ খুঁজুন..." oninput="searchNotices(this.value)">
+        </div>
+      </div>
+    </div>
+
+    <!-- Notices List -->
+    <div style="display: flex; flex-direction: column; gap: 16px;" id="noticesListContainer">
+      <!-- Injected via renderNoticesList() -->
+    </div>
+
+    <!-- Empty State -->
+    <div id="noticesEmptyState" class="empty-state" style="display: none; margin-top: 32px;">
+      <div class="empty-state-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      </div>
+      <h3 class="font-h3" data-i18n="empty.notifications">নতুন কোনো খবর নেই</h3>
+      <p class="font-body-sm text-muted">অন্যান্য ক্যাটাগরি ফিল্টার করে দেখুন</p>
+    </div>
+  </main>
+
+  <!-- Notice Detail Modal -->
+  <div class="modal-backdrop" id="noticeDetailModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <span class="badge badge-accepted mb-4" id="modalNoticeCat">শিক্ষা</span>
+          <span class="font-caption text-muted" id="modalNoticeDate">১০ নভেম্বর ২০২৬</span>
+        </div>
+        <button class="modal-close-btn" onclick="closeNoticeModal()">✕</button>
+      </div>
+      <h2 class="modal-title mb-16" id="modalNoticeTitle" style="font-size: 20px; color: var(--color-green-700);">
+        নোটিশ শিরোনাম
+      </h2>
+      <div class="font-body mb-24" id="modalNoticeBody" style="line-height: 1.8; color: var(--color-text-strong);">
+        নোটিশের সম্পূর্ণ বিবরণ এখানে দৃশ্যমান হবে।
+      </div>
+      <div style="padding: 12px; background: var(--color-green-50); border-radius: 8px; font-size: 13.5px; color: var(--color-text-muted);">
+        বিজ্ঞপ্তি প্রদানকারী: কার্যনির্বাহী পরিষদ, সাতানীপাড়া সমাজকল্যাণ সংঘ।
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" onclick="closeNoticeModal()">বন্ধ করুন</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <div>© ১৯৯৯–২০২৬ সাতানীপাড়া সমাজকল্যাণ সংঘ। সর্বস্বত্ব সংরক্ষিত।</div>
+      <div>W-08 Notices & News</div>
+    </div>
+  </footer>
+
+  <script src="../../js/mock-data.js"></script>
+  <script src="../../js/language.js"></script>
+  <script src="../../js/theme.js"></script>
+  <script src="../../js/components.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script src="../../js/validation.js"></script>
+  <script src="../../js/flows.js"></script>
+  <script src="../../js/app.js"></script>
+  <script>
+    let activeCat = 'all';
+
+    function renderNoticesList() {
+      const db = MockData.getDB();
+      const container = document.getElementById('noticesListContainer');
+      const emptyState = document.getElementById('noticesEmptyState');
+      container.innerHTML = '';
+
+      let list = db.notices;
+      if (activeCat !== 'all') {
+        list = list.filter(n => n.category_bn === activeCat);
+      }
+
+      if (list.length === 0) {
+        container.style.display = 'none';
+        emptyState.style.display = 'flex';
+        return;
+      }
+
+      container.style.display = 'flex';
+      emptyState.style.display = 'none';
+
+      list.forEach(notice => {
+        const card = document.createElement('div');
+        card.className = 'notice-card';
+        card.style.cursor = 'pointer';
+        card.onclick = () => openNoticeDetail(notice.id);
+
+        const tickerBadge = notice.isTicker ? `<span class="badge badge-gold" style="font-size: 11px;">টিকার বিজ্ঞপ্তি</span>` : '';
+
+        card.innerHTML = `
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="badge badge-accepted">${notice.category_bn}</span>
+              ${tickerBadge}
+            </div>
+            <span class="font-caption text-muted">${notice.date}</span>
+          </div>
+          <h3 class="font-h3" style="font-size: 18px; margin: 4px 0;">${notice.title_bn}</h3>
+          <p class="font-body-sm text-muted">${notice.summary_bn}</p>
+          <div style="color: var(--color-green-700); font-weight: 600; font-size: 14px; margin-top: 4px;">
+            সম্পূর্ণ বিজ্ঞপ্তি পড়ুন →
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function filterNotices(cat, btn) {
+      activeCat = cat;
+      document.querySelectorAll('#noticeCatChips .chip').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      renderNoticesList();
+    }
+
+    function searchNotices(val) {
+      const q = val.toLowerCase();
+      document.querySelectorAll('#noticesListContainer .notice-card').forEach(card => {
+        card.style.display = card.textContent.toLowerCase().includes(q) ? 'flex' : 'none';
+      });
+    }
+
+    function openNoticeDetail(id) {
+      const db = MockData.getDB();
+      const notice = db.notices.find(n => n.id === id);
+      if (!notice) return;
+
+      document.getElementById('modalNoticeCat').textContent = notice.category_bn;
+      document.getElementById('modalNoticeDate').textContent = notice.date;
+      document.getElementById('modalNoticeTitle').textContent = notice.title_bn;
+      document.getElementById('modalNoticeBody').textContent = notice.summary_bn;
+
+      document.getElementById('noticeDetailModal').classList.add('is-open');
+    }
+
+    function closeNoticeModal() {
+      document.getElementById('noticeDetailModal').classList.remove('is-open');
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderNoticesList();
+      const params = new URLSearchParams(window.location.search);
+      const nid = params.get('id');
+      if (nid) openNoticeDetail(nid);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="bn" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>কমিটি ও সংগঠন ব্যবস্থাপনা | Satanipara Community Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../css/tokens.css">
+  <link rel="stylesheet" href="../../css/themes.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/typography.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/layouts.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+</head>
+<body data-screen="A-05">
+
+  <div class="admin-layout">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar" id="adminSidebar">
+      <div class="admin-sidebar-header">
+        <img src="../../assets/images/satanipara-crest.svg" alt="Crest" style="width: 36px; height: 36px;">
+        <div>
+          <div style="font-weight: 700; font-size: 15px; color: #FAF7EE;">এডমিন ড্যাশবোর্ড</div>
+          <div style="font-size: 11px; color: var(--color-gold-500);">সাতানীপাড়া সংঘ • ১৯৯৯</div>
+        </div>
+      </div>
+      <ul class="admin-sidebar-menu">
+        <li><a href="/pages/admin/a01-overview.html" class="admin-menu-link"><span>ওভারভিউ</span></a></li>
+        <li><a href="/pages/admin/a02-requests.html" class="admin-menu-link"><span>প্রবাসী আবেদন</span></a></li>
+        <li><a href="/pages/admin/a03-members.html" class="admin-menu-link"><span>সদস্য ও পরিবার</span></a></li>
+        <li><a href="/pages/admin/a04-community.html" class="admin-menu-link"><span>কমিউনিটি তথ্য</span></a></li>
+        <li><a href="/pages/admin/a05-committee.html" class="admin-menu-link active"><span>কমিটি ও সংগঠন</span></a></li>
+        <li><a href="/pages/admin/a06-activities.html" class="admin-menu-link"><span>কার্যক্রম পরিচালনা</span></a></li>
+        <li><a href="/pages/admin/a07-notices.html" class="admin-menu-link"><span>নোটিশ ও গ্যালারি</span></a></li>
+        <li><a href="/pages/admin/a08-blood.html" class="admin-menu-link"><span>রক্তদাতা ও জরুরি রক্ত</span></a></li>
+        <li><a href="/pages/admin/a09-accounts.html" class="admin-menu-link"><span>হিসাব ও অডিট</span></a></li>
+        <li><a href="/pages/admin/a10-users.html" class="admin-menu-link"><span>ব্যবহারকারী ও রোল</span></a></li>
+        <li><a href="/pages/admin/a11-reports.html" class="admin-menu-link"><span>রিপোর্ট</span></a></li>
+        <li><a href="/pages/admin/a12-settings.html" class="admin-menu-link"><span>সেটিংস</span></a></li>
+      </ul>
+    </aside>
+
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <div>
+          <h1 class="font-h3" style="font-size: 20px; margin: 0;">কমিটি ও নেতৃত্ব ব্যবস্থাপনা</h1>
+          <div class="font-caption text-muted">কার্যনির্বাহী পরিষদ, উপদেষ্টা পরিষদ ও সাবেক নেতৃত্ব তালিকা</div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <span class="badge badge-role-superadmin">সুপার এডমিন</span>
+          <span class="font-body-sm" style="font-weight: 600;">এডমিন ইউজার</span>
+        </div>
+      </header>
+
+      <main class="admin-content">
+        <!-- Committee Term Header -->
+        <div class="card mb-32" style="padding: 20px;">
+          <div class="flex-between flex-wrap gap-12">
+            <div>
+              <span class="badge badge-accepted mb-4">চলতি মেয়াদ</span>
+              <h2 class="font-h3" style="color: var(--color-green-700); margin: 0;">
+                কার্যনির্বাহী কমিটি (২০২৫–২০২৭)
+              </h2>
+            </div>
+            <button class="btn btn-sm btn-primary" onclick="Components.showToast('কমিটি সদস্য যোগ করার ফর্ম উন্মুক্ত', 'info')">
+              + নতুন সদস্য যোগ করুন
+            </button>
+          </div>
+        </div>
+
+        <!-- Committee Table -->
+        <div class="table-responsive table-cards-mobile mb-40">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>পদবি</th>
+                <th>কর্মকর্তার নাম</th>
+                <th>মেয়াদকাল</th>
+                <th>এলাকা</th>
+                <th style="text-align: right;">অ্যাকশন</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="পদবি"><strong>সভাপতি</strong></td>
+                <td data-label="নাম">হাজী মো. মকবুল হোসেন (নমুনা নাম)</td>
+                <td data-label="মেয়াদ">২০২৫–২০২৭</td>
+                <td data-label="এলাকা">সাতানীপাড়া মধ্য পাড়া</td>
+                <td data-label="অ্যাকশন" style="text-align: right;"><button class="btn btn-sm btn-ghost">সম্পাদনা</button></td>
+              </tr>
+              <tr>
+                <td data-label="পদবি"><strong>সাধারণ সম্পাদক</strong></td>
+                <td data-label="নাম">ইঞ্জি. মো. জয়নাল আবেদীন (নমুনা)</td>
+                <td data-label="মেয়াদ">২০২৫–২০২৭</td>
+                <td data-label="এলাকা">সাতানীপাড়া উত্তর পাড়া</td>
+                <td data-label="অ্যাকশন" style="text-align: right;"><button class="btn btn-sm btn-ghost">সম্পাদনা</button></td>
+              </tr>
+              <tr>
+                <td data-label="পদবি"><strong>সহ-সভাপতি</strong></td>
+                <td data-label="নাম">মাওলানা মো. নূরুল হক (নমুনা)</td>
+                <td data-label="মেয়াদ">২০২৫–২০২৭</td>
+                <td data-label="এলাকা">সাতানীপাড়া দক্ষিণ পাড়া</td>
+                <td data-label="অ্যাকশন" style="text-align: right;"><button class="btn btn-sm btn-ghost">সম্পাদনা</button></td>
+              </tr>
+              <tr>
+                <td data-label="পদবি"><strong>কোষাধ্যক্ষ</strong></td>
+                <td data-label="নাম">মাওলানা আবুল কালাম (নমুনা নাম)</td>
+                <td data-label="মেয়াদ">২০২৫–২০২৭</td>
+                <td data-label="এলাকা">সাতানীপাড়া পূর্ব পাড়া</td>
+                <td data-label="অ্যাকশন" style="text-align: right;"><button class="btn btn-sm btn-ghost">সম্পাদনা</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Advisory Council Section -->
+        <div class="card" style="padding: 24px;">
+          <h2 class="font-h3 mb-16" style="color: var(--color-green-700);">উপদেষ্টা পরিষদ (Advisory Council)</h2>
+          <div class="grid-3">
+            <div class="person-card">
+              <div class="person-avatar">উ</div>
+              <div class="person-info">
+                <div class="person-name">আলহাজ্ব ডা. আব্দুর রহিম (নমুনা)</div>
+                <div class="person-role">প্রধান উপদেষ্টা • বিশিষ্ট সমাজসেবক</div>
+              </div>
+            </div>
+            <div class="person-card">
+              <div class="person-avatar">উ</div>
+              <div class="person-info">
+                <div class="person-name">মাওলানা মো. আব্দুল জলিল (নমুনা)</div>
+                <div class="person-role">উপদেষ্টা • সাবেক সভাপতি</div>
+              </div>
+            </div>
+            <div class="person-card">
+              <div class="person-avatar">উ</div>
+              <div class="person-info">
+                <div class="person-name">হাজী মো. শামসুল হক (নমুনা)</div>
+                <div class="person-role">উপদেষ্টা • সমাজহিতৈষী</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../../js/mock-data.js"></script>
+  <script src="../../js/language.js"></script>
+  <script src="../../js/theme.js"></script>
+  <script src="../../js/components.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script src="../../js/validation.js"></script>
+  <script src="../../js/flows.js"></script>
+  <script src="../../js/app.js"></script>
+</body>
+</html>

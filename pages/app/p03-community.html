@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="bn" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>কমিউনিটি ট্যাব | Satanipara Community App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../css/tokens.css">
+  <link rel="stylesheet" href="../../css/themes.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/typography.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/app-shell.css">
+  <style>
+    .community-menu-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-card);
+      margin-bottom: 12px;
+      text-decoration: none;
+      color: var(--color-text-primary);
+      cursor: pointer;
+      transition: border-color 0.15s ease, background 0.15s ease;
+    }
+    .community-menu-item:hover, .community-menu-item:active {
+      border-color: var(--color-forest-600);
+      background: var(--color-green-50);
+    }
+    .community-icon-box {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--color-green-100);
+      color: var(--color-forest-700);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 14px;
+      flex-shrink: 0;
+    }
+    /* Section Detail Viewer inside App Frame */
+    .section-viewer {
+      display: none;
+      animation: fadeIn 0.2s ease;
+    }
+    .section-viewer.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body data-screen="P-03">
+
+  <div class="app-viewport-wrapper">
+    <div class="mobile-device">
+      
+      <!-- Top Status Bar -->
+      <div class="mobile-status-bar">
+        <span>৯:৪১</span>
+        <div class="mobile-notch"></div>
+        <div style="display: flex; align-items: center; gap: 6px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="16" height="10" rx="2" ry="2"/><line x1="22" y1="11" x2="22" y2="13"/></svg>
+        </div>
+      </div>
+
+      <!-- App Header Bar -->
+      <div style="padding: 12px 16px; background: var(--color-surface); border-bottom: 1px solid var(--color-border); display: flex; align-items: center; justify-content: space-between;">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <button id="backToMenuBtn" style="display: none; background: none; border: none; padding: 4px; cursor: pointer; color: var(--color-text-primary);" onclick="showMainMenu()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          </button>
+          <h1 id="screenTitle" style="font-size: 18px; margin: 0; font-weight: 700; color: var(--color-forest-900);">কমিউনিটি ডিরেক্টরি</h1>
+        </div>
+        <span class="badge badge-gold" style="font-size: 11px;">১৯৯৯ থেকে</span>
+      </div>
+
+      <!-- Scrollable Content -->
+      <div class="mobile-screen-content" style="padding: 16px;">
+        
+        <!-- 1. Main Community Menu View -->
+        <div id="communityMenuView">
+          <p class="font-body-sm text-muted" style="margin-top: 0; margin-bottom: 16px;">
+            সাতানীপাড়া সমাজ কল্যাণ সংঘের সাংগঠনিক ইতিহাস, ঐতিহ্য, বাৎসরিক কার্যক্রম ও স্বচ্ছতার বিস্তারিত তথ্যভাণ্ডার।
+          </p>
+
+          <div class="community-menu-item" onclick="openSection('profile')">
+            <div style="display: flex; align-items: center;">
+              <div class="community-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <div style="font-weight: 600; font-size: 15px;">এলাকার প্রোফাইল</div>
+                <div class="font-caption text-muted">ভৌগোলিক অবস্থান, ইতিহাস ও জনমিতি</div>
+              </div>
+            </div>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          </div>
+
+          <div class="community-menu-item" onclick="openSection('org')">
+            <div style="display: flex; align-items: center;">
+              <div class="community-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <div>
+                <div style="font-weight: 600; font-size: 15px;">সংগঠন ও কার্যনির্বাহী কমিটি</div>
+                <div class="font-caption text-muted">উপদেষ্টা পরিষদ, নেতৃত্ব ও গঠনতন্ত্র</div>
+              </div>
+            </div>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          </div>
+
+          <div class="community-menu-item" onclick="openSection('activities')">
+            <div style="display: flex; align-items: center;">
+              <div class="community-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              </div>
+              <div>
+                <div style="font-weight: 600; font-size: 15px;">বার্ষিক কার্যক্রম ও সেবা</div>
+                <div class="font-caption text-muted">চলমান সমাজসেবামূলক কর্মকাণ্ড</div>
+              </div>
+            </div>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          </div>
+
+          <div class="community-menu-item" onclick="openSection('gallery')">
+            <div style="display: flex; align-items: center;">
+              <div class="community-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              </div>
+              <div>
+                <div style="font-weight: 600; font-size: 15px;">ছবি গ্যালারি</div>
+                <div class="font-caption text-muted">স্মৃতিচিহ্ন ও সামাজিক ইভেন্টের স্থিরচিত্র</div>
+              </div>
+            </div>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          </div>
+
+          <div class="community-menu-item" onclick="openSection('accounts')">
+            <div style="display: flex; align-items: center;">
+              <div class="community-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </div>
+              <div>
+                <div style="font-weight: 600; font-size: 15px;">হিসাব ও আর্থিক স্বচ্ছতা</div>
+                <div class="font-caption text-muted">প্রকাশ্য আয়-ব্যয় ও তহবিলের স্থিতি</div>
+              </div>
+            </div>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          </div>
+
+          <div class="community-menu-item" onclick="openSection('notices')">
+            <div style="display: flex; align-items: center;">
+              <div class="community-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+              </div>
+              <div>
+                <div style="font-weight: 600; font-size: 15px;">বিজ্ঞপ্তি ও নোটিশ বোর্ড</div>
+                <div class="font-caption text-muted">অফিশিয়াল ঘোষণা ও খবরাখবর</div>
+              </div>
+            </div>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          </div>
+        </div>
+
+        <!-- 2. Sub-Section Viewer (Rendered mobile layout of W-series) -->
+        <div id="sectionViewer" class="section-viewer">
+          <div id="sectionContent">
+            <!-- Dynamically injected -->
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Navigation Bar (Community Active) -->
+      <nav class="mobile-bottom-nav">
+        <a href="/pages/app/p02-home.html" class="mobile-nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          <span>হোম</span>
+        </a>
+        <a href="/pages/app/p03-community.html" class="mobile-nav-item active">
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          <span>কমিউনিটি</span>
+        </a>
+        <a href="/pages/app/p04-services.html" class="mobile-nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          <span>সেবা</span>
+        </a>
+        <a href="/pages/app/p05-profile.html" class="mobile-nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>প্রোফাইল</span>
+        </a>
+      </nav>
+
+      <!-- Home Indicator -->
+      <div class="mobile-home-indicator"></div>
+    </div>
+  </div>
+
+  <script src="../../js/mock-data.js"></script>
+  <script src="../../js/language.js"></script>
+  <script src="../../js/theme.js"></script>
+  <script src="../../js/components.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script src="../../js/app.js"></script>
+
+  <script>
+    function openSection(secKey) {
+      document.getElementById('communityMenuView').style.display = 'none';
+      const viewer = document.getElementById('sectionViewer');
+      const content = document.getElementById('sectionContent');
+      const title = document.getElementById('screenTitle');
+      const backBtn = document.getElementById('backToMenuBtn');
+      
+      backBtn.style.display = 'block';
+      viewer.classList.add('active');
+
+      if (secKey === 'profile') {
+        title.textContent = 'এলাকার প্রোফাইল';
+        content.innerHTML = `
+          <div class="card" style="padding: 16px; margin-bottom: 16px;">
+            <img src="../../assets/images/placeholder-image.svg" alt="Placeholder" style="width: 100%; height: 140px; border-radius: 8px; margin-bottom: 12px; object-fit: cover;">
+            <h3 class="font-h3" style="font-size: 16px; margin: 0 0 8px 0;">ঐতিহ্যবাহী সাতানীপাড়া</h3>
+            <p class="font-body-sm text-muted" style="margin: 0; line-height: 1.6;">
+              সাতানীপাড়া বাংলাদেশের একটি ঐতিহ্যবাহী শান্তিপ্রিয় জনপদ। ১৯৯৯ সালে স্থানীয় সচেতন তরুণ ও সমাজসেবীদের উদ্যোগে গঠিত হয় সাতানীপাড়া সমাজ কল্যাণ সংঘ।
+            </p>
+          </div>
+          <div class="card" style="padding: 16px;">
+            <h4 style="font-size: 14px; margin: 0 0 8px 0; color: var(--color-forest-900);">ভৌগোলিক ও জনমিতি তথ্য</h4>
+            <div style="font-size: 13px; line-height: 1.8;">
+              <div><strong>ডাকঘর ও থানা:</strong> TBD (প্রকৃত তথ্য পরে বসবে)</div>
+              <div><strong>জেলা:</strong> TBD (প্রকৃত তথ্য পরে বসবে)</div>
+              <div><strong>মোট পরিবার:</strong> ৩৫০+ (TBD)</div>
+              <div><strong>শিক্ষা প্রতিষ্ঠান:</strong> ২টি প্রাথমিক বিদ্যালয় ও ১টি মাদ্রাসা (TBD)</div>
+            </div>
+          </div>
+        `;
+      } else if (secKey === 'org') {
+        title.textContent = 'সংগঠন ও কমিটি';
+        content.innerHTML = `
+          <div class="card" style="padding: 16px; margin-bottom: 16px;">
+            <h3 class="font-h3" style="font-size: 16px; margin: 0 0 8px 0;">কার্যনির্বাহী পরিষদ (২০২৪-২০২৬)</h3>
+            <p class="font-caption text-muted" style="margin-bottom: 12px;">গঠনতন্ত্র অনুযায়ী দ্বিবার্ষিক গণতান্ত্রিক প্রক্রিয়ায় নির্বাচিত পরিচালনা কমিটি।</p>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <div style="border-bottom: 1px solid var(--color-border); padding-bottom: 8px;">
+                <div style="font-weight: 600; font-size: 14px;">মো: আব্দুল করিম</div>
+                <div style="font-size: 12px; color: var(--color-forest-700);">সভাপতি • সমাজসেবক</div>
+              </div>
+              <div style="border-bottom: 1px solid var(--color-border); padding-bottom: 8px;">
+                <div style="font-weight: 600; font-size: 14px;">ইঞ্জিনিয়ার মো: ফখরুল ইসলাম</div>
+                <div style="font-size: 12px; color: var(--color-forest-700);">সাধারণ সম্পাদক • সমাজকর্মী</div>
+              </div>
+              <div>
+                <div style="font-weight: 600; font-size: 14px;">মো: নুরুল ইসলাম</div>
+                <div style="font-size: 12px; color: var(--color-forest-700);">কোষাধ্যক্ষ • ব্যবসায়ী</div>
+              </div>
+            </div>
+          </div>
+        `;
+      } else if (secKey === 'activities') {
+        title.textContent = 'বার্ষিক কার্যক্রম';
+        content.innerHTML = `
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div class="card" style="padding: 14px;">
+              <span class="badge badge-completed" style="font-size: 10px; margin-bottom: 6px;">সম্পন্ন</span>
+              <h4 style="font-size: 15px; margin: 0 0 4px 0;">শীতবস্ত্র ও কম্বল বিতরণ ২০২৪</h4>
+              <p class="font-body-sm text-muted" style="font-size: 12.5px; margin: 0;">৩৫০ অসহায় পরিবারের মাঝে শীতবস্ত্র ও কম্বল বিতরণ কার্যক্রম সফলভাবে সম্পন্ন।</p>
+            </div>
+            <div class="card" style="padding: 14px;">
+              <span class="badge badge-in-progress" style="font-size: 10px; margin-bottom: 6px;">চলমান</span>
+              <h4 style="font-size: 15px; margin: 0 0 4px 0;">কবরস্থান সীমানা প্রাচীর নির্মাণ</h4>
+              <p class="font-body-sm text-muted" style="font-size: 12.5px; margin: 0;">গ্রামবাসীর অনুদান ও স্বেচ্ছাশ্রমে কবরস্থানের বাউন্ডারি ওয়ালের নির্মাণকাজ চলমান।</p>
+            </div>
+          </div>
+        `;
+      } else if (secKey === 'gallery') {
+        title.textContent = 'ছবি গ্যালারি';
+        content.innerHTML = `
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+            <img src="../../assets/images/placeholder-image.svg" alt="P1" style="width: 100%; height: 110px; border-radius: 8px; object-fit: cover;">
+            <img src="../../assets/images/placeholder-image.svg" alt="P2" style="width: 100%; height: 110px; border-radius: 8px; object-fit: cover;">
+            <img src="../../assets/images/placeholder-image.svg" alt="P3" style="width: 100%; height: 110px; border-radius: 8px; object-fit: cover;">
+            <img src="../../assets/images/placeholder-image.svg" alt="P4" style="width: 100%; height: 110px; border-radius: 8px; object-fit: cover;">
+          </div>
+          <div style="text-align: center; margin-top: 12px; font-size: 11.5px; color: var(--color-gold-700);">
+            প্রকৃত ছবি পরে বসবে • সমাজ কল্যাণ সংঘ আর্কাইভ
+          </div>
+        `;
+      } else if (secKey === 'accounts') {
+        title.textContent = 'হিসাব ও আর্থিক স্বচ্ছতা';
+        content.innerHTML = `
+          <div class="card" style="padding: 16px; margin-bottom: 12px; background: var(--color-green-50);">
+            <div class="font-caption text-muted">চলমান তহবিল স্থিতি</div>
+            <div style="font-size: 22px; font-weight: 700; color: var(--color-forest-900); margin: 4px 0;">৳ ১,২৫,০০০</div>
+            <div style="font-size: 11px; color: var(--color-forest-700);">সর্বশেষ নিরীক্ষা: অক্টোবর ২০২৪</div>
+          </div>
+          <div class="card" style="padding: 14px;">
+            <h4 style="font-size: 14px; margin: 0 0 8px 0;">আয়-ব্যয়ের প্রধান খাতসমূহ</h4>
+            <div style="font-size: 12.5px; line-height: 1.8;">
+              <div>• কবরস্থান উন্নয়ন তহবিল: ৳ ৫০,০০০ (অনুদান)</div>
+              <div>• চিকিৎসা ও রক্তদান সেবা: ৳ ১৫,০০০ (ব্যয়)</div>
+              <div>• সাধারণ কল্যাণ চাঁদা: ৳ ২৫,৫০০ (সংগ্রহ)</div>
+            </div>
+          </div>
+        `;
+      } else if (secKey === 'notices') {
+        title.textContent = 'বিজ্ঞপ্তি ও নোটিশ';
+        content.innerHTML = `
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div class="card" style="padding: 12px;">
+              <span class="badge badge-accepted" style="font-size: 10px;">জরুরি বিজ্ঞপ্তি</span>
+              <h4 style="font-size: 14px; margin: 4px 0;">বার্ষিক সাধারণ সভা ও ফ্রি মেডিকেল ক্যাম্প</h4>
+              <div class="font-caption text-muted">১৫ নভেম্বর ২০২৪ • সংঘ কার্যালয়</div>
+            </div>
+            <div class="card" style="padding: 12px;">
+              <span class="badge badge-in-progress" style="font-size: 10px;">কার্যক্রম</span>
+              <h4 style="font-size: 14px; margin: 4px 0;">শীতকালীন কম্বল ও বস্ত্র বিতরণ কর্মসূচি</h4>
+              <div class="font-caption text-muted">০২ নভেম্বর ২০২৪ • তালিকাভুক্তি চলছে</div>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    function showMainMenu() {
+      document.getElementById('communityMenuView').style.display = 'block';
+      document.getElementById('sectionViewer').classList.remove('active');
+      document.getElementById('screenTitle').textContent = 'কমিউনিটি ডিরেক্টরি';
+      document.getElementById('backToMenuBtn').style.display = 'none';
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const sec = params.get('sec');
+      if (sec) {
+        openSection(sec);
+      }
+    });
+  </script>
+</body>
+</html>

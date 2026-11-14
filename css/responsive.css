@@ -1,0 +1,168 @@
+/**
+ * Satanipara Community Design System — Responsive Rules
+ * Strict implementation of Section 6 & 15 of the Design Brief
+ */
+
+/* ==========================================================================
+   Mobile-First Grid Helpers
+   ========================================================================== */
+.grid-1 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-20);
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-20);
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-20);
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-20);
+}
+
+@media (min-width: 600px) {
+  .grid-2,
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ==========================================================================
+   Mobile Table to Card Transformation (Section 6 & 15)
+   ========================================================================== */
+@media (max-width: 767px) {
+  .table-cards-mobile {
+    border: none;
+    background: transparent;
+  }
+
+  .table-cards-mobile table,
+  .table-cards-mobile thead,
+  .table-cards-mobile tbody,
+  .table-cards-mobile th,
+  .table-cards-mobile td,
+  .table-cards-mobile tr {
+    display: block;
+  }
+
+  .table-cards-mobile thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  .table-cards-mobile tr {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    margin-bottom: var(--space-16);
+    padding: var(--space-16);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .table-cards-mobile td {
+    border: none;
+    padding: 8px 0;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: right;
+  }
+
+  .table-cards-mobile td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: var(--color-text-muted);
+    text-align: left;
+    padding-right: 12px;
+  }
+
+  .table-cards-mobile td:first-child {
+    font-weight: 700;
+    color: var(--color-text-strong);
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 8px;
+    margin-bottom: 4px;
+  }
+
+  .table-cards-mobile td:last-child {
+    border-top: 1px solid var(--color-border);
+    padding-top: 12px;
+    margin-top: 6px;
+    justify-content: flex-end;
+  }
+}
+
+/* ==========================================================================
+   Section Spacers
+   ========================================================================== */
+.section-py {
+  padding-top: var(--section-gap-desktop);
+  padding-bottom: var(--section-gap-desktop);
+}
+
+.section-alt {
+  background-color: var(--color-green-50);
+}
+
+[data-theme="dark"] .section-alt {
+  background-color: #111F17;
+}
+
+@media (max-width: 767px) {
+  .section-py {
+    padding-top: var(--section-gap-mobile);
+    padding-bottom: var(--section-gap-mobile);
+  }
+}
+
+/* Utility Flex */
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-16);
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.gap-8 { gap: var(--space-8); }
+.gap-12 { gap: var(--space-12); }
+.gap-16 { gap: var(--space-16); }
+.gap-24 { gap: var(--space-24); }
+
+.mb-16 { margin-bottom: var(--space-16); }
+.mb-24 { margin-bottom: var(--space-24); }
+.mb-32 { margin-bottom: var(--space-32); }
+.mb-40 { margin-bottom: var(--space-40); }

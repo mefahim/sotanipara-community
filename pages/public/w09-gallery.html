@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="bn" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ফটো ও ভিডিও গ্যালারি | Satanipara Community</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../css/tokens.css">
+  <link rel="stylesheet" href="../../css/themes.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/typography.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/layouts.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+  <style>
+    .gallery-item {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      box-shadow: var(--shadow-sm);
+    }
+    .gallery-item:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-raised);
+      border-color: var(--color-green-700);
+    }
+    .gallery-img-box {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      background: var(--color-green-900);
+      position: relative;
+    }
+    .gallery-caption-box {
+      padding: 12px 14px;
+    }
+  </style>
+</head>
+<body data-screen="W-09">
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="/pages/public/w01-home.html" class="brand">
+        <img src="../../assets/images/satanipara-crest.svg" alt="Crest" class="brand-crest">
+        <div class="brand-text-block">
+          <span class="brand-name" data-i18n="brand.name">সাতানীপাড়া কিমউিনটি</span>
+          <span class="brand-tagline">গ্যালারি</span>
+        </div>
+      </a>
+      <nav class="nav-desktop">
+        <a href="/pages/public/w01-home.html" class="nav-link">হোম</a>
+        <a href="/pages/public/w02-community.html" class="nav-link">এলাকার প্রোফাইল</a>
+        <a href="/pages/public/w03-organization.html" class="nav-link">সংগঠন</a>
+        <a href="/pages/public/w04-activities.html" class="nav-link">কার্যক্রম</a>
+        <a href="/pages/public/w06-expatriate.html" class="nav-link">প্রবাসী সেবা</a>
+        <a href="/pages/public/w07-blood-donors.html" class="nav-link">রক্তদাতা</a>
+        <a href="/pages/public/w08-notices.html" class="nav-link">নোটিশ</a>
+        <a href="/pages/public/w10-accounts.html" class="nav-link">হিসাব</a>
+        <a href="/pages/public/w11-contact.html" class="nav-link">যোগাযোগ</a>
+      </nav>
+      <div class="header-actions">
+        <button class="btn btn-icon btn-ghost theme-toggle-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+        <button class="btn btn-sm btn-ghost" id="headerLangToggle">EN</button>
+        <a href="/pages/public/w12-login.html" class="btn btn-sm btn-outline">লগইন</a>
+        <button class="btn btn-icon btn-ghost mobile-drawer-toggle" aria-label="Menu" style="display: flex;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container section-py">
+    <!-- Header info -->
+    <div class="mb-32">
+      <div class="font-caption text-muted mb-4">হোম / ফটো গ্যালারি</div>
+      <h1 class="font-h1 mb-8" style="color: var(--color-green-700);">সংঘের স্মৃতি ও কার্যক্রমের আলোকচিত্র</h1>
+      <p class="font-body text-muted">সাতানীপাড়া সমাজকল্যাণ সংঘের বিভিন্ন উন্নয়নমূলক, সামাজিক ও সেবামূলক কাজের স্থিরচিত্র</p>
+    </div>
+
+    <!-- Filters: Year Chips + Category Chips -->
+    <div class="card mb-32" style="padding: 16px 20px;">
+      <div class="flex-between flex-wrap gap-16 mb-12">
+        <div style="font-weight: 700; font-size: 14.5px; color: var(--color-green-700);">সাল / বছর:</div>
+        <div class="chip-row" id="galYearChips">
+          <button class="chip active" onclick="filterGalleryYear('all', this)">সকল বছর</button>
+          <button class="chip" onclick="filterGalleryYear('2026', this)">২০২৬</button>
+          <button class="chip" onclick="filterGalleryYear('2025', this)">২০২৫</button>
+          <button class="chip" onclick="filterGalleryYear('2024', this)">২০২৪</button>
+        </div>
+      </div>
+
+      <div class="flex-between flex-wrap gap-16" style="border-top: 1px solid var(--color-border); padding-top: 12px;">
+        <div style="font-weight: 700; font-size: 14.5px; color: var(--color-green-700);">ক্যাটাগরি:</div>
+        <div class="chip-row" id="galCatChips">
+          <button class="chip active" onclick="filterGalleryCat('all', this)">সব ক্যাটাগরি</button>
+          <button class="chip" onclick="filterGalleryCat('মেধাবৃত্তি', this)">মেধাবৃত্তি ও শিক্ষা</button>
+          <button class="chip" onclick="filterGalleryCat('শীতবস্ত্র', this)">শীতবস্ত্র বিতরণ</button>
+          <button class="chip" onclick="filterGalleryCat('রক্তদান', this)">রক্তদান ক্যাম্প</button>
+          <button class="chip" onclick="filterGalleryCat('বৃক্ষরোপণ', this)">বৃক্ষরোপণ ও পরিচ্ছন্নতা</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gallery Grid (2 col mobile, 4 col desktop - strict equal grid) -->
+    <div class="grid-4" id="galleryGrid">
+      <div class="gallery-item" data-year="2026" data-cat="মেধাবৃত্তি" onclick="Components.openLightbox('../../assets/images/placeholder-image.svg', 'শিক্ষার্থীদের মাঝে এককালীন মেধা অনুদান ও সনদ বিতরণ ২০২৬')">
+        <img src="../../assets/images/placeholder-image.svg" alt="Photo 1" class="gallery-img-box">
+        <div class="gallery-caption-box">
+          <div style="font-weight: 600; font-size: 14px;">মেধাবৃত্তি সনদ ও পুরস্কার বিতরণ</div>
+          <div class="font-caption text-muted">১৫ মার্চ ২০২৬ • শিক্ষা ও মেধা</div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-year="2026" data-cat="রক্তদান" onclick="Components.openLightbox('../../assets/images/placeholder-image.svg', 'বিনামূল্যে রক্তের গ্রুপ নির্ণয় ও স্বেচ্ছায় রক্তদান ক্যাম্প ২০২৬')">
+        <img src="../../assets/images/placeholder-image.svg" alt="Photo 2" class="gallery-img-box">
+        <div class="gallery-caption-box">
+          <div style="font-weight: 600; font-size: 14px;">স্বেচ্ছায় রক্তদান ক্যাম্প</div>
+          <div class="font-caption text-muted">২১ ফেব্রুয়ারি ২০২৬ • রক্তদান সেল</div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-year="2025" data-cat="শীতবস্ত্র" onclick="Components.openLightbox('../../assets/images/placeholder-image.svg', 'তীব্র শীতে অসহায় প্রবীণদের মাঝে কম্বল উপহার বিতরণ')">
+        <img src="../../assets/images/placeholder-image.svg" alt="Photo 3" class="gallery-img-box">
+        <div class="gallery-caption-box">
+          <div style="font-weight: 600; font-size: 14px;">শীতবস্ত্র ও কম্বল বিতরণ</div>
+          <div class="font-caption text-muted">১৮ ডিসেম্বর ২০২৫ • শীতকালীন ত্রাণ</div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-year="2025" data-cat="বৃক্ষরোপণ" onclick="Components.openLightbox('../../assets/images/placeholder-image.svg', 'সাতানীপাড়া প্রধান সড়ক ও কবরস্থান সীমানায় বৃক্ষরোপণ অভিযান')">
+        <img src="../../assets/images/placeholder-image.svg" alt="Photo 4" class="gallery-img-box">
+        <div class="gallery-caption-box">
+          <div style="font-weight: 600; font-size: 14px;">পরিচ্ছন্নতা ও বৃক্ষরোপণ সপ্তাহ</div>
+          <div class="font-caption text-muted">১০ আগস্ট ২০২৫ • পরিবেশ রক্ষা</div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-year="2025" data-cat="মেধাবৃত্তি" onclick="Components.openLightbox('../../assets/images/placeholder-image.svg', '২০২৫ সালের কৃতি শিক্ষার্থী সংবর্ধনা ও শিক্ষক সম্মাননা')">
+        <img src="../../assets/images/placeholder-image.svg" alt="Photo 5" class="gallery-img-box">
+        <div class="gallery-caption-box">
+          <div style="font-weight: 600; font-size: 14px;">কৃতি শিক্ষার্থী সংবর্ধনা ২০২৫</div>
+          <div class="font-caption text-muted">০২ মার্চ ২০২৫ • শিক্ষা শাখা</div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-year="2024" data-cat="শীতবস্ত্র" onclick="Components.openLightbox('../../assets/images/placeholder-image.svg', '২০২৪ সালের শীতবস্ত্র বিতরণ পর্ব')">
+        <img src="../../assets/images/placeholder-image.svg" alt="Photo 6" class="gallery-img-box">
+        <div class="gallery-caption-box">
+          <div style="font-weight: 600; font-size: 14px;">শীতবস্ত্র বিতরণ ২০২৪</div>
+          <div class="font-caption text-muted">২৫ ডিসেম্বর ২০২৪ • ত্রাণ</div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-year="2024" data-cat="রক্তদান" onclick="Components.openLightbox('../../assets/images/placeholder-image.svg', 'জরুরি রক্তদাতা নেটওয়ার্কের বার্ষিক মিলনমেলা')">
+        <img src="../../assets/images/placeholder-image.svg" alt="Photo 7" class="gallery-img-box">
+        <div class="gallery-caption-box">
+          <div style="font-weight: 600; font-size: 14px;">রক্তদাতাদের মিলনমেলা</div>
+          <div class="font-caption text-muted">১৪ জুন ২০২৪ • বিশ্ব রক্তদাতা দিবস</div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-year="2024" data-cat="বৃক্ষরোপণ" onclick="Components.openLightbox('../../assets/images/placeholder-image.svg', 'স্কুল প্রাঙ্গণে ফলজ ও বনজ বৃক্ষরোপণ ২০২৪')">
+        <img src="../../assets/images/placeholder-image.svg" alt="Photo 8" class="gallery-img-box">
+        <div class="gallery-caption-box">
+          <div style="font-weight: 600; font-size: 14px;">স্কুল প্রাঙ্গণে বৃক্ষরোপণ</div>
+          <div class="font-caption text-muted">১৫ জুলাই ২০২৪ • পরিবেশ</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <div>© ১৯৯৯–২০২৬ সাতানীপাড়া সমাজকল্যাণ সংঘ। সর্বস্বত্ব সংরক্ষিত।</div>
+      <div>W-09 Gallery</div>
+    </div>
+  </footer>
+
+  <script src="../../js/mock-data.js"></script>
+  <script src="../../js/language.js"></script>
+  <script src="../../js/theme.js"></script>
+  <script src="../../js/components.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script src="../../js/validation.js"></script>
+  <script src="../../js/flows.js"></script>
+  <script src="../../js/app.js"></script>
+  <script>
+    let gYear = 'all';
+    let gCat = 'all';
+
+    function filterGalleryYear(yr, btn) {
+      gYear = yr;
+      document.querySelectorAll('#galYearChips .chip').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      applyGalFilter();
+    }
+
+    function filterGalleryCat(cat, btn) {
+      gCat = cat;
+      document.querySelectorAll('#galCatChips .chip').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      applyGalFilter();
+    }
+
+    function applyGalFilter() {
+      const items = document.querySelectorAll('#galleryGrid .gallery-item');
+      items.forEach(item => {
+        const y = item.getAttribute('data-year');
+        const c = item.getAttribute('data-cat');
+        const matchY = gYear === 'all' || y === gYear;
+        const matchC = gCat === 'all' || c === gCat;
+        item.style.display = (matchY && matchC) ? 'block' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>

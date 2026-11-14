@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="bn" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>সাইট সেটিংস ও কনফিগারেশন | Satanipara Community Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../css/tokens.css">
+  <link rel="stylesheet" href="../../css/themes.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/typography.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/layouts.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+  <style>
+    .settings-section {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-card);
+      padding: var(--space-24);
+      margin-bottom: var(--space-24);
+    }
+    .settings-title {
+      font-size: var(--font-h3);
+      color: var(--color-forest-900);
+      margin-bottom: var(--space-8);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .settings-desc {
+      font-size: var(--font-body-sm);
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-20);
+    }
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-16);
+    }
+    .danger-zone {
+      background: #FFF5F5;
+      border: 2px solid #FEB2B2;
+      border-radius: var(--radius-card);
+      padding: var(--space-24);
+      margin-top: var(--space-32);
+    }
+    [data-theme="dark"] .danger-zone {
+      background: #2D1515;
+      border-color: #742A2A;
+    }
+    @media (max-width: 768px) {
+      .form-grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body data-screen="A-12">
+
+  <div class="admin-layout">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar" id="adminSidebar">
+      <div class="admin-sidebar-header">
+        <img src="../../assets/images/satanipara-crest.svg" alt="Crest" style="width: 36px; height: 36px;">
+        <div>
+          <div style="font-weight: 700; font-size: 15px; color: #FAF7EE;">এডমিন ড্যাশবোর্ড</div>
+          <div style="font-size: 11px; color: var(--color-gold-500);">সাতানীপাড়া সংঘ • ১৯৯৯</div>
+        </div>
+      </div>
+      <ul class="admin-sidebar-menu">
+        <li><a href="/pages/admin/a01-overview.html" class="admin-menu-link"><span>ওভারভিউ</span></a></li>
+        <li><a href="/pages/admin/a02-requests.html" class="admin-menu-link"><span>প্রবাসী আবেদন</span></a></li>
+        <li><a href="/pages/admin/a03-members.html" class="admin-menu-link"><span>সদস্য ও পরিবার</span></a></li>
+        <li><a href="/pages/admin/a04-community.html" class="admin-menu-link"><span>কমিউনিটি তথ্য</span></a></li>
+        <li><a href="/pages/admin/a05-committee.html" class="admin-menu-link"><span>কমিটি ও সংগঠন</span></a></li>
+        <li><a href="/pages/admin/a06-activities.html" class="admin-menu-link"><span>কার্যক্রম পরিচালনা</span></a></li>
+        <li><a href="/pages/admin/a07-notices.html" class="admin-menu-link"><span>নোটিশ ও গ্যালারি</span></a></li>
+        <li><a href="/pages/admin/a08-blood.html" class="admin-menu-link"><span>রক্তদাতা ও জরুরি রক্ত</span></a></li>
+        <li><a href="/pages/admin/a09-accounts.html" class="admin-menu-link"><span>হিসাব ও অডিট</span></a></li>
+        <li><a href="/pages/admin/a10-users.html" class="admin-menu-link"><span>ব্যবহারকারী ও রোল</span></a></li>
+        <li><a href="/pages/admin/a11-reports.html" class="admin-menu-link"><span>রিপোর্ট</span></a></li>
+        <li><a href="/pages/admin/a12-settings.html" class="admin-menu-link active"><span>সেটিংস</span></a></li>
+      </ul>
+    </aside>
+
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <div>
+          <h1 class="font-h3" style="font-size: 20px; margin: 0;">সাইট সেটিংস ও কনফিগারেশন</h1>
+          <div class="font-caption text-muted">সংগঠনের ব্র্যান্ডিং, জরুরি নম্বর, নোটিফিকেশন পছন্দ ও সিস্টেম রক্ষণাবেক্ষণ (শুধু সুপার এডমিন)</div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <span class="badge badge-role-superadmin">সুপার এডমিন</span>
+          <span class="font-body-sm" style="font-weight: 600;">এডমিন ইউজার</span>
+        </div>
+      </header>
+
+      <main class="admin-content" style="max-width: 960px;">
+        
+        <!-- Role Check Alert for Helpers -->
+        <div id="helperWarning" style="display: none; background: #FEF2F2; border: 1px solid #F87171; border-radius: 8px; padding: 16px; margin-bottom: 20px;">
+          <h4 style="color: #991B1B; margin: 0 0 6px 0;">অননুমোদিত প্রবেশাধিকার</h4>
+          <p style="margin: 0; font-size: 14px; color: #7F1D1D;">এই পেজটি শুধুমাত্র সুপার এডমিনের জন্য সংরক্ষিত। প্রবাসী সহায়ক শুধুমাত্র প্রবাসী আবেদন পরিচালনা করতে পারেন।</p>
+          <a href="/pages/admin/a02-requests.html" class="btn btn-primary" style="margin-top: 12px; display: inline-block;">প্রবাসী আবেদনে ফিরে যান</a>
+        </div>
+
+        <form id="settingsForm" onsubmit="saveSettings(event)">
+          
+          <!-- 1. Organization & Branding -->
+          <div class="settings-section">
+            <h3 class="settings-title">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
+              ১. সংগঠনের প্রাতিষ্ঠানিক পরিচিতি ও ব্র্যান্ডিং
+            </h3>
+            <p class="settings-desc">ওয়েবসাইট ও মোবাইল অ্যাপের শীর্ষভাগে প্রদর্শিত নাম, স্লোগান ও লোগো নির্ধারণ করুন।</p>
+            
+            <div style="display: flex; gap: 24px; align-items: center; margin-bottom: var(--space-20); padding: 16px; background: var(--color-bg); border-radius: var(--radius-card);">
+              <img id="crestPreview" src="../../assets/images/satanipara-crest.svg" alt="Crest" style="width: 80px; height: 80px; border-radius: 50%; border: 2px solid var(--color-gold-500); background: #FAF7EE; padding: 4px;">
+              <div>
+                <div style="font-weight: 600; font-size: 15px; margin-bottom: 4px;">অফিশিয়াল মনোগ্রাম / ক্রেস্ট</div>
+                <div class="font-caption text-muted" style="margin-bottom: 8px;">অনুমোদিত মাপ: স্কয়ার SVG বা PNG (ন্যূনতম ১২০x১২০ পিক্সেল)</div>
+                <button type="button" class="btn btn-outline" style="padding: 6px 14px; font-size: 13px;" onclick="document.getElementById('crestInput').click()">
+                  নতুন লোগো নির্বাচন করুন
+                </button>
+                <input type="file" id="crestInput" style="display: none;" accept="image/*" onchange="handleCrestChange(event)">
+              </div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label" for="orgName">সংগঠনের পূর্ণ নাম (বাংলা)</label>
+                <input type="text" id="orgName" class="form-input" value="সাতানীপাড়া সমাজ কল্যাণ সংঘ" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="orgNameEn">সংগঠনের পূর্ণ নাম (ইংরেজি)</label>
+                <input type="text" id="orgNameEn" class="form-input" value="Satanipara Somaj Kallyan Sangha" required>
+              </div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label" for="orgTagline">মূল স্লোগান (বাংলা)</label>
+                <input type="text" id="orgTagline" class="form-input" value="শিক্ষা • ঐক্য • শান্তি • প্রগতি" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="orgEst">প্রতিষ্ঠা সাল</label>
+                <input type="text" id="orgEst" class="form-input" value="১৯৯৯" required>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Contact & Office Info -->
+          <div class="settings-section">
+            <h3 class="settings-title">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              ২. দাপ্তরিক যোগাযোগ ও কার্যালয় সময়সূচি
+            </h3>
+            <p class="settings-desc">নাগরিক ও প্রবাসীদের যোগাযোগের জন্য পাবলিক ওয়েবসাইটের ফুটার ও যোগাযোগ পেজের তথ্য।</p>
+
+            <div class="form-group">
+              <label class="form-label" for="orgAddress">সংঘ কার্যালয়ের ঠিকানা</label>
+              <input type="text" id="orgAddress" class="form-input" value="সাতানীপাড়া, ডাকঘর: TBD, উপজেলা: TBD, জেলা: TBD" required>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label" for="orgHelpline">সংঘের হেল্পলাইন নম্বর</label>
+                <input type="text" id="orgHelpline" class="form-input" value="০১৭১১-০০০০০০ (TBD)" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="orgEmail">দাপ্তরিক ইমেইল</label>
+                <input type="email" id="orgEmail" class="form-input" value="info@satanipara.org" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="orgHours">কার্যালয় খোলার সময়সূচি</label>
+              <input type="text" id="orgHours" class="form-input" value="প্রতিদিন বিকাল ৪:০০ ঘটিকা হতে রাত ৮:০০ ঘটিকা পর্যন্ত">
+            </div>
+          </div>
+
+          <!-- 3. Emergency Numbers Configuration -->
+          <div class="settings-section">
+            <h3 class="settings-title">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              ৩. জরুরি সহায়তা ও হটলাইন নম্বরসমূহ
+            </h3>
+            <p class="settings-desc">জরুরি বার এবং কুইক কন্ট্যাক্ট মডিউলে প্রদর্শিত জরুরি কল সেবা নম্বর।</p>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label" for="emAmbulance">নিকটস্থ অ্যাম্বুলেন্স সেবা</label>
+                <input type="text" id="emAmbulance" class="form-input" value="০১৭০০-০০০০০০ (TBD)">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="emFire">ফায়ার সার্ভিস স্টেশন</label>
+                <input type="text" id="emFire" class="form-input" value="০১৮০০-০০০০০০ (TBD)">
+              </div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label" for="emPolice">নিকটস্থ থানা পুলিশ</label>
+                <input type="text" id="emPolice" class="form-input" value="০১৯০০-০০০০০০ (TBD)">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="emNat">জাতীয় জরুরি সেবা কোড</label>
+                <input type="text" id="emNat" class="form-input" value="৯৯৯" readonly style="background: var(--color-bg);">
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Notice Ticker Selector -->
+          <div class="settings-section">
+            <h3 class="settings-title">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+              </svg>
+              ৪. শীর্ষ নোটিশ টিকার নিয়ন্ত্রণ
+            </h3>
+            <p class="settings-desc">ওয়েবসাইটের হেডারের উপরে চলমান জরুরি নোটিশ টিকার নির্বাচন করুন।</p>
+
+            <div style="margin-bottom: var(--space-16);">
+              <label class="form-label" style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                <input type="checkbox" id="tickerActive" checked style="width: 18px; height: 18px; accent-color: var(--color-forest-700);">
+                <span style="font-weight: 600;">হোমপেজের নোটিশ টিকার চালু রাখুন</span>
+              </label>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="tickerNoticeSelect">টিকারের জন্য সক্রিয় নোটিশ</label>
+              <select id="tickerNoticeSelect" class="form-select">
+                <option value="not-01" selected>আসন্ন বার্ষিক সাধারণ সভা ও ফ্রি মেডিকেল ক্যাম্প — ১৫ নভেম্বর ২০২৪</option>
+                <option value="not-02">শীতকালীন কম্বল ও বস্ত্র বিতরণ কর্মসূচি — তালিকাভুক্তি চলছে</option>
+                <option value="not-03">প্রবাসী কল্যাণ তহবিলে বিশেষ অনুদান আহ্বান</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- 5. Browser Web Push Notifications (Section 11) -->
+          <div class="settings-section">
+            <h3 class="settings-title">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+              </svg>
+              ৫. ব্রাউজার পুশ নোটিফিকেশন পছন্দ (ধারা ১১)
+            </h3>
+            <p class="settings-desc">সুপার এডমিন ও প্রবাসী সহায়কদের জন্য নতুন আবেদন প্রাপ্তির তাৎক্ষণিক ব্রাউজার নোটিফিকেশন ব্যবস্থা।</p>
+
+            <div style="background: var(--color-bg); padding: var(--space-16); border-radius: var(--radius-card); margin-bottom: var(--space-16);">
+              <label class="form-label" style="display: flex; align-items: center; gap: 8px; cursor: pointer; margin: 0;">
+                <input type="checkbox" id="pushEnabled" checked style="width: 18px; height: 18px; accent-color: var(--color-forest-700);">
+                <div>
+                  <span style="font-weight: 600;">নতুন প্রবাসী আবেদন জমা হলে ব্রাউজার নোটিফিকেশন পাঠান</span>
+                  <div class="font-caption text-muted">সাধারণ দর্শনার্থীদের কখনোই পারমিশন প্রম্পট দেখানো হবে না।</div>
+                </div>
+              </label>
+            </div>
+
+            <div>
+              <button type="button" class="btn btn-outline" onclick="triggerTestPush()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="margin-right: 6px;">
+                  <polygon points="5 3 19 12 5 21 5 3"/>
+                </svg>
+                টেস্ট পুশ নোটিফিকেশন পাঠান
+              </button>
+            </div>
+          </div>
+
+          <!-- 6. Backup & Storage Status (Read-Only) -->
+          <div class="settings-section">
+            <h3 class="settings-title">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <polyline points="21 8 21 21 3 21 3 8"/>
+                <rect x="1" y="3" width="22" height="5"/>
+                <line x1="10" y1="12" x2="14" y2="12"/>
+              </svg>
+              ৬. সিস্টেম ব্যাকআপ ও নিরাপত্তা তথ্য
+            </h3>
+            <p class="settings-desc">ডাটাবেজ ব্যাকআপ ও সিস্টেম স্টোরেজের রিয়েলটাইম অবস্থা (পঠনযোগ্য)।</p>
+
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: var(--space-16);">
+              <div style="background: var(--color-bg); padding: 12px; border-radius: 8px; border: 1px solid var(--color-border);">
+                <div class="font-caption text-muted">সর্বশেষ স্বয়ংক্রিয় ব্যাকআপ</div>
+                <div style="font-weight: 600; color: var(--color-forest-900);">আজ সকাল ০৪:০০ ঘটিকায়</div>
+              </div>
+              <div style="background: var(--color-bg); padding: 12px; border-radius: 8px; border: 1px solid var(--color-border);">
+                <div class="font-caption text-muted">মক ডাটাবেজ ভলিউম</div>
+                <div style="font-weight: 600; color: var(--color-forest-900);">১৩৪ KB (সুসংহত)</div>
+              </div>
+              <div style="background: var(--color-bg); padding: 12px; border-radius: 8px; border: 1px solid var(--color-border);">
+                <div class="font-caption text-muted">ক্লাউড সিঙ্ক স্থিতি</div>
+                <div style="font-weight: 600; color: #166534;">সক্রিয় ও সুরক্ষিত</div>
+              </div>
+            </div>
+
+            <button type="button" class="btn btn-outline" onclick="createManualBackup()">
+              তাত্ক্ষণিক ম্যানুয়াল ব্যাকআপ তৈরি করুন
+            </button>
+          </div>
+
+          <!-- Save Button -->
+          <div style="margin-bottom: var(--space-32);">
+            <button type="submit" class="btn btn-primary" style="padding: 12px 28px; font-size: 16px;">
+              সেটিংস পরিবর্তন সংরক্ষণ করুন
+            </button>
+          </div>
+
+          <!-- 7. Danger Zone -->
+          <div class="danger-zone">
+            <h3 style="color: #991B1B; font-size: 18px; margin: 0 0 8px 0; display: flex; align-items: center; gap: 8px;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                <line x1="12" y1="9" x2="12" y2="13"/>
+                <line x1="12" y1="17" x2="12.01" y2="17"/>
+              </svg>
+              বিপজ্জনক সেটিংস ও সতর্কতা এলাকা
+            </h3>
+            <p style="font-size: 14px; color: #7F1D1D; margin-bottom: var(--space-16);">
+              নিচের অপশনগুলো সিস্টেমের সংরক্ষিত ডাটা মুছে ফেলতে পারে। সাবধানে পরিচালনা করুন।
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+              <button type="button" class="btn btn-danger" onclick="openResetDataModal()">
+                মক ডাটাবেজ রিসেট করুন (Reset to Default)
+              </button>
+              <button type="button" class="btn btn-outline" style="border-color: #FEB2B2; color: #991B1B;" onclick="adminLogout()">
+                প্রশাসনিক সেশন বন্ধ করুন (লগআউট)
+              </button>
+            </div>
+          </div>
+
+        </form>
+      </main>
+    </div>
+  </div>
+
+  <!-- Reset Confirmation Modal -->
+  <div class="modal-backdrop" id="resetModal">
+    <div class="modal" style="max-width: 440px; padding: var(--space-24);">
+      <h3 class="font-h3" style="color: #991B1B; margin-top: 0; margin-bottom: 8px;">আপনি কি নিশ্চিত?</h3>
+      <p class="font-body-sm text-muted" style="margin-bottom: var(--space-20);">
+        এটি আপনার লোকাল স্টোরেজে সংরক্ষিত সকল নতুন আবেদন, হিসাব এন্ট্রি এবং ব্যবহারকারী তথ্য মুছে মূল ডেমো ডাটাতে ফিরিয়ে নিয়ে যাবে।
+      </p>
+      <div style="display: flex; gap: 10px; justify-content: flex-end;">
+        <button class="btn btn-outline" onclick="closeResetModal()">বাতিল</button>
+        <button class="btn btn-danger" onclick="confirmResetData()">হ্যাঁ, ডাটা রিসেট করুন</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../js/mock-data.js"></script>
+  <script src="../../js/language.js"></script>
+  <script src="../../js/theme.js"></script>
+  <script src="../../js/components.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script src="../../js/validation.js"></script>
+  <script src="../../js/flows.js"></script>
+  <script src="../../js/app.js"></script>
+
+  <script>
+    function handleCrestChange(e) {
+      if (e.target.files && e.target.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function(evt) {
+          document.getElementById('crestPreview').src = evt.target.result;
+          Components.showToast('ক্রেস্ট ছবি সফলভাবে আপলোড ও প্রিভিউ করা হয়েছে', 'success');
+        };
+        reader.readAsDataURL(e.target.files[0]);
+      }
+    }
+
+    function saveSettings(e) {
+      e.preventDefault();
+      Components.showToast('সিস্টেম ও প্রতিষ্ঠানের সকল সেটিংস সফলভাবে সংরক্ষিত হয়েছে!', 'success', 4000);
+    }
+
+    function triggerTestPush() {
+      // Trigger Web Push alert simulator per Section 11
+      if (window.Flows && Flows.simulateNotification) {
+        Flows.simulateNotification({
+          id: 'REQ-2024-TEST',
+          applicantName: 'মো: কামরুল হাসান',
+          country: 'ওমান',
+          serviceCategory: 'বাবার জরুরি চিকিৎসার জন্য উপজেলা হাসপাতালে ব্যবস্থা'
+        });
+      } else {
+        Components.showToast('নতুন প্রবাসী আবেদন (REQ-2024-TEST) জমা হয়েছে! [ওমান]', 'info', 6000);
+      }
+    }
+
+    function createManualBackup() {
+      Components.showToast('তাত্ক্ষণিক ব্যাকআপ তৈরি সম্পন্ন হয়েছে: backup-satanipara-mock.json', 'success');
+    }
+
+    function openResetDataModal() {
+      document.getElementById('resetModal').classList.add('is-open');
+    }
+    function closeResetModal() {
+      document.getElementById('resetModal').classList.remove('is-open');
+    }
+    function confirmResetData() {
+      closeResetModal();
+      MockData.resetDB();
+      Components.showToast('সকল মক ডাটাবেজ সফলভাবে আদি অবস্থায় রিসেট হয়েছে!', 'success', 4000);
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
+    }
+
+    function adminLogout() {
+      MockData.setSession(null);
+      Components.showToast('প্রশাসনিক সেশন সফলভাবে সমাপ্ত হয়েছে', 'info');
+      setTimeout(() => {
+        window.location.href = '/pages/public/w12-login.html';
+      }, 800);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      // Check Helper role: Helper must never access A-12
+      const session = MockData.getSession();
+      if (session && session.role === 'helper') {
+        document.getElementById('settingsForm').style.display = 'none';
+        document.getElementById('helperWarning').style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>

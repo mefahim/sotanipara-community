@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="bn" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>হিসাব ও আর্থিক স্বচ্ছতা | Satanipara Community</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../css/tokens.css">
+  <link rel="stylesheet" href="../../css/themes.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/typography.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/layouts.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+</head>
+<body data-screen="W-10">
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="/pages/public/w01-home.html" class="brand">
+        <img src="../../assets/images/satanipara-crest.svg" alt="Crest" class="brand-crest">
+        <div class="brand-text-block">
+          <span class="brand-name" data-i18n="brand.name">সাতানীপাড়া কিমউিনটি</span>
+          <span class="brand-tagline">হিসাব ও স্বচ্ছতা</span>
+        </div>
+      </a>
+      <nav class="nav-desktop">
+        <a href="/pages/public/w01-home.html" class="nav-link">হোম</a>
+        <a href="/pages/public/w02-community.html" class="nav-link">এলাকার প্রোফাইল</a>
+        <a href="/pages/public/w03-organization.html" class="nav-link">সংগঠন</a>
+        <a href="/pages/public/w04-activities.html" class="nav-link">কার্যক্রম</a>
+        <a href="/pages/public/w06-expatriate.html" class="nav-link">প্রবাসী সেবা</a>
+        <a href="/pages/public/w07-blood-donors.html" class="nav-link">রক্তদাতা</a>
+        <a href="/pages/public/w08-notices.html" class="nav-link">নোটিশ</a>
+        <a href="/pages/public/w10-accounts.html" class="nav-link active">হিসাব</a>
+        <a href="/pages/public/w11-contact.html" class="nav-link">যোগাযোগ</a>
+      </nav>
+      <div class="header-actions">
+        <button class="btn btn-icon btn-ghost theme-toggle-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+        <button class="btn btn-sm btn-ghost" id="headerLangToggle">EN</button>
+        <a href="/pages/public/w12-login.html" class="btn btn-sm btn-outline">লগইন</a>
+        <button class="btn btn-icon btn-ghost mobile-drawer-toggle" aria-label="Menu" style="display: flex;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container section-py">
+    <!-- Intro -->
+    <div class="flex-between mb-32 flex-wrap gap-16">
+      <div>
+        <div class="font-caption text-muted mb-4">হোম / হিসাব ও স্বচ্ছতা</div>
+        <h1 class="font-h1" style="color: var(--color-green-700);">উন্মুক্ত আয়-ব্যয়ের খাতা ও স্বচ্ছতা</h1>
+        <p class="font-body text-muted" style="max-width: 650px;">
+          সাতানীপাড়া সমাজকল্যাণ সংঘের প্রতিটি টাকার প্রাপ্তি ও ব্যয়ের হিসাব সবার জন্য উন্মুক্ত। আর্থিক শতভাগ স্বচ্ছতাই আমাদের মূল শক্তি।
+        </p>
+      </div>
+
+      <!-- Year Selector -->
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <span class="font-body-sm" style="font-weight: 600;">অর্থবছর:</span>
+        <select class="form-select" style="min-height: 38px; width: 140px;" onchange="switchFiscalYear(this.value)">
+          <option value="2026" selected>২০২৬ সাল</option>
+          <option value="2025">২০২৫ সাল</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Summary StatCards Row -->
+    <div class="grid-3 mb-32">
+      <div class="stat-card" style="border-top-color: var(--color-success);">
+        <div class="stat-card-label">মোট সংগৃহীত আয় (২০২৬)</div>
+        <div class="stat-card-value" style="color: var(--color-success);" id="accTotalIncome">৳ ৪,৭৫,০০০</div>
+        <div class="stat-card-badge">মাসিক অনুদান ও সদস্য ফি</div>
+      </div>
+
+      <div class="stat-card" style="border-top-color: var(--color-danger);">
+        <div class="stat-card-label">মোট সমাজকল্যাণমূলক ব্যয়</div>
+        <div class="stat-card-value" style="color: var(--color-danger);" id="accTotalExpense">৳ ৩,৮৫,০০০</div>
+        <div class="stat-card-badge">শিক্ষা, স্বাস্থ্য ও ত্রাণ খাত</div>
+      </div>
+
+      <div class="stat-card gold-border">
+        <div class="stat-card-label">বর্তমান সংরক্ষিত তহবিল স্থিতি</div>
+        <div class="stat-card-value" style="color: var(--color-green-700);" id="accCurrentBalance">৳ ৯০,০০০</div>
+        <div class="stat-card-badge">ব্যাংক স্থিতি ও ক্যাশ উদ্বৃত্ত</div>
+      </div>
+    </div>
+
+    <!-- Section 14 Verbatim Disclaimer -->
+    <div class="card mb-32" style="background: var(--color-green-50); border-left: 4px solid var(--color-green-700); padding: 14px;">
+      <p class="font-body-sm" style="color: var(--color-text-strong); margin: 0;">
+        🔒 <strong>আর্থিক গোপনীয়তা ও সম্মাননা নীতি:</strong>
+        "দাতা বা অনুদানকারীদের নাম শুধু তাঁদের সম্মতি অনুযায়ী প্রকাশ করা হয়। ব্যক্তিগত বা গোপন আর্থিক তথ্য সবার জন্য উন্মুক্ত নয়।"
+      </p>
+    </div>
+
+    <!-- Income & Expense Ledger Table (Card on Mobile) -->
+    <div class="card mb-40" style="padding: var(--space-24);">
+      <div class="flex-between mb-20 flex-wrap gap-12">
+        <h2 class="font-h3" style="color: var(--color-green-700); margin: 0;">
+          চলতি অর্থবছরের আয়-ব্যয়ের লেনদেন বিবরণী
+        </h2>
+        <button class="btn btn-sm btn-outline" onclick="Components.showToast('২০২৬ বার্ষিক আর্থিক অডিট রিপোর্ট (PDF) ডাউনলোড সম্পন্ন', 'success')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          বার্ষিক অডিট রিপোর্ট ডাউনলোড (PDF)
+        </button>
+      </div>
+
+      <div class="table-responsive table-cards-mobile">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>তারিখ</th>
+              <th>খাত / প্রকল্প</th>
+              <th>বিবরণ</th>
+              <th>দাতা / উৎস</th>
+              <th style="text-align: right;">আয় (টাকা)</th>
+              <th style="text-align: right;">ব্যয় (টাকা)</th>
+            </tr>
+          </thead>
+          <tbody id="accountsTableBody">
+            <!-- Dynamically populated via renderAccountsTable() -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Project-wise Fund Allocation Breakdown -->
+    <div class="grid-2" style="gap: var(--space-24);">
+      <div class="card">
+        <h3 class="font-h3 mb-16" style="color: var(--color-green-700);">প্রকল্পভিত্তিক ব্যয়ের অনুপাত</h3>
+        <div style="display: flex; flex-direction: column; gap: 12px; font-size: 14.5px;">
+          <div>
+            <div class="flex-between mb-4">
+              <span>মেধাবৃত্তি ও শিক্ষা উপকরণ বিতরণ</span>
+              <strong>৳ ১,২০,০০০ (৩১%)</strong>
+            </div>
+            <div style="height: 8px; background: var(--color-border); border-radius: 4px; overflow: hidden;">
+              <div style="height: 100%; width: 31%; background: var(--color-green-700);"></div>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex-between mb-4">
+              <span>শীতবস্ত্র ও কম্বল উপহার</span>
+              <strong>৳ ১,৮৫,০০০ (৪৮%)</strong>
+            </div>
+            <div style="height: 8px; background: var(--color-border); border-radius: 4px; overflow: hidden;">
+              <div style="height: 100%; width: 48%; background: var(--color-gold-500);"></div>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex-between mb-4">
+              <span>বৃক্ষরোপণ ও পরিচ্ছন্নতা</span>
+              <strong>৳ ৪৫,০০০ (১২%)</strong>
+            </div>
+            <div style="height: 8px; background: var(--color-border); border-radius: 4px; overflow: hidden;">
+              <div style="height: 100%; width: 12%; background: var(--color-info);"></div>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex-between mb-4">
+              <span>রক্তদান ও জরুরি রোগী সহায়তা</span>
+              <strong>৳ ৩৫,০০০ (৯%)</strong>
+            </div>
+            <div style="height: 8px; background: var(--color-border); border-radius: 4px; overflow: hidden;">
+              <div style="height: 100%; width: 9%; background: var(--color-danger);"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 class="font-h3 mb-16" style="color: var(--color-green-700);">সম্মানিত দাতা তালিকা (সম্মতিপ্রাপ্ত)</h3>
+        <p class="font-body-sm text-muted mb-16">
+          যাঁরা নিজেদের নাম প্রকাশের সম্মতি দিয়েছেন তাঁদের কৃতজ্ঞতার সাথে স্মরণ করা হচ্ছে:
+        </p>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 14px;">
+          <li style="display: flex; justify-content: space-between; border-bottom: 1px dashed var(--color-border); padding-bottom: 6px;">
+            <span>প্রবাসী কল্যাণ ফোরাম (কুয়েত ও কাতার)</span>
+            <strong style="color: var(--color-green-700);">৳ ৫০,০০০</strong>
+          </li>
+          <li style="display: flex; justify-content: space-between; border-bottom: 1px dashed var(--color-border); padding-bottom: 6px;">
+            <span>মো. আনোয়ার হোসেন (আজীবন সদস্য)</span>
+            <strong style="color: var(--color-green-700);">৳ ২৫,০০০</strong>
+          </li>
+          <li style="display: flex; justify-content: space-between; border-bottom: 1px dashed var(--color-border); padding-bottom: 6px;">
+            <span>সাতানীপাড়া যুব সংসদ</span>
+            <strong style="color: var(--color-green-700);">৳ ১৫,০০০</strong>
+          </li>
+          <li style="display: flex; justify-content: space-between; color: var(--color-text-muted); font-style: italic;">
+            <span>বেনামী ও গোপন অনুদানকারীগণ (সম্মতি ব্যতীত)</span>
+            <span>সর্বমোট ৳ ১,৪০,০০০</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <div>© ১৯৯৯–২০২৬ সাতানীপাড়া সমাজকল্যাণ সংঘ। সর্বস্বত্ব সংরক্ষিত।</div>
+      <div>W-10 Accounts & Transparency</div>
+    </div>
+  </footer>
+
+  <script src="../../js/mock-data.js"></script>
+  <script src="../../js/language.js"></script>
+  <script src="../../js/theme.js"></script>
+  <script src="../../js/components.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script src="../../js/validation.js"></script>
+  <script src="../../js/flows.js"></script>
+  <script src="../../js/app.js"></script>
+  <script>
+    function renderAccountsTable() {
+      const db = MockData.getDB();
+      const tbody = document.getElementById('accountsTableBody');
+      tbody.innerHTML = '';
+
+      db.accounts.transactions.forEach(tx => {
+        const tr = document.createElement('tr');
+        const isIncome = tx.type === 'income';
+
+        // Strict rule: Income in green text, Expense in red numbers only (not red row!)
+        const incomeTd = isIncome ? `<span style="color: var(--color-success); font-weight: 700;">${tx.amount_bn}</span>` : '—';
+        const expenseTd = !isIncome ? `<span style="color: var(--color-danger); font-weight: 700;">${tx.amount_bn}</span>` : '—';
+
+        tr.innerHTML = `
+          <td data-label="তারিখ">${tx.date}</td>
+          <td data-label="খাত / প্রকল্প"><strong>${tx.project_bn}</strong></td>
+          <td data-label="বিবরণ">${tx.category_bn}</td>
+          <td data-label="দাতা / উৎস">${tx.donor_bn}</td>
+          <td data-label="আয়" style="text-align: right;">${incomeTd}</td>
+          <td data-label="ব্যয়" style="text-align: right;">${expenseTd}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function switchFiscalYear(yr) {
+      Components.showToast(`${yr} সালের হিসাব হালনাগাদ করা হয়েছে`, 'info');
+      renderAccountsTable();
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderAccountsTable();
+    });
+  </script>
+</body>
+</html>

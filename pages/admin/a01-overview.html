@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="bn" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>এডমিন ওভারভিউ | Satanipara Community Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../css/tokens.css">
+  <link rel="stylesheet" href="../../css/themes.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/typography.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/layouts.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+</head>
+<body data-screen="A-01">
+
+  <div class="admin-layout">
+    <!-- Left Sidebar (240px, Green-900) -->
+    <aside class="admin-sidebar" id="adminSidebar">
+      <div class="admin-sidebar-header">
+        <img src="../../assets/images/satanipara-crest.svg" alt="Crest" style="width: 36px; height: 36px;">
+        <div>
+          <div style="font-weight: 700; font-size: 15px; color: #FAF7EE;">এডমিন ড্যাশবোর্ড</div>
+          <div style="font-size: 11px; color: var(--color-gold-500);">সাতানীপাড়া সংঘ • ১৯৯৯</div>
+        </div>
+      </div>
+
+      <!-- Navigation Menu Items (Strict Role Visibility Matrix) -->
+      <ul class="admin-sidebar-menu" id="adminSidebarMenu">
+        <!-- Visible to Super Admin only -->
+        <li class="superadmin-only">
+          <a href="/pages/admin/a01-overview.html" class="admin-menu-link active">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+            <span>ওভারভিউ</span>
+          </a>
+        </li>
+        <!-- Visible to both Super Admin and Helper (*) -->
+        <li>
+          <a href="/pages/admin/a02-requests.html" class="admin-menu-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <span>প্রবাসী আবেদন</span>
+            <span class="badge badge-pending" style="margin-left: auto; font-size: 11px; padding: 2px 6px;">৩</span>
+          </a>
+        </li>
+        <!-- Visible to Super Admin only -->
+        <li class="superadmin-only">
+          <a href="/pages/admin/a03-members.html" class="admin-menu-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <span>সদস্য ও পরিবার</span>
+          </a>
+        </li>
+        <li class="superadmin-only">
+          <a href="/pages/admin/a04-community.html" class="admin-menu-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            <span>কমিউনিটি তথ্য</span>
+          </a>
+        </li>
+        <li class="superadmin-only">
+          <a href="/pages/admin/a05-committee.html" class="admin-menu-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <span>কমিটি ও সংগঠন</span>
+          </a>
+        </li>
+        <li class="superadmin-only">
+          <a href="/pages/admin/a06-activities.html" class="admin-menu-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <span>কার্যক্রম পরিচালনা</span>
+          </a>
+        </li>
+        <li class="superadmin-only">
+          <a href="/pages/admin/a07-notices.html" class="admin-menu-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            <span>নোটিশ ও গ্যালারি</span>
+          </a>
+        </li>
+        <li class="superadmin-only">
+          <a href="/pages/admin/a08-blood.html" class="admin-menu-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            <span>রক্তদাতা ও জরুরি রক্ত</span>
+          </a>
+        </li>
+        <li class="superadmin-only">
+          <a href="/pages/admin/a09-accounts.html" class="admin-menu-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="2" x2="12" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            <span>হিসাব ও অডিট</span>
+          </a>
+        </li>
+        <li class="superadmin-only">
+          <a href="/pages/admin/a10-users.html" class="admin-menu-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+            <span>ব্যবহারকারী ও রোল</span>
+          </a>
+        </li>
+        <li class="superadmin-only">
+          <a href="/pages/admin/a11-reports.html" class="admin-menu-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg>
+            <span>রিপোর্ট</span>
+          </a>
+        </li>
+        <li class="superadmin-only">
+          <a href="/pages/admin/a12-settings.html" class="admin-menu-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            <span>সেটিংস</span>
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="admin-main">
+      <!-- Topbar -->
+      <header class="admin-topbar">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <button class="btn btn-icon btn-ghost" id="adminSidebarToggle" style="display: none;" aria-label="Toggle sidebar">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+          </button>
+          <div>
+            <h1 class="font-h3" style="font-size: 20px; margin: 0;">ওভারভিউ ড্যাশবোর্ড</h1>
+            <div class="font-caption text-muted">সাতানীপাড়া সমাজকল্যাণ সংঘ • সামগ্রিক নিয়ন্ত্রণ</div>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 16px;">
+          <a href="/pages/public/w01-home.html" class="btn btn-sm btn-outline" target="_blank">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            সাইট দেখুন
+          </a>
+
+          <!-- User Badge -->
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span class="badge badge-role-superadmin" id="adminRoleBadge">সুপার এডমিন</span>
+            <span class="font-body-sm" style="font-weight: 600;" id="adminUserName">এডমিন ইউজার</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Dashboard Content -->
+      <main class="admin-content">
+        <!-- KPI Cards Row -->
+        <div class="grid-4 mb-32">
+          <!-- Total Members -->
+          <div class="stat-card">
+            <div class="stat-card-label">মোট নিবন্ধিত সদস্য</div>
+            <div class="stat-card-value">৩৫০+</div>
+            <a href="/pages/admin/a03-members.html" class="stat-card-badge">তালিকা দেখুন →</a>
+          </div>
+
+          <!-- Pending Member Approvals -->
+          <div class="stat-card" style="border-top-color: var(--color-warning);">
+            <div class="stat-card-label">অনুমোদনের অপেক্ষায় সদস্য</div>
+            <div class="stat-card-value" style="color: var(--color-warning);">১ জন</div>
+            <a href="/pages/admin/a03-members.html?tab=pending" class="stat-card-badge">যাচাই ও অনুমোদন করুন →</a>
+          </div>
+
+          <!-- Active Expatriate Requests -->
+          <div class="stat-card gold-border">
+            <div class="stat-card-label">সক্রিয় প্রবাসী আবেদন</div>
+            <div class="stat-card-value">৩টি</div>
+            <div style="font-size: 12px; color: var(--color-text-muted); display: flex; gap: 6px; margin-top: 4px;">
+              <span style="color: var(--color-warning);">১ নতুন</span> • 
+              <span style="color: var(--color-info);">১ চলমান</span> • 
+              <span style="color: var(--color-success);">১ সম্পন্ন</span>
+            </div>
+          </div>
+
+          <!-- Accounts Balance -->
+          <div class="stat-card">
+            <div class="stat-card-label">তহবিল স্থিতি (২০২৬)</div>
+            <div class="stat-card-value">৳ ৯০,০০০</div>
+            <a href="/pages/admin/a09-accounts.html" class="stat-card-badge">আয়-ব্যয় খাতা →</a>
+          </div>
+        </div>
+
+        <!-- Attention Grid: Urgent Attention Panel + Quick Action Shortcuts -->
+        <div class="grid-2 mb-32" style="gap: var(--space-24);">
+          <!-- Panel 1: Urgent Attention Needed -->
+          <div class="card">
+            <div class="flex-between mb-16">
+              <h2 class="font-h3" style="color: var(--color-danger); display: flex; align-items: center; gap: 8px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                মনোযোগ প্রয়োজন (অপেক্ষমাণ তালিকা)
+              </h2>
+              <span class="badge badge-cancelled">২টি আইটেম</span>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <!-- Urgent Item 1 -->
+              <div style="padding: 12px; background: rgba(180, 35, 24, 0.05); border: 1px solid rgba(180, 35, 24, 0.2); border-radius: 10px; display: flex; align-items: center; justify-content: space-between;">
+                <div>
+                  <div style="font-weight: 700; font-size: 14.5px; color: var(--color-danger);">
+                    EXP-2026-0003 • জরুরি পারিবারিক পাশে দাঁড়ানো
+                  </div>
+                  <div class="font-caption text-muted">আবেদনকারী: মো. শাহীন আলম (প্রবাসী) • কোনো সহায়ক নির্ধারিত হয়নি</div>
+                </div>
+                <a href="/pages/admin/a02-requests.html?id=EXP-2026-0003" class="btn btn-sm btn-danger">
+                  দায়িত্ব নির্ধারণ
+                </a>
+              </div>
+
+              <!-- Urgent Item 2 -->
+              <div style="padding: 12px; background: rgba(183, 121, 31, 0.08); border: 1px solid rgba(183, 121, 31, 0.2); border-radius: 10px; display: flex; align-items: center; justify-content: space-between;">
+                <div>
+                  <div style="font-weight: 700; font-size: 14.5px; color: var(--color-warning);">
+                    নতুন সদস্য নিবন্ধন • মো. তৌহিদুল ইসলাম
+                  </div>
+                  <div class="font-caption text-muted">কুয়েত প্রবাসী • মোবাইল: 01788990011</div>
+                </div>
+                <a href="/pages/admin/a03-members.html?action=approve" class="btn btn-sm btn-outline">
+                  অনুমোদন করুন
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 2: Quick Action Buttons -->
+          <div class="card">
+            <h2 class="font-h3 mb-16" style="color: var(--color-green-700);">
+              দ্রুত কাজ করুন (Quick Shortcuts)
+            </h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+              <a href="/pages/admin/a07-notices.html?action=new" class="btn btn-outline" style="justify-content: flex-start;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                নতুন নোটিশ প্রকাশ
+              </a>
+              <a href="/pages/admin/a09-accounts.html?action=new" class="btn btn-outline" style="justify-content: flex-start;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                নতুন হিসাব এন্ট্রি
+              </a>
+              <a href="/pages/admin/a06-activities.html?action=new" class="btn btn-outline" style="justify-content: flex-start;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                নতুন কার্যক্রম যোগ
+              </a>
+              <a href="/pages/admin/a08-blood.html?action=new" class="btn btn-outline" style="justify-content: flex-start;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                নতুন রক্তদাতা যোগ
+              </a>
+            </div>
+
+            <!-- Notice on Manual Reset / Security -->
+            <div style="margin-top: 16px; padding: 10px; background: var(--color-green-50); border-radius: 8px; font-size: 13px; color: var(--color-text-muted);">
+              🔒 <strong>নিরাপত্তা নীতি:</strong> ব্যবহারকারীদের পাসওয়ার্ড রিসেট এবং রোল পরিবর্তন শুধুমাত্র <strong>ব্যবহারকারী ও রোল (A-10)</strong> মডিউল থেকে সম্পন্ন হয়।
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Activity Audit Log (Who, What, When) -->
+        <div class="card">
+          <div class="flex-between mb-16">
+            <h2 class="font-h3" style="color: var(--color-green-700);">
+              সাম্প্রতিক অডিট ও কার্যক্রম লগ
+            </h2>
+            <span class="font-caption text-muted">সর্বশেষ ২৪ ঘণ্টা</span>
+          </div>
+
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>সময়</th>
+                  <th>ব্যবহারকারী</th>
+                  <th>ভূমিকা</th>
+                  <th>ঘটনা / কার্যক্রম</th>
+                  <th>স্ট্যাটাস</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>আজ সকাল ০৯:৩০</td>
+                  <td>কামরুল হাসান</td>
+                  <td><span class="badge badge-role-helper">প্রবাসী সহায়ক</span></td>
+                  <td>EXP-2026-0001 ওষুধের প্রেসক্রিপশন সংগ্রহ সম্পন্ন করেছেন</td>
+                  <td><span class="badge badge-progress">চলমান</span></td>
+                </tr>
+                <tr>
+                  <td>আজ সকাল ০৮:১৫</td>
+                  <td>মো. শাহীন আলম</td>
+                  <td><span class="badge badge-role-member">সদস্য</span></td>
+                  <td>নতুন প্রবাসী আবেদন EXP-2026-0003 দাখিল করেছেন</td>
+                  <td><span class="badge badge-pending">অপেক্ষমাণ</span></td>
+                </tr>
+                <tr>
+                  <td>গতকাল বিকাল ০৫:২০</td>
+                  <td>এডমিন ইউজার</td>
+                  <td><span class="badge badge-role-superadmin">সুপার এডমিন</span></td>
+                  <td>মেধাবৃত্তি ২০২৬-এর বিজ্ঞপ্তি ও টিকার প্রকাশ করেছেন</td>
+                  <td><span class="badge badge-completed">প্রকাশিত</span></td>
+                </tr>
+                <tr>
+                  <td>গতকাল দুপুর ১২:১০</td>
+                  <td>এডমিন ইউজার</td>
+                  <td><span class="badge badge-role-superadmin">সুপার এডমিন</span></td>
+                  <td>প্রবাসী কল্যাণ তহবিলের অনুদান ৳ ৫০,০০০ এন্ট্রি করেছেন</td>
+                  <td><span class="badge badge-completed">রেকর্ডকৃত</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../../js/mock-data.js"></script>
+  <script src="../../js/language.js"></script>
+  <script src="../../js/theme.js"></script>
+  <script src="../../js/components.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script src="../../js/validation.js"></script>
+  <script src="../../js/flows.js"></script>
+  <script src="../../js/app.js"></script>
+  <script>
+    // Role inspection: If Helper, hide all Super Admin modules or redirect to A-02
+    window.addEventListener('DOMContentLoaded', () => {
+      const db = MockData.getDB();
+      const role = db.session.user ? db.session.user.role : 'superadmin';
+
+      if (role === 'helper') {
+        // Strict Brief Rule: Helper overview = directly A-02!
+        window.location.href = '/pages/admin/a02-requests.html';
+        return;
+      }
+
+      // Update Topbar
+      document.getElementById('adminRoleBadge').textContent = 'সুপার এডমিন';
+      document.getElementById('adminRoleBadge').className = 'badge badge-role-superadmin';
+      document.getElementById('adminUserName').textContent = db.session.user ? db.session.user.name_bn : 'এডমিন ইউজার';
+    });
+  </script>
+</body>
+</html>

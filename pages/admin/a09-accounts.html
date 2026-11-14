@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="bn" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>হিসাব ও আর্থিক অডিট | Satanipara Community Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../css/tokens.css">
+  <link rel="stylesheet" href="../../css/themes.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/typography.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/layouts.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+</head>
+<body data-screen="A-09">
+
+  <div class="admin-layout">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar" id="adminSidebar">
+      <div class="admin-sidebar-header">
+        <img src="../../assets/images/satanipara-crest.svg" alt="Crest" style="width: 36px; height: 36px;">
+        <div>
+          <div style="font-weight: 700; font-size: 15px; color: #FAF7EE;">এডমিন ড্যাশবোর্ড</div>
+          <div style="font-size: 11px; color: var(--color-gold-500);">সাতানীপাড়া সংঘ • ১৯৯৯</div>
+        </div>
+      </div>
+      <ul class="admin-sidebar-menu">
+        <li><a href="/pages/admin/a01-overview.html" class="admin-menu-link"><span>ওভারভিউ</span></a></li>
+        <li><a href="/pages/admin/a02-requests.html" class="admin-menu-link"><span>প্রবাসী আবেদন</span></a></li>
+        <li><a href="/pages/admin/a03-members.html" class="admin-menu-link"><span>সদস্য ও পরিবার</span></a></li>
+        <li><a href="/pages/admin/a04-community.html" class="admin-menu-link"><span>কমিউনিটি তথ্য</span></a></li>
+        <li><a href="/pages/admin/a05-committee.html" class="admin-menu-link"><span>কমিটি ও সংগঠন</span></a></li>
+        <li><a href="/pages/admin/a06-activities.html" class="admin-menu-link"><span>কার্যক্রম পরিচালনা</span></a></li>
+        <li><a href="/pages/admin/a07-notices.html" class="admin-menu-link"><span>নোটিশ ও গ্যালারি</span></a></li>
+        <li><a href="/pages/admin/a08-blood.html" class="admin-menu-link"><span>রক্তদাতা ও জরুরি রক্ত</span></a></li>
+        <li><a href="/pages/admin/a09-accounts.html" class="admin-menu-link active"><span>হিসাব ও অডিট</span></a></li>
+        <li><a href="/pages/admin/a10-users.html" class="admin-menu-link"><span>ব্যবহারকারী ও রোল</span></a></li>
+        <li><a href="/pages/admin/a11-reports.html" class="admin-menu-link"><span>রিপোর্ট</span></a></li>
+        <li><a href="/pages/admin/a12-settings.html" class="admin-menu-link"><span>সেটিংস</span></a></li>
+      </ul>
+    </aside>
+
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <div>
+          <h1 class="font-h3" style="font-size: 20px; margin: 0;">হিসাব ও আর্থিক অডিট</h1>
+          <div class="font-caption text-muted">সংগঠনের আয় ও ব্যয়ের নির্ভুল ডাটাবেস ও স্বচ্ছ খাতা পরিচালনা</div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <span class="badge badge-role-superadmin">সুপার এডমিন</span>
+          <span class="font-body-sm" style="font-weight: 600;">এডমিন ইউজার</span>
+        </div>
+      </header>
+
+      <main class="admin-content">
+        <!-- Running Summary Cards -->
+        <div class="grid-3 mb-32">
+          <div class="stat-card" style="border-top-color: var(--color-success);">
+            <div class="stat-card-label">সর্বমোট আয় (২০২৬)</div>
+            <div class="stat-card-value" style="color: var(--color-success);" id="admAccIncome">৳ ৪,৭৫,০০০</div>
+            <div class="stat-card-badge">অনুদান ও চাঁদা বাবদ</div>
+          </div>
+          <div class="stat-card" style="border-top-color: var(--color-danger);">
+            <div class="stat-card-label">সর্বমোট ব্যয় (২০২৬)</div>
+            <div class="stat-card-value" style="color: var(--color-danger);" id="admAccExpense">৳ ৩,৮৫,০০০</div>
+            <div class="stat-card-badge">প্রকল্প ও পরিচালন ব্যয়</div>
+          </div>
+          <div class="stat-card gold-border">
+            <div class="stat-card-label">বর্তমান তহবিল স্থিতি</div>
+            <div class="stat-card-value" style="color: var(--color-green-700);" id="admAccBalance">৳ ৯০,০০০</div>
+            <div class="stat-card-badge">সংরক্ষিত স্থিতি</div>
+          </div>
+        </div>
+
+        <!-- Action Bar -->
+        <div class="card mb-32" style="padding: 20px;">
+          <div class="flex-between flex-wrap gap-12">
+            <div>
+              <h2 class="font-h3" style="color: var(--color-green-700); margin: 0;">লেনদেন রেজিস্ট্রি</h2>
+              <div class="font-caption text-muted">সরাসরি পাবলিক ওয়েবসাইটের হিসাব পাতায় (W-10) প্রতিফলিত হয়</div>
+            </div>
+            <div style="display: flex; gap: 8px;">
+              <button class="btn btn-outline" onclick="Components.showToast('আর্থিক অডিট রিপোর্ট PDF তৈরি সম্পন্ন', 'info')">
+                ডাউনলোড অডিট রিপোর্ট (PDF)
+              </button>
+              <button class="btn btn-primary" onclick="openAddEntryModal()">
+                + নতুন হিসাব এন্ট্রি
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Strict Section 7 Caution Note -->
+        <div class="card mb-24" style="background: rgba(183, 121, 31, 0.08); border-left: 4px solid var(--color-warning); padding: 12px 16px;">
+          <span style="font-weight: 700; color: #92400E; font-size: 14px;">⚠️ অডিট সতর্কতা:</span>
+          <span style="font-size: 13.5px; color: var(--color-text-strong);">"প্রকাশিত হিসাবে যেকোনো পরিবর্তন বা সংশোধন অপরিবর্তনীয়ভাবে সিস্টেম অডিট লগে রেকর্ড থেকে যাবে।"</span>
+        </div>
+
+        <!-- Transactions Table -->
+        <div class="table-responsive table-cards-mobile">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>তারিখ</th>
+                <th>লেনদেনের ধরন</th>
+                <th>খাত / প্রকল্প</th>
+                <th>বিবরণ</th>
+                <th>দাতা / প্রাপক</th>
+                <th style="text-align: right;">পরিমাণ (টাকা)</th>
+                <th style="text-align: right;">অ্যাকশন</th>
+              </tr>
+            </thead>
+            <tbody id="adminAccountsTableBody">
+              <!-- Rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Add Financial Entry Modal (F-07 Flow) -->
+  <div class="modal-backdrop" id="addEntryModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2 class="modal-title" style="font-size: 20px; color: var(--color-green-700);">নতুন হিসাব এন্ট্রি ফরম</h2>
+        <button class="modal-close-btn" onclick="closeAddEntryModal()">✕</button>
+      </div>
+      <form onsubmit="handleSaveEntry(event)">
+        <!-- Type Selection Toggle: Income / Expense -->
+        <div class="form-group mb-16">
+          <label class="form-label">লেনদেনের ধরন <span class="required">*</span></label>
+          <div style="display: flex; gap: 12px;">
+            <label style="flex: 1; border: 1.5px solid var(--color-border); border-radius: 8px; padding: 10px; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+              <input type="radio" name="entryType" value="income" checked onchange="toggleDonorField(true)">
+              <span style="font-weight: 700; color: var(--color-success);">+ আয় (Income)</span>
+            </label>
+            <label style="flex: 1; border: 1.5px solid var(--color-border); border-radius: 8px; padding: 10px; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+              <input type="radio" name="entryType" value="expense" onchange="toggleDonorField(false)">
+              <span style="font-weight: 700; color: var(--color-danger);">- ব্যয় (Expense)</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="form-label">তারিখ <span class="required">*</span></label>
+            <input type="date" id="entDate" class="form-control" value="2026-11-14" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">টাকার পরিমাণ <span class="required">*</span></label>
+            <input type="number" id="entAmount" class="form-control" placeholder="যেমন: 25000" required>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="form-label">খাত / বিবরণী <span class="required">*</span></label>
+            <input type="text" id="entCategory" class="form-control" placeholder="যেমন: প্রবাসী মাসিক চাঁদা বা শিক্ষা সহায়তা" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">প্রকল্প (ঐচ্ছিক)</label>
+            <input type="text" id="entProject" class="form-control" placeholder="যেমন: সাধারণ তহবিল বা শীতবস্ত্র ২০২৬">
+          </div>
+        </div>
+
+        <!-- Donor info (Only for income) -->
+        <div id="donorFieldGroup">
+          <div class="form-group">
+            <label class="form-label">দাতার নাম</label>
+            <input type="text" id="entDonor" class="form-control" placeholder="যেমন: মো. কামরুল হাসান">
+          </div>
+          <div class="card mb-16" style="background: var(--color-green-50); padding: 12px;">
+            <div class="flex-between">
+              <span style="font-size: 13.5px; font-weight: 600;">দাতার নাম পাবলিক তালিকায় প্রকাশের সম্মতি আছে?</span>
+              <label class="toggle-switch">
+                <input type="checkbox" id="entConsentToggle" checked style="display: none;">
+                <span class="switch-track"><span class="switch-thumb"></span></span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-ghost" onclick="closeAddEntryModal()">বাতিল</button>
+          <button type="submit" class="btn btn-primary">হিসাব সংরক্ষণ করুন</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="../../js/mock-data.js"></script>
+  <script src="../../js/language.js"></script>
+  <script src="../../js/theme.js"></script>
+  <script src="../../js/components.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script src="../../js/validation.js"></script>
+  <script src="../../js/flows.js"></script>
+  <script src="../../js/app.js"></script>
+  <script>
+    function renderAdminAccountsTable() {
+      const db = MockData.getDB();
+      const tbody = document.getElementById('adminAccountsTableBody');
+      tbody.innerHTML = '';
+
+      db.accounts.transactions.forEach(tx => {
+        const tr = document.createElement('tr');
+        const isIncome = tx.type === 'income';
+        const typeBadge = isIncome
+          ? `<span class="badge badge-completed">+ আয়</span>`
+          : `<span class="badge badge-cancelled">- ব্যয়</span>`;
+
+        const amtColor = isIncome ? 'var(--color-success)' : 'var(--color-danger)';
+
+        tr.innerHTML = `
+          <td data-label="তারিখ">${tx.date}</td>
+          <td data-label="ধরন">${typeBadge}</td>
+          <td data-label="প্রকল্প"><strong>${tx.project_bn}</strong></td>
+          <td data-label="বিবরণ">${tx.category_bn}</td>
+          <td data-label="উৎস">${tx.donor_bn}</td>
+          <td data-label="পরিমাণ" style="text-align: right; font-weight: 700; color: ${amtColor};">${tx.amount_bn}</td>
+          <td data-label="অ্যাকশন" style="text-align: right;">
+            <button class="btn btn-sm btn-ghost" onclick="Components.showToast('অডিট লগে এন্ট্রির ইতিহাস সংরক্ষিত', 'info')">অডিট</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function openAddEntryModal() {
+      document.getElementById('addEntryModal').classList.add('is-open');
+    }
+    function closeAddEntryModal() {
+      document.getElementById('addEntryModal').classList.remove('is-open');
+    }
+
+    function toggleDonorField(show) {
+      document.getElementById('donorFieldGroup').style.display = show ? 'block' : 'none';
+    }
+
+    function handleSaveEntry(e) {
+      e.preventDefault();
+      const type = document.querySelector('input[name="entryType"]:checked').value;
+      const date = document.getElementById('entDate').value;
+      const amt = Number(document.getElementById('entAmount').value);
+      const cat = document.getElementById('entCategory').value;
+      const proj = document.getElementById('entProject').value || 'সাধারণ তহবিল';
+      const donor = document.getElementById('entDonor').value || 'বেনামী দাতা';
+      const consent = document.getElementById('entConsentToggle').checked;
+
+      const db = MockData.getDB();
+      const formattedAmt = '৳ ' + I18n.toBengaliNumerals(amt.toLocaleString('en-IN'));
+
+      const newTx = {
+        id: 'tx-' + Date.now(),
+        date: date,
+        type: type,
+        category_bn: cat,
+        category_en: cat,
+        project_bn: proj,
+        project_en: proj,
+        amount_bn: formattedAmt,
+        amount_en: '৳ ' + amt.toLocaleString('en-IN'),
+        donor_bn: consent ? `${donor} (সম্মতিপ্রাপ্ত)` : 'বেনামী শুভাকাঙ্ক্ষী'
+      };
+
+      db.accounts.transactions.unshift(newTx);
+      MockData.saveDB(db);
+
+      closeAddEntryModal();
+      renderAdminAccountsTable();
+      Components.showToast('আর্থিক লেনদেন সফলভাবে এন্ট্রি হয়েছে এবং পাবলিক খাতা আপডেট হয়েছে!', 'success', 5000);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderAdminAccountsTable();
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('action') === 'new') {
+        openAddEntryModal();
+      }
+    });
+  </script>
+</body>
+</html>

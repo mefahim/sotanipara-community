@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="bn" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ব্যবহারকারী ও রোল ব্যবস্থাপনা | Satanipara Community Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../css/tokens.css">
+  <link rel="stylesheet" href="../../css/themes.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/typography.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/layouts.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+</head>
+<body data-screen="A-10">
+
+  <div class="admin-layout">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar" id="adminSidebar">
+      <div class="admin-sidebar-header">
+        <img src="../../assets/images/satanipara-crest.svg" alt="Crest" style="width: 36px; height: 36px;">
+        <div>
+          <div style="font-weight: 700; font-size: 15px; color: #FAF7EE;">এডমিন ড্যাশবোর্ড</div>
+          <div style="font-size: 11px; color: var(--color-gold-500);">সাতানীপাড়া সংঘ • ১৯৯৯</div>
+        </div>
+      </div>
+      <ul class="admin-sidebar-menu">
+        <li><a href="/pages/admin/a01-overview.html" class="admin-menu-link"><span>ওভারভিউ</span></a></li>
+        <li><a href="/pages/admin/a02-requests.html" class="admin-menu-link"><span>প্রবাসী আবেদন</span></a></li>
+        <li><a href="/pages/admin/a03-members.html" class="admin-menu-link"><span>সদস্য ও পরিবার</span></a></li>
+        <li><a href="/pages/admin/a04-community.html" class="admin-menu-link"><span>কমিউনিটি তথ্য</span></a></li>
+        <li><a href="/pages/admin/a05-committee.html" class="admin-menu-link"><span>কমিটি ও সংগঠন</span></a></li>
+        <li><a href="/pages/admin/a06-activities.html" class="admin-menu-link"><span>কার্যক্রম পরিচালনা</span></a></li>
+        <li><a href="/pages/admin/a07-notices.html" class="admin-menu-link"><span>নোটিশ ও গ্যালারি</span></a></li>
+        <li><a href="/pages/admin/a08-blood.html" class="admin-menu-link"><span>রক্তদাতা ও জরুরি রক্ত</span></a></li>
+        <li><a href="/pages/admin/a09-accounts.html" class="admin-menu-link"><span>হিসাব ও অডিট</span></a></li>
+        <li><a href="/pages/admin/a10-users.html" class="admin-menu-link active"><span>ব্যবহারকারী ও রোল</span></a></li>
+        <li><a href="/pages/admin/a11-reports.html" class="admin-menu-link"><span>রিপোর্ট</span></a></li>
+        <li><a href="/pages/admin/a12-settings.html" class="admin-menu-link"><span>সেটিংস</span></a></li>
+      </ul>
+    </aside>
+
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <div>
+          <h1 class="font-h3" style="font-size: 20px; margin: 0;">ড্যাশবোর্ড ব্যবহারকারী ও ভূমিকা</h1>
+          <div class="font-caption text-muted">সুপার এডমিন ও প্রবাসী সহায়ক রোল নিয়ন্ত্রণ (শুধুমাত্র সুপার এডমিন)</div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <span class="badge badge-role-superadmin">সুপার এডমিন</span>
+          <span class="font-body-sm" style="font-weight: 600;">এডমিন ইউজার</span>
+        </div>
+      </header>
+
+      <main class="admin-content">
+        <!-- Section 9 & 10 Role Rule Notice -->
+        <div class="card mb-32" style="background: var(--color-green-50); border-left: 4px solid var(--color-green-700); padding: 14px;">
+          <div style="font-weight: 700; color: var(--color-green-700); font-size: 14.5px; margin-bottom: 2px;">
+            🔒 কঠোর এডমিন নিরাপত্তা ও ভূমিকা নীতি:
+          </div>
+          <div class="font-body-sm text-strong">
+            সিস্টেমে শুধুমাত্র <strong>২টি ভূমিকা</strong> রয়েছে: <em>১. Super Admin (সর্বোচ্চ ২ জন)</em> এবং <em>২. Expatriate Helper (সহায়ক)</em>। কোনো প্রেসিডেন্ট, সেক্রেটারি বা ট্রেজারার ড্যাশবোর্ড নেই। সহায়ক শুধুমাত্র প্রবাসী আবেদন মডিউল অ্যাক্সেস করতে পারেন।
+          </div>
+        </div>
+
+        <!-- Action Header -->
+        <div class="card mb-32" style="padding: 20px;">
+          <div class="flex-between flex-wrap gap-12">
+            <div>
+              <h2 class="font-h3" style="color: var(--color-green-700); margin: 0;">প্রশাসনিক ব্যবহারকারী তালিকা</h2>
+              <div class="font-caption text-muted">ড্যাশবোর্ড লগইন সুবিধাপ্রাপ্ত ব্যক্তিবর্গ</div>
+            </div>
+            <button class="btn btn-primary" onclick="openAddUserModal()">
+              + নতুন ইউজার তৈরি করুন (Create User)
+            </button>
+          </div>
+        </div>
+
+        <!-- Users Table -->
+        <div class="table-responsive table-cards-mobile mb-48">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>ব্যবহারকারীর নাম</th>
+                <th>লগইন মোবাইল নম্বর</th>
+                <th>প্রশাসনিক রোল</th>
+                <th>স্ট্যাটাস</th>
+                <th>সর্বশেষ লগইন</th>
+                <th style="text-align: right;">অ্যাকশন</th>
+              </tr>
+            </thead>
+            <tbody id="adminUsersTableBody">
+              <!-- Rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Create User Modal (Flow F-05) -->
+  <div class="modal-backdrop" id="addUserModal">
+    <div class="modal-card" style="max-width: 600px;">
+      <div class="modal-header">
+        <h2 class="modal-title" style="font-size: 20px; color: var(--color-green-700);">নতুন ড্যাশবোর্ড ইউজার তৈরি</h2>
+        <button class="modal-close-btn" onclick="closeAddUserModal()">✕</button>
+      </div>
+
+      <form id="createUserForm" onsubmit="handleCreateUserSubmit(event)">
+        <!-- Step 1 & 2: Name & Mobile -->
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="form-label">ব্যবহারকারীর পূর্ণ নাম <span class="required">*</span></label>
+            <input type="text" id="uName" class="form-control" placeholder="যেমন: মো. কামরুল হাসান" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">মোবাইল নম্বর (লগইন আইডি) <span class="required">*</span></label>
+            <input type="tel" id="uMobile" class="form-control" placeholder="01XXXXXXXXX" required>
+          </div>
+        </div>
+
+        <!-- Step 3: Initial Password -->
+        <div class="form-group">
+          <label class="form-label">প্রাথমিক পাসওয়ার্ড নির্ধারণ করুন <span class="required">*</span></label>
+          <div class="password-wrapper">
+            <input type="password" id="uPassword" class="form-control" placeholder="কমপক্ষে ৬ অক্ষর" minlength="6" required>
+            <button type="button" class="password-toggle-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+          <span class="form-hint">সুপার এডমিন এটি নির্ধারণ করবেন, ইউজার পরবর্তীতে পরিবর্তন করবেন</span>
+        </div>
+
+        <!-- Step 4: Strict Role Selection (ONLY 2 Options) -->
+        <div class="form-group mb-20">
+          <label class="form-label mb-8">ভূমিকা / রোল নির্বাচন করুন <span class="required">*</span></label>
+          <div class="selection-grid" style="grid-template-columns: 1fr 1fr;">
+            <!-- Option A: Helper -->
+            <label class="selection-card selected" style="cursor: pointer;" onclick="selectUserRole('helper', this)">
+              <input type="radio" name="userRole" value="helper" checked style="display: none;">
+              <div style="color: var(--color-green-700); font-size: 20px;">🤝</div>
+              <div>
+                <div style="font-weight: 700; font-size: 15px;">প্রবাসী সহায়ক (Helper)</div>
+                <div class="font-caption text-muted">শুধুমাত্র প্রবাসী সহায়তা আবেদন দেখা ও পরিচালনা করতে পারবেন</div>
+              </div>
+            </label>
+
+            <!-- Option B: Super Admin -->
+            <label class="selection-card" style="cursor: pointer;" onclick="selectUserRole('superadmin', this)">
+              <input type="radio" name="userRole" value="superadmin" style="display: none;">
+              <div style="color: var(--color-gold-700); font-size: 20px;">👑</div>
+              <div>
+                <div style="font-weight: 700; font-size: 15px;">সুপার এডমিন (Super Admin)</div>
+                <div class="font-caption text-muted">পূর্ণ নিয়ন্ত্রণ, হিসাব, সেটিংস ও ইউজার তৈরি (সর্বোচ্চ ২ জন)</div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-ghost" onclick="closeAddUserModal()">বাতিল</button>
+          <button type="submit" class="btn btn-primary">ইউজার তৈরি করুন</button>
+        </div>
+      </form>
+
+      <!-- Success Card (Password Security Note) -->
+      <div id="createUserSuccessBox" style="display: none; padding: 20px 0; text-align: center;">
+        <div style="width: 56px; height: 56px; border-radius: 50%; background: #D1FAE5; color: #065F46; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3 class="font-h2 mb-8" style="color: var(--color-green-700);">ইউজার সফলভাবে তৈরি হয়েছে!</h3>
+        <div class="card mb-16" style="background: var(--color-green-50); padding: 14px; text-align: left;">
+          <div style="font-size: 14.5px;"><strong>নাম:</strong> <span id="sucUserName">মো. কামরুল হাসান</span></div>
+          <div style="font-size: 14.5px;"><strong>মোবাইল:</strong> <span id="sucUserMobile">01700000002</span></div>
+          <div style="font-size: 14.5px;"><strong>রোল:</strong> <span id="sucUserRole">প্রবাসী সহায়ক</span></div>
+        </div>
+        <div style="background: rgba(183, 121, 31, 0.1); border-left: 4px solid var(--color-warning); padding: 12px; border-radius: 8px; font-size: 13.5px; text-align: left; margin-bottom: 20px;">
+          🔒 <strong>নিরাপত্তা নির্দেশনা:</strong> ব্যবহারকারীকে ব্যক্তিগতভাবে বা সুরক্ষিত মাধ্যমে তাঁর পাসওয়ার্ডটি জানিয়ে দিন। নিরাপত্তার স্বার্থে পর্দায় পাসওয়ার্ড পুনরায় আর দেখানো হবে না।
+        </div>
+        <button class="btn btn-primary btn-block" onclick="finishCreateUser()">ঠিক আছে, সম্পন্ন হয়েছে</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Manual Password Reset Modal -->
+  <div class="modal-backdrop" id="resetPassModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2 class="modal-title" style="font-size: 18px; color: var(--color-green-700);">পাসওয়ার্ড ম্যানুয়াল রিসেট</h2>
+        <button class="modal-close-btn" onclick="closeResetModal()">✕</button>
+      </div>
+      <div>
+        <p class="font-body-sm text-muted mb-16">
+          ব্যবহারকারী <strong id="resetTargetName">কামরুল হাসান</strong>-এর জন্য নতুন পাসওয়ার্ড নির্ধারণ করুন:
+        </p>
+        <div class="form-group mb-16">
+          <label class="form-label">নতুন পাসওয়ার্ড লিখুন</label>
+          <input type="text" class="form-control" id="manualNewPass" value="Sangha#2026" required>
+        </div>
+        <div style="font-size: 13px; color: var(--color-text-muted); background: var(--color-green-50); padding: 10px; border-radius: 6px;">
+          এই পাসওয়ার্ডটি সুরক্ষিতভাবে ব্যবহারকারীকে প্রদান করুন।
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-ghost" onclick="closeResetModal()">বাতিল</button>
+        <button class="btn btn-primary" onclick="confirmResetPass()">পাসওয়ার্ড রিসেট নিশ্চিত করুন</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../js/mock-data.js"></script>
+  <script src="../../js/language.js"></script>
+  <script src="../../js/theme.js"></script>
+  <script src="../../js/components.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script src="../../js/validation.js"></script>
+  <script src="../../js/flows.js"></script>
+  <script src="../../js/app.js"></script>
+  <script>
+    let selectedUserRole = 'helper';
+
+    function renderAdminUsersTable() {
+      const db = MockData.getDB();
+      const tbody = document.getElementById('adminUsersTableBody');
+      tbody.innerHTML = '';
+
+      db.adminUsers.forEach(u => {
+        const tr = document.createElement('tr');
+        const roleBadge = u.role === 'superadmin'
+          ? `<span class="badge badge-role-superadmin">সুপার এডমিন</span>`
+          : `<span class="badge badge-role-helper">প্রবাসী সহায়ক</span>`;
+
+        const statusBadge = u.isActive
+          ? `<span class="badge badge-completed">সক্রিয়</span>`
+          : `<span class="badge badge-cancelled">নিষ্ক্রিয়</span>`;
+
+        tr.innerHTML = `
+          <td data-label="নাম"><strong>${u.name_bn}</strong></td>
+          <td data-label="মোবাইল">${u.mobile}</td>
+          <td data-label="রোল">${roleBadge}</td>
+          <td data-label="স্ট্যাটাস">${statusBadge}</td>
+          <td data-label="লগইন">${u.lastLogin}</td>
+          <td data-label="অ্যাকশন" style="text-align: right;">
+            <button class="btn btn-sm btn-ghost" onclick="openResetModal('${u.name_bn}')">পাসওয়ার্ড রিসেট</button>
+            <button class="btn btn-sm btn-ghost" onclick="toggleUserStatus('${u.id}')">স্ট্যাটাস বদল</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function selectUserRole(role, cardEl) {
+      selectedUserRole = role;
+      document.querySelectorAll('#addUserModal .selection-card').forEach(c => c.classList.remove('selected'));
+      cardEl.classList.add('selected');
+    }
+
+    function openAddUserModal() {
+      document.getElementById('createUserForm').style.display = 'block';
+      document.getElementById('createUserSuccessBox').style.display = 'none';
+      document.getElementById('addUserModal').classList.add('is-open');
+    }
+    function closeAddUserModal() {
+      document.getElementById('addUserModal').classList.remove('is-open');
+    }
+
+    function handleCreateUserSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('uName').value;
+      const mobile = document.getElementById('uMobile').value;
+      const pass = document.getElementById('uPassword').value;
+
+      const db = MockData.getDB();
+
+      // Guard: Super Admin max 2 check
+      if (selectedUserRole === 'superadmin') {
+        const superCount = db.adminUsers.filter(x => x.role === 'superadmin').length;
+        if (superCount >= 2) {
+          alert('সতর্কতা: নীতি অনুযায়ী সুপার এডমিন সর্বোচ্চ ২ জনের বেশি তৈরি করা যাবে না।');
+          return;
+        }
+      }
+
+      const newUser = {
+        id: 'adm-' + Date.now(),
+        name_bn: name,
+        name_en: name,
+        mobile: mobile,
+        role: selectedUserRole,
+        isActive: true,
+        lastLogin: 'কখনো নয়'
+      };
+
+      db.adminUsers.push(newUser);
+      MockData.saveDB(db);
+
+      // Show Success View
+      document.getElementById('createUserForm').style.display = 'none';
+      document.getElementById('sucUserName').textContent = name;
+      document.getElementById('sucUserMobile').textContent = mobile;
+      document.getElementById('sucUserRole').textContent = selectedUserRole === 'superadmin' ? 'সুপার এডমিন' : 'প্রবাসী সহায়ক';
+      document.getElementById('createUserSuccessBox').style.display = 'block';
+    }
+
+    function finishCreateUser() {
+      closeAddUserModal();
+      renderAdminUsersTable();
+      Components.showToast('নতুন প্রশাসনিক ইউজার সফলভাবে সক্রিয় হয়েছে!', 'success', 5000);
+    }
+
+    function openResetModal(name) {
+      document.getElementById('resetTargetName').textContent = name;
+      document.getElementById('resetPassModal').classList.add('is-open');
+    }
+    function closeResetModal() {
+      document.getElementById('resetPassModal').classList.remove('is-open');
+    }
+    function confirmResetPass() {
+      closeResetModal();
+      Components.showToast('নতুন পাসওয়ার্ড সফলভাবে হালনাগাদ করা হয়েছে', 'success');
+    }
+
+    function toggleUserStatus(id) {
+      const db = MockData.getDB();
+      const u = db.adminUsers.find(x => x.id === id);
+      if (u) {
+        if (u.id === 'adm-01') {
+          Components.showToast('সতর্কতা: নিজেকে নিষ্ক্রিয় বা রোল নামানো যাবে না', 'error');
+          return;
+        }
+        u.isActive = !u.isActive;
+        MockData.saveDB(db);
+        renderAdminUsersTable();
+        Components.showToast(`ইউজার স্ট্যাটাস: ${u.isActive ? 'সক্রিয়' : 'নিষ্ক্রিয়'}`, 'info');
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderAdminUsersTable();
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('flow') === 'F-05') {
+        openAddUserModal();
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="bn" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>আমার প্রোফাইল | Satanipara Community</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../css/tokens.css">
+  <link rel="stylesheet" href="../../css/themes.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/typography.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/layouts.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+</head>
+<body data-screen="M-04">
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="/pages/public/w01-home.html" class="brand">
+        <img src="../../assets/images/satanipara-crest.svg" alt="Crest" class="brand-crest">
+        <div class="brand-text-block">
+          <span class="brand-name" data-i18n="brand.name">সাতানীপাড়া কিমউিনটি</span>
+          <span class="brand-tagline">সদস্য প্রোফাইল</span>
+        </div>
+      </a>
+      <div class="header-actions">
+        <button class="btn btn-icon btn-ghost theme-toggle-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+        <button class="btn btn-sm btn-ghost" id="headerLangToggle">EN</button>
+        
+        <div style="display: flex; align-items: center; gap: 8px; border-left: 1px solid var(--color-border); padding-left: 12px;">
+          <div style="width: 32px; height: 32px; border-radius: 50%; background: var(--color-green-700); color: #FFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px;">
+            আ
+          </div>
+          <span class="font-body-sm" style="font-weight: 600;">আব্দুর রহমান</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Member Subnav -->
+  <nav class="member-subnav">
+    <div class="container">
+      <ul class="member-subnav-list">
+        <li><a href="/pages/member/m01-dashboard.html" class="chip">আমার ড্যাশবোর্ড</a></li>
+        <li><a href="/pages/member/m02-request-wizard.html" class="chip">নতুন সহায়তা আবেদন</a></li>
+        <li><a href="/pages/member/m03-my-requests.html" class="chip">আমার আবেদনসমূহ</a></li>
+        <li><a href="/pages/member/m04-profile.html" class="chip active">আমার প্রোফাইল</a></li>
+        <li><a href="/pages/member/m05-family.html" class="chip">পরিবারের তথ্য</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container section-py" style="max-width: 800px;">
+    <!-- Profile Card -->
+    <div class="card mb-32" style="padding: var(--space-32);">
+      <div class="flex-between mb-24 flex-wrap gap-16">
+        <div style="display: flex; align-items: center; gap: 20px;">
+          <div style="width: 72px; height: 72px; border-radius: 50%; background: var(--color-green-700); color: #FAF7EE; display: flex; align-items: center; justify-content: center; font-size: 30px; font-weight: 700; border: 3px solid var(--color-gold-500);">
+            আ
+          </div>
+          <div>
+            <h1 class="font-h2" style="margin: 0; font-size: 24px;">আব্দুর রহমান</h1>
+            <div style="display: flex; align-items: center; gap: 8px; margin-top: 4px;">
+              <span class="badge badge-gold">প্রবাসী সদস্য</span>
+              <span class="font-caption text-muted">আইডি: SAT-MEM-0042</span>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn btn-sm btn-outline" id="editProfileBtn" onclick="toggleProfileEdit()">
+          ✏️ তথ্য সম্পাদনা করুন
+        </button>
+      </div>
+
+      <!-- View & Edit Form (Same page) -->
+      <form id="profileForm" onsubmit="handleProfileSave(event)">
+        <div class="grid-2 mb-20">
+          <div class="form-group">
+            <label class="form-label">পূর্ণ নাম (বাংলা)</label>
+            <input type="text" class="form-control" id="pNameBn" value="আব্দুর রহমান" disabled required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">নাম (ইংরেজি)</label>
+            <input type="text" class="form-control" id="pNameEn" value="Abdur Rahman" disabled required>
+          </div>
+        </div>
+
+        <div class="grid-2 mb-20">
+          <div class="form-group">
+            <label class="form-label">মোবাইল নম্বর (লগইন আইডি)</label>
+            <input type="tel" class="form-control" id="pMobile" value="01712345678" disabled>
+            <span class="form-hint">মোবাইল নম্বর পরিবর্তনে সুপার এডমিনের অনুমতি প্রয়োজন</span>
+          </div>
+          <div class="form-group">
+            <label class="form-label">কর্মরত দেশ</label>
+            <input type="text" class="form-control" id="pCountry" value="সৌদি আরব (রিয়াদ)" disabled required>
+          </div>
+        </div>
+
+        <div class="grid-2 mb-24">
+          <div class="form-group">
+            <label class="form-label">পেশা / কর্মসংস্থান</label>
+            <input type="text" class="form-control" id="pProfession" value="ব্যবসায়ী ও প্রবাসী উদ্যোক্তা" disabled>
+          </div>
+          <div class="form-group">
+            <label class="form-label">সাতানীপাড়ার স্থায়ী ঠিকানা</label>
+            <input type="text" class="form-control" id="pAddress" value="সাতানীপাড়া উত্তর পাড়া, হাজী বাড়ি" disabled required>
+          </div>
+        </div>
+
+        <!-- Section 2: Blood Donor Profile & Privacy Consent Toggle -->
+        <div class="card mb-24" style="background: var(--color-green-50); padding: 20px;">
+          <h2 class="font-h3 mb-16" style="color: var(--color-green-700); font-size: 18px;">
+            রক্তদান প্রোফাইল ও সম্মতি ব্যবস্থাপনা
+          </h2>
+
+          <div class="grid-2 mb-16">
+            <div class="form-group">
+              <label class="form-label">রক্তের গ্রুপ</label>
+              <select class="form-select" id="pBloodGroup" disabled>
+                <option value="O+" selected>O Positive (O+)</option>
+                <option value="A+">A Positive (A+)</option>
+                <option value="B+">B Positive (B+)</option>
+                <option value="AB+">AB Positive (AB+)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">রক্তদানে প্রস্তুত?</label>
+              <select class="form-select" id="pBloodAvail" disabled>
+                <option value="yes" selected>হ্যাঁ, জরুরি প্রয়োজনে প্রস্তুত</option>
+                <option value="no">সাময়িক বিরতিতে আছি</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Strict Consent Toggle + Verbatim Section 14 Disclaimer -->
+          <div style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 10px; padding: 16px;">
+            <div class="flex-between mb-8">
+              <div>
+                <strong style="font-size: 15px;">পাবলিক তালিকায় ফোন নম্বর প্রকাশের সম্মতি:</strong>
+                <div class="font-caption text-muted">চালু থাকলে রক্ত অনুসন্ধানকারী আপনাকে সরাসরি কল করতে পারবেন</div>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" id="pConsentToggle" checked disabled style="display: none;">
+                <span class="switch-track"><span class="switch-thumb"></span></span>
+              </label>
+            </div>
+
+            <!-- Disclaimer -->
+            <div style="font-size: 13.5px; color: var(--color-text-strong); background: rgba(20, 83, 45, 0.05); padding: 10px; border-radius: 6px; border-left: 3px solid var(--color-green-700);">
+              "আপনার ফোন নম্বর শুধু তখনই প্রকাশ করা হবে, যখন আপনি সম্মতি দিয়েছেন। সম্মতি যেকোনো সময় প্রোফাইল থেকে বাতিল করা যাবে।"
+            </div>
+          </div>
+        </div>
+
+        <div id="saveProfileBtnRow" style="display: none; justify-content: flex-end; gap: 12px;">
+          <button type="button" class="btn btn-ghost" onclick="toggleProfileEdit()">বাতিল</button>
+          <button type="submit" class="btn btn-primary">পরিবর্তন সংরক্ষণ করুন</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <div>© ১৯৯৯–২০২৬ সাতানীপাড়া সমাজকল্যাণ সংঘ। সর্বস্বত্ব সংরক্ষিত।</div>
+      <div>M-04 My Profile</div>
+    </div>
+  </footer>
+
+  <script src="../../js/mock-data.js"></script>
+  <script src="../../js/language.js"></script>
+  <script src="../../js/theme.js"></script>
+  <script src="../../js/components.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script src="../../js/validation.js"></script>
+  <script src="../../js/flows.js"></script>
+  <script src="../../js/app.js"></script>
+  <script>
+    let isEditing = false;
+
+    function toggleProfileEdit() {
+      isEditing = !isEditing;
+      const inputs = document.querySelectorAll('#profileForm input, #profileForm select');
+      inputs.forEach(inp => {
+        if (inp.id !== 'pMobile') { // Mobile is strictly locked
+          inp.disabled = !isEditing;
+        }
+      });
+
+      document.getElementById('saveProfileBtnRow').style.display = isEditing ? 'flex' : 'none';
+      document.getElementById('editProfileBtn').textContent = isEditing ? '✕ বাতিল' : '✏️ তথ্য সম্পাদনা করুন';
+    }
+
+    function handleProfileSave(e) {
+      e.preventDefault();
+      Components.showToast('আপনার প্রোফাইল তথ্য সফলভাবে হালনাগাদ হয়েছে', 'success');
+      toggleProfileEdit();
+    }
+  </script>
+</body>
+</html>

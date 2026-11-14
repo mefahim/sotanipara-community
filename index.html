@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="bn" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>সাতানীপাড়া কিমউিনটি — UI/UX প্রোটোটাইপ হাব | Satanipara Community</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/layouts.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .hub-header {
+      background: var(--color-green-900);
+      background-image: url('assets/images/hero-bg.svg');
+      background-size: cover;
+      color: #FAF7EE;
+      padding: var(--space-48) 0;
+      border-bottom: 3px solid var(--color-gold-500);
+    }
+    .screen-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: var(--space-16);
+    }
+    .screen-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: 4px;
+      background: var(--color-green-100);
+      color: var(--color-green-700);
+    }
+    .flow-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-card);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: all var(--transition-fast);
+    }
+    .flow-card:hover {
+      border-color: var(--color-green-700);
+      box-shadow: var(--shadow-raised);
+    }
+  </style>
+</head>
+<body data-screen="HUB">
+
+  <!-- Hub Header -->
+  <header class="hub-header">
+    <div class="container">
+      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
+        <div style="display: flex; align-items: center; gap: 16px;">
+          <img src="assets/images/satanipara-crest.svg" alt="Crest" style="width: 64px; height: 64px;">
+          <div>
+            <div class="slogan-chip" style="margin-bottom: 6px;">
+              <span>শিক্ষা • ঐক্য • শান্তি • প্রগতি • প্রতিষ্ঠা ১৯৯৯</span>
+            </div>
+            <h1 class="font-display" style="font-size: 28px; line-height: 36px; color: #FAF7EE;">
+              সাতানীপাড়া কিমউিনটি — ইন্টারেক্টিভ UI/UX প্রোটোটাইপ
+            </h1>
+            <p class="font-body-sm" style="color: #CBD5E1;">
+              Satanipara Somaj Kallyan Sangha • ৩৫টি স্ক্রিন ও ৮টি ক্লিকযোগ্য ইউজার জার্নি
+            </p>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <button class="btn btn-sm btn-outline-white theme-toggle-btn">
+            🌙 Dark Mode
+          </button>
+          <a href="/pages/public/w01-home.html" class="btn btn-gold">
+            🌐 মূল ওয়েবসাইটে প্রবেশ করুন →
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container section-py">
+    <!-- Notice Bar -->
+    <div class="card mb-32" style="background: var(--color-green-50); border-left: 5px solid var(--color-green-700);">
+      <div class="flex-between flex-wrap gap-12">
+        <div>
+          <div style="font-weight: 700; font-size: 17px; color: var(--color-green-700);">
+            ✨ ফেইজ ২: ৫টি কী-স্ক্রিন সফলভাবে সম্পন্ন
+          </div>
+          <div class="font-body-sm text-muted">
+            হোমপেজ (W-01), লগইন ও নিবন্ধন (W-12), প্রবাসী আবেদন উইজার্ড (M-02), এডমিন ওভারভিউ (A-01) এবং প্রবাসী আবেদন ব্যবস্থাপনা (A-02: Super Admin ও Helper উভয় ভিউ)।
+          </div>
+        </div>
+        <a href="/pages/public/w01-home.html" class="btn btn-sm btn-primary">
+          রিভিউ শুরু করুন
+        </a>
+      </div>
+    </div>
+
+    <!-- 5 Key Screens Showcase -->
+    <div class="mb-48">
+      <div class="flex-between mb-20">
+        <div>
+          <h2 class="font-h2" style="color: var(--color-green-700);">কী-স্ক্রিনসমূহ (Key Screens)</h2>
+          <p class="font-body-sm text-muted">প্রধান ভিজ্যুয়াল ও ফাংশনাল এক্সপেরিয়েন্স</p>
+        </div>
+        <span class="badge badge-accepted">অনুমোদনের জন্য প্রস্তুত</span>
+      </div>
+
+      <div class="grid-3" style="gap: var(--space-20);">
+        <!-- 1. Home -->
+        <div class="card" style="border-top: 4px solid var(--color-green-700);">
+          <div class="flex-between mb-8">
+            <span class="screen-badge">W-01</span>
+            <span class="font-caption text-muted">পাবলিক ওয়েবসাইট</span>
+          </div>
+          <h3 class="font-h3 mb-8">হোমপেজ (Home)</h3>
+          <p class="font-body-sm text-muted mb-16">
+            কমপ্যাক্ট স্টিকি হেডার, আলাদা নোটিশ টিকার, জরুরি বার, প্রিমিয়াম হিরো, ৬টি সার্ভিস শর্টকাট, পরিসংখ্যান ও কার্যক্রম।
+          </p>
+          <a href="/pages/public/w01-home.html" class="btn btn-sm btn-primary">স্ক্রিন খুলুন →</a>
+        </div>
+
+        <!-- 2. Login -->
+        <div class="card" style="border-top: 4px solid var(--color-green-700);">
+          <div class="flex-between mb-8">
+            <span class="screen-badge">W-12</span>
+            <span class="font-caption text-muted">পাবলিক / সদস্য</span>
+          </div>
+          <h3 class="font-h3 mb-8">লগইন ও নিবন্ধন</h3>
+          <p class="font-body-sm text-muted mb-16">
+            মোবাইল + পাসওয়ার্ড (সম্পূর্ণ OTP অনুপস্থিত), ম্যানুয়াল রিসেট নির্দেশিকা, নতুন সদস্য আবেদন ও দ্রুত ডেমো লগইন।
+          </p>
+          <a href="/pages/public/w12-login.html" class="btn btn-sm btn-primary">স্ক্রিন খুলুন →</a>
+        </div>
+
+        <!-- 3. Expatriate Wizard -->
+        <div class="card" style="border-top: 4px solid var(--color-gold-500);">
+          <div class="flex-between mb-8">
+            <span class="screen-badge" style="background: var(--color-gold-100); color: #0B2E1F;">M-02</span>
+            <span class="font-caption text-muted">সদস্য এলাকা</span>
+          </div>
+          <h3 class="font-h3 mb-8">প্রবাসী সহায়তা উইজার্ড</h3>
+          <p class="font-body-sm text-muted mb-16">
+            ৩টি সুশৃঙ্খল ধাপ, জরুরি টগল ডিসক্লেইমার, পলিসি সম্মতি, Request ID নিশ্চিতকরণ ও ওয়েব পুশ অ্যালার্ট।
+          </p>
+          <a href="/pages/member/m02-request-wizard.html" class="btn btn-sm btn-gold">স্ক্রিন খুলুন →</a>
+        </div>
+
+        <!-- 4. Admin Overview -->
+        <div class="card" style="border-top: 4px solid var(--color-green-700);">
+          <div class="flex-between mb-8">
+            <span class="screen-badge">A-01</span>
+            <span class="font-caption text-muted">এডমিন ড্যাশবোর্ড</span>
+          </div>
+          <h3 class="font-h3 mb-8">এডমিন ওভারভিউ (Overview)</h3>
+          <p class="font-body-sm text-muted mb-16">
+            KPI মেট্রিক্স, জরুরি মনোযোগ প্যানেল, সাম্প্রতিক অডিট লগ, ২৪০px গাঢ় সবুজ সাইডবার ও দ্রুত অ্যাকশন।
+          </p>
+          <a href="/pages/admin/a01-overview.html" class="btn btn-sm btn-primary">স্ক্রিন খুলুন →</a>
+        </div>
+
+        <!-- 5. Expatriate Request Mgmt -->
+        <div class="card" style="border-top: 4px solid var(--color-gold-500);">
+          <div class="flex-between mb-8">
+            <span class="screen-badge" style="background: var(--color-gold-100); color: #0B2E1F;">A-02</span>
+            <span class="font-caption text-muted">Super Admin & Helper</span>
+          </div>
+          <h3 class="font-h3 mb-8">প্রবাসী আবেদন পরিচালনা</h3>
+          <p class="font-body-sm text-muted mb-16">
+            Super Admin ও Helper উভয় ভিউ, ফিল্টার ট্যাব, স্ট্যাটাস অগ্রগতি, নোট/খরচ এন্ট্রি ও ওয়েব পুশ পারমিশন।
+          </p>
+          <a href="/pages/admin/a02-requests.html" class="btn btn-sm btn-gold">স্ক্রিন খুলুন →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8 Interactive User Flows (F-01 to F-08) -->
+    <div class="mb-48">
+      <div class="flex-between mb-20">
+        <div>
+          <h2 class="font-h2" style="color: var(--color-green-700);">ক্লিকযোগ্য ৮টি ইউজার জার্নি (Interactive Flows)</h2>
+          <p class="font-body-sm text-muted">বাস্তব ডেটা ও ইন্টারেক্টিভ স্টেটসহ সংযুক্ত ফ্লোসমূহ</p>
+        </div>
+      </div>
+
+      <div class="grid-4" style="gap: var(--space-16);">
+        <div class="flow-card">
+          <div class="font-caption" style="font-weight: 700; color: var(--color-danger);">FLOW F-01</div>
+          <div style="font-weight: 700; font-size: 15px;">রক্তদাতা অনুসন্ধান</div>
+          <div class="font-caption text-muted">পাবলিক সার্চ → রক্তের গ্রুপ ফিল্টার → সম্মতি অনুযায়ী কল / নো-রেজাল্ট স্টেট</div>
+          <button class="btn btn-sm btn-outline mt-auto" onclick="Flows.startFlow('F-01')">ফ্লো শুরু করুন</button>
+        </div>
+
+        <div class="flow-card">
+          <div class="font-caption" style="font-weight: 700; color: var(--color-gold-700);">FLOW F-02</div>
+          <div style="font-weight: 700; font-size: 15px;">প্রবাসী সহায়তা আবেদন</div>
+          <div class="font-caption text-muted">সেবা পাতা → ৩ ধাপের ফর্ম → সম্মতি → সাবমিট → Request ID ও নোটিফিকেশন</div>
+          <button class="btn btn-sm btn-gold mt-auto" onclick="Flows.startFlow('F-02')">ফ্লো শুরু করুন</button>
+        </div>
+
+        <div class="flow-card">
+          <div class="font-caption" style="font-weight: 700; color: var(--color-green-700);">FLOW F-03</div>
+          <div style="font-weight: 700; font-size: 15px;">সহায়ক আবেদন পরিচালনা</div>
+          <div class="font-caption text-muted">নোটিফিকেশন → আবেদন গ্রহণ → চলমান → নোট ও ব্যয় এন্ট্রি → সম্পন্ন</div>
+          <button class="btn btn-sm btn-outline mt-auto" onclick="Flows.startFlow('F-03')">ফ্লো শুরু করুন</button>
+        </div>
+
+        <div class="flow-card">
+          <div class="font-caption" style="font-weight: 700; color: var(--color-info);">FLOW F-04</div>
+          <div style="font-weight: 700; font-size: 15px;">সদস্য নিবন্ধন ও অনুমোদন</div>
+          <div class="font-caption text-muted">নিবন্ধন ফর্ম → অপেক্ষমাণ বার্তা → সুপার এডমিন যাচাই → অনুমোদন প্রদান</div>
+          <button class="btn btn-sm btn-outline mt-auto" onclick="Flows.startFlow('F-04')">ফ্লো শুরু করুন</button>
+        </div>
+
+        <div class="flow-card">
+          <div class="font-caption" style="font-weight: 700; color: var(--color-green-700);">FLOW F-05</div>
+          <div style="font-weight: 700; font-size: 15px;">নতুন ইউজার ও রোল তৈরি</div>
+          <div class="font-caption text-muted">A-10 মডিউল → Super Admin / Helper নির্বাচন → পাসওয়ার্ড প্রদান</div>
+          <button class="btn btn-sm btn-outline mt-auto" onclick="Flows.startFlow('F-05')">ফ্লো শুরু করুন</button>
+        </div>
+
+        <div class="flow-card">
+          <div class="font-caption" style="font-weight: 700; color: var(--color-gold-700);">FLOW F-06</div>
+          <div style="font-weight: 700; font-size: 15px;">নোটিশ প্রকাশ ও টিকার</div>
+          <div class="font-caption text-muted">A-07 ফর্ম → নোটিশ প্রকাশ → হোমপেজ টিকারে তাৎক্ষণিক প্রদর্শন</div>
+          <button class="btn btn-sm btn-outline mt-auto" onclick="Flows.startFlow('F-06')">ফ্লো শুরু করুন</button>
+        </div>
+
+        <div class="flow-card">
+          <div class="font-caption" style="font-weight: 700; color: var(--color-green-700);">FLOW F-07</div>
+          <div style="font-weight: 700; font-size: 15px;">আর্থিক এন্ট্রি ও প্রকাশ</div>
+          <div class="font-caption text-muted">A-09 এন্ট্রি ফর্ম → দাতা সম্মতি টগল → W-10 পাবলিক খাতা আপডেট</div>
+          <button class="btn btn-sm btn-outline mt-auto" onclick="Flows.startFlow('F-07')">ফ্লো শুরু করুন</button>
+        </div>
+
+        <div class="flow-card">
+          <div class="font-caption" style="font-weight: 700; color: var(--color-warning);">FLOW F-08</div>
+          <div style="font-weight: 700; font-size: 15px;">ভুলে যাওয়া পাসওয়ার্ড</div>
+          <div class="font-caption text-muted">W-12 লিংক → সুপার এডমিন ম্যানুয়াল রিসেট প্রক্রিয়া ও হেল্পলাইন</div>
+          <button class="btn btn-sm btn-outline mt-auto" onclick="Flows.startFlow('F-08')">ফ্লো শুরু করুন</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Complete 35 Screen Directory Accordion -->
+    <div>
+      <h2 class="font-h2 mb-16" style="color: var(--color-green-700);">সম্পূর্ণ ৩৫টি স্ক্রিন ডিরেক্টরি</h2>
+      <div class="card" style="padding: var(--space-24);">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--space-24);">
+          <!-- Public -->
+          <div>
+            <h3 class="font-h3 mb-12" style="font-size: 17px; border-bottom: 2px solid var(--color-green-700); padding-bottom: 6px;">
+              পাবলিক ওয়েবসাইট (১২টি)
+            </h3>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 14.5px;">
+              <li><a href="/pages/public/w01-home.html">W-01: হোমপেজ</a></li>
+              <li><a href="/pages/public/w02-community.html">W-02: এলাকার প্রোফাইল</a></li>
+              <li><a href="/pages/public/w03-organization.html">W-03: সংগঠন ও সংবিধান</a></li>
+              <li><a href="/pages/public/w04-activities.html">W-04: বার্ষিক কার্যক্রম</a></li>
+              <li><a href="/pages/public/w05-activity-detail.html">W-05: কার্যক্রম বিবরণ</a></li>
+              <li><a href="/pages/public/w06-expatriate.html">W-06: প্রবাসী সহায়তা</a></li>
+              <li><a href="/pages/public/w07-blood-donors.html">W-07: রক্তদাতা তালিকা</a></li>
+              <li><a href="/pages/public/w08-notices.html">W-08: নোটিশ ও সংবাদ</a></li>
+              <li><a href="/pages/public/w09-gallery.html">W-09: গ্যালারি</a></li>
+              <li><a href="/pages/public/w10-accounts.html">W-10: হিসাব ও স্বচ্ছতা</a></li>
+              <li><a href="/pages/public/w11-contact.html">W-11: যোগাযোগ ও হেল্পলাইন</a></li>
+              <li><a href="/pages/public/w12-login.html">W-12: লগইন ও নিবন্ধন</a></li>
+            </ul>
+          </div>
+
+          <!-- Member -->
+          <div>
+            <h3 class="font-h3 mb-12" style="font-size: 17px; border-bottom: 2px solid var(--color-gold-500); padding-bottom: 6px;">
+              সদস্য পোর্টাল (৫টি)
+            </h3>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 14.5px;">
+              <li><a href="/pages/member/m01-dashboard.html">M-01: সদস্য ড্যাশবোর্ড</a></li>
+              <li><a href="/pages/member/m02-request-wizard.html">M-02: প্রবাসী আবেদন উইজার্ড</a></li>
+              <li><a href="/pages/member/m03-my-requests.html">M-03: আমার আবেদনসমূহ</a></li>
+              <li><a href="/pages/member/m04-profile.html">M-04: আমার প্রোফাইল</a></li>
+              <li><a href="/pages/member/m05-family.html">M-05: পরিবারের তথ্য</a></li>
+            </ul>
+          </div>
+
+          <!-- Admin -->
+          <div>
+            <h3 class="font-h3 mb-12" style="font-size: 17px; border-bottom: 2px solid var(--color-green-700); padding-bottom: 6px;">
+              এডমিন ড্যাশবোর্ড (১২টি)
+            </h3>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 14.5px;">
+              <li><a href="/pages/admin/a01-overview.html">A-01: ওভারভিউ</a></li>
+              <li><a href="/pages/admin/a02-requests.html">A-02: প্রবাসী আবেদন পরিচালনা</a></li>
+              <li><a href="/pages/admin/a03-members.html">A-03: সদস্য ও পরিবার</a></li>
+              <li><a href="/pages/admin/a04-community.html">A-04: কমিউনিটি তথ্য</a></li>
+              <li><a href="/pages/admin/a05-committee.html">A-05: কমিটি ও সংগঠন</a></li>
+              <li><a href="/pages/admin/a06-activities.html">A-06: কার্যক্রম পরিচালনা</a></li>
+              <li><a href="/pages/admin/a07-notices.html">A-07: নোটিশ ও গ্যালারি</a></li>
+              <li><a href="/pages/admin/a08-blood.html">A-08: রক্তদাতা ও জরুরি রক্ত</a></li>
+              <li><a href="/pages/admin/a09-accounts.html">A-09: হিসাব ও অডিট</a></li>
+              <li><a href="/pages/admin/a10-users.html">A-10: ব্যবহারকারী ও রোল</a></li>
+              <li><a href="/pages/admin/a11-reports.html">A-11: বার্ষিক রিপোর্ট</a></li>
+              <li><a href="/pages/admin/a12-settings.html">A-12: সাইট সেটিংস</a></li>
+            </ul>
+          </div>
+
+          <!-- Mobile App -->
+          <div>
+            <h3 class="font-h3 mb-12" style="font-size: 17px; border-bottom: 2px solid var(--color-gold-500); padding-bottom: 6px;">
+              মোবাইল অ্যাপ কনসেপ্ট (৬টি)
+            </h3>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 14.5px;">
+              <li><a href="/pages/app/p01-splash.html">P-01: স্প্ল্যাশ ও অনবোর্ডিং</a></li>
+              <li><a href="/pages/app/p02-home.html">P-02: অ্যাপ হোম ট্যাব</a></li>
+              <li><a href="/pages/app/p03-community.html">P-03: অ্যাপ কমিউনিটি</a></li>
+              <li><a href="/pages/app/p04-services.html">P-04: অ্যাপ সার্ভিসেস</a></li>
+              <li><a href="/pages/app/p05-profile.html">P-05: অ্যাপ প্রোফাইল</a></li>
+              <li><a href="/pages/app/p06-notifications.html">P-06: পুশ নোটিফিকেশন</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="js/mock-data.js"></script>
+  <script src="js/language.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/validation.js"></script>
+  <script src="js/flows.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

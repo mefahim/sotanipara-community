@@ -1,0 +1,75 @@
+/**
+ * Satanipara Community Design System — Themes (Light & Dark)
+ * Strict implementation of Section 2 of the Design Brief
+ */
+
+[data-theme="dark"] {
+  --color-bg:             #0E1A13;
+  --color-surface:        #16241B;
+  --color-surface-raised: #1D3023;
+  --color-text-strong:    #F2EFE6;
+  --color-text-muted:     #A8B5AB;
+  --color-border:         #2C4234;
+  --color-primary:        #4CAF7D; /* Bright green for dark mode contrast */
+  --color-primary-hover:  #5FC38E;
+  --color-accent:         #E9C95C;
+
+  --color-green-900:      #07140D;
+  --color-green-700:      #4CAF7D;
+  --color-green-600:      #3B8E62;
+  --color-green-100:      #1D3023;
+  --color-green-50:       #111F17;
+
+  --color-gold-500:       #E9C95C;
+  --color-gold-700:       #E9C95C;
+  --color-gold-100:       #292518;
+
+  --color-ivory:          #0E1A13;
+
+  /* Status Colors in Dark Mode */
+  --color-success:        #34D399;
+  --color-warning:        #FBBF24;
+  --color-danger:         #F87171;
+  --color-info:           #60A5FA;
+
+  /* Badge styling in Dark mode */
+  --badge-pending-bg:    #362B16;
+  --badge-pending-text:  #FDE68A;
+  --badge-accepted-bg:   #1E2248;
+  --badge-accepted-text: #C7D2FE;
+  --badge-progress-bg:   #172D4D;
+  --badge-progress-text: #BFDBFE;
+  --badge-completed-bg:  #103829;
+  --badge-completed-text:#A7F3D0;
+  --badge-cancelled-bg:  #451A1A;
+  --badge-cancelled-text:#FECACA;
+
+  /* Shadows for dark mode */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-card: 0 3px 8px rgba(0, 0, 0, 0.5);
+  --shadow-raised: 0 10px 24px rgba(0, 0, 0, 0.6);
+  --shadow-modal: 0 24px 48px rgba(0, 0, 0, 0.8);
+}
+
+/* Strict rule: Gold backgrounds MUST use dark green text, NEVER white text! */
+.btn-gold,
+.bg-gold,
+.badge-gold,
+[data-badge="superadmin"] {
+  background-color: var(--color-gold-500) !important;
+  color: #0B2E1F !important;
+  font-weight: 600;
+}
+
+.btn-gold:hover {
+  background-color: #DAB334 !important;
+  color: #0B2E1F !important;
+}
+
+[data-theme="dark"] .btn-gold,
+[data-theme="dark"] .bg-gold,
+[data-theme="dark"] .badge-gold,
+[data-theme="dark"] [data-badge="superadmin"] {
+  background-color: #E9C95C !important;
+  color: #0B2E1F !important;
+}

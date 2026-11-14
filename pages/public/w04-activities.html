@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="bn" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>বার্ষিক কার্যক্রম | Satanipara Community</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../css/tokens.css">
+  <link rel="stylesheet" href="../../css/themes.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/typography.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/layouts.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+</head>
+<body data-screen="W-04">
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="/pages/public/w01-home.html" class="brand">
+        <img src="../../assets/images/satanipara-crest.svg" alt="Crest" class="brand-crest">
+        <div class="brand-text-block">
+          <span class="brand-name" data-i18n="brand.name">সাতানীপাড়া কিমউিনটি</span>
+          <span class="brand-tagline">বার্ষিক কার্যক্রম</span>
+        </div>
+      </a>
+      <nav class="nav-desktop">
+        <a href="/pages/public/w01-home.html" class="nav-link">হোম</a>
+        <a href="/pages/public/w02-community.html" class="nav-link">এলাকার প্রোফাইল</a>
+        <a href="/pages/public/w03-organization.html" class="nav-link">সংগঠন</a>
+        <a href="/pages/public/w04-activities.html" class="nav-link active">কার্যক্রম</a>
+        <a href="/pages/public/w06-expatriate.html" class="nav-link">প্রবাসী সেবা</a>
+        <a href="/pages/public/w07-blood-donors.html" class="nav-link">রক্তদাতা</a>
+        <a href="/pages/public/w08-notices.html" class="nav-link">নোটিশ</a>
+        <a href="/pages/public/w10-accounts.html" class="nav-link">হিসাব</a>
+        <a href="/pages/public/w11-contact.html" class="nav-link">যোগাযোগ</a>
+      </nav>
+      <div class="header-actions">
+        <button class="btn btn-icon btn-ghost theme-toggle-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+        <button class="btn btn-sm btn-ghost" id="headerLangToggle">EN</button>
+        <a href="/pages/public/w12-login.html" class="btn btn-sm btn-outline">লগইন</a>
+        <button class="btn btn-icon btn-ghost mobile-drawer-toggle" aria-label="Menu" style="display: flex;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container section-py">
+    <!-- Header info -->
+    <div class="mb-32">
+      <div class="font-caption text-muted mb-8">হোম / বার্ষিক কার্যক্রম</div>
+      <h1 class="font-h1 mb-12" style="color: var(--color-green-700);">সংঘের সমাজকল্যাণমূলক কার্যক্রম</h1>
+      <p class="font-body text-muted" style="max-width: 800px;">
+        শিক্ষা সহায়তা, শীতবস্ত্র বিতরণ, বৃক্ষরোপণ, স্বেচ্ছায় রক্তদান ও চিকিৎসা সেবায় সাতানীপাড়া সমাজকল্যাণ সংঘের বাস্তবায়িত উদ্যোগসমূহ।
+      </p>
+    </div>
+
+    <!-- Filters: Year Row + Category Chips -->
+    <div class="card mb-32" style="padding: 20px;">
+      <!-- Year Chips -->
+      <div class="flex-between mb-16 flex-wrap gap-12">
+        <div style="font-weight: 700; font-size: 14.5px; color: var(--color-green-700);">সাল / বছর:</div>
+        <div class="chip-row" id="yearChips">
+          <button class="chip active" onclick="filterByYear('all', this)">সকল বছর</button>
+          <button class="chip" onclick="filterByYear('2026', this)">২০২৬</button>
+          <button class="chip" onclick="filterByYear('2025', this)">২০২৫</button>
+          <button class="chip" onclick="filterByYear('2024', this)">২০২৪</button>
+        </div>
+      </div>
+
+      <!-- Category Chips -->
+      <div class="flex-between flex-wrap gap-12" style="border-top: 1px solid var(--color-border); padding-top: 16px;">
+        <div style="font-weight: 700; font-size: 14.5px; color: var(--color-green-700);">ক্যাটাগরি:</div>
+        <div class="chip-row" id="actCategoryChips">
+          <button class="chip active" onclick="filterByCategory('all', this)">সব ক্যাটাগরি</button>
+          <button class="chip" onclick="filterByCategory('মেধাবৃত্তি ও শিক্ষাবৃত্তি', this)">মেধাবৃত্তি ও শিক্ষাবৃত্তি</button>
+          <button class="chip" onclick="filterByCategory('শীতবস্ত্র বিতরণ', this)">শীতবস্ত্র বিতরণ</button>
+          <button class="chip" onclick="filterByCategory('রক্তদান', this)">রক্তদান ও স্বাস্থ্যক্যাম্প</button>
+          <button class="chip" onclick="filterByCategory('বৃক্ষরোপণ ও পরিচ্ছন্নতা', this)">বৃক্ষরোপণ ও পরিচ্ছন্নতা</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Activities Grid -->
+    <div class="grid-3" id="activitiesGrid">
+      <!-- Activity 1 -->
+      <article class="activity-card act-item" data-year="2026" data-cat="মেধাবৃত্তি ও শিক্ষাবৃত্তি">
+        <img src="../../assets/images/placeholder-image.svg" alt="Activity 1" class="activity-thumb">
+        <div class="activity-body">
+          <div style="display: flex; align-items: center; justify-content: space-between; font-size: 13px; color: var(--color-text-muted);">
+            <span>১৫ মার্চ ২০২৬</span>
+            <span class="badge badge-accepted">৬৫ জন শিক্ষার্থী</span>
+          </div>
+          <h3 class="font-h3">মেধাবৃত্তি ও শিক্ষা উপকরণ বিতরণ ২০২৬</h3>
+          <p class="font-body-sm text-muted">
+            বিদ্যালয় ও মাদ্রাসার কৃতি শিক্ষার্থীদের মাঝে বৃত্তি সনদ, এক বছরের শিক্ষা উপকরণ ও আর্থিক সহায়তা প্রদান করা হয়।
+          </p>
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 12px; border-top: 1px solid var(--color-border);">
+            <span class="font-caption">বাজেট: <strong>৳ ১,২০,০০০</strong></span>
+            <a href="/pages/public/w05-activity-detail.html?id=act-01" style="font-weight: 600; color: var(--color-green-700);">
+              বিস্তারিত বিবরণ →
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Activity 2 -->
+      <article class="activity-card act-item" data-year="2026" data-cat="রক্তদান">
+        <img src="../../assets/images/placeholder-image.svg" alt="Activity 2" class="activity-thumb">
+        <div class="activity-body">
+          <div style="display: flex; align-items: center; justify-content: space-between; font-size: 13px; color: var(--color-text-muted);">
+            <span>২১ ফেব্রুয়ারি ২০২৬</span>
+            <span class="badge badge-completed">২৫০+ জন</span>
+          </div>
+          <h3 class="font-h3">বিনামূল্যে রক্তের গ্রুপ নির্ণয় ও রক্তদান ক্যাম্প</h3>
+          <p class="font-body-sm text-muted">
+            আন্তর্জাতিক মাতৃভাষা দিবসে এলাকার যুবসমাজের উদ্যোগে রক্তের গ্রুপ পরীক্ষা ও জরুরি রক্তদাতা তালিকা হালনাগাদ করা হয়।
+          </p>
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 12px; border-top: 1px solid var(--color-border);">
+            <span class="font-caption">বাজেট: <strong>৳ ৩৫,০০০</strong></span>
+            <a href="/pages/public/w05-activity-detail.html?id=act-02" style="font-weight: 600; color: var(--color-green-700);">
+              বিস্তারিত বিবরণ →
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Activity 3 -->
+      <article class="activity-card act-item" data-year="2025" data-cat="শীতবস্ত্র বিতরণ">
+        <img src="../../assets/images/placeholder-image.svg" alt="Activity 3" class="activity-thumb">
+        <div class="activity-body">
+          <div style="display: flex; align-items: center; justify-content: space-between; font-size: 13px; color: var(--color-text-muted);">
+            <span>১৮ ডিসেম্বর ২০২৫</span>
+            <span class="badge badge-progress">৩২০টি পরিবার</span>
+          </div>
+          <h3 class="font-h3">শীতবস্ত্র ও কম্বল বিতরণ ২০২৫</h3>
+          <p class="font-body-sm text-muted">
+            তীব্র শীতে অসহায় পরিবারগুলোর ঘরে ঘরে গিয়ে প্রবাসী ও স্থানীয় সদস্যদের সহায়তায় কম্বল পৌঁছে দেওয়া হয়।
+          </p>
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 12px; border-top: 1px solid var(--color-border);">
+            <span class="font-caption">বাজেট: <strong>৳ ১,৮৫,০০০</strong></span>
+            <a href="/pages/public/w05-activity-detail.html?id=act-03" style="font-weight: 600; color: var(--color-green-700);">
+              বিস্তারিত বিবরণ →
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Activity 4 -->
+      <article class="activity-card act-item" data-year="2025" data-cat="বৃক্ষরোপণ ও পরিচ্ছন্নতা">
+        <img src="../../assets/images/placeholder-image.svg" alt="Activity 4" class="activity-thumb">
+        <div class="activity-body">
+          <div style="display: flex; align-items: center; justify-content: space-between; font-size: 13px; color: var(--color-text-muted);">
+            <span>১০ আগস্ট ২০২৫</span>
+            <span class="badge badge-accepted">পুরো এলাকা</span>
+          </div>
+          <h3 class="font-h3">বৃক্ষরোপণ ও পরিচ্ছন্নতা সপ্তাহ ২০২৫</h3>
+          <p class="font-body-sm text-muted">
+            সাতানীপাড়া প্রধান সড়ক ও কবরস্থানের চারপাশে ৫০০ ফলজ ও বনজ গাছের চারা রোপণ করা হয়।
+          </p>
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 12px; border-top: 1px solid var(--color-border);">
+            <span class="font-caption">বাজেট: <strong>৳ ৪৫,০০০</strong></span>
+            <a href="/pages/public/w05-activity-detail.html?id=act-04" style="font-weight: 600; color: var(--color-green-700);">
+              বিস্তারিত বিবরণ →
+            </a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- Empty State (When filters match 0) -->
+    <div id="actEmptyState" class="empty-state" style="display: none; margin-top: 40px;">
+      <div class="empty-state-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+      </div>
+      <h3 class="font-h3">এই বছর বা ক্যাটাগরিতে কোনো কার্যক্রম পাওয়া যায়নি</h3>
+      <p class="font-body-sm text-muted">ফিল্টার পরিবর্তন করুন বা সকল কার্যক্রম নির্বাচন করুন</p>
+      <button class="btn btn-primary" onclick="resetActFilters()">ফিল্টার রিসেট করুন</button>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <div>© ১৯৯৯–২০২৬ সাতানীপাড়া সমাজকল্যাণ সংঘ। সর্বস্বত্ব সংরক্ষিত।</div>
+      <div>W-04 Activities</div>
+    </div>
+  </footer>
+
+  <script src="../../js/mock-data.js"></script>
+  <script src="../../js/language.js"></script>
+  <script src="../../js/theme.js"></script>
+  <script src="../../js/components.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script src="../../js/validation.js"></script>
+  <script src="../../js/flows.js"></script>
+  <script src="../../js/app.js"></script>
+  <script>
+    let currentYear = 'all';
+    let currentCat = 'all';
+
+    function filterByYear(yr, btn) {
+      currentYear = yr;
+      btn.closest('.chip-row').querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      applyFilters();
+    }
+
+    function filterByCategory(cat, btn) {
+      currentCat = cat;
+      btn.closest('.chip-row').querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      applyFilters();
+    }
+
+    function applyFilters() {
+      const items = document.querySelectorAll('.act-item');
+      let visibleCount = 0;
+
+      items.forEach(item => {
+        const yr = item.getAttribute('data-year');
+        const cat = item.getAttribute('data-cat');
+        const matchesYear = currentYear === 'all' || yr === currentYear;
+        const matchesCat = currentCat === 'all' || cat === currentCat;
+
+        if (matchesYear && matchesCat) {
+          item.style.display = 'flex';
+          visibleCount++;
+        } else {
+          item.style.display = 'none';
+        }
+      });
+
+      document.getElementById('actEmptyState').style.display = visibleCount === 0 ? 'flex' : 'none';
+      document.getElementById('activitiesGrid').style.display = visibleCount === 0 ? 'none' : 'grid';
+    }
+
+    function resetActFilters() {
+      filterByYear('all', document.querySelector('#yearChips .chip'));
+      filterByCategory('all', document.querySelector('#actCategoryChips .chip'));
+    }
+  </script>
+</body>
+</html>
