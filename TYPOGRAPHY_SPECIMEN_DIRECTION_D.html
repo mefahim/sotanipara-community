@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="bn" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Direction D: Bengali Typography Laboratory | Satanipara Community</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Bengali:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@400;600;700&family=Tiro+Bangla:ital@0;1&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/layouts.css">
+
+  <style>
+    .lab-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: var(--space-40) var(--space-20);
+    }
+    .specimen-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-card);
+      padding: var(--space-28);
+      margin-bottom: var(--space-32);
+      box-shadow: var(--shadow-sm);
+    }
+    .font-sample-box {
+      border: 1px solid var(--color-hairline-strong);
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      background: var(--color-bg);
+    }
+    .font-sample-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--color-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .font-tiro { font-family: 'Tiro Bangla', serif; }
+    .font-anek { font-family: 'Anek Bangla', sans-serif; }
+    .font-noto-serif { font-family: 'Noto Serif Bengali', serif; }
+    .font-noto-sans { font-family: 'Noto Sans Bengali', sans-serif; }
+
+    .matrix-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 768px) {
+      .matrix-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .conjunct-pill {
+      display: inline-block;
+      padding: 4px 10px;
+      margin: 3px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-hairline-strong);
+      border-radius: 4px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body data-screen="TYPO-LAB">
+
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="pages/public/w01-home.html" class="brand">
+        <img src="assets/images/satanipara-crest.svg" alt="Crest" class="brand-crest">
+        <div class="brand-text-block">
+          <span class="brand-name">সাতানীপাড়া কমিউনিটি</span>
+          <span class="brand-tagline">টাইপোগ্রাফি ল্যাবরেটরি</span>
+        </div>
+      </a>
+      <div class="header-actions">
+        <button class="btn btn-sm btn-outline" onclick="toggleThemeLab()">🌙/☀️ থিম পরিবর্তন</button>
+        <a href="pages/public/w01-home.html" class="btn btn-sm btn-primary">হোমে ফিরে যান</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="lab-container">
+    <div class="mb-40">
+      <span class="eyebrow">Direction D • Typographic Research</span>
+      <h1 class="font-h1" style="font-size: clamp(28px, 4vw, 42px); line-height: 1.3; margin: 8px 0 12px 0;">
+        বাংলা টাইপোগ্রাফি তুলনামূলক পরীক্ষণ ও নির্বাচন
+      </h1>
+      <p class="font-body text-muted" style="max-width: 760px; line-height: 1.6;">
+        আন্তর্জাতিক এডিটোরিয়াল ডিজাইন ও বাঙালি সত্তার মেলবন্ধনে চার প্রধান বাংলা ফন্ট পরিবারের (Anek Bangla, Tiro Bangla, Noto Serif Bengali, Noto Sans Bengali) রেন্ডারিং, যুক্তাক্ষর স্পষ্টতা এবং সংখ্যা ও তালিকার ছন্দ পরীক্ষণ।
+      </p>
+    </div>
+
+    <!-- 1. Editorial Headlines Comparison (Display / H1) -->
+    <div class="specimen-card">
+      <h2 class="font-h2 mb-16" style="border-bottom: 2px solid var(--color-primary); padding-bottom: 8px;">
+        ১. এডিটোরিয়াল শিরোনাম ও মস্তকের মহিমা (Editorial Headline & Display)
+      </h2>
+      <p class="font-body-sm text-muted mb-20">বড় আকারের (36px–48px) শিরোনামে ভাবগাম্ভীর্য, অক্ষরের দাঁড় ও নান্দনিক রেখা বিশ্লেষণ:</p>
+
+      <div class="matrix-grid">
+        <div class="font-sample-box font-tiro">
+          <div class="font-sample-title">
+            <span>A. Tiro Bangla (Serif) — নির্বাচিত এডিটোরিয়াল</span>
+            <span class="badge badge-completed">মাস্টহেড ও প্রধান শিরোনাম</span>
+          </div>
+          <div style="font-size: 32px; line-height: 1.3; font-weight: 700; margin-bottom: 8px;">
+            একটি এলাকা, একটি পরিবার: ঐতিহ্য ও একতার ২৫ বছর
+          </div>
+          <div style="font-size: 20px; line-height: 1.4; color: var(--color-gold-700); margin-bottom: 12px;">
+            সাতানীপাড়া সমাজকল্যাণ সংঘ — প্রতিষ্ঠা ১৯৯৯
+          </div>
+          <p class="font-body-sm" style="margin: 0;">
+            অক্ষরের ছাঁদে রয়েছে শাস্ত্রীয় বাংলার ঐতিহ্যমণ্ডিত আভিজাত্য। বড় শিরোনাম ও বিশেষ উদ্বৃতিতে অসাধারণ পাঠযোগ্যতা দেয়।
+          </p>
+        </div>
+
+        <div class="font-sample-box font-anek">
+          <div class="font-sample-title">
+            <span>B. Anek Bangla (Sans-Serif) — নির্বাচিত ইউআই বডি</span>
+            <span class="badge badge-completed">ইউআই ও বডি টেক্সট</span>
+          </div>
+          <div style="font-size: 32px; line-height: 1.3; font-weight: 700; margin-bottom: 8px;">
+            একটি এলাকা, একটি পরিবার: ঐতিহ্য ও একতার ২৫ বছর
+          </div>
+          <div style="font-size: 20px; line-height: 1.4; color: var(--color-gold-700); margin-bottom: 12px;">
+            সাতানীপাড়া সমাজকল্যাণ সংঘ — প্রতিষ্ঠা ১৯৯৯
+          </div>
+          <p class="font-body-sm" style="margin: 0;">
+            আধুনিক জ্যামিতিক বক্ররেখা ও চমৎকার কাউন্টার-স্পেস। মোবাইল স্ক্রিনে যেকোনো আকারে অতিস্পষ্ট।
+          </p>
+        </div>
+
+        <div class="font-sample-box font-noto-serif">
+          <div class="font-sample-title">
+            <span>C. Noto Serif Bengali (Google) — ফলব্যাক সেরিফ</span>
+            <span class="badge badge-pending">ফলব্যাক</span>
+          </div>
+          <div style="font-size: 30px; line-height: 1.35; font-weight: 700; margin-bottom: 8px;">
+            একটি এলাকা, একটি পরিবার: ঐতিহ্য ও একতার ২৫ বছর
+          </div>
+          <p class="font-body-sm" style="margin: 0;">
+            সম্পূর্ণ গ্লিফ সেট কিন্তু শিরোনামে কিছুটা অনমনীয়। Tiro Bangla অনুপলব্ধ থাকলে নির্ভরযোগ্য ফলব্যাক।
+          </p>
+        </div>
+
+        <div class="font-sample-box font-noto-sans">
+          <div class="font-sample-title">
+            <span>D. Noto Sans Bengali (Google) — ফলব্যাক সান্স</span>
+            <span class="badge badge-pending">ফলব্যাক</span>
+          </div>
+          <div style="font-size: 30px; line-height: 1.35; font-weight: 700; margin-bottom: 8px;">
+            একটি এলাকা, একটি পরিবার: ঐতিহ্য ও একতার ২৫ বছর
+          </div>
+          <p class="font-body-sm" style="margin: 0;">
+            অক্ষরগুলো সামান্য চওড়া। ডেটা টেবিলে ভালো হলেও দীর্ঘ এডিটোরিয়াল অনুচ্ছেদে Anek Bangla বেশি সাবলীল।
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Complex Bengali Conjuncts & Ligatures Test -->
+    <div class="specimen-card">
+      <h2 class="font-h2 mb-16" style="border-bottom: 2px solid var(--color-primary); padding-bottom: 8px;">
+        ২. যুক্তাক্ষর, কার ও ফলা শুদ্ধতা পরীক্ষা (Ligatures & Conjuncts)
+      </h2>
+      <p class="font-body-sm text-muted mb-20">কমিউনিটি ও আইনি নথিপত্রে ব্যবহৃত জটিল যুক্তাক্ষরের সঠিক রেন্ডারিং নিশ্চিতকরণ:</p>
+
+      <div class="font-sample-box font-anek">
+        <div class="font-sample-title">
+          <span>Anek Bangla + Tiro Bangla যুক্তাক্ষর চার্ট</span>
+        </div>
+        <div>
+          <span class="conjunct-pill"><strong>ক্ত</strong> (রক্ত)</span>
+          <span class="conjunct-pill"><strong>ক্ষ</strong> (শিক্ষা)</span>
+          <span class="conjunct-pill"><strong>জ্ঞ</strong> (বিজ্ঞপ্তি)</span>
+          <span class="conjunct-pill"><strong>ষ্ণ</strong> (উষ্ণ)</span>
+          <span class="conjunct-pill"><strong>ঙ্ক</strong> (অঙ্ক)</span>
+          <span class="conjunct-pill"><strong>ঙ্গ</strong> (সংঘ)</span>
+          <span class="conjunct-pill"><strong>ঞ্চ</strong> (পঞ্চায়েত)</span>
+          <span class="conjunct-pill"><strong>ঞ্ছ</strong> (বাঞ্ছনীয়)</span>
+          <span class="conjunct-pill"><strong>ঞ্জ</strong> (গঞ্জ)</span>
+          <span class="conjunct-pill"><strong>ত্ত</strong> (উদ্বৃত্ত)</span>
+          <span class="conjunct-pill"><strong>ত্র</strong> (ছাত্র)</span>
+          <span class="conjunct-pill"><strong>দ্দ</strong> (উদ্দাম)</span>
+          <span class="conjunct-pill"><strong>দ্ব</strong> (দ্বিতীয়)</span>
+          <span class="conjunct-pill"><strong>ধ্য</strong> (মাধ্যম)</span>
+          <span class="conjunct-pill"><strong>ন্ত</strong> (অনন্ত)</span>
+          <span class="conjunct-pill"><strong>ন্দ</strong> (আনন্দ)</span>
+          <span class="conjunct-pill"><strong>ন্ধ</strong> (বন্ধু)</span>
+          <span class="conjunct-pill"><strong>ম্প</strong> (সম্পর্ক)</span>
+          <span class="conjunct-pill"><strong>ম্প্র</strong> (সম্প্রদায়)</span>
+          <span class="conjunct-pill"><strong>ব্দ</strong> (শব্দ)</span>
+          <span class="conjunct-pill"><strong>ষ্ক</strong> (শুষ্ক)</span>
+          <span class="conjunct-pill"><strong>ষ্ট</strong> (কষ্ট)</span>
+          <span class="conjunct-pill"><strong>ষ্ঠ</strong> (প্রতিষ্ঠা)</span>
+          <span class="conjunct-pill"><strong>স্ন</strong> (স্নান)</span>
+          <span class="conjunct-pill"><strong>স্প</strong> (স্পর্শ)</span>
+          <span class="conjunct-pill"><strong>স্ফ</strong> (স্ফীতি)</span>
+          <span class="conjunct-pill"><strong>হ্ন</strong> (চিহ্ন)</span>
+          <span class="conjunct-pill"><strong>হৃ</strong> (হৃদয়)</span>
+          <span class="conjunct-pill"><strong>প্র</strong> (প্রবাসী)</span>
+          <span class="conjunct-pill"><strong>স্থ</strong> (স্বচ্ছতা)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Tabular Numbers & Financial Data Precision -->
+    <div class="specimen-card">
+      <h2 class="font-h2 mb-16" style="border-bottom: 2px solid var(--color-primary); padding-bottom: 8px;">
+        ৩. সংখ্যা ও আর্থিক হিসাবের নির্ভুলতা (Numerals & Tabular Data)
+      </h2>
+      <p class="font-body-sm text-muted mb-20">হিসাব খাতা ও রক্তদাতা তালিকায় সংখ্যাসমূহের নিখুঁত উলম্ব সারিবদ্ধতা (Vertical Alignment):</p>
+
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>খাত / বিবরণ</th>
+              <th>তারিখ</th>
+              <th>ভাউচার আইডি</th>
+              <th style="text-align: right;">পরিমাণ (বাংলা)</th>
+              <th style="text-align: right;">পরিমাণ (Manrope Tabular)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>কবরস্থান সীমানা প্রাচীর নির্মাণ অনুদান</td>
+              <td>১২ নভেম্বর ২০২৪</td>
+              <td>VOUCH-2024-084</td>
+              <td style="text-align: right; font-weight: 700; color: var(--color-success);">৳ ৫০,০০০</td>
+              <td style="text-align: right; font-weight: 700; color: var(--color-success); font-family: 'Manrope', sans-serif;">BDT 50,000</td>
+            </tr>
+            <tr>
+              <td>জরুরি চিকিৎসা ও রক্তদান পরিবহন ব্যয়</td>
+              <td>০৮ নভেম্বর ২০২৪</td>
+              <td>VOUCH-2024-082</td>
+              <td style="text-align: right; font-weight: 700; color: var(--color-danger);">- ৳ ৫,৫০০</td>
+              <td style="text-align: right; font-weight: 700; color: var(--color-danger); font-family: 'Manrope', sans-serif;">- BDT 5,500</td>
+            </tr>
+            <tr>
+              <td>মেধাবৃত্তি ও শিক্ষা সহায়তা তহবিল সঞ্চিতি</td>
+              <td>০২ নভেম্বর ২০২৪</td>
+              <td>VOUCH-2024-079</td>
+              <td style="text-align: right; font-weight: 700; color: var(--color-success);">৳ ১,২৫,০০০</td>
+              <td style="text-align: right; font-weight: 700; color: var(--color-success); font-family: 'Manrope', sans-serif;">BDT 125,000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 4. Final Direction D Recommendation Box -->
+    <div class="specimen-card" style="border-left: 6px solid var(--color-primary); background: var(--color-surface-raised);">
+      <h3 class="font-h3 mb-8" style="color: var(--color-primary);">
+        ★ চূড়ান্ত অনুমোদিত টাইপোগ্রাফি আর্কিটেকচার (Direction D System)
+      </h3>
+      <ul style="margin: 0; padding-left: 20px; line-height: 1.8; font-size: 15px;">
+        <li><strong>এডিটোরিয়াল ডিসপ্লে ও মূল শিরোনাম:</strong> <code>Tiro Bangla</code> (Serif, ৭০০ বোল্ড, উচ্চতা ১.২৫–১.৩৫) — প্রাতিষ্ঠানিক মর্যাদা ও বাঙালি সাংস্কৃতিক আভিজাত্যের প্রতীক।</li>
+        <li><strong>ইন্টারফেস ও পাঠ্য অনুচ্ছেদ:</strong> <code>Anek Bangla</code> (Sans-serif, ৪০০ রেগুলার ও ৬০০ সেমিবোল্ড, উচ্চতা ১.৬৫) — আধুনিক ডিজিটাল প্রোডাক্টে সর্বোচ্চ পাঠযোগ্যতা।</li>
+        <li><strong>ইংরেজি নম্বর ও মেটাডাটা:</strong> <code>Manrope</code> (Grotesque Sans, ট্যাবুলার নিউমারালস) — ডেটা টেবিল ও আর্থিক ব্যালেন্স কলামের সুনির্দিষ্ট সারিবদ্ধতা।</li>
+        <li><strong>ফলব্যাক পরিবার:</strong> <code>Noto Serif Bengali</code> ও <code>Noto Sans Bengali</code> — যেকোনো ডিভাইস ও ব্রাউজারে নির্ভরযোগ্য গ্লিফ সাপোর্ট।</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <div>© ১৯৯৯–২০২৬ সাতানীপাড়া সমাজকল্যাণ সংঘ। সর্বস্বত্ব সংরক্ষিত।</div>
+      <div>Direction D Typography Lab</div>
+    </div>
+  </footer>
+
+  <script src="js/theme.js"></script>
+  <script>
+    function toggleThemeLab() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme') || 'light';
+      const next = current === 'light' ? 'dark' : 'light';
+      html.setAttribute('data-theme', next);
+    }
+  </script>
+</body>
+</html>

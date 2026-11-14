@@ -35,10 +35,11 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Display & Editorial Headlines */
 .font-display {
+  font-family: var(--font-serif);
   font-size: var(--font-size-display);
   line-height: var(--line-height-display);
-  font-weight: var(--font-weight-extrabold);
-  letter-spacing: -0.015em;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -0.01em;
   color: var(--color-text-strong);
 }
 

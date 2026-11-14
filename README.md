@@ -1,9 +1,10 @@
 # সাতানীপাড়া সমাজকল্যাণ সংঘ — Satanipara Community Platform
+### Direction D: Premium Digital Product × International Editorial Design × Bengali Identity
 
 [![GitHub Pages](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-0B2E1F?style=for-the-badge&logo=github)](https://mefahim.github.io/sotanipara-community/)
-[![Screens](https://img.shields.io/badge/Screens-35%20High--Fidelity-C9A227?style=for-the-badge)](#screen-directory)
+[![Screens](https://img.shields.io/badge/Screens-35%20Verified%20Screens-C9A227?style=for-the-badge)](#screen-directory)
 [![Flows](https://img.shields.io/badge/Flows-8%20Interactive%20Journeys-1E5638?style=for-the-badge)](#interactive-journeys)
-[![Design System](https://img.shields.io/badge/Design%20System-Civic%20Editorial%20Humanism-061A11?style=for-the-badge)](#design-system)
+[![Creative Direction](https://img.shields.io/badge/Creative%20Direction-Direction%20D%20Rebuild-061A11?style=for-the-badge)](#direction-d-creative-direction)
 
 > **লাইভ প্রিভিউ / Live Demo on GitHub Pages:**  
 > 🔗 [https://mefahim.github.io/sotanipara-community/](https://mefahim.github.io/sotanipara-community/)
@@ -14,7 +15,7 @@
 
 **সাতানীপাড়া সমাজকল্যাণ সংঘ** হলো একটি আধুনিক, মানবিক এবং বিশ্বাসযোগ্য নাগরিক প্ল্যাটফর্ম—যা এলাকার নাগরিক, প্রবাসী রেমিট্যান্স যোদ্ধা, রক্তদাতা এবং স্বেচ্ছাসেবকদের একটি সুসংগঠিত ডিজিটাল ছাতার নিচে যুক্ত করে।
 
-প্ল্যাটফর্মটিতে রয়েছে **৩৫টি স্ক্রিন**, **৮টি সম্পূর্ণ ইউজার জার্নি (Flows)**, **৪টি ভিন্ন ভূমিকা (Roles)**, দ্বিভাষিক সহায়তা (**বাংলা ও ইংরেজি**) এবং **লাইট/ডার্ক থিম**।
+প্ল্যাটফর্মটিতে রয়েছে **৩৫টি স্ক্রিন**, **৮টি সম্পূর্ণ ইউজার জার্নি (Flows)**, **৪টি ভিন্ন ভূমিকা (Roles)**, দ্বিভাষিক সহায়তা (**বাংলা ও ইংরেজি**), **লাইট ও ডার্ক থিম** এবং **সম্পূর্ণ রেসপন্সিভ মোবাইল আর্কিটেকচার**।
 
 ---
 
@@ -23,25 +24,42 @@
 | বিভাগ | প্রধান স্ক্রিন | বিবরণ |
 | :--- | :--- | :--- |
 | **🏛️ প্রোটোটাইপ হাব** | [index.html](https://mefahim.github.io/sotanipara-community/index.html) | ৩৫টি স্ক্রিন ও ৮টি ফ্লো-এর কেন্দ্রীয় সূচিপত্র |
-| **🏠 পাবলিক ওয়েবসাইট** | [w01-home.html](https://mefahim.github.io/sotanipara-community/pages/public/w01-home.html) | সাধারণ দর্শক ও নাগরিকদের জন্য ১২টি স্ক্রিন |
+| **🏠 পাবলিক ওয়েবসাইট** | [w01-home.html](https://mefahim.github.io/sotanipara-community/pages/public/w01-home.html) | সাধারণ দর্শক ও নাগরিকদের জন্য ১২টি এডিটোরিয়াল স্ক্রিন |
 | **👤 সদস্য পোর্টাল** | [m01-dashboard.html](https://mefahim.github.io/sotanipara-community/pages/member/m01-dashboard.html) | প্রবাসী ও স্থানীয় সদস্যদের সেবাদান ড্যাশবোর্ড |
 | **🛡️ প্রশাসনিক প্যানেল** | [a01-overview.html](https://mefahim.github.io/sotanipara-community/pages/admin/a01-overview.html) | সুপার এডমিন ও সহায়কদের জন্য ১২টি ম্যানেজমেন্ট স্ক্রিন |
 | **📱 মোবাইল অ্যাপ কনসেপ্ট** | [p01-splash.html](https://mefahim.github.io/sotanipara-community/pages/app/p01-splash.html) | নেটিভ মোবাইল অ্যাপের ৬টি কনসেপ্ট স্ক্রিন |
-| **🔤 টাইপোগ্রাফি স্পেসিমেন** | [TYPOGRAPHY_SPECIMEN.html](https://mefahim.github.io/sotanipara-community/TYPOGRAPHY_SPECIMEN.html) | বাংলা ও ইংরেজি ফন্ট হায়ারার্কি স্পেসিফিকেশন |
+| **🔤 টাইপোগ্রাফি ল্যাব** | [TYPOGRAPHY_SPECIMEN_DIRECTION_D.html](https://mefahim.github.io/sotanipara-community/TYPOGRAPHY_SPECIMEN_DIRECTION_D.html) | Direction D বাংলা ও ইংরেজি ফন্ট তুলনামূলক স্পেসিমেন |
 
 ---
 
-## 🎨 ডিজাইন দর্শন (Design Philosophy: Civic Editorial Humanism)
+## 🎨 ক্রিয়েটিভ ডিরেকশন ডি (Direction D Architecture)
 
-- **কালার প্যালেট (Heritage & Trust):**
-  - **Forest Green (#0B2E1F):** স্থায়িত্ব, নাগরিক প্রতিষ্ঠান ও আস্থা।
-  - **Heritage Gold (#C9A227):** মর্যাদা, ঐতিহ্য ও শ্রদ্ধা।
-  - **Parchment Cream (#FAF7EE):** উষ্ণ, পাঠযোগ্য এবং নন-ক্লিনিক্যাল ব্যাকগ্রাউন্ড।
-- **টাইপোগ্রাফি:**
-  - শিরোনাম ও সম্পাদকীয় টেক্সট: **Noto Serif Bengali**
-  - সাধারণ পাঠ্য ও ইন্টারফেস: **Anek Bangla**
-  - ইংরেজি লেবেল ও সংখ্যা: **Manrope** (ট্যাবুলার নিউমারালস সহ)
-- **উষ্ণ নাগরিক আবহ:** জেনেরিক নীল SaaS নয়, বরং ঐতিহ্যবাহী ও শ্রদ্ধাশীল জনকল্যাণমূলক প্রতিষ্ঠানের আবহ।
+Direction D তিনটি পরিপূরক নীতির সমন্বয়ে নির্মিত:
+1. **প্রিমিয়াম ডিজিটাল প্রোডাক্ট (Premium Digital Product):** অ্যাপল-অনুপ্রাণিত সূক্ষ্ম ইন্টারঅ্যাকশন, ক্লিয়ার স্পেসিং, সুসংহত কার্ড স্ট্রাকচার ও শূন্য ভিজ্যুয়াল নয়েজ।
+2. **আন্তর্জাতিক এডিটোরিয়াল ডিজাইন (International Editorial Design):** অ্যাসিমেট্রিক লেআউট, বড় টাইপোগ্রাফিক বৈপরীত্য, ডকুমেন্টারি ফটোগ্রাফি ক্রপ, মাইলফলক লেজার ও গভীর বিষয়বস্তু প্রবাহ।
+3. **বাঙালি সাংস্কৃতিক ঐতিহ্য (Bengali Identity):** তিরো বাংলা (`Tiro Bangla`) ও অনেক বাংলা (`Anek Bangla`) ফন্টে নিহিত ঐতিহ্যমণ্ডিত আবহ, শতভাগ শুদ্ধ যুক্তাক্ষর এবং স্থানীয় প্রবাসী-কেন্দ্রিক মানবসেবা।
+
+- **কালার প্যালেট (Refined Palette):**
+  - **Refined Forest Green (#0B2E1F):** স্থায়িত্ব, নাগরিক প্রতিষ্ঠান ও আস্থা।
+  - **Restrained Heritage Gold (#C9A227):** মর্যাদা, ঐতিহ্য ও প্রাতিষ্ঠানিক রৌপ্যজয়ন্তী স্বীকৃতি।
+  - **Warm Ivory (#FAF7EE):** উষ্ণ, পাঠযোগ্য এবং নন-ক্লিনিক্যাল আর্ট পেপার ব্যাকগ্রাউন্ড।
+  - **Sophisticated Neutral Surfaces:** `#FFFFFF` (Card), `#F4EFE6` (Raised), `#0A140F` (Dark Canvas).
+
+---
+
+## 📚 টেকনিক্যাল ডকুমেন্টেশন তালিকা (Direction D Reports)
+
+- [docs/DIRECTION_D_FINAL_REPORT.md](docs/DIRECTION_D_FINAL_REPORT.md) — চূড়ান্ত মাস্টার এক্সিকিউশন রিপোর্ট
+- [docs/DIRECTION_D_DESIGN_SYSTEM.md](docs/DIRECTION_D_DESIGN_SYSTEM.md) — সম্পূর্ণ ডিজাইন সিস্টেম স্পেসিফিকেশন (v3.0)
+- [docs/DIRECTION_D_TYPOGRAPHY_REPORT.md](docs/DIRECTION_D_TYPOGRAPHY_REPORT.md) — বাংলা টাইপোগ্রাফি ল্যাবরেটরি ও যুক্তাক্ষর রিপোর্ট
+- [docs/DIRECTION_D_SITEMAP.md](docs/DIRECTION_D_SITEMAP.md) — সম্পূর্ণ ইনফরমেশন আর্কিটেকচার ও সাইটম্যাপ
+- [docs/DIRECTION_D_SCREEN_INVENTORY.md](docs/DIRECTION_D_SCREEN_INVENTORY.md) — ৩৫টি স্ক্রিনের কমপ্লিট ইনভেন্টরি ও ভেরিফিকেশন স্ট্যাটাস
+- [docs/DIRECTION_D_USER_JOURNEYS.md](docs/DIRECTION_D_USER_JOURNEYS.md) — ৮টি সম্পূর্ণ ইন্টারঅ্যাক্টিভ ইউজার ফ্লো (F-01 to F-08)
+- [docs/DIRECTION_D_BROWSER_QA_REPORT.md](docs/DIRECTION_D_BROWSER_QA_REPORT.md) — মাল্টি-ভিউয়ার (৩৬০px–১৯২০px) ব্রাউজার কিউএ রিপোর্ট
+- [docs/DIRECTION_D_COMPARATIVE_REVIEW.md](docs/DIRECTION_D_COMPARATIVE_REVIEW.md) — পূর্ববর্তী ও নতুন ডিজাইনের তুলনামূলক পর্যালোচনা
+- [docs/DIRECTION_D_DESIGN_RESEARCH.md](docs/DIRECTION_D_DESIGN_RESEARCH.md) — UI UX Pro Max ইন্টেলিজেন্স রিসার্চ
+- [docs/DIRECTION_D_SKILL_INSTALLATION_REPORT.md](docs/DIRECTION_D_SKILL_INSTALLATION_REPORT.md) — ডিজাইন স্কিলস যাচাইকরণ ও প্রমাণপত্র
+- [docs/DIRECTION_D_EXISTING_VERSIONS_AUDIT.md](docs/DIRECTION_D_EXISTING_VERSIONS_AUDIT.md) — আদি ভার্সন ও মিউজ প্রোটোটাইপ অডিট
 
 ---
 
