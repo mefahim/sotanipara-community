@@ -109,7 +109,7 @@
   gap: var(--space-8);
 }
 
-/* Mobile Header: Strict max 56px height, single row */
+/* Mobile Header: Strict max 56px height, single row, compact & uncrowded */
 @media (max-width: 1023px) {
   .header-container {
     height: var(--header-height-mobile);
@@ -125,7 +125,8 @@
   .brand {
     gap: 8px;
     min-width: 0;
-    flex-shrink: 1;
+    flex: 1;
+    overflow: hidden;
   }
 
   .brand-crest {
@@ -135,11 +136,11 @@
   }
 
   .brand-name {
-    font-size: 15px;
+    font-size: clamp(14px, 4.2vw, 16px);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 140px;
+    min-width: 0;
   }
 
   .brand-tagline {
@@ -147,6 +148,8 @@
   }
 
   .header-actions {
+    display: flex;
+    align-items: center;
     gap: 4px;
     flex-shrink: 0;
   }
@@ -156,9 +159,47 @@
     display: none !important; /* Hide wide text button on mobile header; available inside drawer */
   }
 
-  .header-actions .btn-ghost {
-    padding: 4px 6px;
-    min-height: 36px;
+  .header-actions .btn-ghost,
+  .header-actions .btn-icon {
+    min-height: var(--min-touch-target);
+    min-width: var(--min-touch-target);
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-btn);
+  }
+}
+
+@media (max-width: 420px) {
+  .header-container {
+    padding-left: var(--gutter-mobile-sm, 12px);
+    padding-right: var(--gutter-mobile-sm, 12px);
+    gap: 6px;
+  }
+
+  /* Tuck secondary language toggle inside drawer on very narrow viewports (<420px) to prevent name truncation */
+  .header-actions #headerLangToggle {
+    display: none !important;
+  }
+
+  .brand {
+    gap: 6px;
+  }
+
+  .brand-crest {
+    width: 28px;
+    height: 28px;
+  }
+
+  .brand-name {
+    font-size: 14.5px;
+  }
+
+  .header-actions {
+    gap: 2px;
   }
 }
 
@@ -202,6 +243,24 @@ html.drawer-open {
   margin-bottom: 12px;
   border-bottom: 1px solid var(--color-border);
   padding-bottom: 10px;
+  gap: 8px;
+}
+
+.drawer-header-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.drawer-header-controls .btn {
+  min-width: var(--min-touch-target);
+  min-height: var(--min-touch-target);
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
 }
 
 .drawer-nav-group {
@@ -465,6 +524,17 @@ html.drawer-open {
   }
 }
 
+@media (max-width: 575px) {
+  .admin-topbar {
+    padding: 0 12px;
+    height: 56px;
+  }
+
+  .admin-content {
+    padding: 14px 10px;
+  }
+}
+
 /* ==========================================================================
    Public Footer
    ========================================================================== */
@@ -534,4 +604,39 @@ html.drawer-open {
   gap: var(--space-12);
   font-size: var(--font-size-caption);
   color: #CBD5E1;
+}
+
+/* ==========================================================================
+   Responsive Action Group & Button Stacking
+   ========================================================================== */
+.cta-group,
+.btn-group-responsive {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+  flex-wrap: wrap;
+}
+
+@media (max-width: 575px) {
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding-top: var(--space-16);
+  }
+
+  .cta-group,
+  .btn-group-responsive {
+    flex-direction: column !important;
+    width: 100% !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+  }
+
+  .cta-group .btn,
+  .btn-group-responsive .btn {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
 }

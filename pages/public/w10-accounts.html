@@ -232,16 +232,16 @@
         const isIncome = tx.type === 'income';
 
         // Strict rule: Income in green text, Expense in red numbers only (not red row!)
-        const incomeTd = isIncome ? `<span style="color: var(--color-success); font-weight: 700;">${tx.amount_bn}</span>` : '—';
-        const expenseTd = !isIncome ? `<span style="color: var(--color-danger); font-weight: 700;">${tx.amount_bn}</span>` : '—';
+        const incomeTd = isIncome ? `<span style="color: var(--color-success); font-weight: 700; font-size: 15.5px;">+ ${tx.amount_bn}</span>` : '—';
+        const expenseTd = !isIncome ? `<span style="color: var(--color-danger); font-weight: 700; font-size: 15.5px;">- ${tx.amount_bn}</span>` : '—';
 
         tr.innerHTML = `
           <td data-label="তারিখ">${tx.date}</td>
           <td data-label="খাত / প্রকল্প"><strong>${tx.project_bn}</strong></td>
           <td data-label="বিবরণ">${tx.category_bn}</td>
           <td data-label="দাতা / উৎস">${tx.donor_bn}</td>
-          <td data-label="আয়" style="text-align: right;">${incomeTd}</td>
-          <td data-label="ব্যয়" style="text-align: right;">${expenseTd}</td>
+          <td data-label="আয়" class="${isIncome ? '' : 'hide-on-mobile-card'}" style="text-align: right;">${incomeTd}</td>
+          <td data-label="ব্যয়" class="${!isIncome ? '' : 'hide-on-mobile-card'}" style="text-align: right;">${expenseTd}</td>
         `;
         tbody.appendChild(tr);
       });

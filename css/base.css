@@ -106,3 +106,10 @@ button {
     padding-right: var(--gutter-mobile);
   }
 }
+
+@media (max-width: 420px) {
+  .container {
+    padding-left: var(--gutter-mobile-sm, 12px);
+    padding-right: var(--gutter-mobile-sm, 12px);
+  }
+}
