@@ -187,3 +187,37 @@
 .mb-24 { margin-bottom: var(--space-24); }
 .mb-32 { margin-bottom: var(--space-32); }
 .mb-40 { margin-bottom: var(--space-40); }
+
+/* ==========================================================================
+   Editorial v2.0 Responsive Layout Rules
+   ========================================================================== */
+@media (max-width: 991px) {
+  .hero-section .container > div[style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-32) !important;
+  }
+
+  .photo-essay-grid {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-20) !important;
+  }
+
+  .transparency-banner-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .timeline-ledger {
+    margin-top: var(--space-24);
+  }
+}
+
+@media (max-width: 599px) {
+  .step-flow-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  .hero-section {
+    padding: var(--space-40) 0 48px 0 !important;
+  }
+}

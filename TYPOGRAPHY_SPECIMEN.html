@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="bn" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bengali Typography Specimen & Research | Satanipara Community</title>
+  
+  <!-- Google Fonts: Anek Bangla, Tiro Bangla, Noto Serif Bengali, Noto Sans Bengali, Baloo Da 2, Hind Siliguri, Manrope -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@400;500;600;700;800&family=Baloo+Da+2:wght@500;600;700;800&family=Hind+Siliguri:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Bengali:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@400;500;600;700&family=Tiro+Bangla:ital@0;1&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #FAF7EE;
+      --surface: #FFFFFF;
+      --text: #0B2E1F;
+      --muted: #5A665E;
+      --border: #D9DED9;
+      --gold: #C9A227;
+      --gold-dark: #9A7B1C;
+      --forest-900: #0B2E1F;
+      --forest-700: #14532D;
+      --forest-600: #166534;
+      --green-50: #EFF7F1;
+      --green-100: #DCEFE3;
+    }
+
+    [data-theme="dark"] {
+      --bg: #0E1A13;
+      --surface: #16241B;
+      --text: #F2EFE6;
+      --muted: #A8B5AB;
+      --border: #2C4234;
+      --gold: #E9C95C;
+      --gold-dark: #C9A227;
+      --forest-900: #072015;
+      --forest-700: #14532D;
+      --forest-600: #4CAF7D;
+      --green-50: #112417;
+      --green-100: #1D3A26;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      padding: 40px 20px;
+      line-height: 1.7;
+      max-width: 1240px;
+      margin: 0 auto;
+      font-family: 'Anek Bangla', 'Manrope', sans-serif;
+    }
+
+    header {
+      border-bottom: 2px solid var(--forest-900);
+      padding-bottom: 24px;
+      margin-bottom: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      background: var(--green-100);
+      color: var(--forest-900);
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .theme-toggle {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .specimen-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .specimen-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+
+    .specimen-card.recommended {
+      border: 2px solid var(--gold);
+      position: relative;
+    }
+
+    .specimen-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .font-name {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--forest-900);
+    }
+
+    .font-category {
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .test-box {
+      margin-bottom: 16px;
+    }
+
+    .test-label {
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    .display-sample { font-size: 32px; font-weight: 800; line-height: 1.25; margin-bottom: 8px; }
+    .heading-sample { font-size: 22px; font-weight: 700; line-height: 1.4; margin-bottom: 8px; }
+    .slogan-sample { font-size: 15px; font-weight: 600; color: var(--gold-dark); margin-bottom: 8px; }
+    .body-sample { font-size: 16px; line-height: 1.7; margin-bottom: 8px; }
+    .conjunct-sample { font-size: 14px; background: var(--green-50); padding: 8px; border-radius: 6px; word-spacing: 6px; }
+
+    /* Font Family Classes */
+    .f-anek { font-family: 'Anek Bangla', sans-serif; }
+    .f-tiro { font-family: 'Tiro Bangla', serif; }
+    .f-noto-serif { font-family: 'Noto Serif Bengali', serif; }
+    .f-noto-sans { font-family: 'Noto Sans Bengali', sans-serif; }
+    .f-baloo { font-family: 'Baloo Da 2', cursive; }
+    .f-hind { font-family: 'Hind Siliguri', sans-serif; }
+
+    /* Comparison Table */
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0 48px;
+      background: var(--surface);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+    }
+
+    .comparison-table th, .comparison-table td {
+      border: 1px solid var(--border);
+      padding: 12px 16px;
+      text-align: left;
+    }
+
+    .comparison-table th {
+      background: var(--forest-900);
+      color: #FAF7EE;
+      font-weight: 700;
+    }
+
+    .score-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .score-high { background: #DCEFE3; color: #166534; }
+    .score-med { background: #FEF3C7; color: #92400E; }
+
+    .winning-stack-box {
+      background: linear-gradient(135deg, var(--forest-900) 0%, var(--forest-700) 100%);
+      color: #FAF7EE;
+      padding: 36px;
+      border-radius: 16px;
+      border: 2px solid var(--gold);
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div>
+      <span class="badge-pill">Phase 3 • Design Intelligence Specimen</span>
+      <h1 style="font-size: 28px; margin-top: 8px; color: var(--forest-900);">বাংলা টাইপোগ্রাফি গবেষণা ও স্পেসিমেন</h1>
+      <p style="color: var(--muted); font-size: 15px; margin-top: 4px;">
+        সাতানীপাড়া সমাজ কল্যাণ সংঘের প্রাতিষ্ঠানিক মর্যাদা ও পাঠযোগ্যতা নিশ্চিতকরণে ৬টি বাংলা ফন্টের তুলনামূলক নিরীক্ষা
+      </p>
+    </div>
+    <button class="theme-toggle" onclick="toggleTheme()">🌓 থিম পরিবর্তন</button>
+  </header>
+
+  <!-- 1. The 6 Typefaces Side-by-Side Specimen Grid -->
+  <div class="specimen-grid">
+
+    <!-- Candidate 1: Anek Bangla (WINNER FOR UI & MODERN EDITORIAL HEADINGS) -->
+    <div class="specimen-card recommended">
+      <div style="position: absolute; top: -10px; right: 16px; background: var(--gold); color: #0B2E1F; font-size: 11px; font-weight: 800; padding: 2px 10px; border-radius: 4px;">
+        RECOMMENDED PRIMARY UI & HERO
+      </div>
+      <div class="specimen-header">
+        <div>
+          <div class="font-name f-anek">১. Anek Bangla</div>
+          <div class="font-category">Modern Geometric Sans • Ek Type</div>
+        </div>
+        <span class="badge-pill">স্কোর: ৯.৭</span>
+      </div>
+
+      <div class="test-box f-anek">
+        <div class="test-label">Display & Masthead (Weight 800):</div>
+        <div class="display-sample" style="font-weight: 800;">সাতানীপাড়া কমিউনিটি</div>
+      </div>
+
+      <div class="test-box f-anek">
+        <div class="test-label">Hero Title & Tagline (Weight 700):</div>
+        <div class="heading-sample">একটি এলাকা, একটি পরিবার</div>
+      </div>
+
+      <div class="test-box f-anek">
+        <div class="test-label">Slogan & Values (Weight 600):</div>
+        <div class="slogan-sample">শিক্ষা • ঐক্য • শান্তি • প্রগতি</div>
+      </div>
+
+      <div class="test-box f-anek">
+        <div class="test-label">Paragraph & Narrative (Weight 400):</div>
+        <p class="body-sample">
+          আমাদের এলাকার মানুষের জন্য একটি পরিবার। মানুষের পাশে, প্রতিটি প্রয়োজনে। প্রবাসে থেকেও থাকুন পরিবারের কাছাকাছি।
+        </p>
+      </div>
+
+      <div class="test-box f-anek">
+        <div class="test-label">Complex Conjuncts (যুক্তাক্ষর নিরীক্ষা):</div>
+        <div class="conjunct-sample">
+          প্রগতি • সমাজকল্যাণ • প্রতিষ্ঠা • স্বাস্থ্য • স্বচ্ছতা • তহবিল • উদ্বৃত্ত • স্বীকৃতি
+        </div>
+      </div>
+
+      <div class="test-box f-anek">
+        <div class="test-label">Bilingual & Latin Numerals:</div>
+        <div style="font-size: 13.5px; font-weight: 500;">
+          REQ-2024-001 | ওমান (Oman) | অনুদান: ৳ ১,২৫,০০০ ($1,150) | স্থাপিত ১৯৯৯
+        </div>
+      </div>
+    </div>
+
+    <!-- Candidate 2: Tiro Bangla (WINNER FOR LITERARY / CHARTER SERIF) -->
+    <div class="specimen-card recommended">
+      <div style="position: absolute; top: -10px; right: 16px; background: #14532D; color: #FAF7EE; font-size: 11px; font-weight: 800; padding: 2px 10px; border-radius: 4px;">
+        RECOMMENDED EDITORIAL SERIF
+      </div>
+      <div class="specimen-header">
+        <div>
+          <div class="font-name f-tiro">২. Tiro Bangla</div>
+          <div class="font-category">Formal Literary Serif • Tiro Typeworks</div>
+        </div>
+        <span class="badge-pill">স্কোর: ৯.৫</span>
+      </div>
+
+      <div class="test-box f-tiro">
+        <div class="test-label">Display & Masthead (Regular):</div>
+        <div class="display-sample">সাতানীপাড়া কমিউনিটি</div>
+      </div>
+
+      <div class="test-box f-tiro">
+        <div class="test-label">Hero Title & Tagline:</div>
+        <div class="heading-sample">একটি এলাকা, একটি পরিবার</div>
+      </div>
+
+      <div class="test-box f-tiro">
+        <div class="test-label">Slogan & Values:</div>
+        <div class="slogan-sample">শিক্ষা • ঐক্য • শান্তি • প্রগতি</div>
+      </div>
+
+      <div class="test-box f-tiro">
+        <div class="test-label">Paragraph & Narrative:</div>
+        <p class="body-sample">
+          আমাদের এলাকার মানুষের জন্য একটি পরিবার। মানুষের পাশে, প্রতিটি প্রয়োজনে। প্রবাসে থেকেও থাকুন পরিবারের কাছাকাছি।
+        </p>
+      </div>
+
+      <div class="test-box f-tiro">
+        <div class="test-label">Complex Conjuncts (যুক্তাক্ষর নিরীক্ষা):</div>
+        <div class="conjunct-sample">
+          প্রগতি • সমাজকল্যাণ • প্রতিষ্ঠা • স্বাস্থ্য • স্বচ্ছতা • তহবিল • উদ্বৃত্ত • স্বীকৃতি
+        </div>
+      </div>
+
+      <div class="test-box f-tiro">
+        <div class="test-label">Bilingual & Latin Numerals:</div>
+        <div style="font-size: 13.5px;">
+          REQ-2024-001 | ওমান (Oman) | অনুদান: ৳ ১,২৫,০০০ ($1,150) | স্থাপিত ১৯৯৯
+        </div>
+      </div>
+    </div>
+
+    <!-- Candidate 3: Noto Serif Bengali -->
+    <div class="specimen-card">
+      <div class="specimen-header">
+        <div>
+          <div class="font-name f-noto-serif">৩. Noto Serif Bengali</div>
+          <div class="font-category">Classical Academic Serif • Google Fonts</div>
+        </div>
+        <span class="badge-pill">স্কোর: ৮.৮</span>
+      </div>
+
+      <div class="test-box f-noto-serif">
+        <div class="test-label">Display & Masthead (Weight 700):</div>
+        <div class="display-sample" style="font-weight: 700;">সাতানীপাড়া কমিউনিটি</div>
+      </div>
+
+      <div class="test-box f-noto-serif">
+        <div class="test-label">Hero Title & Tagline:</div>
+        <div class="heading-sample">একটি এলাকা, একটি পরিবার</div>
+      </div>
+
+      <div class="test-box f-noto-serif">
+        <div class="test-label">Slogan & Values:</div>
+        <div class="slogan-sample">শিক্ষা • ঐক্য • শান্তি • প্রগতি</div>
+      </div>
+
+      <div class="test-box f-noto-serif">
+        <div class="test-label">Paragraph & Narrative:</div>
+        <p class="body-sample">
+          আমাদের এলাকার মানুষের জন্য একটি পরিবার। মানুষের পাশে, প্রতিটি প্রয়োজনে। প্রবাসে থেকেও থাকুন পরিবারের কাছাকাছি।
+        </p>
+      </div>
+
+      <div class="test-box f-noto-serif">
+        <div class="test-label">Complex Conjuncts (যুক্তাক্ষর নিরীক্ষা):</div>
+        <div class="conjunct-sample">
+          প্রগতি • সমাজকল্যাণ • প্রতিষ্ঠা • স্বাস্থ্য • স্বচ্ছতা • তহবিল • উদ্বৃত্ত • স্বীকৃতি
+        </div>
+      </div>
+
+      <div class="test-box f-noto-serif">
+        <div class="test-label">Bilingual & Latin Numerals:</div>
+        <div style="font-size: 13.5px;">
+          REQ-2024-001 | ওমান (Oman) | অনুদান: ৳ ১,২৫,০০০ ($1,150) | স্থাপিত ১৯৯৯
+        </div>
+      </div>
+    </div>
+
+    <!-- Candidate 4: Noto Sans Bengali -->
+    <div class="specimen-card">
+      <div class="specimen-header">
+        <div>
+          <div class="font-name f-noto-sans">৪. Noto Sans Bengali</div>
+          <div class="font-category">Universal Sans • Google Fonts</div>
+        </div>
+        <span class="badge-pill">স্কোর: ৮.৫</span>
+      </div>
+
+      <div class="test-box f-noto-sans">
+        <div class="test-label">Display & Masthead (Weight 700):</div>
+        <div class="display-sample" style="font-weight: 700;">সাতানীপাড়া কমিউনিটি</div>
+      </div>
+
+      <div class="test-box f-noto-sans">
+        <div class="test-label">Hero Title & Tagline:</div>
+        <div class="heading-sample">একটি এলাকা, একটি পরিবার</div>
+      </div>
+
+      <div class="test-box f-noto-sans">
+        <div class="test-label">Slogan & Values:</div>
+        <div class="slogan-sample">শিক্ষা • ঐক্য • শান্তি • প্রগতি</div>
+      </div>
+
+      <div class="test-box f-noto-sans">
+        <div class="test-label">Paragraph & Narrative:</div>
+        <p class="body-sample">
+          আমাদের এলাকার মানুষের জন্য একটি পরিবার। মানুষের পাশে, প্রতিটি প্রয়োজনে। প্রবাসে থেকেও থাকুন পরিবারের কাছাকাছি।
+        </p>
+      </div>
+
+      <div class="test-box f-noto-sans">
+        <div class="test-label">Complex Conjuncts (যুক্তাক্ষর নিরীক্ষা):</div>
+        <div class="conjunct-sample">
+          প্রগতি • সমাজকল্যাণ • প্রতিষ্ঠা • স্বাস্থ্য • স্বচ্ছতা • তহবিল • উদ্বৃত্ত • স্বীকৃতি
+        </div>
+      </div>
+
+      <div class="test-box f-noto-sans">
+        <div class="test-label">Bilingual & Latin Numerals:</div>
+        <div style="font-size: 13.5px;">
+          REQ-2024-001 | ওমান (Oman) | অনুদান: ৳ ১,২৫,০০০ ($1,150) | স্থাপিত ১৯৯৯
+        </div>
+      </div>
+    </div>
+
+    <!-- Candidate 5: Baloo Da 2 -->
+    <div class="specimen-card">
+      <div class="specimen-header">
+        <div>
+          <div class="font-name f-baloo">৫. Baloo Da 2</div>
+          <div class="font-category">Friendly Rounded Sans • Ek Type</div>
+        </div>
+        <span class="badge-pill">স্কোর: ৭.২</span>
+      </div>
+
+      <div class="test-box f-baloo">
+        <div class="test-label">Display & Masthead (Weight 800):</div>
+        <div class="display-sample" style="font-weight: 800;">সাতানীপাড়া কমিউনিটি</div>
+      </div>
+
+      <div class="test-box f-baloo">
+        <div class="test-label">Hero Title & Tagline:</div>
+        <div class="heading-sample">একটি এলাকা, একটি পরিবার</div>
+      </div>
+
+      <div class="test-box f-baloo">
+        <div class="test-label">Slogan & Values:</div>
+        <div class="slogan-sample">শিক্ষা • ঐক্য • শান্তি • প্রগতি</div>
+      </div>
+
+      <div class="test-box f-baloo">
+        <div class="test-label">Paragraph & Narrative:</div>
+        <p class="body-sample">
+          আমাদের এলাকার মানুষের জন্য একটি পরিবার। মানুষের পাশে, প্রতিটি প্রয়োজনে। প্রবাসে থেকেও থাকুন পরিবারের কাছাকাছি।
+        </p>
+      </div>
+
+      <div class="test-box f-baloo">
+        <div class="test-label">Complex Conjuncts (যুক্তাক্ষর নিরীক্ষা):</div>
+        <div class="conjunct-sample">
+          প্রগতি • সমাজকল্যাণ • প্রতিষ্ঠা • স্বাস্থ্য • স্বচ্ছতা • তহবিল • উদ্বৃত্ত • স্বীকৃতি
+        </div>
+      </div>
+
+      <div class="test-box f-baloo">
+        <div class="test-label">Bilingual & Latin Numerals:</div>
+        <div style="font-size: 13.5px;">
+          REQ-2024-001 | ওমান (Oman) | অনুদান: ৳ ১,২৫,০০০ ($1,150) | স্থাপিত ১৯৯৯
+        </div>
+      </div>
+    </div>
+
+    <!-- Candidate 6: Hind Siliguri (Current Baseline) -->
+    <div class="specimen-card">
+      <div class="specimen-header">
+        <div>
+          <div class="font-name f-hind">৬. Hind Siliguri (পূর্ববর্তী)</div>
+          <div class="font-category">Standard Utilitarian Sans • Baseline</div>
+        </div>
+        <span class="badge-pill">স্কোর: ৭.৮</span>
+      </div>
+
+      <div class="test-box f-hind">
+        <div class="test-label">Display & Masthead (Weight 700):</div>
+        <div class="display-sample" style="font-weight: 700;">সাতানীপাড়া কমিউনিটি</div>
+      </div>
+
+      <div class="test-box f-hind">
+        <div class="test-label">Hero Title & Tagline:</div>
+        <div class="heading-sample">একটি এলাকা, একটি পরিবার</div>
+      </div>
+
+      <div class="test-box f-hind">
+        <div class="test-label">Slogan & Values:</div>
+        <div class="slogan-sample">শিক্ষা • ঐক্য • শান্তি • প্রগতি</div>
+      </div>
+
+      <div class="test-box f-hind">
+        <div class="test-label">Paragraph & Narrative:</div>
+        <p class="body-sample">
+          আমাদের এলাকার মানুষের জন্য একটি পরিবার। মানুষের পাশে, প্রতিটি প্রয়োজনে। প্রবাসে থেকেও থাকুন পরিবারের কাছাকাছি।
+        </p>
+      </div>
+
+      <div class="test-box f-hind">
+        <div class="test-label">Complex Conjuncts (যুক্তাক্ষর নিরীক্ষা):</div>
+        <div class="conjunct-sample">
+          প্রগতি • সমাজকল্যাণ • প্রতিষ্ঠা • স্বাস্থ্য • স্বচ্ছতা • তহবিল • উদ্বৃত্ত • স্বীকৃতি
+        </div>
+      </div>
+
+      <div class="test-box f-hind">
+        <div class="test-label">Bilingual & Latin Numerals:</div>
+        <div style="font-size: 13.5px;">
+          REQ-2024-001 | ওমান (Oman) | অনুদান: ৳ ১,২৫,০০০ ($1,150) | স্থাপিত ১৯৯৯
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 2. Typography Comparison Matrix -->
+  <h2 style="font-size: 22px; color: var(--forest-900); margin-bottom: 16px;">টাইপোগ্রাফিক মূল্যায়ন ম্যাট্রিক্স (Comparative Matrix)</h2>
+  <table class="comparison-table">
+    <thead>
+      <tr>
+        <th>টাইপফেস</th>
+        <th>অক্ষর সৌন্দর্য</th>
+        <th>যুক্তাক্ষর গঠন</th>
+        <th>হেডিং পার্সোনালিটি</th>
+        <th>বডি পাঠযোগ্যতা</th>
+        <th>ইংরেজি-বাংলা মেলবন্ধন</th>
+        <th>সিদ্ধান্ত ও ভূমিকা</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background: rgba(201, 162, 39, 0.08); font-weight: 600;">
+        <td><strong>Anek Bangla</strong></td>
+        <td><span class="score-badge score-high">৯.৮</span></td>
+        <td><span class="score-badge score-high">৯.৯</span></td>
+        <td><span class="score-badge score-high">৯.৭</span></td>
+        <td><span class="score-badge score-high">৯.৬</span></td>
+        <td><span class="score-badge score-high">৯.৮ (Manrope)</span></td>
+        <td><strong style="color: #14532D;">বিজয়ী: প্রাথমিক UI ও আধুনিক ডিসপ্লে</strong></td>
+      </tr>
+      <tr style="background: rgba(20, 83, 45, 0.06);">
+        <td><strong>Tiro Bangla</strong></td>
+        <td><span class="score-badge score-high">৯.৬</span></td>
+        <td><span class="score-badge score-high">৯.৭</span></td>
+        <td><span class="score-badge score-high">৯.৮</span></td>
+        <td><span class="score-badge score-high">৯.০</span></td>
+        <td><span class="score-badge score-high">৯.৩</span></td>
+        <td><strong style="color: #14532D;">বিজয়ী: লিটারারি ও হিস্টোরিক্যাল এডিটরিয়াল</strong></td>
+      </tr>
+      <tr>
+        <td>Noto Serif Bengali</td>
+        <td><span class="score-badge score-high">৯.০</span></td>
+        <td><span class="score-badge score-high">৯.২</span></td>
+        <td><span class="score-badge score-med">৮.৫</span></td>
+        <td><span class="score-badge score-high">৯.১</span></td>
+        <td><span class="score-badge score-med">৮.৬</span></td>
+        <td>বিকল্প এডিটোরিয়াল সেরিফ</td>
+      </tr>
+      <tr>
+        <td>Noto Sans Bengali</td>
+        <td><span class="score-badge score-med">৮.৪</span></td>
+        <td><span class="score-badge score-high">৯.০</span></td>
+        <td><span class="score-badge score-med">৮.০</span></td>
+        <td><span class="score-badge score-high">৯.০</span></td>
+        <td><span class="score-badge score-med">৮.৫</span></td>
+        <td>সিস্টেম ফলব্যাক</td>
+      </tr>
+      <tr>
+        <td>Baloo Da 2</td>
+        <td><span class="score-badge score-med">৮.০</span></td>
+        <td><span class="score-badge score-med">৮.২</span></td>
+        <td><span class="score-badge score-med">৭.৫</span></td>
+        <td><span class="score-badge score-med">৭.০</span></td>
+        <td><span class="score-badge score-med">৭.২</span></td>
+        <td>অতিরিক্ত অনানুষ্ঠানিক (Not Suitable)</td>
+      </tr>
+      <tr>
+        <td>Hind Siliguri</td>
+        <td><span class="score-badge score-med">৭.৫</span></td>
+        <td><span class="score-badge score-high">৮.৮</span></td>
+        <td><span class="score-badge score-med">৭.২</span></td>
+        <td><span class="score-badge score-high">৮.২</span></td>
+        <td><span class="score-badge score-med">৭.৮</span></td>
+        <td>পূর্ববর্তী বেসলাইন (Flat)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- 3. Final Winning Typography Stack Announcement -->
+  <div class="winning-stack-box">
+    <div style="font-size: 13px; color: var(--gold); text-transform: uppercase; font-weight: 700; letter-spacing: 1px; margin-bottom: 8px;">
+      চূড়ান্ত অনুমোদিত টাইপোগ্রাফি স্ট্যাক (Official Typography Stack)
+    </div>
+    <h2 style="font-size: 26px; font-weight: 800; margin-bottom: 16px; color: #FAF7EE;">
+      Anek Bangla + Tiro Bangla + Manrope
+    </h2>
+    <p style="font-size: 16px; line-height: 1.8; color: #E2E8F0; margin-bottom: 24px;">
+      ১. <strong>Anek Bangla (৪০০, ৫০০, ৬০০, ৭০০, ৮০০):</strong> পুরো ওয়েবসাইটের প্রাইমারি ইন্টারফেস, আধুনিক ডিসপ্লে টাইটেল, ফর্ম, বাটন এবং মূল বডি টেক্সটের জন্য। এর জ্যামিতিক ভারসাম্য এবং নিখুঁত যুক্তাক্ষর ডিসপ্লেতে এক অনন্য আধুনিক আভিজাত্য এনে দেয়।<br>
+      ২. <strong>Tiro Bangla (Regular & Italic):</strong> ঐতিহ্যের দলিল, গঠনতন্ত্রের উদ্ধৃতি, সভাপতি/সম্পাদকের বাণী, পুল-কোট এবং বিশেষ এডিটরিয়াল হেডলাইনের জন্য—যা ২৫ বছরের প্রাতিষ্ঠানিক মর্যাদাকে ফুটিয়ে তোলে।<br>
+      ৩. <strong>Manrope (৪০০, ৫০০, ৬০০, ৭০০, ৮০০):</strong> ইংরেজি ইন্টারফেস, রিকোয়েস্ট আইডি (Request ID), সংখ্যা, তারিখ ও গাণিতিক লেজারের জন্য—যা নিখুঁত আধুনিক ব্যালেন্স বজায় রাখে।
+    </p>
+
+    <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+      <a href="/index.html" style="background: var(--gold); color: #0B2E1F; padding: 12px 24px; border-radius: 8px; font-weight: 700; text-decoration: none;">
+        প্রোটোটাইপ হাবে ফিরে যান →
+      </a>
+    </div>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+    }
+  </script>
+</body>
+</html>

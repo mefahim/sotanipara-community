@@ -6,7 +6,7 @@
   <title>সাতানীপাড়া কমিউনিটি — হোমপেজ | Satanipara Community</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Noto+Serif+Bengali:wght@400;600;700&family=Tiro+Bangla:ital@0;1&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="../../css/tokens.css">
   <link rel="stylesheet" href="../../css/themes.css">
@@ -26,15 +26,15 @@
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </span>
         <span data-i18n="emergency.title" style="font-weight: 600;">জরুরি সেবা:</span>
-        <span>জাতীয় সেবা <a href="tel:999">৯৯৯</a></span>
+        <span>জাতীয় হেল্পলাইন <a href="tel:999" class="font-num">৯৯৯</a></span>
       </div>
       <div class="emergency-contact-item">
-        <span>সংঘ জরুরি হটলাইন: <a href="tel:01700000000">০১৭০০-০০০০০০</a></span>
+        <span>সংঘ জরুরি হটলাইন: <a href="tel:01700000000" class="font-num">০১৭০০-০০০০০০</a></span>
       </div>
     </div>
   </div>
 
-  <!-- 2. Sticky Header (Mobile max 56px, 1 row only) -->
+  <!-- 2. Sticky Masthead Header (Mobile max 56px, 1 row only) -->
   <header class="site-header">
     <div class="container header-container">
       <a href="/pages/public/w01-home.html" class="brand" aria-label="Satanipara Community Home">
@@ -118,7 +118,7 @@
     </div>
   </div>
 
-  <!-- 3. Separate Notice Ticker (Strict: Never overlaps hero, 36px high, disappears if no notice) -->
+  <!-- 3. Notice Ticker (Strict: Never overlaps hero, 36px high, disappears if no notice) -->
   <div class="notice-ticker" id="noticeTicker">
     <div class="container" style="display: flex; align-items: center; width: 100%;">
       <span class="ticker-badge" data-i18n="ticker.label">সংবাদ ও নোটিশ</span>
@@ -133,450 +133,535 @@
     </div>
   </div>
 
-  <!-- 4. Premium Full-Width Hero Section -->
-  <section class="hero-section">
+  <!-- 4. Immersive Editorial Hero Composition -->
+  <section class="hero-section" style="padding: 72px 0 64px 0;">
     <div class="hero-overlay"></div>
-    <div class="container hero-content">
-      <!-- Slogan Chip (Strict: separate background, >= 16px from other elements) -->
-      <div>
-        <div class="slogan-chip">
-          <span style="color: var(--color-gold-500);">★</span>
-          <span data-i18n="brand.slogan">শিক্ষা • ঐক্য • শান্তি • প্রগতি</span>
+    <div class="container" style="position: relative; z-index: 2;">
+      <div style="display: grid; grid-template-columns: 1.25fr 0.95fr; gap: var(--space-48); align-items: center;">
+        
+        <!-- Left Hero Prose & Identity -->
+        <div style="display: flex; flex-direction: column; gap: var(--space-20);">
+          <!-- Heritage & Slogan Chips -->
+          <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+            <div class="slogan-chip">
+              <span style="color: var(--color-gold-500);">★</span>
+              <span data-i18n="brand.slogan">শিক্ষা • ঐক্য • শান্তি • প্রগতি</span>
+            </div>
+            <span class="seal-pill">
+              <span class="font-num">১৯৯৯–২০২৪</span> | ২৫ বছর পূর্তি রৌপ্যজয়ন্তী
+            </span>
+          </div>
+
+          <!-- Editorial Headlines -->
+          <div>
+            <h1 class="font-display hero-title" style="margin-bottom: 8px;">
+              একটি এলাকা, একটি পরিবার
+            </h1>
+            <p class="font-editorial-lead" style="color: var(--color-gold-400); margin: 0; font-style: italic;">
+              আড়াই দশকের গ্রামীণ সম্প্রীতি, মানবিক সেবাকর্ম ও প্রবাসী পরিবারের বিশ্বস্ত সামাজিক আশ্রয়।
+            </p>
+          </div>
+
+          <!-- Narrative Editorial Description -->
+          <p class="font-body" style="color: #E2E8F0; font-size: 16.5px; line-height: 1.7; margin-bottom: var(--space-8);">
+            সাতানীপাড়া সমাজকল্যাণ সংঘ (প্রতিষ্ঠা ১৯৯৯) — গ্রামীণ ঐতিহ্য, শিক্ষার বিস্তার, রক্তের জরুরি বন্ধন এবং প্রবাসে থাকা স্বজনদের পরিবারের পাশে নিঃস্বার্থভাবে দাঁড়ানোর এক অনন্য দৃষ্টান্ত। প্রতিটি উদ্যোগ পরিচালিত হয় শতভাগ আর্থিক স্বচ্ছতা ও জবাবদিহিতায়।
+          </p>
+
+          <!-- Action Hub -->
+          <div class="hero-actions" style="margin-top: 0;">
+            <!-- Primary Gold CTA: Expatriate Assistance -->
+            <a href="/pages/public/w06-expatriate.html" class="btn btn-lg btn-gold">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>প্রবাসী সহায়তা ডেস্ক</span>
+            </a>
+
+            <!-- Secondary White Outline: Find Blood Donors -->
+            <a href="/pages/public/w07-blood-donors.html" class="btn btn-lg btn-outline-white">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+              <span>জরুরি রক্তদাতা খুঁজুন</span>
+            </a>
+
+            <!-- 3rd Text Link -->
+            <a href="/pages/public/w02-community.html" style="color: #FAF7EE; text-decoration: underline; font-weight: 600; font-size: 15px; margin-left: 4px;">
+              এলাকার প্রোফাইল ও ইতিহাস →
+            </a>
+          </div>
         </div>
-      </div>
 
-      <!-- Display Headline -->
-      <h1 class="font-display hero-title" data-i18n="brand.tagline">
-        একটি এলাকা, একটি পরিবার
-      </h1>
+        <!-- Right Hero Archival Inset Card -->
+        <div>
+          <div class="editorial-card-lead" style="box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);">
+            <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(201, 162, 39, 0.3); padding-bottom: 14px; margin-bottom: 18px;">
+              <span class="eyebrow" style="color: var(--color-gold-400); margin: 0;">সংঘের অঙ্গীকারপত্র</span>
+              <span style="font-size: 12px; color: var(--color-gold-500); font-weight: 600; letter-spacing: 0.05em;">ESTD 1999</span>
+            </div>
 
-      <!-- Meaningful 2-line Intro Paragraph -->
-      <p class="hero-description">
-        সাতানীপাড়া সমাজকল্যাণ সংঘ (প্রতিষ্ঠা ১৯৯৯) — গ্রামীণ এলাকার মানুষের পারস্পরিক ঐক্য, সমাজসেবা, প্রবাসী পরিবারের পাশে দাঁড়ানো এবং সম্পূর্ণ আর্থিক স্বচ্ছতার নির্ভরযোগ্য ঠিকানা।
-      </p>
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+              <div style="display: flex; gap: 14px;">
+                <div style="width: 32px; height: 32px; border-radius: 50%; background: rgba(201, 162, 39, 0.2); border: 1px solid var(--color-gold-500); display: flex; align-items: center; justify-content: center; color: var(--color-gold-400); font-weight: 700; flex-shrink: 0;">১</div>
+                <div>
+                  <h4 style="font-size: 16px; margin: 0 0 4px 0; color: #FAF7EE;">প্রবাসী পরিবারের নিরাপত্তা ও অভিভাবকত্ব</h4>
+                  <p style="font-size: 13.5px; color: #CBD5E1; margin: 0; line-height: 1.5;">জরুরি ঔষধ, স্বাস্থ্যসেবা ও পারিবারিক সহায়তায় নিঃস্বার্থ মাঠপর্যায়ের সেবা দল।</p>
+                </div>
+              </div>
 
-      <!-- Two Prominent CTAs + 3rd Link -->
-      <div class="hero-actions">
-        <!-- Primary (Gold): Expatriate Support Request -->
-        <a href="/pages/public/w06-expatriate.html" class="btn btn-lg btn-gold">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          <span data-i18n="btn.apply_expatriate">প্রবাসী সহায়তার আবেদন</span>
-        </a>
+              <div style="display: flex; gap: 14px;">
+                <div style="width: 32px; height: 32px; border-radius: 50%; background: rgba(201, 162, 39, 0.2); border: 1px solid var(--color-gold-500); display: flex; align-items: center; justify-content: center; color: var(--color-gold-400); font-weight: 700; flex-shrink: 0;">২</div>
+                <div>
+                  <h4 style="font-size: 16px; margin: 0 0 4px 0; color: #FAF7EE;">১০০% উন্মুক্ত অডিট ও হিসাবের সততা</h4>
+                  <p style="font-size: 13.5px; color: #CBD5E1; margin: 0; line-height: 1.5;">প্রতিটি অনুদান ও ব্যয়ের ব্যাংক ভাউচার সর্বসাধারণের জন্য ওয়েবসাইটে সংরক্ষিত।</p>
+                </div>
+              </div>
 
-        <!-- Secondary (White Outline): Find Blood Donors -->
-        <a href="/pages/public/w07-blood-donors.html" class="btn btn-lg btn-outline-white">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
-          <span data-i18n="btn.find_blood">রক্তদাতা খুঁজুন</span>
-        </a>
+              <div style="display: flex; gap: 14px;">
+                <div style="width: 32px; height: 32px; border-radius: 50%; background: rgba(201, 162, 39, 0.2); border: 1px solid var(--color-gold-500); display: flex; align-items: center; justify-content: center; color: var(--color-gold-400); font-weight: 700; flex-shrink: 0;">৩</div>
+                <div>
+                  <h4 style="font-size: 16px; margin: 0 0 4px 0; color: #FAF7EE;">২৪/৭ রক্তের গ্রুপভিত্তিক জরুরি প্রস্তুত দল</h4>
+                  <p style="font-size: 13.5px; color: #CBD5E1; margin: 0; line-height: 1.5;">স্বেচ্ছাসেবী রক্তদাতাদের সরাসরি মোবাইল সংযোগ ও তাৎক্ষণিক রক্তদান নেটওয়ার্ক।</p>
+                </div>
+              </div>
+            </div>
 
-        <!-- 3rd Link: View Community Profile -->
-        <a href="/pages/public/w02-community.html" style="color: #FAF7EE; text-decoration: underline; font-weight: 600; font-size: 16px; margin-left: 8px;" data-i18n="btn.view_profile">
-          এলাকার প্রোফাইল দেখুন →
-        </a>
+            <div style="margin-top: 20px; padding-top: 14px; border-top: 1px solid rgba(255, 255, 255, 0.1); display: flex; align-items: center; justify-content: space-between;">
+              <span class="civic-seal" style="background: rgba(201, 162, 39, 0.18);">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                সার্ভিস চার্জ মুক্ত সমাজসেবা
+              </span>
+              <a href="/pages/public/w03-organization.html" style="font-size: 13px; color: var(--color-gold-400); text-decoration: underline;">গঠনতন্ত্র দেখুন</a>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- 5. Community Statistics Strip (Separate section below hero, NEVER floating on hero) -->
-  <section class="section-py" style="background-color: var(--color-surface); border-bottom: 1px solid var(--color-border);">
+  <!-- 5. Flowing Narrative Milestone Metrics Strip -->
+  <section class="narrative-metric-strip">
     <div class="container">
       <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-20); flex-wrap: wrap; gap: 8px;">
-        <h2 class="font-h3" style="color: var(--color-green-700);">সাতানীপাড়া এক নজরে</h2>
-        <span class="badge badge-pending">
+        <div>
+          <span class="eyebrow" style="margin-bottom: 2px;">মাইলফলক ও তথ্যপরিসংখ্যান</span>
+          <h2 class="font-h3" style="margin: 0; color: var(--color-text-strong);">সাতানীপাড়ার সম্মিলিত মানবসম্পদ</h2>
+        </div>
+        <span class="seal-pill">
           <span class="badge-dot"></span> <span data-i18n="placeholder.data">প্রকৃত তথ্য পরে বসবে</span>
         </span>
       </div>
 
-      <div class="grid-4">
-        <!-- StatCard 1 -->
-        <div class="stat-card">
-          <div class="stat-card-label">মোট পরিবার / বাড়ি</div>
-          <div class="stat-card-value">৭৫০+</div>
-          <div class="stat-card-badge">সার্ভে তথ্য অপেক্ষমাণ</div>
+      <div class="narrative-metric-grid">
+        <!-- Metric 1 -->
+        <div class="narrative-metric-item">
+          <span class="narrative-metric-number font-num">২৫+</span>
+          <span class="narrative-metric-label">বছরের অবিচল ঐতিহ্য</span>
+          <span class="narrative-metric-desc">১৯৯৯ সাল থেকে নিরবচ্ছিন্ন মানবসেবা ও সামাজিক সম্প্রীতি</span>
         </div>
-        <!-- StatCard 2 -->
-        <div class="stat-card">
-          <div class="stat-card-label">মোট জনসংখ্যা</div>
-          <div class="stat-card-value">৩,৫০০+</div>
-          <div class="stat-card-badge">নারী, পুরুষ ও শিশু</div>
+
+        <!-- Metric 2 -->
+        <div class="narrative-metric-item">
+          <span class="narrative-metric-number font-num">৪২০+</span>
+          <span class="narrative-metric-label">প্রবাসী রেমিট্যান্স যোদ্ধা</span>
+          <span class="narrative-metric-desc">মধ্যপ্রাচ্য, ইউরোপ ও মালয়েশিয়া সহ বিশ্বের ১৫টি দেশে কর্মরত</span>
         </div>
-        <!-- StatCard 3 -->
-        <div class="stat-card gold-border">
-          <div class="stat-card-label">প্রবাসী সদস্য</div>
-          <div class="stat-card-value">৪২০+</div>
-          <div class="stat-card-badge">বিশ্বের ১৫টি দেশে</div>
+
+        <!-- Metric 3 -->
+        <div class="narrative-metric-item">
+          <span class="narrative-metric-number font-num">১২০+</span>
+          <span class="narrative-metric-label">নিবন্ধিত রক্তদাতা</span>
+          <span class="narrative-metric-desc">জরুরি প্রয়োজনে যেকোনো সময় রক্তদানে সদা প্রস্তুত তরুণ সমাজ</span>
         </div>
-        <!-- StatCard 4 -->
-        <div class="stat-card gold-border">
-          <div class="stat-card-label">নিবন্ধিত রক্তদাতা</div>
-          <div class="stat-card-value">১২০+</div>
-          <div class="stat-card-badge">২৪/৭ জরুরি প্রস্তুত</div>
+
+        <!-- Metric 4 -->
+        <div class="narrative-metric-item">
+          <span class="narrative-metric-number font-num">১০০%</span>
+          <span class="narrative-metric-label">নিরীক্ষিত আর্থিক স্বচ্ছতা</span>
+          <span class="narrative-metric-desc">ব্যাংক অ্যাকাউন্টের মাধ্যমে স্বচ্ছ পরিচালনা ও বাৎসরিক অডিট রিপোর্ট</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 6. Six Service Shortcut Cards -->
-  <section class="section-py section-alt">
+  <!-- 6. Asymmetric 2:1 Service Hub Discovery -->
+  <section class="section-py" style="background-color: var(--color-ivory);">
     <div class="container">
-      <div class="text-center mb-40">
-        <h2 class="font-h2 mb-16" style="color: var(--color-green-700);">আমাদের সেবাসমূহ</h2>
-        <p class="font-body text-muted" style="max-width: 650px; margin: 0 auto;">
-          সাতানীপাড়ার প্রতিটি নাগরিক ও প্রবাসী ভাইদের জন্য সার্বক্ষণিক নির্ভরযোগ্য সমাজকল্যাণ সেবা
+      <div style="max-width: 720px; margin-bottom: var(--space-32);">
+        <span class="eyebrow">সমাজসেবা কাঠামো</span>
+        <h2 class="font-editorial" style="margin: 4px 0 12px 0;">নাগরিক সেবাসমূহ ও সহযোগিতা স্তম্ভ</h2>
+        <p class="font-lead" style="color: var(--color-text-muted);">
+          সাতানীপাড়ার প্রতিটি নাগরিক ও বিদেশে অবস্থানরত রেমিট্যান্স যোদ্ধাদের পরিবারের জন্য সার্বক্ষণিক সামাজিক নিরাপত্তা জাল।
         </p>
       </div>
 
-      <div class="grid-3">
-        <!-- Service 1: Expatriate Support -->
-        <a href="/pages/public/w06-expatriate.html" class="service-card">
-          <div class="service-icon-box">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      <div class="service-hub-grid">
+        
+        <!-- Left Lead Feature (60% width): Expatriate Assistance Desk -->
+        <div class="editorial-card" style="border: 2px solid var(--color-gold-500); background-color: var(--color-surface); display: flex; flex-direction: column;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-16); flex-wrap: wrap; gap: 8px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <div style="width: 44px; height: 44px; border-radius: 10px; background: rgba(20, 83, 45, 0.1); color: var(--color-green-700); display: flex; align-items: center; justify-content: center;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </div>
+              <div>
+                <span class="eyebrow" style="margin: 0; color: var(--color-gold-700);">সর্বোচ্চ অগ্রাধিকার সেবা</span>
+                <h3 class="font-h2" style="margin: 0; color: var(--color-green-900);">প্রবাসী সহায়তা ডেস্ক</h3>
+              </div>
+            </div>
+            <span class="badge badge-completed">২৪/৭ অনলাইন মনিটরিং</span>
           </div>
-          <h3 class="font-h3">প্রবাসী সহায়তা</h3>
-          <p class="font-body-sm text-muted">
-            প্রবাসী ভাইদের পরিবারের জরুরি ঔষধ, ডাক্তার দেখানো, বাজার বা সামাজিক প্রয়োজনে বিশ্বস্ত সেবাকর্মী পাঠানো।
-          </p>
-          <span style="font-weight: 600; font-size: 14.5px; color: var(--color-green-700); display: flex; align-items: center; gap: 4px; margin-top: auto;">
-            আবেদন করুন →
-          </span>
-        </a>
 
-        <!-- Service 2: Blood Donors -->
-        <a href="/pages/public/w07-blood-donors.html" class="service-card">
-          <div class="service-icon-box" style="color: var(--color-danger); background-color: rgba(180, 35, 24, 0.08);">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+          <p class="font-editorial-lead" style="font-size: 19px; line-height: 1.6; color: var(--color-text-strong); margin-bottom: var(--space-16);">
+            "আপনি দূর প্রবাসে দেশের জন্য ঘাম ঝরাচ্ছেন — আপনার অনুপস্থিতে দেশে আপনার পরিবারের অভিভাবকত্ব ও জরুরি সহায়তা সাতানীপাড়া সমাজকল্যাণ সংঘের দায়িত্ব।"
+          </p>
+
+          <!-- 4-Step Visual Flow -->
+          <div style="background-color: var(--color-ivory); border-radius: var(--radius-card); padding: var(--space-16); margin-bottom: var(--space-20); border: 1px solid var(--color-hairline);">
+            <div style="font-weight: 700; font-size: 14px; color: var(--color-green-800); margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+              আবেদন ও সেবাদানের ৪টি স্বচ্ছ ধাপ
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;" class="step-flow-grid">
+              <div style="border-top: 3px solid var(--color-green-700); padding-top: 6px;">
+                <div style="font-size: 12px; font-weight: 700; color: var(--color-green-700);">১. দাখিল</div>
+                <div style="font-size: 12px; color: var(--color-text-muted);">অনলাইনে তথ্য প্রদান</div>
+              </div>
+              <div style="border-top: 3px solid var(--color-gold-500); padding-top: 6px;">
+                <div style="font-size: 12px; font-weight: 700; color: var(--color-gold-700);">২. ট্র্যাকিং</div>
+                <div style="font-size: 12px; color: var(--color-text-muted);">তাত্ক্ষণিক Request ID</div>
+              </div>
+              <div style="border-top: 3px solid var(--color-info); padding-top: 6px;">
+                <div style="font-size: 12px; font-weight: 700; color: var(--color-info);">৩. সেবা</div>
+                <div style="font-size: 12px; color: var(--color-text-muted);">মাঠে সহায়কের কাজ</div>
+              </div>
+              <div style="border-top: 3px solid var(--color-success); padding-top: 6px;">
+                <div style="font-size: 12px; font-weight: 700; color: var(--color-success);">৪. হিসাব</div>
+                <div style="font-size: 12px; color: var(--color-text-muted);">ভাউচার ও সমাপ্তি</div>
+              </div>
+            </div>
           </div>
-          <h3 class="font-h3">রক্তদাতা অনুসন্ধান</h3>
-          <p class="font-body-sm text-muted">
-            জরুরি প্রয়োজনে রক্তের গ্রুপ অনুযায়ী তাৎক্ষণিক উপযুক্ত ও প্রস্তুত রক্তদাতা খুঁজে পাওয়ার স্বয়ংক্রিয় তালিকা।
-          </p>
-          <span style="font-weight: 600; font-size: 14.5px; color: var(--color-danger); display: flex; align-items: center; gap: 4px; margin-top: auto;">
-            রক্তদাতা খুঁজুন →
-          </span>
-        </a>
 
-        <!-- Service 3: Notices & News -->
-        <a href="/pages/public/w08-notices.html" class="service-card">
-          <div class="service-icon-box">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+          <!-- Policy Box -->
+          <div style="background-color: rgba(201, 162, 39, 0.08); border-left: 3px solid var(--color-gold-500); padding: 12px 16px; border-radius: 4px; margin-bottom: var(--space-20);">
+            <div style="font-size: 13.5px; line-height: 1.5; color: var(--color-text-strong);">
+              <strong>কঠোর সেবা নীতিমালা:</strong>
+              "সংগঠন বা স্বেচ্ছাসেবকরা কোনো সার্ভিস চার্জ বা মুনাফা নেন না। কেবল পণ্য কেনার প্রকৃত মূল্য এবং প্রযোজ্য যাতায়াত খরচ আবেদনকারীকেই বহন করতে হবে।"
+            </div>
           </div>
-          <h3 class="font-h3">নোটিশ ও সংবাদ</h3>
-          <p class="font-body-sm text-muted">
-            এলাকার সামাজিক ঘোষণা, শিক্ষাবৃত্তি, মিটিং, ধর্মীয় ও জাতীয় দিবসের কর্মসূচি সংক্রান্ত নিয়মিত বিজ্ঞপ্তি।
-          </p>
-          <span style="font-weight: 600; font-size: 14.5px; color: var(--color-green-700); display: flex; align-items: center; gap: 4px; margin-top: auto;">
-            বিজ্ঞপ্তি দেখুন →
-          </span>
-        </a>
 
-        <!-- Service 4: Community Activities -->
-        <a href="/pages/public/w04-activities.html" class="service-card">
-          <div class="service-icon-box">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <!-- Desk Action Buttons -->
+          <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: auto;">
+            <a href="/pages/public/w06-expatriate.html" class="btn btn-gold">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              <span>সহায়তার আবেদন দাখিল করুন</span>
+            </a>
+            <a href="/pages/member/m03-my-requests.html" class="btn btn-outline">
+              <span>আবেদনের অবস্থা ট্র্যাক করুন</span>
+            </a>
           </div>
-          <h3 class="font-h3">বার্ষিক কার্যক্রম</h3>
-          <p class="font-body-sm text-muted">
-            শীতবস্ত্র বিতরণ, কৃতি শিক্ষার্থী সংবর্ধনা, বৃক্ষরোপণ, মেডিকেল ক্যাম্প ও দুর্যোগকালীন ত্রাণ তৎপরতার রেকর্ড।
-          </p>
-          <span style="font-weight: 600; font-size: 14.5px; color: var(--color-green-700); display: flex; align-items: center; gap: 4px; margin-top: auto;">
-            কার্যক্রম আর্কাইভ →
-          </span>
-        </a>
-
-        <!-- Service 5: Accounts & Transparency -->
-        <a href="/pages/public/w10-accounts.html" class="service-card">
-          <div class="service-icon-box">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="2" x2="12" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-          </div>
-          <h3 class="font-h3">হিসাব ও স্বচ্ছতা</h3>
-          <p class="font-body-sm text-muted">
-            সংগঠনের প্রতিটি টাকার আয় ও ব্যয়ের উন্মুক্ত খাতা, প্রকল্পভিত্তিক নিরীক্ষা এবং বার্ষিক আর্থিক অডিট রিপোর্ট।
-          </p>
-          <span style="font-weight: 600; font-size: 14.5px; color: var(--color-green-700); display: flex; align-items: center; gap: 4px; margin-top: auto;">
-            আর্থিক খাতা দেখুন →
-          </span>
-        </a>
-
-        <!-- Service 6: Emergency Numbers -->
-        <a href="/pages/public/w11-contact.html" class="service-card">
-          <div class="service-icon-box">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          </div>
-          <h3 class="font-h3">জরুরি হেল্পলাইন</h3>
-          <p class="font-body-sm text-muted">
-            জাতীয় জরুরি সেবা ৯৯৯, নিকটস্থ হাসপাতাল, বিদ্যুৎ অফিস ও সংঘের জরুরি রেসপন্স টিমের নম্বর।
-          </p>
-          <span style="font-weight: 600; font-size: 14.5px; color: var(--color-green-700); display: flex; align-items: center; gap: 4px; margin-top: auto;">
-            নম্বরসমূহ দেখুন →
-          </span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- 7. Featured Community Activities (Latest 3) -->
-  <section class="section-py">
-    <div class="container">
-      <div class="flex-between mb-32 flex-wrap">
-        <div>
-          <h2 class="font-h2" style="color: var(--color-green-700);">সাম্প্রতিক কার্যক্রম</h2>
-          <p class="font-body-sm text-muted">সাতানীপাড়ার উন্নয়নে সংঘের সর্বশেষ মানবিক উদ্যোগ</p>
         </div>
-        <a href="/pages/public/w04-activities.html" class="btn btn-outline" data-i18n="btn.all_activities">
-          সকল কার্যক্রম দেখুন →
-        </a>
-      </div>
 
-      <div class="grid-3" id="homeActivitiesGrid">
-        <!-- Activity Card 1 -->
-        <article class="activity-card">
-          <img src="../../assets/images/placeholder-image.svg" alt="Activity Placeholder" class="activity-thumb">
-          <div class="activity-body">
-            <div style="display: flex; align-items: center; justify-content: space-between; font-size: 13px; color: var(--color-text-muted);">
-              <span>১৫ মার্চ ২০২৬</span>
-              <span class="badge badge-accepted">৬৫ জন শিক্ষার্থী</span>
+        <!-- Right Stack (40% width): Secondary Community Pillars -->
+        <div class="service-stack">
+          
+          <!-- Pillar 1: Blood Donor Network -->
+          <div class="editorial-card" style="padding: var(--space-20);">
+            <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;">
+              <div>
+                <span class="eyebrow" style="color: var(--color-danger); margin-bottom: 2px;">জরুরি রক্তদাতা নেটওয়ার্ক</span>
+                <h3 class="font-h3" style="margin: 0 0 6px 0;">রক্তের গ্রুপভিত্তিক অনুসন্ধান</h3>
+                <p class="font-body-sm text-muted" style="margin-bottom: 10px;">
+                  মুহূর্তের মধ্যে A+, B+, O+, AB+ সহ সকল গ্রুপের প্রস্তুত স্বেচ্ছাসেবী রক্তদাতাদের তালিকা ও মোবাইল নম্বর খুঁজুন।
+                </p>
+                <a href="/pages/public/w07-blood-donors.html" style="font-weight: 700; color: var(--color-danger); font-size: 14px; display: inline-flex; align-items: center; gap: 4px;">
+                  রক্তদাতা তালিকা দেখুন →
+                </a>
+              </div>
+              <div style="width: 40px; height: 40px; border-radius: 8px; background: rgba(180, 35, 24, 0.08); color: var(--color-danger); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+              </div>
             </div>
-            <h3 class="font-h3">মেধাবৃত্তি ও শিক্ষা উপকরণ বিতরণ ২০২৬</h3>
-            <p class="font-body-sm text-muted">
-              বিদ্যালয় ও মাদ্রাসার কৃতি শিক্ষার্থীদের মাঝে বৃত্তি সনদ ও এক বছরের শিক্ষা উপকরণ প্রদান করা হয়।
-            </p>
-            <a href="/pages/public/w05-activity-detail.html?id=act-01" style="font-weight: 600; color: var(--color-green-700); margin-top: auto;">
-              বিস্তারিত দেখুন →
-            </a>
           </div>
-        </article>
 
-        <!-- Activity Card 2 -->
-        <article class="activity-card">
-          <img src="../../assets/images/placeholder-image.svg" alt="Activity Placeholder" class="activity-thumb">
-          <div class="activity-body">
-            <div style="display: flex; align-items: center; justify-content: space-between; font-size: 13px; color: var(--color-text-muted);">
-              <span>২১ ফেব্রুয়ারি ২০২৬</span>
-              <span class="badge badge-completed">২৫০+ জন</span>
+          <!-- Pillar 2: Open Financial Ledger -->
+          <div class="editorial-card" style="padding: var(--space-20);">
+            <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;">
+              <div>
+                <span class="eyebrow" style="color: var(--color-green-700); margin-bottom: 2px;">আর্থিক স্বচ্ছতা ও অডিট</span>
+                <h3 class="font-h3" style="margin: 0 0 6px 0;">উন্মুক্ত আয়-ব্যয়ের খাতা</h3>
+                <p class="font-body-sm text-muted" style="margin-bottom: 10px;">
+                  সংগঠনের প্রতিটি টাকার অনুদান, খরচের ভাউচার এবং চার্টার্ড অ্যাকাউন্ট্যান্ট দ্বারা নিরীক্ষিত অডিট খাতা।
+                </p>
+                <a href="/pages/public/w10-accounts.html" style="font-weight: 700; color: var(--color-green-700); font-size: 14px; display: inline-flex; align-items: center; gap: 4px;">
+                  হিসাবের খতিয়ান দেখুন →
+                </a>
+              </div>
+              <div style="width: 40px; height: 40px; border-radius: 8px; background: rgba(20, 83, 45, 0.08); color: var(--color-green-700); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="2" x2="12" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </div>
             </div>
-            <h3 class="font-h3">বিনামূল্যে রক্তের গ্রুপ নির্ণয় ও রক্তদান ক্যাম্প</h3>
-            <p class="font-body-sm text-muted">
-              আন্তর্জাতিক মাতৃভাষা দিবসে এলাকার যুবসমাজের উদ্যোগে রক্তের গ্রুপ তালিকা হালনাগাদ করা হয়।
-            </p>
-            <a href="/pages/public/w05-activity-detail.html?id=act-02" style="font-weight: 600; color: var(--color-green-700); margin-top: auto;">
-              বিস্তারিত দেখুন →
-            </a>
           </div>
-        </article>
 
-        <!-- Activity Card 3 -->
-        <article class="activity-card">
-          <img src="../../assets/images/placeholder-image.svg" alt="Activity Placeholder" class="activity-thumb">
-          <div class="activity-body">
-            <div style="display: flex; align-items: center; justify-content: space-between; font-size: 13px; color: var(--color-text-muted);">
-              <span>১৮ ডিসেম্বর ২০২৫</span>
-              <span class="badge badge-progress">৩২০টি পরিবার</span>
+          <!-- Pillar 3: Education & Youth Scholarship -->
+          <div class="editorial-card" style="padding: var(--space-20);">
+            <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;">
+              <div>
+                <span class="eyebrow" style="color: var(--color-gold-700); margin-bottom: 2px;">শিক্ষা ও তরুণ উন্নয়ন</span>
+                <h3 class="font-h3" style="margin: 0 0 6px 0;">মেধাবৃত্তি ও শিক্ষা উপকরণ</h3>
+                <p class="font-body-sm text-muted" style="margin-bottom: 10px;">
+                  কৃতি শিক্ষার্থী সংবর্ধনা, দরিদ্র শিক্ষার্থীদের এক বছরের বইখাতা বিতরণ এবং উচ্চশিক্ষা কাউন্সেলিং।
+                </p>
+                <a href="/pages/public/w04-activities.html" style="font-weight: 700; color: var(--color-gold-700); font-size: 14px; display: inline-flex; align-items: center; gap: 4px;">
+                  কার্যক্রম ও তালিকা →
+                </a>
+              </div>
+              <div style="width: 40px; height: 40px; border-radius: 8px; background: rgba(201, 162, 39, 0.1); color: var(--color-gold-700); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+              </div>
             </div>
-            <h3 class="font-h3">শীতবস্ত্র ও কম্বল বিতরণ ২০২৫</h3>
-            <p class="font-body-sm text-muted">
-              তীব্র শীতে অসহায় পরিবারগুলোর ঘরে ঘরে গিয়ে প্রবাসী ও স্থানীয় সদস্যদের সহায়তায় কম্বল উপহার দেওয়া হয়।
-            </p>
-            <a href="/pages/public/w05-activity-detail.html?id=act-03" style="font-weight: 600; color: var(--color-green-700); margin-top: auto;">
-              বিস্তারিত দেখুন →
-            </a>
           </div>
-        </article>
+
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- 8. Expatriate Support Section (2 Columns + 4-Step Process) -->
-  <section class="section-py section-alt" style="border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+  <!-- 7. Documentary Impact & Archival Photo Essay -->
+  <section class="section-py" style="background-color: var(--color-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
     <div class="container">
-      <div class="grid-2" style="align-items: center; gap: var(--space-48);">
-        <!-- Left Column: Explanation & Policy -->
+      <div style="display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: var(--space-32); flex-wrap: wrap; gap: 16px;">
         <div>
-          <span class="slogan-chip" style="margin-bottom: var(--space-16);">প্রবাসীদের জন্য বিশেষ সেবা</span>
-          <h2 class="font-h2 mb-16" style="color: var(--color-green-700);">
-            আপনি বিদেশে থাকলেও আপনার পরিবার একা নয়
-          </h2>
-          <p class="font-body mb-20">
-            দেশ ও পরিবারের মুখে হাসি ফোটাতে আপনারা দূর প্রবাসে নিরলস পরিশ্রম করছেন। আপনার অনুপস্থিতিতে সাতানীপাড়ায় আপনার পরিবারের যেকোনো জরুরি প্রয়োজনে পাশে দাঁড়ানো আমাদের দায়িত্ব।
-          </p>
+          <span class="eyebrow">প্রামাণ্য ইতিহাস ও কর্মযজ্ঞ</span>
+          <h2 class="font-editorial" style="margin: 4px 0 8px 0;">২৫ বছরের মানবিক পদচিহ্ন</h2>
+          <p class="font-body-sm text-muted" style="margin: 0;">সাতানীপাড়ার মাঠে-ঘাটে মানুষের কল্যাণে সংঘের বাস্তব কার্যক্রমের ঐতিহাসিক আলোকচিত্র</p>
+        </div>
+        <a href="/pages/public/w04-activities.html" class="btn btn-outline">
+          সকল কার্যক্রমের আর্কাইভ →
+        </a>
+      </div>
 
-          <!-- Section 14 Verbatim Service Policy Disclaimer -->
-          <div style="background-color: var(--color-surface); border-left: 4px solid var(--color-gold-500); padding: 16px; border-radius: 8px; margin-bottom: 24px;">
-            <p class="font-body-sm" style="font-style: normal; color: var(--color-text-strong);">
-              <strong>সেবার নীতিমালা:</strong>
-              "সংগঠন বা স্বেচ্ছাসেবকরা কোনো সার্ভিস চার্জ বা মুনাফা নেন না। পণ্য কেনার প্রকৃত মূল্য এবং প্রযোজ্য যাতায়াত খরচ আবেদনকারীকেই বহন করতে হবে। প্রতিটি আবেদনের একটি Request ID থাকবে এবং আবেদনের অবস্থা Pending, Accepted, In Progress ও Completed — এই ধাপে দেখা যাবে।"
-            </p>
+      <!-- Asymmetric Documentary Composition: 1 Large Feature + 2 Stacked Cards -->
+      <div style="display: grid; grid-template-columns: 1.35fr 1fr; gap: var(--space-28);" class="photo-essay-grid">
+        
+        <!-- Large Feature Archival Figure -->
+        <div class="archival-figure">
+          <div class="archival-figure-media" style="aspect-ratio: 16 / 10; min-height: 280px;">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-green-700)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span class="archival-placeholder-badge">প্রকৃত ছবি পরে বসবে</span>
+            <span style="font-size: 13px; color: var(--color-text-muted); margin-top: 8px;">আর্কাইভাল রেফারেন্স: ACT-2026-EDU</span>
+          </div>
+          <div class="archival-figure-caption">
+            <span><strong>চিত্র ১:</strong> কৃতি শিক্ষার্থী সংবর্ধনা ও মেধাবৃত্তি বিতরণ ২০২৬ — সংঘ মিলনায়তন প্রাঙ্গণ</span>
+            <span class="font-num" style="font-size: 12px; color: var(--color-gold-700);">১৫ মার্চ ২০২৬</span>
+          </div>
+          <p class="font-body-sm text-muted" style="margin-top: 8px; margin-bottom: 0;">
+            প্রাথমিক ও মাধ্যমিক স্তরের ৬৫ জন কৃতি শিক্ষার্থীর হাতে ক্রেস্ট, সনদ ও ১ বছরের পাঠ্য উপকরণ তুলে দিচ্ছেন এলাকার মুরব্বি ও প্রবাসী প্রতিনিধিরা।
+          </p>
+        </div>
+
+        <!-- Stacked 2 Archival Figures -->
+        <div style="display: flex; flex-direction: column; gap: var(--space-24);">
+          
+          <div class="archival-figure">
+            <div class="archival-figure-media" style="aspect-ratio: 16 / 8;">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--color-green-700)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              <span class="archival-placeholder-badge">প্রকৃত ছবি পরে বসবে</span>
+            </div>
+            <div class="archival-figure-caption">
+              <span><strong>চিত্র ২:</strong> রক্তের গ্রুপ নির্ণয় ও রক্তদান ক্যাম্প</span>
+              <span class="font-num" style="font-size: 12px; color: var(--color-gold-700);">২১ ফেব্রুয়ারি ২০২৬</span>
+            </div>
           </div>
 
-          <a href="/pages/member/m02-request-wizard.html" class="btn btn-lg btn-primary">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            সহায়তার জন্য আবেদন করুন
+          <div class="archival-figure">
+            <div class="archival-figure-media" style="aspect-ratio: 16 / 8;">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--color-green-700)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              <span class="archival-placeholder-badge">প্রকৃত ছবি পরে বসবে</span>
+            </div>
+            <div class="archival-figure-caption">
+              <span><strong>চিত্র ৩:</strong> অসহায় পরিবারের মাঝে শীতবস্ত্র উপহার</span>
+              <span class="font-num" style="font-size: 12px; color: var(--color-gold-700);">১৮ ডিসেম্বর ২০২৫</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Editorial Timeline Ledger & Village Milestones -->
+  <section class="section-py" style="background-color: var(--color-ivory);">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1.1fr 1.3fr; gap: var(--space-48); align-items: start;">
+        
+        <!-- Left: Context & Constitutional Statement -->
+        <div>
+          <span class="eyebrow">ঐতিহ্যের পথরেখা</span>
+          <h2 class="font-editorial" style="margin: 4px 0 16px 0;">১৯৯৯ থেকে ২০২৬: এক সুতোয় গাঁথা আড়াই দশক</h2>
+          <div class="pull-quote" style="margin: var(--space-20) 0;">
+            "সাতানীপাড়া সমাজকল্যাণ সংঘ কেবল একটি নাম নয়; এটি এলাকার প্রবীণদের স্নেহাশীষ, তরুণদের কর্মোদ্দীপনা এবং প্রবাসী ভাইদের নিঃস্বার্থ ভালোবাসার এক সম্মিলিত প্রতীক।"
+          </div>
+          <p class="font-body text-muted">
+            ১৯৯৯ সালের এক বিকেলে গ্রামের কয়েকজন দূরদর্শী প্রবীণ ও উদ্যমী তরুণের হাত ধরে গঠিত হয়েছিল এই সংঘ। কোনো রাজনৈতিক প্রভাব বা ব্যক্তিস্বার্থের ঊর্ধ্বে থেকে এলাকার সাধারণ মানুষের পাশে দাঁড়ানোই ছিল এবং থাকবে এর একমাত্র লক্ষ্য।
+          </p>
+
+          <div style="margin-top: var(--space-24);">
+            <a href="/pages/public/w03-organization.html" class="btn btn-outline">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+              <span>সংঘের পূর্ণ গঠনতন্ত্র ও কার্যনির্বাহী কমিটি</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Architectural Timeline Ledger -->
+        <div class="timeline-ledger">
+          
+          <!-- Node 1 -->
+          <div class="timeline-ledger-item">
+            <div class="timeline-ledger-node"></div>
+            <div class="timeline-ledger-year font-num">১৯৯৯</div>
+            <div class="timeline-ledger-title">সংঘের ঐতিহাসিক প্রতিষ্ঠা ও পাঠাগার উদ্যোগ</div>
+            <div class="timeline-ledger-desc">সাতানীপাড়ার প্রবীণ মুরব্বিদের উপস্থিতিতে আনুষ্ঠানিক প্রতিষ্ঠা এবং যুবসমাজকে বইমুখী করতে প্রথম উন্মুক্ত পাঠাগার চালু।</div>
+          </div>
+
+          <!-- Node 2 -->
+          <div class="timeline-ledger-item">
+            <div class="timeline-ledger-node"></div>
+            <div class="timeline-ledger-year font-num">২০০৮</div>
+            <div class="timeline-ledger-title">মেধাবৃত্তি ও শিক্ষা উপকরণ তহবিলের সূচনা</div>
+            <div class="timeline-ledger-desc">দরিদ্র কিন্তু মেধাবী শিক্ষার্থীদের নিয়মিত শিক্ষাবৃত্তি এবং বার্ষিক কৃতি সংবর্ধনার আনুষ্ঠানিক প্রবর্তন।</div>
+          </div>
+
+          <!-- Node 3 -->
+          <div class="timeline-ledger-item">
+            <div class="timeline-ledger-node"></div>
+            <div class="timeline-ledger-year font-num">২০১৬</div>
+            <div class="timeline-ledger-title">জরুরি রক্তদাতা সেল ও ফ্রি মেডিকেল ক্যাম্প</div>
+            <div class="timeline-ledger-desc">গ্রামের প্রতিটি নাগরিকের রক্তের গ্রুপ নির্ণয় ও শতভাগ প্রস্তুত স্বেচ্ছাসেবী রক্তদাতা নেটওয়ার্কের প্রাতিষ্ঠানিক রূপদান।</div>
+          </div>
+
+          <!-- Node 4 -->
+          <div class="timeline-ledger-item">
+            <div class="timeline-ledger-node"></div>
+            <div class="timeline-ledger-year font-num">২০২০</div>
+            <div class="timeline-ledger-title">মহামারী ও বন্যা দুর্যোগে জরুরি সহায়তা তহবিল</div>
+            <div class="timeline-ledger-desc">করোনা সংক্রমণকালে খাদ্য সহায়তা এবং প্রবাসীদের সহযোগিতায় ৩৫০+ দুর্গত পরিবারকে খাদ্য ও ঔষধ সরবরাহ।</div>
+          </div>
+
+          <!-- Node 5 -->
+          <div class="timeline-ledger-item">
+            <div class="timeline-ledger-node" style="background-color: var(--color-gold-500); border-color: var(--color-green-900);"></div>
+            <div class="timeline-ledger-year font-num">২০২৪–২০২৬</div>
+            <div class="timeline-ledger-title">প্রবাসী কল্যাণ ডেস্ক ও ডিজিটাল কমিউনিটি প্ল্যাটফর্ম</div>
+            <div class="timeline-ledger-desc">বিশ্বের বিভিন্ন প্রান্তে ছড়িয়ে থাকা প্রবাসী ভাইদের জন্য সমন্বিত সেবা ডেস্ক ও উন্মুক্ত অনলাইন অডিট ব্যবস্থা চালু।</div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Signed Financial Transparency Strip & Auditor Seal -->
+  <section class="section-py" style="background: linear-gradient(145deg, #061A11 0%, #0B2E1F 100%); color: #FAF7EE;">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr auto; gap: var(--space-32); align-items: center;" class="transparency-banner-grid">
+        
+        <!-- Left: Summary Figures & Sign-off -->
+        <div>
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px; flex-wrap: wrap;">
+            <span class="civic-seal" style="background: rgba(201, 162, 39, 0.2); color: var(--color-gold-400); border-color: var(--color-gold-500);">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              নিরীক্ষিত ও অনুমোদিত হিসাব — ২০২৪-২০২৫
+            </span>
+            <span style="font-size: 13px; color: #94A3B8;">বার্ষিক সাধারণ সভা (AGM) কর্তৃক গৃহীত</span>
+          </div>
+
+          <h2 class="font-h2" style="color: #FAF7EE; margin: 0 0 10px 0;">
+            আর্থিক স্বচ্ছতা আমাদের পবিত্র আমানত
+          </h2>
+          <p style="color: #CBD5E1; font-size: 15px; line-height: 1.6; max-width: 680px; margin: 0 0 16px 0;">
+            প্রবাসী ভাইদের কষ্টার্জিত অনুদান ও স্থানীয় সদস্যদের চাঁদার প্রতিটি পয়সার আয়-ব্যয় উন্মুক্ত। ব্যাংকিং চ্যানেলে সংরক্ষিত তহবিলের পুঙ্খানুপুঙ্খ বিবরণী নিয়মিত প্রকাশ করা হয়।
+          </p>
+
+          <!-- Inline Numbers Grid -->
+          <div style="display: flex; gap: var(--space-28); flex-wrap: wrap;">
+            <div>
+              <div style="font-size: 12.5px; color: #94A3B8;">মোট আদায় (২০২৪-২৫)</div>
+              <div class="font-num" style="font-size: 24px; font-weight: 800; color: var(--color-gold-400);">৳ ৮,৪৫,০০০</div>
+            </div>
+            <div style="border-left: 1px solid rgba(255, 255, 255, 0.15); padding-left: var(--space-28);">
+              <div style="font-size: 12.5px; color: #94A3B8;">মোট জনকল্যাণ ব্যয়</div>
+              <div class="font-num" style="font-size: 24px; font-weight: 800; color: #6EE7B7;">৳ ৭,১২,০০০</div>
+            </div>
+            <div style="border-left: 1px solid rgba(255, 255, 255, 0.15); padding-left: var(--space-28);">
+              <div style="font-size: 12.5px; color: #94A3B8;">ব্যাংক উদ্বৃত্ত তহবিল</div>
+              <div class="font-num" style="font-size: 24px; font-weight: 800; color: #93C5FD;">৳ ১,৩৩,০০০</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Actions -->
+        <div style="display: flex; flex-direction: column; gap: 12px; align-items: flex-start;">
+          <a href="/pages/public/w10-accounts.html" class="btn btn-gold btn-lg">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="2" x2="12" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            <span>উন্মুক্ত হিসাবের খাতা দেখুন</span>
+          </a>
+          <a href="#" class="btn btn-outline-white" onclick="alert('অডিট রিপোর্ট ডাউনলোড শীঘ্রই সংযুক্ত হবে। প্রকৃত কপি অফিসে সংরক্ষিত।'); return false;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span>অডিট সারসংক্ষেপ (PDF)</span>
           </a>
         </div>
 
-        <!-- Right Column: 4-Step Request Flow Diagram -->
-        <div class="card" style="padding: var(--space-32);">
-          <h3 class="font-h3 mb-24" style="color: var(--color-green-700); text-align: center;">
-            আবেদন যেভাবে সম্পন্ন হয়
-          </h3>
-
-          <div style="display: flex; flex-direction: column; gap: 20px;">
-            <!-- Step 1 -->
-            <div style="display: flex; align-items: flex-start; gap: 16px;">
-              <div style="width: 36px; height: 36px; border-radius: 50%; background: var(--color-green-700); color: #FFF; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">১</div>
-              <div>
-                <div style="font-weight: 700; font-size: 16px;">সহজ আবেদন দাখিল</div>
-                <div class="font-body-sm text-muted">লগইন করে ৩টি সংক্ষিপ্ত ধাপে প্রয়োজনীয় সেবার তথ্য ও বিবরণ দিন।</div>
-              </div>
-            </div>
-
-            <!-- Step 2 -->
-            <div style="display: flex; align-items: flex-start; gap: 16px;">
-              <div style="width: 36px; height: 36px; border-radius: 50%; background: var(--color-gold-500); color: #0B2E1F; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">২</div>
-              <div>
-                <div style="font-weight: 700; font-size: 16px;">Request ID প্রদান ও অ্যালার্ট</div>
-                <div class="font-body-sm text-muted">তাত্ক্ষণিক ট্র্যাকিং আইডি জেনারেট হয় এবং স্থানীয় স্বেচ্ছাসেবকদের নোটিফিকেশন যায়।</div>
-              </div>
-            </div>
-
-            <!-- Step 3 -->
-            <div style="display: flex; align-items: flex-start; gap: 16px;">
-              <div style="width: 36px; height: 36px; border-radius: 50%; background: var(--color-green-100); color: var(--color-green-700); display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">৩</div>
-              <div>
-                <div style="font-weight: 700; font-size: 16px;">মাঠে সেবা কার্যক্রম ও আপডেট</div>
-                <div class="font-body-sm text-muted">সহায়ক দায়িত্ব গ্রহণ করে প্রয়োজনীয় কাজ সম্পন্ন করেন এবং প্রবাসীকে লাইভ আপডেট দেন।</div>
-              </div>
-            </div>
-
-            <!-- Step 4 -->
-            <div style="display: flex; align-items: flex-start; gap: 16px;">
-              <div style="width: 36px; height: 36px; border-radius: 50%; background: #D1FAE5; color: #065F46; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">৪</div>
-              <div>
-                <div style="font-weight: 700; font-size: 16px;">সম্পন্ন ও স্বচ্ছ হিসাব</div>
-                <div class="font-body-sm text-muted">কাজ সমাপ্ত হলে রশিদ বা হিসাবের বিবরণ ড্যাশবোর্ডে সংরক্ষিত হয়।</div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
 
-  <!-- 9. Latest Notices & Upcoming Events -->
-  <section class="section-py">
-    <div class="container">
-      <div class="grid-2" style="gap: var(--space-40);">
-        <!-- Column 1: Notices (3 cards) -->
-        <div>
-          <div class="flex-between mb-24">
-            <h2 class="font-h2" style="color: var(--color-green-700);">সর্বশেষ নোটিশ</h2>
-            <a href="/pages/public/w08-notices.html" class="font-body-sm text-gold" style="font-weight: 600;">সকল নোটিশ →</a>
-          </div>
-
-          <div style="display: flex; flex-direction: column; gap: 16px;">
-            <div class="notice-card">
-              <div style="display: flex; align-items: center; gap: 8px;">
-                <span class="badge badge-accepted">শিক্ষা</span>
-                <span class="font-caption">১০ নভেম্বর ২০২৬</span>
-              </div>
-              <h3 class="font-h3"><a href="/pages/public/w08-notices.html?id=not-01" style="color: inherit;">সাতানীপাড়া মেধা ও শিক্ষাবৃত্তি ২০২৬-এর আবেদন শুরু</a></h3>
-              <p class="font-body-sm text-muted">২০২৬ সালের এসএসসি ও দাখিল পরীক্ষার্থীদের মধ্যে মেধাবৃত্তির জন্য আগামী ৩০ নভেম্বরের মধ্যে যোগাযোগ করার অনুরোধ।</p>
-            </div>
-
-            <div class="notice-card">
-              <div style="display: flex; align-items: center; gap: 8px;">
-                <span class="badge badge-pending">ত্রাণ</span>
-                <span class="font-caption">০৫ নভেম্বর ২০২৬</span>
-              </div>
-              <h3 class="font-h3"><a href="/pages/public/w08-notices.html?id=not-02" style="color: inherit;">বার্ষিক শীতবস্ত্র বিতরণ কর্মসূচি আগামী ৫ ডিসেম্বর</a></h3>
-              <p class="font-body-sm text-muted">প্রতিবারের মতো এবারও এলাকার প্রবীণ ও সুবিধাবঞ্চিত পরিবারের মাঝে শীতবস্ত্র উপহার প্রদান করা হবে।</p>
-            </div>
-
-            <div class="notice-card">
-              <div style="display: flex; align-items: center; gap: 8px;">
-                <span class="badge badge-progress">প্রবাসী সেবা</span>
-                <span class="font-caption">২৮ অক্টোবর ২০২৬</span>
-              </div>
-              <h3 class="font-h3"><a href="/pages/public/w08-notices.html?id=not-03" style="color: inherit;">প্রবাসীদের জরুরি সেবা সংক্রান্ত সমন্বয় সভা সম্পন্ন</a></h3>
-              <p class="font-body-sm text-muted">প্রবাসী ভাইদের পরিবারের জরুরি চিকিৎসা ও ঔষধ সহায়তা দ্রুততর করতে নতুন ৫ জন স্বেচ্ছাসেবক যুক্ত হয়েছেন।</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Column 2: Upcoming Events (3 rows) -->
-        <div>
-          <div class="flex-between mb-24">
-            <h2 class="font-h2" style="color: var(--color-green-700);">আসন্ন কর্মসূচি</h2>
-            <span class="badge badge-role-member">ক্যালেন্ডার</span>
-          </div>
-
-          <div style="display: flex; flex-direction: column; gap: 16px;">
-            <div class="card" style="display: flex; align-items: center; gap: 16px; padding: 16px;">
-              <div style="background: var(--color-green-100); color: var(--color-green-700); border-radius: 10px; width: 60px; height: 60px; display: flex; flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0;">
-                <span style="font-size: 20px; font-weight: 700;">০৫</span>
-                <span style="font-size: 11px; font-weight: 600;">ডিসেম্বর</span>
-              </div>
-              <div>
-                <h3 class="font-h3" style="font-size: 17px;">শীতবস্ত্র ও কম্বল বিতরণ কার্যক্রম</h3>
-                <div class="font-body-sm text-muted">স্থান: সংঘ কার্যালয় প্রাঙ্গণ • সকাল ১০:০০ টা</div>
-              </div>
-            </div>
-
-            <div class="card" style="display: flex; align-items: center; gap: 16px; padding: 16px;">
-              <div style="background: var(--color-green-100); color: var(--color-green-700); border-radius: 10px; width: 60px; height: 60px; display: flex; flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0;">
-                <span style="font-size: 20px; font-weight: 700;">১৬</span>
-                <span style="font-size: 11px; font-weight: 600;">ডিসেম্বর</span>
-              </div>
-              <div>
-                <h3 class="font-h3" style="font-size: 17px;">মহান বিজয় দিবস ও কৃতি সংবর্ধনা</h3>
-                <div class="font-body-sm text-muted">স্থান: সাতানীপাড়া সরকারি প্রাথমিক বিদ্যালয় মাঠ</div>
-              </div>
-            </div>
-
-            <div class="card" style="display: flex; align-items: center; gap: 16px; padding: 16px;">
-              <div style="background: var(--color-green-100); color: var(--color-green-700); border-radius: 10px; width: 60px; height: 60px; display: flex; flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0;">
-                <span style="font-size: 20px; font-weight: 700;">০১</span>
-                <span style="font-size: 11px; font-weight: 600;">জানুয়ারি</span>
-              </div>
-              <div>
-                <h3 class="font-h3" style="font-size: 17px;">নতুন বছরের বার্ষিক সাধারণ সভা (AGM)</h3>
-                <div class="font-body-sm text-muted">স্থান: সংঘ মিলনায়তন • বিকাল ৩:০০ টা</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 10. Gallery Preview (4 equal images grid) -->
+  <!-- 10. Cultural & Village Gallery Preview -->
   <section class="section-py section-alt">
     <div class="container">
       <div class="flex-between mb-32 flex-wrap">
         <div>
-          <h2 class="font-h2" style="color: var(--color-green-700);">ছবি গ্যালারি</h2>
-          <p class="font-body-sm text-muted">সংঘের বিভিন্ন অনুষ্ঠান ও সেবামূলক কাজের আলোকচিত্র</p>
+          <span class="eyebrow">আলোকচিত্র সংকলন</span>
+          <h2 class="font-editorial" style="margin: 4px 0 6px 0;">গ্রাম ও ঐতিহ্যের স্মৃতিকথা</h2>
+          <p class="font-body-sm text-muted" style="margin: 0;">সাতানীপাড়ার প্রাত্যহিক সম্প্রীতি, ক্রীড়া ও সমাজসেবামূলক আয়োজনের খণ্ডচিত্র</p>
         </div>
         <a href="/pages/public/w09-gallery.html" class="btn btn-outline">
-          সকল ছবি দেখুন →
+          সকল অ্যালবাম দেখুন →
         </a>
       </div>
 
       <div class="grid-4">
-        <div style="cursor: pointer; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-sm);" onclick="Components.openLightbox('../../assets/images/placeholder-image.svg', 'শিক্ষাবৃত্তি ও মেধা পুরস্কার বিতরণ ২০২৬')">
-          <img src="../../assets/images/placeholder-image.svg" alt="Gallery 1" style="aspect-ratio: 4/3; object-fit: cover;">
-          <div style="padding: 10px; background: var(--color-surface); font-size: 13.5px; font-weight: 600;">মেধাবৃত্তি ২০২৬</div>
+        <div style="cursor: pointer; border-radius: var(--radius-card); overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid var(--color-hairline);" onclick="Components.openLightbox('../../assets/images/placeholder-image.svg', 'শিক্ষাবৃত্তি ও মেধা পুরস্কার বিতরণ ২০২৬')">
+          <div style="background-color: rgba(11, 46, 31, 0.05); aspect-ratio: 4/3; display: flex; flex-direction: column; align-items: center; justify-content: center; border-bottom: 1px solid var(--color-hairline);">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-green-700)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span style="font-size: 11px; color: var(--color-text-muted); margin-top: 6px;">প্রকৃত ছবি পরে বসবে</span>
+          </div>
+          <div style="padding: 12px; background: var(--color-surface); font-size: 13.5px; font-weight: 600;">মেধাবৃত্তি ২০২৬</div>
         </div>
-        <div style="cursor: pointer; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-sm);" onclick="Components.openLightbox('../../assets/images/placeholder-image.svg', 'স্বেচ্ছায় রক্তদান ক্যাম্প')">
-          <img src="../../assets/images/placeholder-image.svg" alt="Gallery 2" style="aspect-ratio: 4/3; object-fit: cover;">
-          <div style="padding: 10px; background: var(--color-surface); font-size: 13.5px; font-weight: 600;">রক্তদান ক্যাম্প ২০২৬</div>
+
+        <div style="cursor: pointer; border-radius: var(--radius-card); overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid var(--color-hairline);" onclick="Components.openLightbox('../../assets/images/placeholder-image.svg', 'স্বেচ্ছায় রক্তদান ও চিকিৎসা ক্যাম্প')">
+          <div style="background-color: rgba(11, 46, 31, 0.05); aspect-ratio: 4/3; display: flex; flex-direction: column; align-items: center; justify-content: center; border-bottom: 1px solid var(--color-hairline);">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-green-700)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span style="font-size: 11px; color: var(--color-text-muted); margin-top: 6px;">প্রকৃত ছবি পরে বসবে</span>
+          </div>
+          <div style="padding: 12px; background: var(--color-surface); font-size: 13.5px; font-weight: 600;">রক্তদান ক্যাম্প ২০২৬</div>
         </div>
-        <div style="cursor: pointer; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-sm);" onclick="Components.openLightbox('../../assets/images/placeholder-image.svg', 'শীতবস্ত্র বিতরণ কর্মসূচি')">
-          <img src="../../assets/images/placeholder-image.svg" alt="Gallery 3" style="aspect-ratio: 4/3; object-fit: cover;">
-          <div style="padding: 10px; background: var(--color-surface); font-size: 13.5px; font-weight: 600;">শীতবস্ত্র বিতরণ ২০২৫</div>
+
+        <div style="cursor: pointer; border-radius: var(--radius-card); overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid var(--color-hairline);" onclick="Components.openLightbox('../../assets/images/placeholder-image.svg', 'শীতবস্ত্র বিতরণ কর্মসূচি ২০২৫')">
+          <div style="background-color: rgba(11, 46, 31, 0.05); aspect-ratio: 4/3; display: flex; flex-direction: column; align-items: center; justify-content: center; border-bottom: 1px solid var(--color-hairline);">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-green-700)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span style="font-size: 11px; color: var(--color-text-muted); margin-top: 6px;">প্রকৃত ছবি পরে বসবে</span>
+          </div>
+          <div style="padding: 12px; background: var(--color-surface); font-size: 13.5px; font-weight: 600;">শীতবস্ত্র উপহার ২০২৫</div>
         </div>
-        <div style="cursor: pointer; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-sm);" onclick="Components.openLightbox('../../assets/images/placeholder-image.svg', 'বৃক্ষরোপণ কর্মসূচি')">
-          <img src="../../assets/images/placeholder-image.svg" alt="Gallery 4" style="aspect-ratio: 4/3; object-fit: cover;">
-          <div style="padding: 10px; background: var(--color-surface); font-size: 13.5px; font-weight: 600;">বৃক্ষরোপণ সপ্তাহ</div>
+
+        <div style="cursor: pointer; border-radius: var(--radius-card); overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid var(--color-hairline);" onclick="Components.openLightbox('../../assets/images/placeholder-image.svg', 'বৃক্ষরোপণ কর্মসূচি ও পরিবেশ সুরক্ষা')">
+          <div style="background-color: rgba(11, 46, 31, 0.05); aspect-ratio: 4/3; display: flex; flex-direction: column; align-items: center; justify-content: center; border-bottom: 1px solid var(--color-hairline);">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-green-700)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span style="font-size: 11px; color: var(--color-text-muted); margin-top: 6px;">প্রকৃত ছবি পরে বসবে</span>
+          </div>
+          <div style="padding: 12px; background: var(--color-surface); font-size: 13.5px; font-weight: 600;">বৃক্ষরোপণ সপ্তাহ</div>
         </div>
       </div>
     </div>
@@ -636,10 +721,10 @@
             সাতানীপাড়া, বাংলাদেশ (প্রকৃত ঠিকানা পরে বসবে)
           </p>
           <div style="font-size: 14px; color: #CBD5E1; margin-bottom: 8px;">
-            মোবাইল: <a href="tel:01700000000" style="color: var(--color-gold-500);">০১৭০০-০০০০০০</a>
+            মোবাইল: <a href="tel:01700000000" style="color: var(--color-gold-500);" class="font-num">০১৭০০-০০০০০০</a>
           </div>
           <div style="font-size: 14px; color: #CBD5E1;">
-            জাতীয় জরুরি হেল্পলাইন: <strong style="color: #F87171;">৯৯৯</strong>
+            জাতীয় জরুরি হেল্পলাইন: <strong style="color: #F87171;" class="font-num">৯৯৯</strong>
           </div>
         </div>
       </div>
@@ -650,7 +735,7 @@
           © ১৯৯৯–২০২৬ সাতানীপাড়া সমাজকল্যাণ সংঘ। সর্বস্বত্ব সংরক্ষিত।
         </div>
         <div style="display: flex; gap: 16px;">
-          <span>ডিজাইন ও প্রোটোটাইপ v1.0</span>
+          <span>ডিজাইন ও প্রোটোটাইপ v2.0 (Civic Editorial Humanism)</span>
           <span>•</span>
           <span data-i18n="placeholder.data">প্রকৃত তথ্য পরে বসবে</span>
         </div>

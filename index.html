@@ -6,7 +6,7 @@
   <title>সাতানীপাড়া কমিউনিটি — UI/UX প্রোটোটাইপ হাব | Satanipara Community</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Noto+Serif+Bengali:wght@400;600;700&family=Tiro+Bangla:ital@0;1&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/themes.css">
@@ -17,12 +17,12 @@
   <link rel="stylesheet" href="css/responsive.css">
   <style>
     .hub-header {
-      background: var(--color-green-900);
-      background-image: url('assets/images/hero-bg.svg');
-      background-size: cover;
+      background: linear-gradient(145deg, #061A11 0%, #0B2E1F 100%);
       color: #FAF7EE;
       padding: var(--space-48) 0;
       border-bottom: 3px solid var(--color-gold-500);
+      position: relative;
+      overflow: hidden;
     }
     .screen-card-grid {
       display: grid;
@@ -40,7 +40,7 @@
     }
     .flow-card {
       background: var(--color-surface);
-      border: 1px solid var(--color-border);
+      border: 1px solid var(--color-hairline-strong);
       border-radius: var(--radius-card);
       padding: 16px;
       display: flex;
@@ -49,8 +49,26 @@
       transition: all var(--transition-fast);
     }
     .flow-card:hover {
-      border-color: var(--color-green-700);
-      box-shadow: var(--shadow-raised);
+      border-color: var(--color-gold-500);
+      box-shadow: 0 4px 16px rgba(11, 46, 31, 0.08);
+      transform: translateY(-2px);
+    }
+    .doc-card {
+      background: var(--color-surface-raised);
+      border: 1px solid var(--color-hairline-strong);
+      border-radius: var(--radius-card);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      text-decoration: none !important;
+      color: inherit;
+      transition: all var(--transition-fast);
+    }
+    .doc-card:hover {
+      border-color: var(--color-gold-500);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(11, 46, 31, 0.08);
     }
   </style>
 </head>
@@ -63,22 +81,28 @@
         <div style="display: flex; align-items: center; gap: 16px;">
           <img src="assets/images/satanipara-crest.svg" alt="Crest" style="width: 64px; height: 64px;">
           <div>
-            <div class="slogan-chip" style="margin-bottom: 6px;">
-              <span>শিক্ষা • ঐক্য • শান্তি • প্রগতি • প্রতিষ্ঠা ১৯৯৯</span>
+            <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 6px; flex-wrap: wrap;">
+              <div class="slogan-chip">
+                <span>শিক্ষা • ঐক্য • শান্তি • প্রগতি • প্রতিষ্ঠা ১৯৯৯</span>
+              </div>
+              <span class="seal-pill">Civic Editorial Humanism v2.0</span>
             </div>
-            <h1 class="font-display" style="font-size: 28px; line-height: 36px; color: #FAF7EE;">
-              সাতানীপাড়া কমিউনিটি — ইন্টারেক্টিভ UI/UX প্রোটোটাইপ
+            <h1 class="font-display" style="font-size: 28px; line-height: 36px; color: #FAF7EE; margin: 0 0 4px 0;">
+              সাতানীপাড়া কমিউনিটি — ইন্টারেক্টিভ UI/UX প্রোটোটাইপ হাব
             </h1>
-            <p class="font-body-sm" style="color: #CBD5E1;">
-              Satanipara Somaj Kallyan Sangha • ৩৫টি স্ক্রিন ও ৮টি ক্লিকযোগ্য ইউজার জার্নি
+            <p class="font-body-sm" style="color: #CBD5E1; margin: 0;">
+              Satanipara Somaj Kallyan Sangha • ৩৫টি সম্পূর্ণ স্ক্রিন, ৮টি ইন্টারেক্টিভ ফ্লো ও টাইপোগ্রাফি স্পেসিমেন
             </p>
           </div>
         </div>
 
-        <div style="display: flex; align-items: center; gap: 12px;">
+        <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
           <button class="btn btn-sm btn-outline-white theme-toggle-btn">
             🌙 Dark Mode
           </button>
+          <a href="/TYPOGRAPHY_SPECIMEN.html" class="btn btn-sm btn-outline-white" style="border-color: var(--color-gold-400); color: var(--color-gold-400) !important;">
+            ✒️ টাইপোগ্রাফি স্পেসিমেন
+          </a>
           <a href="/pages/public/w01-home.html" class="btn btn-gold">
             🌐 মূল ওয়েবসাইটে প্রবেশ করুন →
           </a>
@@ -88,6 +112,42 @@
   </header>
 
   <main class="container section-py">
+    <!-- Design Intelligence & Research Artifacts Strip -->
+    <div class="mb-40">
+      <div class="flex-between mb-16 flex-wrap">
+        <div>
+          <span class="eyebrow" style="color: var(--color-gold-700);">ডিজাইন বুদ্ধিমত্তা ও গবেষণা প্রতিবেদন</span>
+          <h2 class="font-h3" style="margin: 0; color: var(--color-green-900);">ক্রিয়েটিভ রিডিজাইন ডকুমেন্টেশন</h2>
+        </div>
+        <span class="seal-pill">Phases 0–11 Master Directive</span>
+      </div>
+
+      <div class="grid-4" style="gap: var(--space-16);">
+        <a href="/TYPOGRAPHY_SPECIMEN.html" class="doc-card" style="border-top: 3px solid var(--color-gold-500);">
+          <span class="font-caption" style="font-weight: 700; color: var(--color-gold-700);">SPECIMEN MATRIX</span>
+          <div style="font-weight: 700; font-size: 15px;">টাইপোগ্রাফি স্পেসিমেন</div>
+          <p class="font-caption text-muted" style="margin: 0;">Anek Bangla + Tiro Bangla + Manrope ফন্ট স্ট্যাকের তুলনামূলক ম্যাট্রিক্স।</p>
+        </a>
+
+        <a href="/docs/CREATIVE_DIRECTION.md" target="_blank" class="doc-card" style="border-top: 3px solid var(--color-green-700);">
+          <span class="font-caption" style="font-weight: 700; color: var(--color-green-700);">CREATIVE SYNTHESIS</span>
+          <div style="font-weight: 700; font-size: 15px;">ক্রিয়েটিভ ডিরেকশন রিপোর্ট</div>
+          <p class="font-caption text-muted" style="margin: 0;">Civic Editorial Humanism দর্শনের বিস্তারিত কাঠামো ও ভিজ্যুয়াল গাইড।</p>
+        </a>
+
+        <a href="/docs/DESIGN_SYSTEM.md" target="_blank" class="doc-card" style="border-top: 3px solid var(--color-green-700);">
+          <span class="font-caption" style="font-weight: 700; color: var(--color-green-700);">DESIGN SYSTEM v2.0</span>
+          <div style="font-weight: 700; font-size: 15px;">ডিজাইন সিস্টেম স্পেক্স</div>
+          <p class="font-caption text-muted" style="margin: 0;">টোকেন, কালার প্যালেট, আর্কিটেকচারাল রেডিআই ও লেআউট নিয়মাবলী।</p>
+        </a>
+
+        <a href="/docs/EXISTING_DESIGN_AUDIT.md" target="_blank" class="doc-card" style="border-top: 3px solid var(--color-info);">
+          <span class="font-caption" style="font-weight: 700; color: var(--color-info);">AUDIT & SAFEGUARD</span>
+          <div style="font-weight: 700; font-size: 15px;">অডিট ও সেফগার্ড রিপোর্ট</div>
+          <p class="font-caption text-muted" style="margin: 0;">মূল প্রোটোটাইপের শক্তি, দুর্বলতা ও ব্যাকআপ (backup-v1) বিশ্লেষণ।</p>
+        </a>
+      </div>
+    </div>
     <!-- Notice Bar -->
     <div class="card mb-32" style="background: var(--color-green-50); border-left: 5px solid var(--color-green-700);">
       <div class="flex-between flex-wrap gap-12">
