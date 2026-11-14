@@ -31,7 +31,7 @@ const I18n = (function () {
   // Dictionary of Interface Strings
   const translations = {
     // Brand & General
-    'brand.name': { bn: 'সাতানীপাড়া কিমউিনটি', en: 'Satanipara Community' },
+    'brand.name': { bn: 'সাতানীপাড়া কমিউনিটি', en: 'Satanipara Community' },
     'brand.org': { bn: 'সাতানীপাড়া সমাজকল্যাণ সংঘ', en: 'Satanipara Somaj Kallyan Sangha' },
     'brand.tagline': { bn: 'একটি এলাকা, একটি পরিবার', en: 'One Area, One Family' },
     'brand.slogan': { bn: 'শিক্ষা • ঐক্য • শান্তি • প্রগতি', en: 'Education • Unity • Peace • Progress' },

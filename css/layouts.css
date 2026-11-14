@@ -113,24 +113,52 @@
 @media (max-width: 1023px) {
   .header-container {
     height: var(--header-height-mobile);
+    padding-left: var(--gutter-mobile);
+    padding-right: var(--gutter-mobile);
+    gap: var(--space-8);
   }
 
   .nav-desktop {
     display: none;
   }
 
+  .brand {
+    gap: 8px;
+    min-width: 0;
+    flex-shrink: 1;
+  }
+
   .brand-crest {
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
   }
 
   .brand-name {
-    font-size: 16px;
+    font-size: 15px;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 140px;
   }
 
   .brand-tagline {
     display: none; /* Keep mobile header clean on single line */
+  }
+
+  .header-actions {
+    gap: 4px;
+    flex-shrink: 0;
+  }
+
+  .header-actions #headerLoginBtn,
+  .header-actions #headerMemberBtn {
+    display: none !important; /* Hide wide text button on mobile header; available inside drawer */
+  }
+
+  .header-actions .btn-ghost {
+    padding: 4px 6px;
+    min-height: 36px;
   }
 }
 

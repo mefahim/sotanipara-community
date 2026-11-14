@@ -113,29 +113,47 @@ const Navigation = (function () {
     });
   }
 
-  // Prototype HUD (Bottom Control Bar for Fast Switching & Flows)
+  // Prototype HUD (Floating Toggle Button & Bottom Sheet Panel)
   function renderHUD(currentScreenId) {
-    if (document.getElementById('prototypeHud')) return;
-
-    const hud = document.createElement('div');
-    hud.id = 'prototypeHud';
-    hud.className = 'prototype-hud';
+    if (document.getElementById('hudToggleBtn') || document.getElementById('hudSheet')) return;
 
     const currentLang = I18n.getLanguage();
     const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
     const db = MockData.getDB();
     const currentRole = db.session.user ? db.session.user.role : 'guest';
 
-    hud.innerHTML = `
-      <div style="display: flex; align-items: center; gap: 8px; font-weight: 700; color: #E9C95C; white-space: nowrap;">
-        <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #4CAF7D;"></span>
-        <span>SATANIPARA PROTOTYPE HUD</span>
+    // 1. Floating Toggle Trigger Button (Pill at bottom-right)
+    const toggleBtn = document.createElement('button');
+    toggleBtn.id = 'hudToggleBtn';
+    toggleBtn.className = 'hud-toggle-pill';
+    toggleBtn.setAttribute('aria-label', 'Toggle Prototype Controls');
+    toggleBtn.innerHTML = `
+      <span class="hud-pulse-dot"></span>
+      <span id="hudToggleBtnText">⚙️ HUD মেনু</span>
+    `;
+
+    // 2. Backdrop Overlay
+    const backdrop = document.createElement('div');
+    backdrop.id = 'hudBackdrop';
+    backdrop.className = 'hud-backdrop';
+
+    // 3. Slide-up Sheet Panel
+    const sheet = document.createElement('div');
+    sheet.id = 'hudSheet';
+    sheet.className = 'hud-sheet';
+    sheet.innerHTML = `
+      <div class="hud-sheet-header">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #4CAF7D;"></span>
+          <span style="font-weight: 700; color: #E9C95C; font-size: 14.5px;">প্রোটোটাইপ কন্ট্রোল প্যানেল</span>
+        </div>
+        <button class="hud-close-btn" id="hudCloseBtn">✕ বন্ধ করুন</button>
       </div>
 
-      <div class="hud-full-controls" style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+      <div class="hud-sheet-body">
         <!-- Screen Switcher -->
-        <label style="display: flex; align-items: center; gap: 4px;">
-          <span style="color: #FAF7EE; font-size: 11px;">স্ক্রিন:</span>
+        <div class="hud-field-group">
+          <label class="hud-field-label" for="hudScreenSelect">১. স্ক্রিন নির্বাচন (৩৫টি স্ক্রিনের যেকোনোটিতে যান):</label>
           <select class="hud-select" id="hudScreenSelect">
             <optgroup label="Public Website (12 Screens)">
               ${screens.filter(s => s.group === 'public').map(s => `
@@ -152,68 +170,94 @@ const Navigation = (function () {
                 <option value="${s.path}" ${s.id === currentScreenId ? 'selected' : ''}>${s.id}: ${currentLang === 'bn' ? s.title_bn.split(': ')[1] : s.title_en.split(': ')[1]}</option>
               `).join('')}
             </optgroup>
-            <optgroup label="Mobile App (6 Screens)">
+            <optgroup label="Mobile App Concepts (6 Screens)">
               ${screens.filter(s => s.group === 'app').map(s => `
                 <option value="${s.path}" ${s.id === currentScreenId ? 'selected' : ''}>${s.id}: ${currentLang === 'bn' ? s.title_bn.split(': ')[1] : s.title_en.split(': ')[1]}</option>
               `).join('')}
             </optgroup>
           </select>
-        </label>
+        </div>
 
         <!-- Role Switcher -->
-        <label style="display: flex; align-items: center; gap: 4px;">
-          <span style="color: #FAF7EE; font-size: 11px;">রোল:</span>
+        <div class="hud-field-group">
+          <label class="hud-field-label" for="hudRoleSelect">২. প্রশাসনিক ভূমিকা / রোল পরিবর্তন:</label>
           <select class="hud-select" id="hudRoleSelect">
-            <option value="guest" ${currentRole === 'guest' ? 'selected' : ''}>Public Guest</option>
-            <option value="member" ${currentRole === 'member' ? 'selected' : ''}>Member (প্রবাসী)</option>
-            <option value="helper" ${currentRole === 'helper' ? 'selected' : ''}>Expatriate Helper (সহায়ক)</option>
-            <option value="superadmin" ${currentRole === 'superadmin' ? 'selected' : ''}>Super Admin (সর্বোচ্চ)</option>
+            <option value="guest" ${currentRole === 'guest' ? 'selected' : ''}>Public Guest (সাধারণ দর্শনার্থী - লগইন ছাড়া)</option>
+            <option value="member" ${currentRole === 'member' ? 'selected' : ''}>Member (নিবন্ধিত প্রবাসী বা স্থানীয় সদস্য)</option>
+            <option value="helper" ${currentRole === 'helper' ? 'selected' : ''}>Expatriate Helper (প্রবাসী সহায়ক — শুধু আবেদন পরিচালনা)</option>
+            <option value="superadmin" ${currentRole === 'superadmin' ? 'selected' : ''}>Super Admin (সর্বোচ্চ প্রশাসনিক ক্ষমতা)</option>
           </select>
-        </label>
+        </div>
 
         <!-- Flows Launcher -->
-        <label style="display: flex; align-items: center; gap: 4px;">
-          <span style="color: #FAF7EE; font-size: 11px;">ফ্লো:</span>
+        <div class="hud-field-group">
+          <label class="hud-field-label" for="hudFlowSelect">৩. ইন্টারেক্টিভ ফ্লো টেস্ট (F-01..F-08):</label>
           <select class="hud-select" id="hudFlowSelect">
-            <option value="">-- ফ্লো টেস্ট করুন (F-01..F-08) --</option>
+            <option value="">-- ফ্লো বেছে নিয়ে শুরু করুন --</option>
             <option value="F-01">F-01: রক্তদাতা খোঁজা (Public)</option>
-            <option value="F-02">F-02: প্রবাসী সহায়তা আবেদন (3 ধাপ)</option>
+            <option value="F-02">F-02: প্রবাসী সহায়তা আবেদন (৩ ধাপের উইজার্ড)</option>
             <option value="F-03">F-03: সহায়ক আবেদন গ্রহণ ও পরিচালনা</option>
-            <option value="F-04">F-04: সদস্য নিবন্ধন ও অনুমোদন</option>
-            <option value="F-05">F-05: নতুন ইউজার তৈরি (A-10)</option>
+            <option value="F-04">F-04: সদস্য নিবন্ধন ও প্রশাসনিক অনুমোদন</option>
+            <option value="F-05">F-05: নতুন ইউজার তৈরি (A-10 সুপার এডমিন)</option>
             <option value="F-06">F-06: নোটিশ প্রকাশ ও টিকার আপডেট</option>
-            <option value="F-07">F-07: আর্থিক হিসাব এন্ট্রি</option>
-            <option value="F-08">F-08: ভুলে যাওয়া পাসওয়ার্ড রিসেট</option>
+            <option value="F-07">F-07: আর্থিক হিসাব এন্ট্রি ও স্বচ্ছতা</option>
+            <option value="F-08">F-08: ভুলে যাওয়া পাসওয়ার্ড পুনরুদ্ধার (OTP ছাড়া)</option>
           </select>
-        </label>
+        </div>
 
-        <!-- Language Button -->
-        <button class="btn btn-sm btn-outline-white" id="hudLangToggle" style="padding: 4px 10px; font-size: 12px; min-height: 28px;">
-          ${currentLang === 'bn' ? 'English (EN)' : 'বাংলা (BN)'}
-        </button>
+        <!-- Quick Controls -->
+        <div class="hud-field-group">
+          <label class="hud-field-label">৪. কুইক অ্যাকশন:</label>
+          <div class="hud-quick-buttons">
+            <button class="hud-btn" id="hudLangToggle">
+              ${currentLang === 'bn' ? 'English (EN)' : 'বাংলা (BN)'}
+            </button>
+            <button class="hud-btn" id="hudThemeToggle">
+              ${currentTheme === 'dark' ? '☀️ Light' : '🌙 Dark'}
+            </button>
+            <button class="hud-btn hud-btn-danger" id="hudResetDb">
+              মক রিসেট
+            </button>
+          </div>
+        </div>
 
-        <!-- Theme Button -->
-        <button class="btn btn-sm btn-outline-white" id="hudThemeToggle" style="padding: 4px 10px; font-size: 12px; min-height: 28px;">
-          ${currentTheme === 'dark' ? '☀️ Light' : '🌙 Dark'}
-        </button>
-
-        <!-- Reset Mock DB -->
-        <button class="btn btn-sm btn-ghost" id="hudResetDb" style="color: #F87171 !important; padding: 4px 8px; font-size: 11px; min-height: 28px;" title="Reset all data to default">
-          রিসেট
+        <button class="hud-btn" id="hudBottomCloseBtn" style="margin-top: 6px; width: 100%; padding: 10px; background: rgba(255, 255, 255, 0.12);">
+          প্যানেল বন্ধ করুন
         </button>
       </div>
-
-      <!-- Minimize HUD button -->
-      <button class="btn-ghost" id="hudMinToggle" style="color: #FAF7EE; padding: 2px 6px;" aria-label="Minimize HUD">
-        ✕
-      </button>
     `;
 
-    document.body.appendChild(hud);
+    document.body.appendChild(toggleBtn);
+    document.body.appendChild(backdrop);
+    document.body.appendChild(sheet);
 
-    // Event listeners for HUD
+    // Toggle interaction logic
+    let isHudOpen = false;
+
+    function toggleHud(open) {
+      isHudOpen = typeof open === 'boolean' ? open : !isHudOpen;
+      if (isHudOpen) {
+        sheet.classList.add('is-open');
+        backdrop.classList.add('is-open');
+        document.getElementById('hudToggleBtnText').textContent = '✕ বন্ধ করুন';
+      } else {
+        sheet.classList.remove('is-open');
+        backdrop.classList.remove('is-open');
+        document.getElementById('hudToggleBtnText').textContent = '⚙️ HUD মেনু';
+      }
+    }
+
+    toggleBtn.addEventListener('click', () => toggleHud());
+    document.getElementById('hudCloseBtn').addEventListener('click', () => toggleHud(false));
+    document.getElementById('hudBottomCloseBtn').addEventListener('click', () => toggleHud(false));
+    backdrop.addEventListener('click', () => toggleHud(false));
+
+    // Event listeners for HUD actions
     document.getElementById('hudScreenSelect').addEventListener('change', (e) => {
-      if (e.target.value) window.location.href = e.target.value;
+      if (e.target.value) {
+        toggleHud(false);
+        window.location.href = e.target.value;
+      }
     });
 
     document.getElementById('hudRoleSelect').addEventListener('change', (e) => {
@@ -240,6 +284,7 @@ const Navigation = (function () {
     document.getElementById('hudFlowSelect').addEventListener('change', (e) => {
       const flowId = e.target.value;
       if (!flowId) return;
+      toggleHud(false);
       if (window.Flows && window.Flows.startFlow) {
         window.Flows.startFlow(flowId);
       }
@@ -264,11 +309,6 @@ const Navigation = (function () {
         Components.showToast('মক ডেটাবেস রিসেট সম্পন্ন হয়েছে', 'success');
         setTimeout(() => window.location.reload(), 500);
       }
-    });
-
-    document.getElementById('hudMinToggle').addEventListener('click', () => {
-      hud.classList.toggle('minimized');
-      document.getElementById('hudMinToggle').textContent = hud.classList.contains('minimized') ? '⚙️ HUD' : '✕';
     });
   }
 
