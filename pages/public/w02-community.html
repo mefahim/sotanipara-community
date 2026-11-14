@@ -81,23 +81,50 @@
     </div>
   </header>
 
-  <!-- Mobile Drawer -->
+  <!-- Mobile Drawer Menu (Under header, grouped, scrollable) -->
   <div class="mobile-drawer" id="mobileDrawer">
-    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
-      <span style="font-weight: 700; color: var(--color-green-700);">মেনু</span>
-      <button class="btn btn-ghost" id="drawerCloseBtn">✕</button>
+    <div class="drawer-header">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <img src="../../assets/images/satanipara-crest.svg" alt="Crest" style="width: 32px; height: 32px;">
+        <span style="font-weight: 700; font-size: 15px; color: var(--color-green-700);" data-i18n="brand.name">সাতানীপাড়া কমিউনিটি</span>
+      </div>
+      <button class="btn btn-icon btn-ghost" id="drawerCloseBtn" aria-label="Close Menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
     </div>
-    <ul class="drawer-nav-list">
-      <li><a href="../../pages/public/w01-home.html" class="drawer-nav-link">হোম</a></li>
-      <li><a href="../../pages/public/w02-community.html" class="drawer-nav-link active">এলাকার প্রোফাইল</a></li>
-      <li><a href="../../pages/public/w03-organization.html" class="drawer-nav-link">সংগঠন</a></li>
-      <li><a href="../../pages/public/w04-activities.html" class="drawer-nav-link">কার্যক্রম</a></li>
-      <li><a href="../../pages/public/w06-expatriate.html" class="drawer-nav-link">প্রবাসী সহায়তা</a></li>
-      <li><a href="../../pages/public/w07-blood-donors.html" class="drawer-nav-link">রক্তদাতা</a></li>
-      <li><a href="../../pages/public/w08-notices.html" class="drawer-nav-link">নোটিশ ও সংবাদ</a></li>
-      <li><a href="../../pages/public/w10-accounts.html" class="drawer-nav-link">হিসাব</a></li>
-      <li><a href="../../pages/public/w11-contact.html" class="drawer-nav-link">যোগাযোগ</a></li>
-    </ul>
+
+    <div class="drawer-nav-group">
+      <div class="drawer-nav-group-title">মূল সংগঠন ও এলাকা</div>
+      <ul class="drawer-nav-list">
+        <li><a href="../../pages/public/w01-home.html" class="drawer-nav-link" data-i18n="nav.home">হোম</a></li>
+        <li><a href="../../pages/public/w02-community.html" class="drawer-nav-link active" data-i18n="nav.community">এলাকার প্রোফাইল</a></li>
+        <li><a href="../../pages/public/w03-organization.html" class="drawer-nav-link" data-i18n="nav.organization">সংগঠন ও সংবিধান</a></li>
+        <li><a href="../../pages/public/w04-activities.html" class="drawer-nav-link" data-i18n="nav.activities">বার্ষিক কার্যক্রম</a></li>
+      </ul>
+    </div>
+
+    <div class="drawer-nav-group">
+      <div class="drawer-nav-group-title">জনকল্যাণ ও সেবাসমূহ</div>
+      <ul class="drawer-nav-list">
+        <li><a href="../../pages/public/w06-expatriate.html" class="drawer-nav-link" data-i18n="nav.expatriate">প্রবাসী সহায়তা সেল</a></li>
+        <li><a href="../../pages/public/w07-blood-donors.html" class="drawer-nav-link" data-i18n="nav.blood">জরুরি রক্তদাতা তালিকা</a></li>
+        <li><a href="../../pages/public/w08-notices.html" class="drawer-nav-link" data-i18n="nav.notices">নোটিশ ও সংবাদ</a></li>
+      </ul>
+    </div>
+
+    <div class="drawer-nav-group">
+      <div class="drawer-nav-group-title">স্বচ্ছতা ও যোগাযোগ</div>
+      <ul class="drawer-nav-list">
+        <li><a href="../../pages/public/w10-accounts.html" class="drawer-nav-link" data-i18n="nav.accounts">হিসাব ও স্বচ্ছতা</a></li>
+        <li><a href="../../pages/public/w09-gallery.html" class="drawer-nav-link" data-i18n="nav.gallery">ফটো গ্যালারি</a></li>
+        <li><a href="../../pages/public/w11-contact.html" class="drawer-nav-link" data-i18n="nav.contact">যোগাযোগ ও জরুরি নম্বর</a></li>
+      </ul>
+    </div>
+
+    <div class="drawer-footer-actions">
+      <a href="../../pages/member/m01-dashboard.html" class="btn btn-primary btn-block">সদস্য ড্যাশবোর্ড</a>
+      <a href="../../pages/public/w12-login.html" class="btn btn-outline btn-block">লগইন / নিবন্ধন</a>
+    </div>
   </div>
 
   <main class="container section-py">

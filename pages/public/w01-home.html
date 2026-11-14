@@ -87,32 +87,47 @@
     </div>
   </header>
 
-  <!-- Mobile Drawer Menu (Full width from top, scroll locked) -->
+  <!-- Mobile Drawer Menu (Under header, grouped, scrollable) -->
   <div class="mobile-drawer" id="mobileDrawer">
-    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; border-bottom: 1px solid var(--color-border); padding-bottom: 12px;">
-      <div style="display: flex; align-items: center; gap: 10px;">
-        <img src="../../assets/images/satanipara-crest.svg" alt="Crest" style="width: 36px; height: 36px;">
-        <span style="font-weight: 700; font-size: 16px; color: var(--color-green-700);" data-i18n="brand.name">সাতানীপাড়া কমিউনিটি</span>
+    <div class="drawer-header">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <img src="../../assets/images/satanipara-crest.svg" alt="Crest" style="width: 32px; height: 32px;">
+        <span style="font-weight: 700; font-size: 15px; color: var(--color-green-700);" data-i18n="brand.name">সাতানীপাড়া কমিউনিটি</span>
       </div>
       <button class="btn btn-icon btn-ghost" id="drawerCloseBtn" aria-label="Close Menu">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
     </div>
 
-    <ul class="drawer-nav-list">
-      <li><a href="../../pages/public/w01-home.html" class="drawer-nav-link active" data-i18n="nav.home">হোম</a></li>
-      <li><a href="../../pages/public/w02-community.html" class="drawer-nav-link" data-i18n="nav.community">এলাকার প্রোফাইল</a></li>
-      <li><a href="../../pages/public/w03-organization.html" class="drawer-nav-link" data-i18n="nav.organization">সংগঠন</a></li>
-      <li><a href="../../pages/public/w04-activities.html" class="drawer-nav-link" data-i18n="nav.activities">বার্ষিক কার্যক্রম</a></li>
-      <li><a href="../../pages/public/w06-expatriate.html" class="drawer-nav-link" data-i18n="nav.expatriate">প্রবাসী সহায়তা</a></li>
-      <li><a href="../../pages/public/w07-blood-donors.html" class="drawer-nav-link" data-i18n="nav.blood">রক্তদাতা</a></li>
-      <li><a href="../../pages/public/w08-notices.html" class="drawer-nav-link" data-i18n="nav.notices">নোটিশ ও সংবাদ</a></li>
-      <li><a href="../../pages/public/w09-gallery.html" class="drawer-nav-link" data-i18n="nav.gallery">গ্যালারি</a></li>
-      <li><a href="../../pages/public/w10-accounts.html" class="drawer-nav-link" data-i18n="nav.accounts">হিসাব ও স্বচ্ছতা</a></li>
-      <li><a href="../../pages/public/w11-contact.html" class="drawer-nav-link" data-i18n="nav.contact">যোগাযোগ ও জরুরি নম্বর</a></li>
-    </ul>
+    <div class="drawer-nav-group">
+      <div class="drawer-nav-group-title">মূল সংগঠন ও এলাকা</div>
+      <ul class="drawer-nav-list">
+        <li><a href="../../pages/public/w01-home.html" class="drawer-nav-link active" data-i18n="nav.home">হোম</a></li>
+        <li><a href="../../pages/public/w02-community.html" class="drawer-nav-link" data-i18n="nav.community">এলাকার প্রোফাইল</a></li>
+        <li><a href="../../pages/public/w03-organization.html" class="drawer-nav-link" data-i18n="nav.organization">সংগঠন ও সংবিধান</a></li>
+        <li><a href="../../pages/public/w04-activities.html" class="drawer-nav-link" data-i18n="nav.activities">বার্ষিক কার্যক্রম</a></li>
+      </ul>
+    </div>
 
-    <div style="margin-top: auto; display: flex; flex-direction: column; gap: 12px; border-top: 1px solid var(--color-border); padding-top: 20px;">
+    <div class="drawer-nav-group">
+      <div class="drawer-nav-group-title">জনকল্যাণ ও সেবাসমূহ</div>
+      <ul class="drawer-nav-list">
+        <li><a href="../../pages/public/w06-expatriate.html" class="drawer-nav-link" data-i18n="nav.expatriate">প্রবাসী সহায়তা সেল</a></li>
+        <li><a href="../../pages/public/w07-blood-donors.html" class="drawer-nav-link" data-i18n="nav.blood">জরুরি রক্তদাতা তালিকা</a></li>
+        <li><a href="../../pages/public/w08-notices.html" class="drawer-nav-link" data-i18n="nav.notices">নোটিশ ও সংবাদ</a></li>
+      </ul>
+    </div>
+
+    <div class="drawer-nav-group">
+      <div class="drawer-nav-group-title">স্বচ্ছতা ও যোগাযোগ</div>
+      <ul class="drawer-nav-list">
+        <li><a href="../../pages/public/w10-accounts.html" class="drawer-nav-link" data-i18n="nav.accounts">হিসাব ও স্বচ্ছতা</a></li>
+        <li><a href="../../pages/public/w09-gallery.html" class="drawer-nav-link" data-i18n="nav.gallery">ফটো গ্যালারি</a></li>
+        <li><a href="../../pages/public/w11-contact.html" class="drawer-nav-link" data-i18n="nav.contact">যোগাযোগ ও জরুরি নম্বর</a></li>
+      </ul>
+    </div>
+
+    <div class="drawer-footer-actions">
       <a href="../../pages/member/m01-dashboard.html" class="btn btn-primary btn-block">সদস্য ড্যাশবোর্ড</a>
       <a href="../../pages/public/w12-login.html" class="btn btn-outline btn-block">লগইন / নিবন্ধন</a>
     </div>
@@ -137,7 +152,7 @@
   <section class="hero-section" style="padding: 72px 0 64px 0;">
     <div class="hero-overlay"></div>
     <div class="container" style="position: relative; z-index: 2;">
-      <div style="display: grid; grid-template-columns: 1.25fr 0.95fr; gap: var(--space-48); align-items: center;">
+      <div class="hero-grid" style="display: grid; grid-template-columns: 1.25fr 0.95fr; gap: var(--space-48); align-items: center;">
         
         <!-- Left Hero Prose & Identity -->
         <div style="display: flex; flex-direction: column; gap: var(--space-20);">
@@ -492,7 +507,7 @@
   <!-- 8. Editorial Timeline Ledger & Village Milestones -->
   <section class="section-py" style="background-color: var(--color-ivory);">
     <div class="container">
-      <div style="display: grid; grid-template-columns: 1.1fr 1.3fr; gap: var(--space-48); align-items: start;">
+      <div class="timeline-ledger-section-grid" style="display: grid; grid-template-columns: 1.1fr 1.3fr; gap: var(--space-48); align-items: start;">
         
         <!-- Left: Context & Constitutional Statement -->
         <div>
@@ -585,16 +600,16 @@
           </p>
 
           <!-- Inline Numbers Grid -->
-          <div style="display: flex; gap: var(--space-28); flex-wrap: wrap;">
+          <div class="transparency-numbers-grid" style="display: flex; gap: var(--space-28); flex-wrap: wrap;">
             <div>
               <div style="font-size: 12.5px; color: #94A3B8;">মোট আদায় (২০২৪-২৫)</div>
               <div class="font-num" style="font-size: 24px; font-weight: 800; color: var(--color-gold-400);">৳ ৮,৪৫,০০০</div>
             </div>
-            <div style="border-left: 1px solid rgba(255, 255, 255, 0.15); padding-left: var(--space-28);">
+            <div class="transparency-stat-col" style="border-left: 1px solid rgba(255, 255, 255, 0.15); padding-left: var(--space-28);">
               <div style="font-size: 12.5px; color: #94A3B8;">মোট জনকল্যাণ ব্যয়</div>
               <div class="font-num" style="font-size: 24px; font-weight: 800; color: #6EE7B7;">৳ ৭,১২,০০০</div>
             </div>
-            <div style="border-left: 1px solid rgba(255, 255, 255, 0.15); padding-left: var(--space-28);">
+            <div class="transparency-stat-col" style="border-left: 1px solid rgba(255, 255, 255, 0.15); padding-left: var(--space-28);">
               <div style="font-size: 12.5px; color: #94A3B8;">ব্যাংক উদ্বৃত্ত তহবিল</div>
               <div class="font-num" style="font-size: 24px; font-weight: 800; color: #93C5FD;">৳ ১,৩৩,০০০</div>
             </div>
@@ -602,7 +617,7 @@
         </div>
 
         <!-- Right: Actions -->
-        <div style="display: flex; flex-direction: column; gap: 12px; align-items: flex-start;">
+        <div class="transparency-actions" style="display: flex; flex-direction: column; gap: 12px; align-items: flex-start;">
           <a href="../../pages/public/w10-accounts.html" class="btn btn-gold btn-lg">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="2" x2="12" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
             <span>উন্মুক্ত হিসাবের খাতা দেখুন</span>
@@ -634,7 +649,7 @@
       <div class="grid-4">
         <div style="cursor: pointer; border-radius: var(--radius-card); overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid var(--color-hairline);" onclick="Components.openLightbox('../../assets/images/placeholder-image.svg', 'শিক্ষাবৃত্তি ও মেধা পুরস্কার বিতরণ ২০২৬')">
           <div style="background-color: rgba(11, 46, 31, 0.05); aspect-ratio: 4/3; display: flex; flex-direction: column; align-items: center; justify-content: center; border-bottom: 1px solid var(--color-hairline);">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-green-700)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
             <span style="font-size: 11px; color: var(--color-text-muted); margin-top: 6px;">প্রকৃত ছবি পরে বসবে</span>
           </div>
           <div style="padding: 12px; background: var(--color-surface); font-size: 13.5px; font-weight: 600;">মেধাবৃত্তি ২০২৬</div>
@@ -642,7 +657,7 @@
 
         <div style="cursor: pointer; border-radius: var(--radius-card); overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid var(--color-hairline);" onclick="Components.openLightbox('../../assets/images/placeholder-image.svg', 'স্বেচ্ছায় রক্তদান ও চিকিৎসা ক্যাম্প')">
           <div style="background-color: rgba(11, 46, 31, 0.05); aspect-ratio: 4/3; display: flex; flex-direction: column; align-items: center; justify-content: center; border-bottom: 1px solid var(--color-hairline);">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-green-700)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
             <span style="font-size: 11px; color: var(--color-text-muted); margin-top: 6px;">প্রকৃত ছবি পরে বসবে</span>
           </div>
           <div style="padding: 12px; background: var(--color-surface); font-size: 13.5px; font-weight: 600;">রক্তদান ক্যাম্প ২০২৬</div>
@@ -650,7 +665,7 @@
 
         <div style="cursor: pointer; border-radius: var(--radius-card); overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid var(--color-hairline);" onclick="Components.openLightbox('../../assets/images/placeholder-image.svg', 'শীতবস্ত্র বিতরণ কর্মসূচি ২০২৫')">
           <div style="background-color: rgba(11, 46, 31, 0.05); aspect-ratio: 4/3; display: flex; flex-direction: column; align-items: center; justify-content: center; border-bottom: 1px solid var(--color-hairline);">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-green-700)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
             <span style="font-size: 11px; color: var(--color-text-muted); margin-top: 6px;">প্রকৃত ছবি পরে বসবে</span>
           </div>
           <div style="padding: 12px; background: var(--color-surface); font-size: 13.5px; font-weight: 600;">শীতবস্ত্র উপহার ২০২৫</div>
@@ -658,6 +673,9 @@
 
         <div style="cursor: pointer; border-radius: var(--radius-card); overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid var(--color-hairline);" onclick="Components.openLightbox('../../assets/images/placeholder-image.svg', 'বৃক্ষরোপণ কর্মসূচি ও পরিবেশ সুরক্ষা')">
           <div style="background-color: rgba(11, 46, 31, 0.05); aspect-ratio: 4/3; display: flex; flex-direction: column; align-items: center; justify-content: center; border-bottom: 1px solid var(--color-hairline);">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span style="font-size: 11px; color: var(--color-text-muted); margin-top: 6px;">প্রকৃত ছবি পরে বসবে</span>
+          </div>
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-green-700)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
             <span style="font-size: 11px; color: var(--color-text-muted); margin-top: 6px;">প্রকৃত ছবি পরে বসবে</span>
           </div>
@@ -683,8 +701,8 @@
           <p style="font-size: 14.5px; line-height: 1.6; color: #CBD5E1; margin-bottom: 16px;">
             একটি অরাজনৈতিক, অলাভজনক গ্রাম্য সামাজিক সংগঠন। এলাকার শিক্ষা, ঐক্য, শান্তি ও প্রগতির ধারা অব্যাহত রাখতে ১৯৯৯ সাল থেকে কাজ করে যাচ্ছে।
           </p>
-          <div style="font-size: 13.5px; color: #94A3B8;">
-            ট্যাগলাইন: <strong>একটি এলাকা, একটি পরিবার</strong>
+          <div style="font-size: 13.5px; color: #CBD5E1;">
+            ট্যাগলাইন: <strong style="color: #FAF7EE;">একটি এলাকা, একটি পরিবার</strong>
           </div>
         </div>
 
@@ -734,7 +752,7 @@
         <div>
           © ১৯৯৯–২০২৬ সাতানীপাড়া সমাজকল্যাণ সংঘ। সর্বস্বত্ব সংরক্ষিত।
         </div>
-        <div style="display: flex; gap: 16px;">
+        <div class="footer-bottom-meta" style="display: flex; gap: 16px; flex-wrap: wrap;">
           <span>ডিজাইন ও প্রোটোটাইপ v2.0 (Civic Editorial Humanism)</span>
           <span>•</span>
           <span data-i18n="placeholder.data">প্রকৃত তথ্য পরে বসবে</span>

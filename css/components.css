@@ -1126,12 +1126,12 @@ input:checked + .switch-track .switch-thumb {
    Prototype HUD Toggle System (Section 10 & Mobile-First Toggle)
    ========================================================================== */
 
-/* Floating Toggle Trigger Button (Always visible at bottom-right) */
+/* Floating Toggle Trigger Button (Always visible at bottom-right, but below modals/drawers) */
 .hud-toggle-pill {
   position: fixed;
   bottom: 16px;
   right: 16px;
-  z-index: 99999;
+  z-index: 90;
   background-color: #0B2E1F;
   color: #FAF7EE;
   border: 1.5px solid #C9A227;
@@ -1146,6 +1146,20 @@ input:checked + .switch-track .switch-thumb {
   cursor: pointer;
   transition: transform var(--transition-fast), background-color var(--transition-fast);
   user-select: none;
+}
+
+body.drawer-open .hud-toggle-pill,
+body.modal-open .hud-toggle-pill {
+  display: none !important;
+}
+
+@media (max-width: 767px) {
+  .hud-toggle-pill {
+    bottom: 12px;
+    right: 12px;
+    padding: 6px 12px;
+    font-size: 12px;
+  }
 }
 
 .hud-toggle-pill:hover,

@@ -74,18 +74,149 @@ const Navigation = (function () {
     { id: 'P-06', group: 'app', title_bn: 'P-06: পুশ নোটিফিকেশন স্টেট', title_en: 'P-06: Push Notification State', path: '/pages/app/p06-notifications.html' }
   ];
 
-  // Mobile Drawer Toggle
-  function toggleDrawer() {
-    const drawer = document.getElementById('mobileDrawer');
+  // Dynamic Mobile Drawer Setup & Header Alignment
+  function updateDrawerPosition(drawer) {
+    const header = document.querySelector('.site-header') || document.querySelector('header');
+    if (header && drawer) {
+      const rect = header.getBoundingClientRect();
+      const topPos = Math.max(0, Math.round(rect.bottom));
+      drawer.style.top = topPos + 'px';
+      drawer.style.height = `calc(100vh - ${topPos}px)`;
+    }
+  }
+
+  function createMobileDrawer() {
+    let drawer = document.getElementById('mobileDrawer');
+    if (drawer) return drawer;
+
+    const currentScreen = document.body.getAttribute('data-screen') || '';
+    const crestPath = resolveUrl('/assets/images/satanipara-crest.svg');
+
+    drawer = document.createElement('div');
+    drawer.className = 'mobile-drawer';
+    drawer.id = 'mobileDrawer';
+    drawer.innerHTML = `
+      <div class="drawer-header">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <img src="${crestPath}" alt="Crest" style="width: 32px; height: 32px;">
+          <span style="font-weight: 700; font-size: 15px; color: var(--color-green-700);" data-i18n="brand.name">সাতানীপাড়া কমিউনিটি</span>
+        </div>
+        <button class="btn btn-icon btn-ghost" id="drawerCloseBtn" aria-label="Close Menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <div class="drawer-nav-group">
+        <div class="drawer-nav-group-title">মূল সংগঠন ও এলাকা</div>
+        <ul class="drawer-nav-list">
+          <li><a href="${resolveUrl('/pages/public/w01-home.html')}" class="drawer-nav-link ${currentScreen === 'W-01' ? 'active' : ''}">হোম</a></li>
+          <li><a href="${resolveUrl('/pages/public/w02-community.html')}" class="drawer-nav-link ${currentScreen === 'W-02' ? 'active' : ''}">এলাকার প্রোফাইল</a></li>
+          <li><a href="${resolveUrl('/pages/public/w03-organization.html')}" class="drawer-nav-link ${currentScreen === 'W-03' ? 'active' : ''}">সংগঠন ও সংবিধান</a></li>
+          <li><a href="${resolveUrl('/pages/public/w04-activities.html')}" class="drawer-nav-link ${currentScreen === 'W-04' ? 'active' : ''}">বার্ষিক কার্যক্রম</a></li>
+        </ul>
+      </div>
+
+      <div class="drawer-nav-group">
+        <div class="drawer-nav-group-title">জনকল্যাণ ও সেবাসমূহ</div>
+        <ul class="drawer-nav-list">
+          <li><a href="${resolveUrl('/pages/public/w06-expatriate.html')}" class="drawer-nav-link ${currentScreen === 'W-06' ? 'active' : ''}">প্রবাসী সহায়তা সেল</a></li>
+          <li><a href="${resolveUrl('/pages/public/w07-blood-donors.html')}" class="drawer-nav-link ${currentScreen === 'W-07' ? 'active' : ''}">জরুরি রক্তদাতা তালিকা</a></li>
+          <li><a href="${resolveUrl('/pages/public/w08-notices.html')}" class="drawer-nav-link ${currentScreen === 'W-08' ? 'active' : ''}">নোটিশ ও সংবাদ</a></li>
+        </ul>
+      </div>
+
+      <div class="drawer-nav-group">
+        <div class="drawer-nav-group-title">স্বচ্ছতা ও যোগাযোগ</div>
+        <ul class="drawer-nav-list">
+          <li><a href="${resolveUrl('/pages/public/w10-accounts.html')}" class="drawer-nav-link ${currentScreen === 'W-10' ? 'active' : ''}">হিসাব ও স্বচ্ছতা</a></li>
+          <li><a href="${resolveUrl('/pages/public/w09-gallery.html')}" class="drawer-nav-link ${currentScreen === 'W-09' ? 'active' : ''}">ফটো গ্যালারি</a></li>
+          <li><a href="${resolveUrl('/pages/public/w11-contact.html')}" class="drawer-nav-link ${currentScreen === 'W-11' ? 'active' : ''}">যোগাযোগ ও জরুরি নম্বর</a></li>
+        </ul>
+      </div>
+
+      <div class="drawer-footer-actions">
+        <a href="${resolveUrl('/pages/member/m01-dashboard.html')}" class="btn btn-primary btn-block">সদস্য ড্যাশবোর্ড</a>
+        <a href="${resolveUrl('/pages/public/w12-login.html')}" class="btn btn-outline btn-block">লগইন / নিবন্ধন</a>
+      </div>
+    `;
+
+    document.body.appendChild(drawer);
+    bindDrawerEvents(drawer);
+    return drawer;
+  }
+
+  function bindDrawerEvents(drawer) {
     if (!drawer) return;
-    const isOpen = drawer.classList.contains('is-open');
-    if (isOpen) {
+    const closeBtn = drawer.querySelector('#drawerCloseBtn');
+    if (closeBtn && !closeBtn._bound) {
+      closeBtn._bound = true;
+      closeBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        toggleDrawer(false);
+      });
+    }
+
+    // Auto-close menu after navigation
+    drawer.querySelectorAll('a').forEach(link => {
+      if (!link._bound) {
+        link._bound = true;
+        link.addEventListener('click', () => {
+          toggleDrawer(false);
+        });
+      }
+    });
+  }
+
+  // Mobile Drawer Toggle
+  function toggleDrawer(forceState) {
+    let drawer = document.getElementById('mobileDrawer');
+    if (!drawer) {
+      drawer = createMobileDrawer();
+    }
+    if (!drawer) return;
+
+    bindDrawerEvents(drawer);
+
+    const willOpen = typeof forceState === 'boolean' ? forceState : !drawer.classList.contains('is-open');
+    if (!willOpen) {
       drawer.classList.remove('is-open');
       document.body.classList.remove('drawer-open');
+      document.documentElement.classList.remove('drawer-open');
     } else {
+      updateDrawerPosition(drawer);
       drawer.classList.add('is-open');
       document.body.classList.add('drawer-open');
+      document.documentElement.classList.add('drawer-open');
     }
+  }
+
+  // Global Escape Key Listener and Outside Click for Drawer and Modals
+  if (typeof document !== 'undefined') {
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        const drawer = document.getElementById('mobileDrawer');
+        if (drawer && drawer.classList.contains('is-open')) {
+          toggleDrawer(false);
+        }
+      }
+    });
+
+    document.addEventListener('click', (e) => {
+      const drawer = document.getElementById('mobileDrawer');
+      if (drawer && drawer.classList.contains('is-open')) {
+        const toggleBtn = e.target.closest('.mobile-drawer-toggle');
+        if (!toggleBtn && !drawer.contains(e.target)) {
+          toggleDrawer(false);
+        }
+      }
+    });
+
+    window.addEventListener('resize', () => {
+      const drawer = document.getElementById('mobileDrawer');
+      if (drawer && drawer.classList.contains('is-open')) {
+        updateDrawerPosition(drawer);
+      }
+    });
   }
 
   // Notice Ticker Controller

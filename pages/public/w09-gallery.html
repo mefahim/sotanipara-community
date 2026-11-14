@@ -28,7 +28,7 @@
     .gallery-item:hover {
       transform: translateY(-2px);
       box-shadow: var(--shadow-raised);
-      border-color: var(--color-green-700);
+      border-color: var(--color-primary);
     }
     .gallery-img-box {
       width: 100%;
@@ -36,6 +36,7 @@
       object-fit: cover;
       background: var(--color-green-900);
       position: relative;
+      display: block;
     }
     .gallery-caption-box {
       padding: 12px 14px;
@@ -80,14 +81,14 @@
     <!-- Header info -->
     <div class="mb-32">
       <div class="font-caption text-muted mb-4">হোম / ফটো গ্যালারি</div>
-      <h1 class="font-h1 mb-8" style="color: var(--color-green-700);">সংঘের স্মৃতি ও কার্যক্রমের আলোকচিত্র</h1>
+      <h1 class="font-h1 mb-8">সংঘের স্মৃতি ও কার্যক্রমের আলোকচিত্র</h1>
       <p class="font-body text-muted">সাতানীপাড়া সমাজকল্যাণ সংঘের বিভিন্ন উন্নয়নমূলক, সামাজিক ও সেবামূলক কাজের স্থিরচিত্র</p>
     </div>
 
     <!-- Filters: Year Chips + Category Chips -->
     <div class="card mb-32" style="padding: 16px 20px;">
       <div class="flex-between flex-wrap gap-16 mb-12">
-        <div style="font-weight: 700; font-size: 14.5px; color: var(--color-green-700);">সাল / বছর:</div>
+        <div style="font-weight: 700; font-size: 14.5px; color: var(--color-primary);">সাল / বছর:</div>
         <div class="chip-row" id="galYearChips">
           <button class="chip active" onclick="filterGalleryYear('all', this)">সকল বছর</button>
           <button class="chip" onclick="filterGalleryYear('2026', this)">২০২৬</button>
@@ -97,7 +98,7 @@
       </div>
 
       <div class="flex-between flex-wrap gap-16" style="border-top: 1px solid var(--color-border); padding-top: 12px;">
-        <div style="font-weight: 700; font-size: 14.5px; color: var(--color-green-700);">ক্যাটাগরি:</div>
+        <div style="font-weight: 700; font-size: 14.5px; color: var(--color-primary);">ক্যাটাগরি:</div>
         <div class="chip-row" id="galCatChips">
           <button class="chip active" onclick="filterGalleryCat('all', this)">সব ক্যাটাগরি</button>
           <button class="chip" onclick="filterGalleryCat('মেধাবৃত্তি', this)">মেধাবৃত্তি ও শিক্ষা</button>

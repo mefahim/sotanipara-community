@@ -8,8 +8,14 @@
   --color-surface:        #16241B;
   --color-surface-raised: #1D3023;
   --color-text-strong:    #F2EFE6;
+  --color-text-body:      #CBD5E1; /* High-contrast readable body text in dark mode */
   --color-text-muted:     #A8B5AB;
+  --color-text-primary:   #F2EFE6;
+  --color-text-secondary: #A8B5AB;
+  --color-forest-900:     #07140D;
   --color-border:         #2C4234;
+  --color-hairline:       rgba(255, 255, 255, 0.1);
+  --color-hairline-strong: rgba(255, 255, 255, 0.2);
   --color-primary:        #4CAF7D; /* Bright green for dark mode contrast */
   --color-primary-hover:  #5FC38E;
   --color-accent:         #E9C95C;
