@@ -4,6 +4,7 @@
   "description": "Satanipara Community UI/UX Prototype",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "node test-responsive-suite.js"
   }
 }
